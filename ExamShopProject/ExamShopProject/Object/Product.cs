@@ -11,8 +11,7 @@ namespace ExamShopProject.Object
         public int price { get; set; }
         public int ID { get; set; }
         public string name { get; set; }
-        //public enum category { get; set; }
-        //We need to fill in categories for the enum
+        public int category { get; set; }
         public string description { get; set; }
     }
 }
