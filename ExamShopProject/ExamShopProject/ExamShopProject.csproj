@@ -68,6 +68,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Object\Customer.cs" />
+    <Compile Include="Object\Product.cs" />
+    <Compile Include="Object\Subscription.cs" />
+    <Compile Include="Object\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
