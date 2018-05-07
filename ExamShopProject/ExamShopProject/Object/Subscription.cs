@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ExamShopProject.Object
 {
+    //lavet af Mikkel E.R. Glerup
+
     class Subscription
     {
         public DateTime endDate { get; set; }

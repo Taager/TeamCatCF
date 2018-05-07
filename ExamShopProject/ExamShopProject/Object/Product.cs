@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExamShopProject.Object
 {
+    //lavet af Mikkel E.R. Glerup
     class Product
     {
         public int price { get; set; }

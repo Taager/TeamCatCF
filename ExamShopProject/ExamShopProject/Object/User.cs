@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace ExamShopProject.Object
 {
+    //lavet af Mikkel E.R. Glerup
+
     class User
     {
         public string name { get; set; }
