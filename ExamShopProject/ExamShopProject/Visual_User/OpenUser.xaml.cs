@@ -20,6 +20,7 @@ namespace ExamShopProject
     /// </summary>
     public partial class OpenUser : Page
     {
+        //Made by Helena Brunsgaard Madsen
         public OpenUser()
         {
             InitializeComponent();

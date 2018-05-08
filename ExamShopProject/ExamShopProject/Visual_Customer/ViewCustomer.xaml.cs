@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 namespace ExamShopProject
 {
+    // Made by Helena Brunsgaard Madsen
     /// <summary>
     /// Interaction logic for ViewCustomer.xaml
     /// </summary>
