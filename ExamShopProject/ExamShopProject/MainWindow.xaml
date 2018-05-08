@@ -13,11 +13,11 @@
             <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
         
-        <DockPanel Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
+        <DockPanel Grid.ColumnSpan="1" Margin="0,0,-0.4,0" Grid.Column="2" > 
             <Frame x:Name="_mainFrame" />
         </DockPanel>
 
-        <Button x:Name="btn_CreateCustomer" Content="Create Customer" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Width="110" Click="btn_CreateCustomer_Click"/>
+        <Button x:Name="btn_Customer" Content="Customer" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Width="110" Click="btn_Customer_Click"/>
         <Button x:Name="btn_CreateUser" Content="Create User" HorizontalAlignment="Center" VerticalAlignment="Top" Width="110" Margin="0,63,0,0" Click="btn_CreateUser_Click"/>
 
     </Grid>

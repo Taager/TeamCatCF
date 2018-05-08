@@ -12,31 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ExamShopProject.ErrorHandler;
-using ExamShopProject.User_Interactions;
-using System.Xaml;
-
 
 namespace ExamShopProject
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Open.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Open : Page
     {
-        public MainWindow()
+        public Open()
         {
             InitializeComponent();
+            _viewCustomer.Navigate(new ViewCustomer());
         }
 
-        private void btn_CreateUser_Click(object sender, RoutedEventArgs e)
+        private void btn_ViewCustomer_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new CreateUser());
+            _viewCustomer.Navigate(new ViewCustomer());
         }
 
-        private void btn_Customer_Click(object sender, RoutedEventArgs e)
+        private void btn_CreateCustomer_Click(object sender, RoutedEventArgs e)
         {
-            //_mainFrame.Navigate(new OpenCustomer());
+            _viewCustomer.Navigate(new CreateCustomer());
         }
     }
 }
