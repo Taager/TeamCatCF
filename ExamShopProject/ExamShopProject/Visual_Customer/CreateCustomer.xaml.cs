@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
@@ -20,9 +21,11 @@ namespace ExamShopProject
     /// </summary>
     public partial class CreateCustomer : Page
     {
+        Customer customer = new Customer();
         public CreateCustomer()
         {
             InitializeComponent();
+            DataContext = customer;
         }
     }
 }
