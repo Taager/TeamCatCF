@@ -10,18 +10,13 @@ namespace ExamShopProject.ErrorHandler
     static class Log
     {
         // made by Mikkel. E.R. Glerup
-        public static void WriteFail()
+        public static void WriteFail(System.Exception ex)
         {
             DateTime currentTime = DateTime.Now;
-            string path = @"C:\Users\Fluffy\source\repos\AP-EngrossBETA\MyTest";
-            if (!File.Exists(path))
+            using (StreamWriter writer = new StreamWriter("log.txt", true))
             {
-
-                string createText = "Test" + Environment.NewLine;
-                File.WriteAllText(path, createText);
+                writer.WriteLine(currentTime + Environment.NewLine + ex);
             }
-            string appendText = "Test Exeption" + currentTime.ToString() + Environment.NewLine;
-            File.AppendAllText(path, appendText);
         }
     }
 }
