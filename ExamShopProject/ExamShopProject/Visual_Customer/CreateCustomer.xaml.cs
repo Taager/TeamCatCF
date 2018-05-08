@@ -15,7 +15,7 @@ using System.Windows.Shapes;
 using ExamShopProject.Customer_Interactions;
 using ExamShopProject.Object;
 
-namespace ExamShopProject
+namespace ExamShopProject.Visual_Customer
 {
     // Made by Helena Brunsgaard Madsen
     public partial class CreateCustomer : Page
@@ -23,16 +23,15 @@ namespace ExamShopProject
         CustomerLogic customer = new CustomerLogic();
         Customer cObj = new Customer();
         public CreateCustomer()
-        {
-            InitializeComponent();
-            DataContext = customer;
+        { 
+            InitializeComponent(); 
+            DataContext = customer; 
         }
 
-        private void btn_SaveCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            customer.CreateCustomer(cObj.Name, cObj.Adress, cObj.ContactInfo, cObj.SpokesPerson, Convert.ToDouble(cObj.AnnualIncome));
-            MessageBox.Show("Customer saved!");
-            this.Content = null;
-        }
+        //    For button event:
+        //    customer.CreateCustomer(cObj.Name, cObj.Adress, cObj.ContactInfo, cObj.SpokesPerson, Convert.ToDouble(cObj.AnnualIncome));
+        //    MessageBox.Show("Customer saved!");
+        //    this.Content = null;
+
     }
 }

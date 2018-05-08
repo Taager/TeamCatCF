@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExamShopProject.ErrorHandler;
+using ExamShopProject.Visual_Customer;
 
 namespace ExamShopProject
 {
@@ -29,7 +30,7 @@ namespace ExamShopProject
 
         private void btn_CreateCustomer_Click(object sender, RoutedEventArgs e)
         {
-            //_mainFrame.Navigate(new CreateCustomer());
+            _mainFrame.Navigate(new CreateCustomer());
         }
     }
 }
