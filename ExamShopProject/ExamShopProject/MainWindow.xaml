@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ExamShopProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="400" Width="600">
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
         
+        <DockPanel Grid.ColumnSpan="2" Margin="0,0,-0.4,0">
+            <Frame x:Name="_mainFrame" />
+        </DockPanel>
+
+        <Button x:Name="btn_CreateCustomer" Content="Create Customer" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Width="110" Click="btn_CreateCustomer_Click"/>
+
     </Grid>
 </Window>
