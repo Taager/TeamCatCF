@@ -20,7 +20,7 @@ namespace ExamShopProject
     // Made by Helena Brunsgaard Madsen
     public partial class CreateCustomer : Page
     {
-        Customers customer = new Customers();
+        CustomerLogic customer = new CustomerLogic();
         Customer cObj = new Customer();
         public CreateCustomer()
         {
@@ -31,7 +31,7 @@ namespace ExamShopProject
         private void btn_SaveCustomer_Click(object sender, RoutedEventArgs e)
         {
             customer.CreateCustomer(cObj.Name, cObj.Adress, cObj.ContactInfo, cObj.SpokesPerson, Convert.ToDouble(cObj.AnnualIncome));
-            MessageBox.Show("Kunde gemt!");
+            MessageBox.Show("Customer saved!");
             this.Content = null;
         }
     }

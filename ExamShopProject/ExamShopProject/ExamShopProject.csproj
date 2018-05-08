@@ -70,7 +70,7 @@
     <Compile Include="CreateCustomer.xaml.cs">
       <DependentUpon>CreateCustomer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Customer_Interactions\Customers.cs" />
+    <Compile Include="Customer_Interactions\CustomerLogic.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="ErrorHandler\Log.cs" />
     <Compile Include="MainWindow.xaml.cs">

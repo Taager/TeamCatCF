@@ -10,7 +10,7 @@ using ExamShopProject.Object;
 namespace ExamShopProject.Customer_Interactions
 {
     // Made by Helena Brunsgaard Madsen
-    class Customers
+    class CustomerLogic
     {
         Customer customer = new Customer();
 
