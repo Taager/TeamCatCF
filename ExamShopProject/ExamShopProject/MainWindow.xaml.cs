@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using ExamShopProject.ErrorHandler;
 using ExamShopProject.Visual_Customer;
 
+
 namespace ExamShopProject
 {
     /// <summary>
@@ -24,7 +25,6 @@ namespace ExamShopProject
     {
         public MainWindow()
         {
-            DB.openConnection();
             InitializeComponent();
         }
 
