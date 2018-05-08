@@ -54,8 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ErrorHandler\CustomExceptions.cs" />
     <Compile Include="Statistics\Statistics.cs" />
-    <Page Include="Visual_Customer\CreateCustomer.xaml">
+    <Compile Include="User_Interactions\UserLogic.cs" />
+    <Page Include="CreateCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

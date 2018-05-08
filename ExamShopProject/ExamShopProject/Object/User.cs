@@ -10,8 +10,37 @@ namespace ExamShopProject.Object
 
     class User
     {
-        public string name { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
+        private string name;
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+        private string username;
+
+        public string Username
+        {
+            get { return username; }
+            set { username = value; }
+        }
+
+        private string password;
+
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
+        }
+
+        private bool isAdmin;
+
+        public bool IsAdmin
+        {
+            get { return isAdmin; }
+            set { isAdmin = value; }
+        }
+
     }
 }
