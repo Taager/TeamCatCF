@@ -13,56 +13,6 @@ namespace ExamShopProject.Customer_Interactions
     class Customers
     {
         Customer customer = new Customer();
-        private string _name;
-        public string Name
-        {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private string _adress;
-        public string Adress
-        {
-            get { return _adress; }
-            set
-            {
-                _adress = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private string _contactInfo;
-        public string ContactInfo
-        {
-            get { return _contactInfo; }
-            set
-            {
-                _contactInfo = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private string _spokesPeron;
-        public string SpokesPerson
-        {
-            get { return _spokesPeron; }
-            set
-            {
-                _spokesPeron = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private double _annualIncome;
-        public double AnnualIncome
-        {
-            get { return _annualIncome; }
-            set
-            {
-                _annualIncome = value;
-                NotifyPropertyChanged();
-            }
-        }
 
         public void CreateCustomer(string name, string adress, string contactInfo, string spokesPerson, double annualIncome)
         {
@@ -88,13 +38,5 @@ namespace ExamShopProject.Customer_Interactions
         {
             // Log command
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-
-
     }
 }

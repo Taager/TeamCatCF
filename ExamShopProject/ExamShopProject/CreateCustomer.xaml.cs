@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExamShopProject.Customer_Interactions;
+using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
@@ -20,6 +21,7 @@ namespace ExamShopProject
     public partial class CreateCustomer : Page
     {
         Customers customer = new Customers();
+        Customer cObj = new Customer();
         public CreateCustomer()
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace ExamShopProject
 
         private void btn_SaveCustomer_Click(object sender, RoutedEventArgs e)
         {
-            customer.CreateCustomer(customer.Name, customer.Adress, customer.ContactInfo, customer.SpokesPerson, Convert.ToDouble(customer.AnnualIncome));
+            customer.CreateCustomer(cObj.Name, cObj.Adress, cObj.ContactInfo, cObj.SpokesPerson, Convert.ToDouble(cObj.AnnualIncome));
             MessageBox.Show("Kunde gemt!");
             this.Content = null;
         }
