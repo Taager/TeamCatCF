@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExamShopProject.Object;
 
 namespace ExamShopProject.ErrorHandler
 {
@@ -11,7 +12,7 @@ namespace ExamShopProject.ErrorHandler
     class UserLogInMessage : Exception
     {
         public UserLogInMessage() : base("User has logged in: ")
-        {}
+        { }
     }
     class UserLogInFail : Exception
     {
@@ -19,4 +20,11 @@ namespace ExamShopProject.ErrorHandler
         { }
     }
     #endregion
+    class UserWasAdded : Exception
+    {
+        public UserWasAdded(User user) : base($"The following user have been created: {user.Username} ")
+        { }
+    }
 }
+
+

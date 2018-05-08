@@ -27,6 +27,7 @@ namespace ExamShopProject
     {
         public MainWindow()
         {
+
             InitializeComponent();
         }
 

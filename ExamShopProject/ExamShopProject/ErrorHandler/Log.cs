@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ExamShopProject.Object;
 
 namespace ExamShopProject.ErrorHandler
 {
@@ -18,9 +19,13 @@ namespace ExamShopProject.ErrorHandler
                 writer.WriteLine(currentTime + Environment.NewLine + ex);
             }
         }
-        public static void WriteUserLogInAttempt(System.Exception ex)
+        public static void WritEvent(System.Exception ex)
         {
-
+            DateTime currentTime = DateTime.Now;
+            using (StreamWriter writer = new StreamWriter("Events.txt", true))
+            {
+                writer.WriteLine(currentTime + Environment.NewLine + ex);
+            }
         }
     }
 }

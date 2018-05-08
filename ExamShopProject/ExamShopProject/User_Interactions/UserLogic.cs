@@ -25,15 +25,29 @@ namespace ExamShopProject.User_Interactions
             }
             catch (Exception ex)
             {
-                ErrorHandler.Log.WriteUserLogInAttempt(ex);
+                ErrorHandler.Log.WritEvent(ex);
             }
         }
+        //made by Mikkel E.R. Glerup
         public void CreateUser(string name, string username, string password, bool isAdmin)
         {
-            user.Name = name;
-            user.Username = GetRandomUsername(name);
-            user.Password = GetRandomPassword();
-            user.IsAdmin = isAdmin;
+            try
+            {
+                user.Name = name;
+                user.Username = GetRandomUsername(name);
+                user.Password = GetRandomPassword();
+                user.IsAdmin = isAdmin;
+                bool wasSucces = DB.InsertUser(user);
+                if (wasSucces)
+                {
+                    throw new UserWasAdded(user);
+                }
+            }
+            //Only thrown if creating user was a succes
+            catch (UserWasAdded ex)
+            {
+                ErrorHandler.Log.WritEvent(ex);
+            }
         }
         #region Get rnd username and string logic
         //made by Mikkel E.R. Glerup
@@ -66,11 +80,11 @@ namespace ExamShopProject.User_Interactions
             return password = password.Substring(0, 8) + password.Replace(".", "");
         }
         #endregion
-        private void EditCustomer(int IDToEdit)
+        private void EditUser(int IDToEdit)
         {
-            // DB command(IDToEdit)
+           
         }
-        private void DeleteCustomer(int IDToDelete)
+        private void DeleteUser(int IDToDelete)
         {
             // DB command(IDToDelete)
         }
