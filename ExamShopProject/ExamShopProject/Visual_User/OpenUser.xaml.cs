@@ -12,26 +12,29 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
-    // Made By Helena Brunsgaard Madsen
     /// <summary>
-    /// Interaction logic for CreateUser.xaml
+    /// Interaction logic for OpenUser.xaml
     /// </summary>
-    public partial class CreateUser : Page
+    public partial class OpenUser : Page
     {
-        User user = new User();
-        public CreateUser()
+        //Made by Helena Brunsgaard Madsen
+        public OpenUser()
         {
             InitializeComponent();
-            DataContext = user;
+            _user.Navigate(new ViewUser());
         }
 
-        private void btn_Save_Click(object sender, RoutedEventArgs e)
+        private void btn_CreateUser_Click(object sender, RoutedEventArgs e)
         {
+            _user.Navigate(new CreateUser());
+        }
 
+        private void btn_ViewUser_Click(object sender, RoutedEventArgs e)
+        {
+            _user.Navigate(new ViewUser());
         }
     }
 }

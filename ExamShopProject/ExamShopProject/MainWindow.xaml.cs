@@ -30,14 +30,14 @@ namespace ExamShopProject
             InitializeComponent();
         }
 
-        private void btn_CreateCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            _mainFrame.Navigate(new CreateCustomer());
-        }
-
         private void btn_CreateUser_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new CreateUser());
+            _mainFrame.Navigate(new OpenUser());
+        }
+
+        private void btn_Customer_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new OpenCustomer());
         }
     }
 }
