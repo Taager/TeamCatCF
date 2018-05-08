@@ -33,7 +33,7 @@ namespace ExamShopProject
             {
                 openConnection();
                 SqlCommand command = new SqlCommand(
-                    "INSERT INTO Customer (UserName, Password, Name, IsAdmin) VALUES (@username, @password, @name, @isAdmin)", myConnection);
+                    "INSERT INTO [User] (UserName, Password, Name, IsAdmin) VALUES (@username, @password, @name, @isAdmin)", myConnection);
                 command.Parameters.Add("@username", SqlDbType.VarChar);
                 command.Parameters["@username"].Value = user.Username;
                 command.Parameters.Add("@password", SqlDbType.VarChar);
@@ -60,7 +60,7 @@ namespace ExamShopProject
             try
             {
                 myConnection = new SqlConnection(
-                    "Data Source=.;Initial Catalog=AP-EngrossBETA;Integrated Security=True"
+                    "Data Source=.;Initial Catalog=Charlie-APE;Integrated Security=True"
                     );
                 myConnection.Open();
 

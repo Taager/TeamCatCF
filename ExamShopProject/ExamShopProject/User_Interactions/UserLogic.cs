@@ -29,7 +29,7 @@ namespace ExamShopProject.User_Interactions
             }
         }
         //made by Mikkel E.R. Glerup
-        public void CreateUser(string name, string username, string password, bool isAdmin)
+        public bool CreateUser(string name, bool isAdmin)
         {
             try
             {
@@ -37,16 +37,19 @@ namespace ExamShopProject.User_Interactions
                 user.Username = GetRandomUsername(name);
                 user.Password = GetRandomPassword();
                 user.IsAdmin = isAdmin;
-                bool wasSucces = DB.InsertUser(user);
-                if (wasSucces)
+                bool wasSuccess = DB.InsertUser(user);
+                if (wasSuccess)
                 {
                     throw new UserWasAdded(user);
                 }
+                return wasSuccess;
             }
             //Only thrown if creating user was a succes
             catch (UserWasAdded ex)
             {
+                
                 ErrorHandler.Log.WritEvent(ex);
+                return true;
             }
         }
         #region Get rnd username and string logic
@@ -77,7 +80,9 @@ namespace ExamShopProject.User_Interactions
         public string GetRandomPassword()
         {
             string password = System.IO.Path.GetRandomFileName();
-            return password = password.Substring(0, 8) + password.Replace(".", "");
+            password = password.Replace(".", "");
+            return password = password.Substring(0, 8);
+            //return password = password.Substring(0, 8) + password.Replace(".", "");
         }
         #endregion
         private void EditUser(int IDToEdit)

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExamShopProject.Object;
+using ExamShopProject.User_Interactions;
 
 namespace ExamShopProject
 {
@@ -31,7 +32,21 @@ namespace ExamShopProject
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-
+            bool isAdmin = false;
+            UserLogic userLogic = new UserLogic();
+            if (CheckBox_IsAdmin.IsChecked == true)
+                isAdmin = true;
+            if (CheckBox_IsAdmin.IsChecked == false)
+                isAdmin = false;
+            bool success = userLogic.CreateUser(user.Name = TxtBox_Name.Text, user.IsAdmin = isAdmin);
+            if (success)
+            {
+                MessageBox.Show("User was created successfully.");
+            }
+            if (!success)
+            {
+                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+            }
         }
     }
 }
