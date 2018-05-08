@@ -33,5 +33,10 @@ namespace ExamShopProject
         {
             _mainFrame.Navigate(new CreateCustomer());
         }
+
+        private void btn_CreateUser_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new CreateUser());
+        }
     }
 }

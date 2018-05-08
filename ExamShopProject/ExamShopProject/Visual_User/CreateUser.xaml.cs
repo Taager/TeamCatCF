@@ -13,26 +13,24 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExamShopProject.Object;
-using ExamShopProject.Customer_Interactions;
 
 namespace ExamShopProject
 {
-    // Made By Helena Brunsgaard Madsen
-    public partial class CreateCustomer : Page
+    /// <summary>
+    /// Interaction logic for CreateUser.xaml
+    /// </summary>
+    public partial class CreateUser : Page
     {
-        Customer customer = new Customer();
-        CustomerLogic interaction = new CustomerLogic();
-        public CreateCustomer()
+        User user = new User();
+        public CreateUser()
         {
             InitializeComponent();
-            DataContext = customer;
+            DataContext = user;
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            interaction.CreateCustomer(customer.Name, customer.Adress, customer.ContactInfo, customer.SpokesPerson, customer.AnnualIncome);
-            MessageBox.Show("Successfully saved!");
-            this.Content = null;
+
         }
     }
 }

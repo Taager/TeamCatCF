@@ -54,12 +54,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Visual_User\CreateUser.xaml.cs">
+      <DependentUpon>CreateUser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Visual_Customer\CreateCustomer.xaml.cs">
       <DependentUpon>CreateCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="ErrorHandler\CustomExceptions.cs" />
     <Compile Include="Statistics\Statistics.cs" />
     <Compile Include="User_Interactions\UserLogic.cs" />
+    <Page Include="Visual_User\CreateUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Visual_Customer\CreateCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,7 +123,6 @@
     <Folder Include="Visual_LogIn\" />
     <Folder Include="Visual_Statistics\" />
     <Folder Include="Visual_Subscriptions\" />
-    <Folder Include="Visual_User\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
