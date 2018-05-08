@@ -18,22 +18,22 @@ namespace ExamShopProject
     /// <summary>
     /// Interaction logic for Open.xaml
     /// </summary>
-    public partial class Open : Page
+    public partial class OpenCustomer : Page
     {
-        public Open()
+        public OpenCustomer()
         {
             InitializeComponent();
-            _viewCustomer.Navigate(new ViewCustomer());
+            _customer.Navigate(new ViewCustomer());
         }
 
         private void btn_ViewCustomer_Click(object sender, RoutedEventArgs e)
         {
-            _viewCustomer.Navigate(new ViewCustomer());
+            _customer.Navigate(new ViewCustomer());
         }
 
         private void btn_CreateCustomer_Click(object sender, RoutedEventArgs e)
         {
-            _viewCustomer.Navigate(new CreateCustomer());
+            _customer.Navigate(new CreateCustomer());
         }
     }
 }

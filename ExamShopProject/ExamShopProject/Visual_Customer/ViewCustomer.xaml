@@ -9,8 +9,12 @@
       Title="ViewCustomer">
 
     <Grid>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="43.2,34.6,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Search..." VerticalAlignment="Top" Width="250"/>
-        <Button Content="Search" Grid.Column="1" Margin="340.2,34.6,200,337.6" Grid.Row="1"/>
-        <ListBox Grid.Column="1" HorizontalAlignment="Left" Height="237" Margin="43.2,99.6,0,0" Grid.Row="1" VerticalAlignment="Top" Width="372"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="151*"/>
+        </Grid.RowDefinitions>
+        <TextBox  HorizontalAlignment="Right" Height="23" Margin="0,0,300,20" TextWrapping="Wrap" Text="Search..." VerticalAlignment="Bottom" Width="250"/>
+        <ListBox HorizontalAlignment="Right" Height="200" Margin="0,0,180,50" VerticalAlignment="Bottom" Width="372" Grid.Row="1"/>
+        <Button Content="Search" HorizontalAlignment="Right" Margin="0,0,180,20" VerticalAlignment="Bottom" Width="75"/>
     </Grid>
 </Page>
