@@ -18,5 +18,9 @@ namespace ExamShopProject.ErrorHandler
                 writer.WriteLine(currentTime + Environment.NewLine + ex);
             }
         }
+        public static void WriteUserLogInAttempt(System.Exception ex)
+        {
+
+        }
     }
 }

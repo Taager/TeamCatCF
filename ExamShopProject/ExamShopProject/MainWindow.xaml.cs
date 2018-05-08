@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExamShopProject.ErrorHandler;
+using ExamShopProject.User_Interactions;
 
 namespace ExamShopProject
 {
@@ -23,7 +24,6 @@ namespace ExamShopProject
     {
         public MainWindow()
         {
-            DB.openConnection();
             InitializeComponent();
         }
 
