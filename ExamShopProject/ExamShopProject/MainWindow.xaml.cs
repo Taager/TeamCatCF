@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using ExamShopProject.ErrorHandler;
 using ExamShopProject.Visual_Customer;
 using ExamShopProject.User_Interactions;
+using System.Xaml;
 
 
 namespace ExamShopProject

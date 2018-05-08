@@ -54,10 +54,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Visual_Customer\CreateCustomer.xaml.cs">
+      <DependentUpon>CreateCustomer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ErrorHandler\CustomExceptions.cs" />
     <Compile Include="Statistics\Statistics.cs" />
     <Compile Include="User_Interactions\UserLogic.cs" />
-    <Page Include="CreateCustomer.xaml">
+    <Page Include="Visual_Customer\CreateCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -68,9 +71,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Visual_Customer\CreateCustomer.xaml.cs">
-      <DependentUpon>CreateCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Customer_Interactions\CustomerLogic.cs" />
     <Compile Include="DB.cs" />
