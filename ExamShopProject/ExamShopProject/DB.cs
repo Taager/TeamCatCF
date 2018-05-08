@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data.Common;
+using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
@@ -22,6 +23,21 @@ namespace ExamShopProject
             {
                 
                 return false;
+            }
+        }
+       public static bool CreateUser(User user)
+        {
+            try
+            {
+                SqlCommand command = new SqlCommand(
+                    "INSERT INTO Customer (UserName, Password, Name, IsAdmin) VALUES (@username, @password, @name, @isAdmin)", myConnection);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+                
             }
         }
         #region open and close connection

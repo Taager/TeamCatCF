@@ -10,7 +10,7 @@ namespace ExamShopProject.User_Interactions
 {
     class UserLogic
     {
-        #region UserLogIn
+        Random rnd = new Random();
         //made by Mikkel E.R. Glerup
         User user = new User();
         public void UserLogin()
@@ -25,14 +25,47 @@ namespace ExamShopProject.User_Interactions
             }
             catch (Exception ex)
             {
-                ErrorHandler.Log.WriteUserLogInAttempt(ex);   
+                ErrorHandler.Log.WriteUserLogInAttempt(ex);
             }
         }
-        #endregion
-        public void CreateCustomer(string name, string username, string password, bool isAdmin)
+        public void CreateUser(string name, string username, string password, bool isAdmin)
         {
-            // DB command (name, adress, contactInfo, spokesPerson)
+            user.Name = name;
+            user.Username = GetRandomUsername(name);
+            user.Password = GetRandomPassword();
+            user.IsAdmin = isAdmin;
         }
+        #region Get rnd username and string logic
+        //made by Mikkel E.R. Glerup
+        public string GetRandomUsername(string name)
+        {
+            rnd.Next();
+            if (name.Length < 3)
+            {
+                name = name + GetRandomChar();
+            }
+            return name = name.Substring(0, 3) + GetRandomNumber(); ;
+        }
+        public char GetRandomChar()
+        {
+            string chars = "abcdefghijklmnopqrstuvwxyz";
+            int num = rnd.Next(0, chars.Length - 1);
+            char rndChar = chars[num];
+            return rndChar;
+        }
+        public string GetRandomNumber()
+        {  
+
+            int rndNumb = rnd.Next(100,999);
+            string rndNumbString = rndNumb.ToString();
+            return rndNumbString;
+        }
+        public string GetRandomPassword()
+        {
+            string password = System.IO.Path.GetRandomFileName();
+            return password = password.Substring(0, 8) + password.Replace(".", "");
+        }
+        #endregion
         private void EditCustomer(int IDToEdit)
         {
             // DB command(IDToEdit)
