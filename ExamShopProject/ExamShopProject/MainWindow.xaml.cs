@@ -29,7 +29,7 @@ namespace ExamShopProject
 
         private void btn_CreateCustomer_Click(object sender, RoutedEventArgs e)
         {
-            _mainFrame.Navigate(new CreateCustomer());
+            //_mainFrame.Navigate(new CreateCustomer());
         }
     }
 }

@@ -55,7 +55,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Statistics\Statistics.cs" />
-    <Page Include="CreateCustomer.xaml">
+    <Page Include="Visual_Customer\CreateCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -67,7 +67,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CreateCustomer.xaml.cs">
+    <Compile Include="Visual_Customer\CreateCustomer.xaml.cs">
       <DependentUpon>CreateCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Customer_Interactions\CustomerLogic.cs" />
@@ -107,6 +107,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Visual_Catalogue\" />
+    <Folder Include="Visual_Deals\" />
+    <Folder Include="Visual_LogIn\" />
+    <Folder Include="Visual_Statistics\" />
+    <Folder Include="Visual_Subscriptions\" />
+    <Folder Include="Visual_User\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
