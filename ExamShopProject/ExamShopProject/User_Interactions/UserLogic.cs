@@ -82,7 +82,6 @@ namespace ExamShopProject.User_Interactions
             string password = System.IO.Path.GetRandomFileName();
             password = password.Replace(".", "");
             return password = password.Substring(0, 8);
-            //return password = password.Substring(0, 8) + password.Replace(".", "");
         }
         #endregion
         private void EditUser(int IDToEdit)

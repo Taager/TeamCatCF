@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         
         <DockPanel Grid.ColumnSpan="1" Margin="0,0,-0.4,0" Grid.Column="2" > 
-            <Frame x:Name="_mainFrame" />
+            <Frame x:Name="_mainFrame" NavigationUIVisibility="Hidden"/>
         </DockPanel>
 
         <Button x:Name="btn_Customer" Content="Customer" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Width="110" Click="btn_Customer_Click"/>

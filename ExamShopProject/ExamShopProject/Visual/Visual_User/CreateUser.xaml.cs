@@ -38,6 +38,7 @@ namespace ExamShopProject
                 isAdmin = true;
             if (CheckBox_IsAdmin.IsChecked == false)
                 isAdmin = false;
+            // Note to self, make into databinding later - Mikkel E.R. Glerup
             bool success = userLogic.CreateUser(user.Name = TxtBox_Name.Text, user.IsAdmin = isAdmin);
             if (success)
             {
