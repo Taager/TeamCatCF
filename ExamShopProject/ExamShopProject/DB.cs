@@ -22,12 +22,13 @@ namespace ExamShopProject
             }
             catch
             {
-                
+
                 return false;
             }
         }
-       //made by Mikkel. E.R. Glerup
-       public static bool InsertUser(User user)
+        #region Insert*
+        //made by Mikkel. E.R. Glerup
+        public static bool InsertUser(User user)
         {
             try
             {
@@ -52,6 +53,38 @@ namespace ExamShopProject
                 return false;
             }
         }
+        #endregion
+        #region viewList*
+        // Made by Mikkel E.R. Glerup
+        public static List<User> SelectAllUsers()
+        {
+            try
+            {
+                List<User> userList = new List<User>();
+                openConnection();
+                SqlCommand getUsers = new SqlCommand(
+                    "SELECT * FROM [User]", myConnection);
+                SqlDataReader reader = getUsers.ExecuteReader();
+                while (reader.Read())
+                {
+                    User user = new User();
+                    user.Username = reader.GetString(1);
+                    user.Password = reader.GetString(2);
+                    user.Name = reader.GetString(3);
+                    user.IsAdmin = reader.GetBoolean(4);
+                    userList.Add(user);
+                }
+                closeConnection();
+                return userList;
+            }
+            catch (Exception ex)
+            {
+                List<User> userList = new List<User>();
+                Log.WriteFail(ex);
+                return userList;
+            }
+        }
+        #endregion
         #region open and close connection
         //made by Mikkel. E.R. Glerup
         public static SqlConnection myConnection;
@@ -86,6 +119,8 @@ namespace ExamShopProject
             }
         }
         #endregion
+    }
+}
 
         //public static bool InsertCustomer(Customer customer)
         //{
@@ -112,6 +147,3 @@ namespace ExamShopProject
         //    //    return false;
         //    //}
         //}
-
-    }
-}

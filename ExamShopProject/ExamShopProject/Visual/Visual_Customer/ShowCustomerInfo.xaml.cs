@@ -31,5 +31,10 @@ namespace ExamShopProject
             InitializeComponent();
             DataContext = cusObj;
         }
+
+        private void btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
