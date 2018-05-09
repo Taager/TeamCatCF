@@ -56,11 +56,12 @@ namespace ExamShopProject.User_Interactions
         //made by Mikkel E.R. Glerup
         public string GetRandomUsername(string name)
         {
+            
             rnd.Next();
             if (name.Length < 3)
-            {
                 name = name + GetRandomChar();
-            }
+            //The above and below code is to make sure 2 letter names will be without a " " and not < 6 chars
+            name = name.Replace(" ", "");
             return name = name.Substring(0, 3) + GetRandomNumber(); ;
         }
         public char GetRandomChar()
@@ -82,7 +83,6 @@ namespace ExamShopProject.User_Interactions
             string password = System.IO.Path.GetRandomFileName();
             password = password.Replace(".", "");
             return password = password.Substring(0, 8);
-            //return password = password.Substring(0, 8) + password.Replace(".", "");
         }
         #endregion
         private void EditUser(int IDToEdit)

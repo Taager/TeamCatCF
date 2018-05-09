@@ -96,7 +96,6 @@ namespace ExamShopProject
                     "Data Source=.;Initial Catalog=Charlie-APE;Integrated Security=True"
                     );
                 myConnection.Open();
-
                 return true;
             }
             catch (Exception ex)
@@ -121,29 +120,31 @@ namespace ExamShopProject
         #endregion
     }
 }
-
-        //public static bool InsertCustomer(Customer customer)
-        //{
-        //    //try
-        //    //{
-        //    //    openConnection();
-        //    //    SqlCommand command = new SqlCommand(
-        //    //        "INSERT INTO [User] (UserName, Password, Name, IsAdmin) VALUES (@username, @password, @name, @isAdmin)", myConnection);
-        //    //    command.Parameters.Add("@username", SqlDbType.VarChar);
-        //    //    command.Parameters["@username"].Value = user.Username;
-        //    //    command.Parameters.Add("@password", SqlDbType.VarChar);
-        //    //    command.Parameters["@password"].Value = user.Password;
-        //    //    command.Parameters.Add("@name", SqlDbType.VarChar);
-        //    //    command.Parameters["@name"].Value = user.Name;
-        //    //    command.Parameters.Add("@isAdmin", SqlDbType.Bit);
-        //    //    command.Parameters["@isAdmin"].Value = user.IsAdmin;
-        //    //    command.ExecuteNonQuery();
-        //    //    closeConnection();
-        //    //    return true;
-        //    //}
-        //    //catch (Exception ex)
-        //    //{
-        //    //    Log.WriteFail(ex);
-        //    //    return false;
-        //    //}
-        //}
+//        ** OBS**
+//          Helena indsæt dette i "Insert*" regionen
+//         ** OBS*
+//        public static bool InsertCustomer(Customer customer)
+//{
+//    try
+//    {
+//        openConnection();
+//        SqlCommand command = new SqlCommand(
+//            "INSERT INTO [User] (UserName, Password, Name, IsAdmin) VALUES (@username, @password, @name, @isAdmin)", myConnection);
+//        command.Parameters.Add("@username", SqlDbType.VarChar);
+//        command.Parameters["@username"].Value = user.Username;
+//        command.Parameters.Add("@password", SqlDbType.VarChar);
+//        command.Parameters["@password"].Value = user.Password;
+//        command.Parameters.Add("@name", SqlDbType.VarChar);
+//        command.Parameters["@name"].Value = user.Name;
+//        command.Parameters.Add("@isAdmin", SqlDbType.Bit);
+//        command.Parameters["@isAdmin"].Value = user.IsAdmin;
+//        command.ExecuteNonQuery();
+//        closeConnection();
+//        return true;
+//    }
+//    catch (Exception ex)
+//    {
+//        Log.WriteFail(ex);
+//        return false;
+//    }
+//}

@@ -31,11 +31,10 @@ namespace ExamShopProject
             InitializeComponent();
         }
 
-        private void btn_User_Click(object sender, RoutedEventArgs e)
+        private void btn_User_Click(object sender, RoutedEventArgs e) //=> _mainFrame.Navigate(new OpenUser()); overvej, om dette er bedre.
         {
             _mainFrame.Navigate(new OpenUser());
         }
-
         private void btn_Customer_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new OpenCustomer());

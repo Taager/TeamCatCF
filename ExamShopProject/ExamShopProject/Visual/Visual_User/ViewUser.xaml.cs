@@ -26,16 +26,13 @@ namespace ExamShopProject
         public ViewUser()
         {
             InitializeComponent();
-            List<User> users = new List<User>();
-            users = DB.SelectAllUsers();
-            ListBox_Show.ItemsSource = users;
+            ListBox_Show.ItemsSource = DB.SelectAllUsers();
             ListBox_Show.DisplayMemberPath = "Username";
         }
 
         private void ListBox_Show_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             User chosenUser = (User)ListBox_Show.SelectedItem;
-
         }
     }
 }
