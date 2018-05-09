@@ -9,16 +9,21 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="6*"/>
-            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="150*"/>
+            <ColumnDefinition Width="643*"/>
         </Grid.ColumnDefinitions>
         
         <DockPanel Grid.ColumnSpan="1" Margin="0,0,-0.4,0" Grid.Column="2" > 
             <Frame x:Name="_mainFrame" NavigationUIVisibility="Hidden"/>
         </DockPanel>
 
-        <Button x:Name="btn_Customer" Content="Customer" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" Width="110" Click="btn_Customer_Click"/>
-        <Button x:Name="btn_CreateUser" Content="User" HorizontalAlignment="Center" VerticalAlignment="Top" Width="110" Margin="0,63,0,0" Click="btn_CreateUser_Click"/>
+        <Button x:Name="btn_Customer" Content="Customer" HorizontalAlignment="Left" Margin="30,40,0,0" VerticalAlignment="Top" Width="85" Click="btn_Customer_Click" Height="20"/>
+        <Button x:Name="btn_User" Content="User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,70,0,0" Click="btn_User_Click" Height="20"/>
+        <Button Content="Log in" HorizontalAlignment="Left" Margin="30,370,0,0" VerticalAlignment="Top" Width="85" Height="20"/>
+        <Button x:Name="btn_Subscriptions" Content="Subscriptions" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,100,0,0" Height="20"/>
+        <Button x:Name="btn_Statistics" Content="Statistics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,130,0,0" Height="20"/>
+        <Button x:Name="btn_Catalogue" Content="Catalogue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,160,0,0" Height="20"/>
+        <Button x:Name="btn_Deals" Content="Deals" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,190,0,0" Height="20"/>
 
     </Grid>
 </Window>

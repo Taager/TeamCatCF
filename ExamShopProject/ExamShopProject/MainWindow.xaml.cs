@@ -31,7 +31,7 @@ namespace ExamShopProject
             InitializeComponent();
         }
 
-        private void btn_CreateUser_Click(object sender, RoutedEventArgs e)
+        private void btn_User_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new OpenUser());
         }
