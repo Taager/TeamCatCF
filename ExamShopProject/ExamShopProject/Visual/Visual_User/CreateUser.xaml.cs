@@ -32,7 +32,7 @@ namespace ExamShopProject
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            bool isAdmin
+            bool isAdmin=false;
             UserLogic userLogic = new UserLogic();
             if (CheckBox_IsAdmin.IsChecked == true)
                 isAdmin = true;
