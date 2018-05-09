@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
@@ -22,20 +21,9 @@ namespace ExamShopProject
     /// </summary>
     public partial class ViewUser : Page
     {
-        // Made by Mikkel. E.R. Glerup
         public ViewUser()
         {
             InitializeComponent();
-            List<User> users = new List<User>();
-            users = DB.SelectAllUsers();
-            ListBox_Show.ItemsSource = users;
-            ListBox_Show.DisplayMemberPath = "Username";
-        }
-
-        private void ListBox_Show_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            User chosenUser = (User)ListBox_Show.SelectedItem;
-            
         }
     }
 }
