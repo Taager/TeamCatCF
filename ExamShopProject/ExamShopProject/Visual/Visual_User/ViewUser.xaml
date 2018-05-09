@@ -9,7 +9,14 @@
       Title="ViewUser">
 
     <Grid>
-        <Label Content="View User" HorizontalAlignment="Left" Margin="448,211,0,0" VerticalAlignment="Top"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="151*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox  HorizontalAlignment="Left" Height="23" Margin="40,50,0,0" TextWrapping="Wrap" Text="Search..." VerticalAlignment="Top" Width="275"/>
+        <ListBox x:Name="lstbx_Customer" HorizontalAlignment="Left" Height="200" Margin="40,40.4,0,0" VerticalAlignment="Top" Width="385" Grid.Row="1"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="350,50,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Page>

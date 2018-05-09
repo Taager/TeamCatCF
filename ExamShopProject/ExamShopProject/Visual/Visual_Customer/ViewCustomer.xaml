@@ -13,8 +13,16 @@
             <RowDefinition Height="49*"/>
             <RowDefinition Height="151*"/>
         </Grid.RowDefinitions>
-        <TextBox  HorizontalAlignment="Right" Height="23" Margin="0,0,300,20" TextWrapping="Wrap" Text="Search..." VerticalAlignment="Bottom" Width="250"/>
-        <ListBox HorizontalAlignment="Right" Height="200" Margin="0,0,180,50" VerticalAlignment="Bottom" Width="372" Grid.Row="1"/>
-        <Button Content="Search" HorizontalAlignment="Right" Margin="0,0,180,20" VerticalAlignment="Bottom" Width="75"/>
+
+        <DockPanel Grid.RowSpan="2" Margin="0,0,-0.4,0" Grid.Row="0">
+            <Frame x:Name="_customerView" />
+        </DockPanel>
+
+        <TextBox  HorizontalAlignment="Left" Height="23" Margin="40,50,0,0" TextWrapping="Wrap" Text="Search..." VerticalAlignment="Top" Width="275"/>
+        <ListBox x:Name="lstbx_Customer" HorizontalAlignment="Left" Height="200" Margin="40,40.4,0,0" VerticalAlignment="Top" Width="385" Grid.Row="1"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="350,50,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btn_EditCustomer" Content="Edit" HorizontalAlignment="Left" Margin="466,261.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="btn_EditCustomer_Click"/>
+        <Button x:Name="btn_DeleteCustomer" Content="Delete" HorizontalAlignment="Left" Margin="367,261.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="btn_DeleteCustomer_Click" />
+
     </Grid>
 </Page>

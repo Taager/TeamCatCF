@@ -12,28 +12,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ExamShopProject.Object;
+using ExamShopProject.Customer_Interactions;
 
 namespace ExamShopProject
 {
     // Made by Helena Brunsgaard Madsen
     /// <summary>
-    /// Interaction logic for ViewCustomer.xaml
+    /// Interaction logic for ShowCustomerInfo.xaml
     /// </summary>
-    public partial class ViewCustomer : Page
+    public partial class ShowCustomerInfo : Page
     {
-        public ViewCustomer()
+        Customer cusObj = new Customer();
+        CustomerLogic customerLogic = new CustomerLogic();
+
+        public ShowCustomerInfo()
         {
             InitializeComponent();
-        }
-
-        private void btn_EditCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            _customerView.Navigate(new ShowCustomerInfo());
-        }
-
-        private void btn_DeleteCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            // DB call Delete
+            DataContext = cusObj;
         }
     }
 }

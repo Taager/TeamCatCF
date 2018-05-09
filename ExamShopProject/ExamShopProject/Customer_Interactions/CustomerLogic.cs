@@ -16,7 +16,26 @@ namespace ExamShopProject.Customer_Interactions
 
         public void CreateCustomer(string name, string adress, string contactInfo, string spokesPerson, double annualIncome)
         {
-            // DB command (name, adress, contactInfo, spokesPerson)
+            //try
+            //{
+            //    user.Name = name;
+            //    user.Username = GetRandomUsername(name);
+            //    user.Password = GetRandomPassword();
+            //    user.IsAdmin = isAdmin;
+            //    bool wasSuccess = DB.InsertUser(user);
+            //    if (wasSuccess)
+            //    {
+            //        throw new UserWasAdded(user);
+            //    }
+            //    return wasSuccess;
+            //}
+            ////Only thrown if creating user was a succes
+            //catch (UserWasAdded ex)
+            //{
+
+            //    ErrorHandler.Log.WritEvent(ex);
+            //    return true;
+            //}
         }
         private void EditCustomer(int IDToEdit)
         {
