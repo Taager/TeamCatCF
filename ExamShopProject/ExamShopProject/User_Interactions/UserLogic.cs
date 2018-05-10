@@ -83,6 +83,7 @@ namespace ExamShopProject.User_Interactions
             return password = password.Substring(0, 8);
         }
         #endregion
+        //Made by Mikkel E.R. Glerup
         public bool EditUser(User user)
         {
             try

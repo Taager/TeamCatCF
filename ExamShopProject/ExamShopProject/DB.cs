@@ -85,6 +85,7 @@ namespace ExamShopProject
                 return userList;
             }
         }
+        //Made by Mikkel E.R. Glerup
         public static User SelectUser(int ID)
         {
             try
@@ -116,6 +117,7 @@ namespace ExamShopProject
         }
         #endregion
         #region Edit*
+        //Made by Mikkel E.R. Glerup
         public static bool EditUser(User user)
         {
             try
@@ -164,6 +166,7 @@ namespace ExamShopProject
                 return false;
             }
         }
+        //Made by Mikkel E.R. Glerup
         public static bool closeConnection()
         {
             try

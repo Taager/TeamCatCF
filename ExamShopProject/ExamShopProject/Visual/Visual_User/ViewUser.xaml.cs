@@ -29,7 +29,7 @@ namespace ExamShopProject
             ListBox_Show.ItemsSource = DB.SelectAllUsers();
             ListBox_Show.DisplayMemberPath = "Username";
         }
-
+        //Made by Mikkel E.R. Glerup
         private void ListBox_Show_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             User chosenUser = (User)ListBox_Show.SelectedItem;

@@ -17,9 +17,7 @@ using ExamShopProject.User_Interactions;
 
 namespace ExamShopProject
 {
-    /// <summary>
-    /// Interaction logic for ViewUsersDetail.xaml
-    /// </summary>
+    //Made by Mikkel E.R. Glerup
     public partial class ViewUsersDetail : Page
     {
         User user = new User();
@@ -33,7 +31,7 @@ namespace ExamShopProject
             InitializeComponent();
             DataContext = user;
         }
-
+        //Made by Mikkel E.R. Glerup
         private void Btn_Edit_Enable(object sender, RoutedEventArgs e)
         {
             TxtBox_Name.IsEnabled = true;
@@ -44,7 +42,7 @@ namespace ExamShopProject
             CheckBox_IsAdmin.Opacity = 100;
             Btn_Save.Opacity = 100;
         }
-
+        //Made by Mikkel E.R. Glerup
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
         {
             user.Name = TxtBox_Name.Text;

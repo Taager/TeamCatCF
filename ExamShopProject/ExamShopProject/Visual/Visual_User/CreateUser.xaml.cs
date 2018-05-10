@@ -29,7 +29,7 @@ namespace ExamShopProject
             InitializeComponent();
             DataContext = user;
         }
-
+        //Made by Mikkel E.R. Glerup
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
             bool isAdmin=false;
