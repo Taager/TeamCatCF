@@ -68,6 +68,7 @@ namespace ExamShopProject
                 while (reader.Read())
                 {
                     User user = new User();
+                    user.ID = reader.GetInt32(0);
                     user.Username = reader.GetString(1);
                     user.Password = reader.GetString(2);
                     user.Name = reader.GetString(3);
@@ -82,6 +83,65 @@ namespace ExamShopProject
                 List<User> userList = new List<User>();
                 Log.WriteFail(ex);
                 return userList;
+            }
+        }
+        public static User SelectUser(int ID)
+        {
+            try
+            {
+                User user = new User();
+                openConnection();
+                SqlCommand getUser = new SqlCommand(
+                    "SELECT * FROM [User] WHERE UserID=@UserID", myConnection);
+                getUser.Parameters.Add("@UserID", SqlDbType.Int);
+                getUser.Parameters["@UserID"].Value = ID;
+                    SqlDataReader reader = getUser.ExecuteReader();
+                while (reader.Read())
+                {
+                    user.ID = reader.GetInt32(0);
+                    user.Username = reader.GetString(1);
+                    user.Password = reader.GetString(2);
+                    user.Name = reader.GetString(3);
+                    user.IsAdmin = reader.GetBoolean(4);
+                }
+                closeConnection();
+                return user;
+            }
+            catch (Exception ex)
+            {
+                User user = new User();
+                Log.WriteFail(ex);
+                return user;
+            }
+        }
+        #endregion
+        #region Edit*
+        public static bool EditUser(User user)
+        {
+            try
+            {
+                openConnection();
+                SqlCommand UpdateUser = new SqlCommand("UPDATE [User] SET Username=@Username, Password=@Password, [Name]=@Name, IsAdmin=@IsAdmin WHERE UserID=@UserID", myConnection);
+                UpdateUser.Parameters.Add("@Username", SqlDbType.VarChar);
+                UpdateUser.Parameters["@Username"].Value = user.Username;
+                UpdateUser.Parameters.Add("@Password", SqlDbType.VarChar);
+                UpdateUser.Parameters["@Password"].Value = user.Password;
+                UpdateUser.Parameters.Add("@Name", SqlDbType.VarChar);
+                UpdateUser.Parameters["@Name"].Value = user.Name;
+                UpdateUser.Parameters.Add("@IsAdmin", SqlDbType.Bit);
+                UpdateUser.Parameters["@IsAdmin"].Value = user.IsAdmin;
+                UpdateUser.Parameters.Add("@UserID", SqlDbType.Int);
+                UpdateUser.Parameters["@UserID"].Value = user.ID;
+                UpdateUser.ExecuteNonQuery();
+                closeConnection();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                closeConnection();
+                Log.WriteFail(ex);
+                return false;
             }
         }
         #endregion

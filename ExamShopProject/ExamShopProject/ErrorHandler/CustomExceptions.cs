@@ -27,6 +27,12 @@ namespace ExamShopProject.ErrorHandler
         //public CustomerWasAdded(Customer customer) : base($"The following customer has been created: {customer.Name} ")
         //{ }
     }
+    class UserWasEdited : Exception
+    {
+        // add current user later when login system is made
+        public UserWasEdited(User user) : base($"The following user have been edited: {user.Username}")
+        { }
+    }
 }
 
 

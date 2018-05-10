@@ -38,10 +38,10 @@ namespace ExamShopProject
                 isAdmin = true;
             if (CheckBox_IsAdmin.IsChecked == false)
                 isAdmin = false;
-            bool success = userLogic.CreateUser(user.Name = TxtBox_Name.Text, user.IsAdmin = isAdmin);
-            if (success)
+            bool wasSuccess = userLogic.CreateUser(user.Name = TxtBox_Name.Text, user.IsAdmin = isAdmin);
+            if (wasSuccess)
                 MessageBox.Show("User was created successfully.");
-            if (!success)
+            if (!wasSuccess)
                 MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
         }
     }

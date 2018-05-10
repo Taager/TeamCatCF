@@ -19,8 +19,7 @@
             <ColumnDefinition Width="150*"/>
             <ColumnDefinition Width="100*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="ListBox_Show"  Grid.Row="1" Grid.Column="1" SelectionChanged="ListBox_Show_SelectionChanged" ItemsSource="{Binding users}"/>
-        <Label Content="View User" HorizontalAlignment="Left" Margin="348,115.478,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1"/>
-
+        <Frame x:Name="_viewUserDetails"/>
+        <ListBox x:Name="ListBox_Show"  Grid.Row="1" Grid.Column="1" SelectionChanged="ListBox_Show_SelectionChanged" />
     </Grid>
 </Page>

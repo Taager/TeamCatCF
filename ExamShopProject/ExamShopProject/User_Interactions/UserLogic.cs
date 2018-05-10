@@ -39,9 +39,7 @@ namespace ExamShopProject.User_Interactions
                 user.IsAdmin = isAdmin;
                 bool wasSuccess = DB.InsertUser(user);
                 if (wasSuccess)
-                {
                     throw new UserWasAdded(user);
-                }
                 return wasSuccess;
             }
             //Only thrown if creating user was a succes
@@ -85,9 +83,20 @@ namespace ExamShopProject.User_Interactions
             return password = password.Substring(0, 8);
         }
         #endregion
-        private void EditUser(int IDToEdit)
+        public bool EditUser(User user)
         {
-           
+            try
+            {
+                bool wasSucces = DB.EditUser(user);
+                if (wasSucces)
+                    throw new UserWasEdited(user);
+                return wasSucces;
+            }
+            catch (UserWasEdited ex)
+            {
+                ErrorHandler.Log.WritEvent(ex);
+                return true;
+            }
         }
         private void DeleteUser(int IDToDelete)
         {
