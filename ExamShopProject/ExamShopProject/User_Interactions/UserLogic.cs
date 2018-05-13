@@ -12,6 +12,7 @@ namespace ExamShopProject.User_Interactions
     {
         Random rnd = new Random();
         //made by Mikkel E.R. Glerup
+        ObjectHandler objectHandler = new ObjectHandler();
         User user = new User();
         public void UserLogin()
         {

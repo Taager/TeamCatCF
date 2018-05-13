@@ -54,6 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Database\DBEdit.cs" />
+    <Compile Include="Database\DBInsert.cs" />
+    <Compile Include="Database\DBOpenClose.cs" />
+    <Compile Include="Database\DBSelect.cs" />
+    <Compile Include="Object\ObjectHandler.cs" />
     <Compile Include="Visual\Visual_User\ViewUsersDetail.xaml.cs">
       <DependentUpon>ViewUsersDetail.xaml</DependentUpon>
     </Compile>
@@ -122,7 +127,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Customer_Interactions\CustomerLogic.cs" />
-    <Compile Include="DB.cs" />
+    <Compile Include="Database\DB.cs" />
     <Compile Include="ErrorHandler\Log.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
