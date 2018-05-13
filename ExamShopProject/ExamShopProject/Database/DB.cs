@@ -30,7 +30,7 @@ namespace ExamShopProject
         //made by Mikkel. E.R. Glerup
         public static bool InsertUser(User user)
         {
-               return DBInsert.InsertUser(user);
+            return DBInsert.InsertUser(user);
         }
         #endregion
         #region viewList*
@@ -42,14 +42,20 @@ namespace ExamShopProject
         //Made by Mikkel E.R. Glerup
         public static User SelectUser(int ID)
         {
-           return DBSelect.SelectUser(ID);
+            return DBSelect.SelectUser(ID);
         }
         #endregion
         #region Edit*
         //Made by Mikkel E.R. Glerup
         public static bool EditUser(User user)
-        {        
-                return DBEdit.EditUser(user);
+        {
+            return DBEdit.EditUser(user);
+        }
+        #endregion
+        #region Delete*
+        public static bool DeleteUser(string callerClass, int CallerID)
+        {
+            return DBDelete.DeleteUser(callerClass, CallerID);
         }
         #endregion
     }

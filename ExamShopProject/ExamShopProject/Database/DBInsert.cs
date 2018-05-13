@@ -17,7 +17,7 @@ namespace ExamShopProject
         {
             try
             {
-                DBOpenClose.openConnection();
+                DBOpenClose.OpenConnection();
                 SqlCommand command = new SqlCommand(
                     "INSERT INTO [User] (UserName, Password, Name, IsAdmin) VALUES (@username, @password, @name, @isAdmin)", DBOpenClose.myConnection);
                 command.Parameters.Add("@username", SqlDbType.VarChar);
@@ -29,12 +29,12 @@ namespace ExamShopProject
                 command.Parameters.Add("@isAdmin", SqlDbType.Bit);
                 command.Parameters["@isAdmin"].Value = user.IsAdmin;
                 command.ExecuteNonQuery();
-                DBOpenClose.closeConnection();
+                DBOpenClose.CloseConnection();
                 return true;
             }
             catch (Exception ex)
             {
-                DBOpenClose.closeConnection();
+                DBOpenClose.CloseConnection();
                 Log.WriteFail(ex);
                 return false;
             }

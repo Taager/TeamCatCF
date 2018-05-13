@@ -33,6 +33,12 @@ namespace ExamShopProject.ErrorHandler
         public UserWasEdited(User user) : base($"The following user have been edited: {user.Username}")
         { }
     }
+    class UserWasDeleted : Exception
+    {
+        public UserWasDeleted(User user) : base($"The following user have been deleted: {user.Username} ")
+        { }
+
+    }
 }
 
 

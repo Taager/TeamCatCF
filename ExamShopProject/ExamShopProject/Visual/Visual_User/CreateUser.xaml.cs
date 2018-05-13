@@ -43,6 +43,7 @@ namespace ExamShopProject
                 MessageBox.Show("User was created successfully.");
             if (!wasSuccess)
                 MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+            NavigationService.Navigate(new ViewUser());
         }
     }
 }

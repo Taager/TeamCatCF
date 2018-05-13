@@ -17,7 +17,7 @@ namespace ExamShopProject
             try
             {
                 List<User> userList = new List<User>();
-                DBOpenClose.openConnection();
+                DBOpenClose.OpenConnection();
                 SqlCommand getUsers = new SqlCommand(
                     "SELECT * FROM [User]", DBOpenClose.myConnection);
                 SqlDataReader reader = getUsers.ExecuteReader();
@@ -31,7 +31,7 @@ namespace ExamShopProject
                     user.IsAdmin = reader.GetBoolean(4);
                     userList.Add(user);
                 }
-                DBOpenClose.closeConnection();
+                DBOpenClose.CloseConnection();
                 return userList;
             }
             catch (Exception ex)
@@ -46,7 +46,7 @@ namespace ExamShopProject
             try
             {
                 User user = new User();
-                DBOpenClose.openConnection();
+                DBOpenClose.OpenConnection();
                 SqlCommand getUser = new SqlCommand(
                     "SELECT * FROM [User] WHERE UserID=@UserID", DBOpenClose.myConnection);
                 getUser.Parameters.Add("@UserID", SqlDbType.Int);
@@ -60,7 +60,7 @@ namespace ExamShopProject
                     user.Name = reader.GetString(3);
                     user.IsAdmin = reader.GetBoolean(4);
                 }
-                DBOpenClose.closeConnection();
+                DBOpenClose.CloseConnection();
                 return user;
             }
             catch (Exception ex)

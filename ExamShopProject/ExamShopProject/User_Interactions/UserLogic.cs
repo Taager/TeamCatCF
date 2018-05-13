@@ -100,9 +100,21 @@ namespace ExamShopProject.User_Interactions
                 return true;
             }
         }
-        private void DeleteUser(int IDToDelete)
+        public bool DeleteUser(string callerClass, int callerID)
         {
-            // DB command(IDToDelete)
+            try
+            {
+                bool wasSucces = DB.DeleteUser(callerClass, callerID);
+                if (wasSucces)
+                    throw new UserWasEdited(user);
+                return wasSucces;
+            }
+            catch (UserWasEdited ex)
+            {
+                ErrorHandler.Log.WritEvent(ex);
+                return true;
+            }
+     
         }
         private void ViewUser()
         {

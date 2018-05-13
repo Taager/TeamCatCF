@@ -16,7 +16,7 @@ namespace ExamShopProject
         {
             try
             {
-                DBOpenClose.openConnection();
+                DBOpenClose.OpenConnection();
                 SqlCommand UpdateUser = new SqlCommand("UPDATE [User] SET Username=@Username, Password=@Password, [Name]=@Name, IsAdmin=@IsAdmin WHERE UserID=@UserID", DBOpenClose.myConnection);
                 UpdateUser.Parameters.Add("@Username", SqlDbType.VarChar);
                 UpdateUser.Parameters["@Username"].Value = user.Username;
@@ -29,13 +29,13 @@ namespace ExamShopProject
                 UpdateUser.Parameters.Add("@UserID", SqlDbType.Int);
                 UpdateUser.Parameters["@UserID"].Value = user.ID;
                 UpdateUser.ExecuteNonQuery();
-                DBOpenClose.closeConnection();
+                DBOpenClose.CloseConnection();
                 return true;
 
             }
             catch (Exception ex)
             {
-                DBOpenClose.closeConnection();
+                DBOpenClose.CloseConnection();
                 Log.WriteFail(ex);
                 return false;
             }

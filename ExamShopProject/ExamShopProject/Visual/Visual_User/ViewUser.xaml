@@ -10,14 +10,18 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100*"/>
-            <RowDefinition Height="500*"/>
-            <RowDefinition Height="100*"/>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="286*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="20*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="150*"/>
             <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="300*"/>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="116*"/>
+            <ColumnDefinition Width="41*"/>
         </Grid.ColumnDefinitions>
         <Frame x:Name="_viewUserDetails"/>
         <ListBox x:Name="ListBox_Show"  Grid.Row="1" Grid.Column="1" SelectionChanged="ListBox_Show_SelectionChanged" />

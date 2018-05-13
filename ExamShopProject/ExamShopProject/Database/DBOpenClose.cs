@@ -12,7 +12,7 @@ namespace ExamShopProject
     {
         //made by Mikkel. E.R. Glerup
         public static SqlConnection myConnection;
-        public static bool openConnection()
+        public static bool OpenConnection()
         {
             try
             {
@@ -29,7 +29,7 @@ namespace ExamShopProject
             }
         }
         //Made by Mikkel E.R. Glerup
-        public static bool closeConnection()
+        public static bool CloseConnection()
         {
             try
             {

@@ -20,6 +20,7 @@ namespace ExamShopProject
     //Made by Mikkel E.R. Glerup
     public partial class ViewUsersDetail : Page
     {
+        UserLogic userLogic = new UserLogic();
         User user = new User();
         public ViewUsersDetail(int ID)
         {
@@ -52,11 +53,20 @@ namespace ExamShopProject
                 user.IsAdmin = true;
             if (CheckBox_IsAdmin.IsChecked == false)
                 user.IsAdmin = false;
-            UserLogic userLogic = new UserLogic();
             bool wasSuccess = userLogic.EditUser(user);
             if (wasSuccess)
                 MessageBox.Show("User was edited successfully.");
             if (!wasSuccess)
+                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+            NavigationService.Navigate(new ViewUsersDetail(user.ID));
+        }
+
+        private void Btn_Click_DeleteUser(object sender, RoutedEventArgs e)
+        {
+            bool wasSucces = userLogic.DeleteUser("user", user.ID);
+                if (wasSucces)
+                MessageBox.Show("User was succesfully deleted");
+                if (!wasSucces)
                 MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
             NavigationService.Navigate(new ViewUser());
         }
