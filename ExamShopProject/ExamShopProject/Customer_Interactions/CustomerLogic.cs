@@ -37,7 +37,7 @@ namespace ExamShopProject
             catch (CustomerWasAdded ex)
             {
 
-                ErrorHandler.Log.WritEvent(ex);
+                ErrorHandler.Log.WriteEvent(ex);
                 return true;
             }
         }
@@ -45,10 +45,21 @@ namespace ExamShopProject
         //{
         //    // DB command(IDToEdit)
         //}
-        //private void DeleteCustomer(int IDToDelete)
-        //{
-        //    // DB command(IDToDelete)
-        //}
+        public bool DeleteCustomer(string callerClass, int callerID)
+        {
+            try
+            {
+                bool wasSucces = DB.DeleteCustomer(callerClass, callerID);
+                if (wasSucces)
+                    throw new CustomerWasDeleted(customer);
+                return wasSucces;
+            }
+            catch (CustomerWasDeleted ex)
+            {
+                ErrorHandler.Log.WriteEvent(ex);
+                return true;
+            }
+        }
         //private void ViewCustomer()
         //{
         //    // DB command

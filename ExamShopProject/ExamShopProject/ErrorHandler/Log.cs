@@ -20,7 +20,7 @@ namespace ExamShopProject.ErrorHandler
                 writer.WriteLine( Environment.NewLine + ex);
             }
         }
-        public static void WritEvent(System.Exception ex)
+        public static void WriteEvent(System.Exception ex)
         {
             DateTime currentTime = DateTime.Now;
             using (StreamWriter writer = new StreamWriter("Events.txt", true))

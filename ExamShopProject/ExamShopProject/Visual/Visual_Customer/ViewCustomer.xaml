@@ -21,8 +21,6 @@
         <TextBox  HorizontalAlignment="Left" Height="23" Margin="40,50,0,0" TextWrapping="Wrap" Text="Search..." VerticalAlignment="Top" Width="275"/>
         <ListBox x:Name="lstbx_Customer" HorizontalAlignment="Left" Height="200" Margin="40,40.4,0,0" VerticalAlignment="Top" Width="385" Grid.Row="1"/>
         <Button Content="Search" HorizontalAlignment="Left" Margin="350,50,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btn_EditCustomer" Content="Edit" HorizontalAlignment="Left" Margin="466,261.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="btn_EditCustomer_Click"/>
-        <Button x:Name="btn_DeleteCustomer" Content="Delete" HorizontalAlignment="Left" Margin="367,261.4,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="btn_DeleteCustomer_Click" />
 
     </Grid>
 </Page>

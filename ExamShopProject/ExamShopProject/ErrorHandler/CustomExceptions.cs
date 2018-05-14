@@ -20,27 +20,36 @@ namespace ExamShopProject.ErrorHandler
         { }
     }
     #endregion
+    // Made by Mikkel Glerup
     class UserWasAdded : Exception
     {
         public UserWasAdded(User user) : base($"The following user have been created: {user.Username} ")
         { }
     }
+    // Made by Mikkel Glerup
     class CustomerWasAdded : Exception
     {
         public CustomerWasAdded(Customer customer) : base($"The following customer has been created: {customer.Name} ")
         { }
     }
+    // Made by Mikkel Glerup
     class UserWasEdited : Exception
     {
         // add current user later when login system is made
         public UserWasEdited(User user) : base($"The following user have been edited: {user.Username}")
         { }
     }
+    // Made by Mikkel Glerup
     class UserWasDeleted : Exception
     {
         public UserWasDeleted(User user) : base($"The following user have been deleted: {user.Username} ")
         { }
-
+    }
+    // Made by Helena Brunsgaard Madsen
+    class CustomerWasDeleted : Exception
+    {
+        public CustomerWasDeleted(Customer customer) : base($"The following user have been deleted: {customer.Name} ")
+        { }
     }
 }
 

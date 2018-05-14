@@ -26,7 +26,7 @@ namespace ExamShopProject.User_Interactions
             }
             catch (Exception ex)
             {
-                ErrorHandler.Log.WritEvent(ex);
+                ErrorHandler.Log.WriteEvent(ex);
             }
         }
         //made by Mikkel E.R. Glerup
@@ -47,7 +47,7 @@ namespace ExamShopProject.User_Interactions
             catch (UserWasAdded ex)
             {
                 
-                ErrorHandler.Log.WritEvent(ex);
+                ErrorHandler.Log.WriteEvent(ex);
                 return true;
             }
         }
@@ -96,7 +96,7 @@ namespace ExamShopProject.User_Interactions
             }
             catch (UserWasEdited ex)
             {
-                ErrorHandler.Log.WritEvent(ex);
+                ErrorHandler.Log.WriteEvent(ex);
                 return true;
             }
         }
@@ -106,12 +106,12 @@ namespace ExamShopProject.User_Interactions
             {
                 bool wasSucces = DB.DeleteUser(callerClass, callerID);
                 if (wasSucces)
-                    throw new UserWasEdited(user);
+                    throw new UserWasDeleted(user);
                 return wasSucces;
             }
-            catch (UserWasEdited ex)
+            catch (UserWasDeleted ex)
             {
-                ErrorHandler.Log.WritEvent(ex);
+                ErrorHandler.Log.WriteEvent(ex);
                 return true;
             }
      

@@ -64,8 +64,8 @@
     <Compile Include="Visual\Visual_User\ViewUsersDetail.xaml.cs">
       <DependentUpon>ViewUsersDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Visual\Visual_Customer\ShowCustomerInfo.xaml.cs">
-      <DependentUpon>ShowCustomerInfo.xaml</DependentUpon>
+    <Compile Include="Visual\Visual_Customer\ViewCustomerDetails.xaml.cs">
+      <DependentUpon>ViewCustomerDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="Visual\Visual_User\ViewUser.xaml.cs">
       <DependentUpon>ViewUser.xaml</DependentUpon>
@@ -92,7 +92,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Visual\Visual_Customer\ShowCustomerInfo.xaml">
+    <Page Include="Visual\Visual_Customer\ViewCustomerDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

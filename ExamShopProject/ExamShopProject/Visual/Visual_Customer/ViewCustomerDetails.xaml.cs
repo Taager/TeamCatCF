@@ -36,5 +36,15 @@ namespace ExamShopProject
         {
 
         }
+
+        private void btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            bool wasSucces = customerLogic.DeleteCustomer("customer", cusObj.customerID);
+            if (wasSucces)
+                MessageBox.Show("User was succesfully deleted");
+            if (!wasSucces)
+                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+            NavigationService.Navigate(new ViewUser());
+        }
     }
 }

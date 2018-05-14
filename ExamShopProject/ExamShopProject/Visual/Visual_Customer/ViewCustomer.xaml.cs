@@ -25,15 +25,5 @@ namespace ExamShopProject
         {
             InitializeComponent();
         }
-
-        private void btn_EditCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            _customerView.Navigate(new ShowCustomerInfo());
-        }
-
-        private void btn_DeleteCustomer_Click(object sender, RoutedEventArgs e)
-        {
-            // DB call Delete
-        }
     }
 }
