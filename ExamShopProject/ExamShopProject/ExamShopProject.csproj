@@ -60,6 +60,9 @@
     <Compile Include="Database\DBInsert.cs" />
     <Compile Include="Database\DBOpenClose.cs" />
     <Compile Include="Database\DBSelect.cs" />
+    <Compile Include="Visual\Visual_LogIn\LogIn.xaml.cs">
+      <DependentUpon>LogIn.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Object\ObjectHandler.cs" />
     <Compile Include="Visual\Visual_User\ViewUsersDetail.xaml.cs">
       <DependentUpon>ViewUsersDetail.xaml</DependentUpon>
@@ -88,6 +91,10 @@
     <Compile Include="ErrorHandler\CustomExceptions.cs" />
     <Compile Include="Statistics\Statistics.cs" />
     <Compile Include="User_Interactions\UserLogic.cs" />
+    <Page Include="Visual\Visual_LogIn\LogIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Visual\Visual_User\ViewUsersDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -169,7 +176,6 @@
   <ItemGroup>
     <Folder Include="Visual\Visual_Catalogue\" />
     <Folder Include="Visual\Visual_Deals\" />
-    <Folder Include="Visual\Visual_LogIn\" />
     <Folder Include="Visual\Visual_Statistics\" />
     <Folder Include="Visual\Visual_Subscriptions\" />
   </ItemGroup>

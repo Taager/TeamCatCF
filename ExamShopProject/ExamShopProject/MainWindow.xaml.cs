@@ -39,5 +39,10 @@ namespace ExamShopProject
         {
             _mainFrame.Navigate(new OpenCustomer());
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new LogIn());
+        }
     }
 }
