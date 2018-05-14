@@ -33,9 +33,6 @@ namespace ExamShopProject
         private void ListBox_Show_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             User chosenUser = (User)ListBox_Show.SelectedItem;
-            //NavigationService is used, because ViewUserDetails would otherwise be part of ViewUser's frame,
-            // this is bad because there's already existing elements on that page.
-            // Making it a part of _mainFrame would result in smelly code.
             NavigationService.Navigate(new ViewUsersDetail(chosenUser.ID));
         }
     }

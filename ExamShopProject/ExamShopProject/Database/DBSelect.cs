@@ -12,6 +12,7 @@ namespace ExamShopProject
 {
     class DBSelect
     {
+        // Made by Mikkel Glerup
         public static List<User> SelectAllUsers()
         {
             try
@@ -41,6 +42,7 @@ namespace ExamShopProject
                 return userList;
             }
         }
+        // Made by Mikkel Glerup
         public static User SelectUser(int ID)
         {
             try
@@ -70,5 +72,72 @@ namespace ExamShopProject
                 return user;
             }
         }
+        // Made by Helena Brunsgaard Madsen
+        public static List<Customer> SelectAllCustomers()
+        {
+            try
+            {
+                List<Customer> customerList = new List<Customer>();
+                DBOpenClose.OpenConnection();
+                SqlCommand getCustomers = new SqlCommand(
+                    "SELECT * FROM [Customer]", DBOpenClose.myConnection);
+                SqlDataReader reader = getCustomers.ExecuteReader();
+                while (reader.Read())
+                {
+                    Customer customer = new Customer();
+                    customer.customerID = reader.GetInt32(0);
+                    customer.Name = reader.GetString(1);
+                    customer.StreetAndNumber = reader.GetString(2);
+                    customer.ZipCode = reader.GetInt32(3);
+                    customer.City = reader.GetString(4);
+                    customer.ContactInfo = reader.GetString(5);
+                    customer.SpokesPerson = reader.GetString(6);
+                    customer.AnnualIncome = reader.GetFloat(7);
+                    customerList.Add(customer);
+                }
+                DBOpenClose.CloseConnection();
+                return customerList;
+            }
+            catch (Exception ex)
+            {
+                List<Customer> customerList = new List<Customer>();
+                Log.WriteFail(ex);
+                return customerList;
+            }
+        }
+        public static Customer SelectCustomer(int ID)
+        {
+            try
+            {
+                Customer customer = new Customer();
+                DBOpenClose.OpenConnection();
+                SqlCommand getCustomer = new SqlCommand(
+                    "SELECT * FROM [Customer] WHERE CustomerID=@CustomerID", DBOpenClose.myConnection);
+                getCustomer.Parameters.Add("@CustomerID", SqlDbType.Int);
+                getCustomer.Parameters["@CustomerID"].Value = ID;
+                SqlDataReader reader = getCustomer.ExecuteReader();
+                while (reader.Read())
+                {
+                    customer.customerID = reader.GetInt32(0);
+                    customer.Name = reader.GetString(1);
+                    customer.StreetAndNumber = reader.GetString(2);
+                    customer.ZipCode = reader.GetInt32(3);
+                    customer.City = reader.GetString(4);
+                    customer.ContactInfo = reader.GetString(5);
+                    customer.SpokesPerson = reader.GetString(6);
+                    customer.AnnualIncome = reader.GetFloat(7);
+                }
+                DBOpenClose.CloseConnection();
+                return customer;
+            }
+            catch (Exception ex)
+            {
+                Customer customer = new Customer();
+                Log.WriteFail(ex);
+                return customer;
+            }
+        }
+
+
     }
 }

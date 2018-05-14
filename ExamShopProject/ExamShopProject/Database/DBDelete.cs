@@ -37,7 +37,7 @@ namespace ExamShopProject
                 return false;
             }
         }
-        // Made by Mikkel
+        // Made by Helena Brunsgaard Madsen
         public static bool DeleteCustomer(string callerClass, int callerID)
         {
             if (callerClass == null)

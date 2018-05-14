@@ -44,5 +44,39 @@ namespace ExamShopProject
                 return false;
             }
         }
+        public static bool EditCustomer(Customer customer)
+        {
+            if (customer == null)
+            {
+                throw new ArgumentNullException(nameof(customer));
+            }
+            try
+            {
+                DBOpenClose.OpenConnection();
+                SqlCommand UpdateUser = new SqlCommand("UPDATE [Customer] SET [Name]=@Name, StreetAndNumber=@StreetAndNumber, ZipCode=@ZipCode, City=@City, ContactInfo=@ContactInfo, SpokesPerson=@SpokesPerson WHERE CustomerID=@CustomerID", DBOpenClose.myConnection);
+                UpdateUser.Parameters.Add("@Name", SqlDbType.VarChar);
+                UpdateUser.Parameters["@Name"].Value = customer.Name;
+                UpdateUser.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar);
+                UpdateUser.Parameters["@StreetAndNumber"].Value = customer.StreetAndNumber;
+                UpdateUser.Parameters.Add("@ZipCode", SqlDbType.VarChar);
+                UpdateUser.Parameters["@ZipCode"].Value = customer.ZipCode;
+                UpdateUser.Parameters.Add("@City", SqlDbType.Bit);
+                UpdateUser.Parameters["@City"].Value = customer.City;
+                UpdateUser.Parameters.Add("@ContactInfo", SqlDbType.Int);
+                UpdateUser.Parameters["@ContactInfo"].Value = customer.ContactInfo;
+                UpdateUser.Parameters.Add("@SpokesPerson", SqlDbType.Int);
+                UpdateUser.Parameters["@SpokesPerson"].Value = customer.SpokesPerson;
+                UpdateUser.ExecuteNonQuery();
+                DBOpenClose.CloseConnection();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                DBOpenClose.CloseConnection();
+                Log.WriteFail(ex);
+                return false;
+            }
+        }
     }
 }

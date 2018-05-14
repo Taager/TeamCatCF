@@ -36,15 +36,25 @@ namespace ExamShopProject
             //Only thrown if creating user was a succes
             catch (CustomerWasAdded ex)
             {
-
                 ErrorHandler.Log.WriteEvent(ex);
                 return true;
             }
         }
-        //private void EditCustomer(int IDToEdit)
-        //{
-        //    // DB command(IDToEdit)
-        //}
+        public bool EditCustomer(int IDToEdit)
+        {
+            try
+            {
+                bool wasSucces = DB.EditCustomer(customer);
+                if (wasSucces)
+                    throw new CustomerWasEdited(customer);
+                return wasSucces;
+            }
+            catch (CustomerWasEdited ex)
+            {
+                ErrorHandler.Log.WriteEvent(ex);
+                return true;
+            }
+        }
         public bool DeleteCustomer(string callerClass, int callerID)
         {
             try

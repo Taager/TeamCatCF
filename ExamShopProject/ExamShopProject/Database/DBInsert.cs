@@ -53,7 +53,7 @@ namespace ExamShopProject
             {
                 DBOpenClose.OpenConnection();
                 SqlCommand command = new SqlCommand(
-                    "INSERT INTO Customer (Name, StreetAndNumber, ZipCode, City, ContactInfo, SpokesPerson, AnnualIncome) VALUES (@Name, @StreetAndNumber, @ZipCode, @City, @ContactInfo, @SpokesPerson, @AnnualIncome)", DBOpenClose.myConnection);
+                    "INSERT INTO Customer ([Name], StreetAndNumber, ZipCode, City, ContactInfo, SpokesPerson, AnnualIncome) VALUES (@Name, @StreetAndNumber, @ZipCode, @City, @ContactInfo, @SpokesPerson, @AnnualIncome)", DBOpenClose.myConnection);
                 command.Parameters.Add("@Name", SqlDbType.VarChar);
                 command.Parameters["@Name"].Value = customer.Name;
                 command.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar);

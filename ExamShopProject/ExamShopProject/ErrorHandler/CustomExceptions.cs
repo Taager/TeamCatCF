@@ -51,6 +51,13 @@ namespace ExamShopProject.ErrorHandler
         public CustomerWasDeleted(Customer customer) : base($"The following user have been deleted: {customer.Name} ")
         { }
     }
+    // Made by Helena Brunsgaard Madsen
+    class CustomerWasEdited : Exception
+    {
+        // add current user later when login system is made
+        public CustomerWasEdited(Customer customer) : base($"The following user have been edited: {customer.Name}")
+        { }
+    }
 }
 
 

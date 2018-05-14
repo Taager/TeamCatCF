@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
@@ -24,6 +25,14 @@ namespace ExamShopProject
         public ViewCustomer()
         {
             InitializeComponent();
+            lstbx_Customer.ItemsSource = DB.SelectAllCustomers();
+            lstbx_Customer.DisplayMemberPath = "Name";
+        }
+
+        private void lstbx_Customer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Customer chosenCustomer = (Customer)lstbx_Customer.SelectedItem;
+            NavigationService.Navigate(new ViewCustomerDetails(chosenCustomer.customerID));
         }
     }
 }

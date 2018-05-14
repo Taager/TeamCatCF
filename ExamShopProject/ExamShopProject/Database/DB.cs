@@ -48,12 +48,26 @@ namespace ExamShopProject
         {
             return DBSelect.SelectUser(ID);
         }
+        // MAde by Helena Brunsgaard Madsen
+        public static List<Customer> SelectAllCustomers()
+        {
+            return DBSelect.SelectAllCustomers();
+        }
+        public static Customer SelectCustomer(int ID)
+        {
+            return DBSelect.SelectCustomer(ID);
+        }
+
         #endregion
         #region Edit*
         //Made by Mikkel E.R. Glerup
         public static bool EditUser(User user)
         {
             return DBEdit.EditUser(user);
+        }
+        public static bool EditCustomer(Customer customer)
+        {
+            return DBEdit.EditCustomer(customer);
         }
         #endregion
         #region Delete*

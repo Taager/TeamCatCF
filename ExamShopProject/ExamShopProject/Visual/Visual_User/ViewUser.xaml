@@ -23,7 +23,11 @@
             <ColumnDefinition Width="116*"/>
             <ColumnDefinition Width="41*"/>
         </Grid.ColumnDefinitions>
-        <Frame x:Name="_viewUserDetails"/>
+
+        <DockPanel Grid.ColumnSpan="5" Grid.RowSpan="5" Grid.Row="0">
+            <Frame x:Name="_viewUserDetails" />
+        </DockPanel>
+
         <ListBox x:Name="ListBox_Show"  Grid.Row="1" Grid.Column="1" SelectionChanged="ListBox_Show_SelectionChanged" />
     </Grid>
 </Page>

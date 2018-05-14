@@ -21,12 +21,12 @@ namespace ExamShopProject
     /// <summary>
     /// Interaction logic for ShowCustomerInfo.xaml
     /// </summary>
-    public partial class ShowCustomerInfo : Page
+    public partial class ViewCustomerDetails : Page
     {
         Customer cusObj = new Customer();
         CustomerLogic customerLogic = new CustomerLogic();
 
-        public ShowCustomerInfo()
+        public ViewCustomerDetails(int ID)
         {
             InitializeComponent();
             DataContext = cusObj;

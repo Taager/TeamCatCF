@@ -36,6 +36,7 @@ namespace ExamShopProject
             if (!wasSuccess)
                 MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
             this.Content = null;
+            NavigationService.Navigate(new ViewCustomer());
         }
     }
 }
