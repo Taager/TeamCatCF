@@ -14,7 +14,7 @@ namespace ExamShopProject
                 return false;
             return true;
         }
-        public bool AnnualIncomeValidation(float input)
+        public bool AnnualIncomeValidation(double input)
         {
             if (input == 0)
                 return false;

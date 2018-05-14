@@ -53,19 +53,23 @@ namespace ExamShopProject
             try
             {
                 DBOpenClose.OpenConnection();
-                SqlCommand UpdateUser = new SqlCommand("UPDATE [Customer] SET [Name]=@Name, StreetAndNumber=@StreetAndNumber, ZipCode=@ZipCode, City=@City, ContactInfo=@ContactInfo, SpokesPerson=@SpokesPerson WHERE CustomerID=@CustomerID", DBOpenClose.myConnection);
+                SqlCommand UpdateUser = new SqlCommand("UPDATE [Customer] SET [Name]=@Name, StreetAndNumber=@StreetAndNumber, ZipCode=@ZipCode, City=@City, ContactInfo=@ContactInfo, SpokesPerson=@SpokesPerson, AnnualIncome=@AnnualIncome WHERE CustomerID=@CustomerID", DBOpenClose.myConnection);
                 UpdateUser.Parameters.Add("@Name", SqlDbType.VarChar);
                 UpdateUser.Parameters["@Name"].Value = customer.Name;
                 UpdateUser.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar);
                 UpdateUser.Parameters["@StreetAndNumber"].Value = customer.StreetAndNumber;
-                UpdateUser.Parameters.Add("@ZipCode", SqlDbType.VarChar);
+                UpdateUser.Parameters.Add("@ZipCode", SqlDbType.Int);
                 UpdateUser.Parameters["@ZipCode"].Value = customer.ZipCode;
-                UpdateUser.Parameters.Add("@City", SqlDbType.Bit);
+                UpdateUser.Parameters.Add("@City", SqlDbType.VarChar);
                 UpdateUser.Parameters["@City"].Value = customer.City;
-                UpdateUser.Parameters.Add("@ContactInfo", SqlDbType.Int);
+                UpdateUser.Parameters.Add("@ContactInfo", SqlDbType.VarChar);
                 UpdateUser.Parameters["@ContactInfo"].Value = customer.ContactInfo;
-                UpdateUser.Parameters.Add("@SpokesPerson", SqlDbType.Int);
+                UpdateUser.Parameters.Add("@SpokesPerson", SqlDbType.VarChar);
                 UpdateUser.Parameters["@SpokesPerson"].Value = customer.SpokesPerson;
+                UpdateUser.Parameters.Add("@AnnualIncome", SqlDbType.Float);
+                UpdateUser.Parameters["@AnnualIncome"].Value = customer.AnnualIncome;
+                UpdateUser.Parameters.Add("@CustomerID", SqlDbType.Int);
+                UpdateUser.Parameters["@CustomerID"].Value = customer.customerID;
                 UpdateUser.ExecuteNonQuery();
                 DBOpenClose.CloseConnection();
                 return true;

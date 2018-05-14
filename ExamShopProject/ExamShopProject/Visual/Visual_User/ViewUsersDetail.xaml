@@ -41,7 +41,7 @@
         <TextBox x:Name="TxtBox_Password" Text="{Binding Password}" FontSize="16" Grid.Column="2" Grid.Row="3" IsEnabled="False" Grid.ColumnSpan="6"/>
         <TextBox x:Name="TxtBox_IsAdmin" Text="{Binding IsAdminString}" FontSize="16" Grid.Column="2" Grid.Row="4" IsEnabled="False" Grid.ColumnSpan="6" Opacity="100"/>
         <Button x:Name="Btn_Edit" Content="Edit" FontSize="15" Grid.Column="5" Grid.Row="7" Click="Btn_Edit_Enable" />
-        <Button x:Name="Btn_Save" Content="Save" FontSize="15" Grid.Column="8" Grid.Row="7" Click="Btn_Save_Click"  Opacity="0" />
+        <Button x:Name="Btn_Save" Content="Save" FontSize="15" Grid.Column="8" Grid.Row="7" Click="Btn_Save_Click" IsEnabled="False" />
         <Button x:Name="Btn_Delete" Content="Delete" Grid.Row="7" Grid.Column="3" Click="Btn_Click_DeleteUser" />
         <CheckBox x:Name="CheckBox_IsAdmin" Content="Admin" Grid.Column="2" Grid.Row="4" Grid.RowSpan="2" IsEnabled="False" Opacity="0" Grid.ColumnSpan="3"/>
 

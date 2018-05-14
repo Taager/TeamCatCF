@@ -72,8 +72,8 @@ namespace ExamShopProject.Object
                 NotifyPropertyChanged();
             }
         }
-        private float _annualIncome;
-        public float AnnualIncome
+        private double _annualIncome;
+        public double AnnualIncome
         {
             get { return _annualIncome; }
             set

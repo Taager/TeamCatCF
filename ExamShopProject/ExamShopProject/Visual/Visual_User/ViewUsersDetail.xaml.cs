@@ -35,13 +35,14 @@ namespace ExamShopProject
         //Made by Mikkel E.R. Glerup
         private void Btn_Edit_Enable(object sender, RoutedEventArgs e)
         {
+            Btn_Edit.IsEnabled = false;
             TxtBox_Name.IsEnabled = true;
             TxtBox_Username.IsEnabled = true;
             TxtBox_Password.IsEnabled = true;
             TxtBox_IsAdmin.Opacity = 0;
             CheckBox_IsAdmin.IsEnabled = true;
             CheckBox_IsAdmin.Opacity = 100;
-            Btn_Save.Opacity = 100;
+            Btn_Save.IsEnabled = true;
         }
         //Made by Mikkel E.R. Glerup
         private void Btn_Save_Click(object sender, RoutedEventArgs e)

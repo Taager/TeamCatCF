@@ -40,7 +40,7 @@ namespace ExamShopProject
                 return true;
             }
         }
-        public bool EditCustomer(int IDToEdit)
+        public bool EditCustomer(Customer customer)
         {
             try
             {

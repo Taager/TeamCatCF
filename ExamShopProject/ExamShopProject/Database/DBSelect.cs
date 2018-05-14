@@ -92,7 +92,7 @@ namespace ExamShopProject
                     customer.City = reader.GetString(4);
                     customer.ContactInfo = reader.GetString(5);
                     customer.SpokesPerson = reader.GetString(6);
-                    customer.AnnualIncome = reader.GetFloat(7);
+                    customer.AnnualIncome = reader.GetDouble(7); // commented out, fix later
                     customerList.Add(customer);
                 }
                 DBOpenClose.CloseConnection();
@@ -125,7 +125,7 @@ namespace ExamShopProject
                     customer.City = reader.GetString(4);
                     customer.ContactInfo = reader.GetString(5);
                     customer.SpokesPerson = reader.GetString(6);
-                    customer.AnnualIncome = reader.GetFloat(7);
+                    customer.AnnualIncome = reader.GetDouble(7);
                 }
                 DBOpenClose.CloseConnection();
                 return customer;
