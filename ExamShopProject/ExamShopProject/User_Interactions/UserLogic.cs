@@ -41,7 +41,7 @@ namespace ExamShopProject.User_Interactions
                 bool wasSuccess = DB.InsertUser(user);
                 if (wasSuccess)
                     throw new UserWasAdded(user);
-                return wasSuccess;
+                return false;
             }
             //Only thrown if creating user was a succes
             catch (UserWasAdded ex)

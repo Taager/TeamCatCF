@@ -14,6 +14,10 @@ namespace ExamShopProject
     {
         public static bool DeleteUser(string callerClass, int callerID)
         {
+            if (callerClass == null)
+            {
+                throw new ArgumentNullException(nameof(callerClass));
+            }
             try
             {
                 DBOpenClose.OpenConnection();

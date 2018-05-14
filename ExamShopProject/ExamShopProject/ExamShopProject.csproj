@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Customer_Interactions\CustomerValidation.cs" />
     <Compile Include="Database\DBDelete.cs" />
     <Compile Include="Database\DBEdit.cs" />
     <Compile Include="Database\DBInsert.cs" />

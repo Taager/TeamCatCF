@@ -14,6 +14,10 @@ namespace ExamShopProject
     {
         public static bool EditUser(User user)
         {
+            if (user == null)
+            {
+                throw new ArgumentNullException(nameof(user));
+            }
             try
             {
                 DBOpenClose.OpenConnection();

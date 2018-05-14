@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExamShopProject.Object;
-using ExamShopProject.Customer_Interactions;
+
 
 namespace ExamShopProject
 {
@@ -30,8 +30,11 @@ namespace ExamShopProject
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            interaction.CreateCustomer(customer.Name, customer.Adress, customer.ContactInfo, customer.SpokesPerson, customer.AnnualIncome);
-            MessageBox.Show("Successfully saved!");
+            bool wasSuccess = interaction.CreateCustomer(customer);
+            if (wasSuccess)
+                MessageBox.Show("Customer was created successfully.");
+            if (!wasSuccess)
+                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
             this.Content = null;
         }
     }
