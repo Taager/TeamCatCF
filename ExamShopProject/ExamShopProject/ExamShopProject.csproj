@@ -54,12 +54,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Visual\Visual_Subscriptions\CreateSubscriptions.xaml.cs">
+      <DependentUpon>CreateSubscriptions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Customer_Interactions\CustomerValidation.cs" />
     <Compile Include="Database\DBDelete.cs" />
     <Compile Include="Database\DBEdit.cs" />
     <Compile Include="Database\DBInsert.cs" />
     <Compile Include="Database\DBOpenClose.cs" />
     <Compile Include="Database\DBSelect.cs" />
+    <Compile Include="Visual\Visual_Subscriptions\ViewSubscriptions.xaml.cs">
+      <DependentUpon>ViewSubscriptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Subscriptions\OpenSubscriptions.xaml.cs">
+      <DependentUpon>OpenSubscriptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Statistics\OpenStatistics.xaml.cs">
+      <DependentUpon>OpenStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Deals\OpenDeals.xaml.cs">
+      <DependentUpon>OpenDeals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Catalogue\OpenCatalogue.xaml.cs">
+      <DependentUpon>OpenCatalogue.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Visual\Visual_LogIn\LogIn.xaml.cs">
       <DependentUpon>LogIn.xaml</DependentUpon>
     </Compile>
@@ -91,6 +109,30 @@
     <Compile Include="ErrorHandler\CustomExceptions.cs" />
     <Compile Include="Statistics\Statistics.cs" />
     <Compile Include="User_Interactions\UserLogic.cs" />
+    <Page Include="Visual\Visual_Subscriptions\CreateSubscriptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Subscriptions\ViewSubscriptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Subscriptions\OpenSubscriptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Statistics\OpenStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Deals\OpenDeals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Catalogue\OpenCatalogue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Visual\Visual_LogIn\LogIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,11 +215,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Visual\Visual_Catalogue\" />
-    <Folder Include="Visual\Visual_Deals\" />
-    <Folder Include="Visual\Visual_Statistics\" />
-    <Folder Include="Visual\Visual_Subscriptions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

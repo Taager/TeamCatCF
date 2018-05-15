@@ -44,5 +44,25 @@ namespace ExamShopProject
         {
             _mainFrame.Navigate(new LogIn());
         }
+
+        private void btn_Subscriptions_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new OpenSubscriptions());
+        }
+
+        private void btn_Statistics_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new OpenStatistics());
+        }
+
+        private void btn_Catalogue_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new OpenCatalogue());
+        }
+
+        private void btn_Deals_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new OpenDeals());
+        }
     }
 }
