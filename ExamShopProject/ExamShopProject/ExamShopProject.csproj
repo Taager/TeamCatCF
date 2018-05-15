@@ -54,6 +54,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Visual\Visual_Catalogue\ViewCatalogue.xaml.cs">
+      <DependentUpon>ViewCatalogue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Deals\ViewDeals.xaml.cs">
+      <DependentUpon>ViewDeals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Statistics\ViewStatistics.xaml.cs">
+      <DependentUpon>ViewStatistics.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Visual\Visual_Subscriptions\CreateSubscriptions.xaml.cs">
       <DependentUpon>CreateSubscriptions.xaml</DependentUpon>
     </Compile>
@@ -109,6 +118,18 @@
     <Compile Include="ErrorHandler\CustomExceptions.cs" />
     <Compile Include="Statistics\Statistics.cs" />
     <Compile Include="User_Interactions\UserLogic.cs" />
+    <Page Include="Visual\Visual_Catalogue\ViewCatalogue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Deals\ViewDeals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Statistics\ViewStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Visual\Visual_Subscriptions\CreateSubscriptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
