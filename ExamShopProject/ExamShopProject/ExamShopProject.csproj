@@ -54,6 +54,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Message\CreateMessage.cs" />
+    <Compile Include="User_Interactions\GetRandomPassword.cs" />
+    <Compile Include="User_Interactions\GetUsername.cs" />
     <Compile Include="Visual\Visual_Deals\ViewDealDetails.xaml.cs">
       <DependentUpon>ViewDealDetails.xaml</DependentUpon>
     </Compile>

@@ -40,10 +40,10 @@ namespace ExamShopProject
                 isAdmin = false;
             bool wasSuccess = userLogic.CreateUser(user.Name = TxtBox_Name.Text, user.IsAdmin = isAdmin);
             if (wasSuccess)
-                MessageBox.Show("User was created successfully.");
+                CreateMessage.ShowCreateSuccesful("User");
             if (!wasSuccess)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
-            NavigationService.Navigate(new ViewUser());
+                CreateMessage.ShowFailureMessage();
+            this.Content = null;
         }
     }
 }

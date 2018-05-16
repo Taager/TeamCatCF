@@ -70,11 +70,6 @@ namespace ExamShopProject
                 return true;
             }
         }
-
-        //private void ViewCustomerStat()
-        //{
-        //    // Stat command
-        //}
     }
 }
 

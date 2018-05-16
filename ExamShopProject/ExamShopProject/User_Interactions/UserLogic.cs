@@ -14,6 +14,8 @@ namespace ExamShopProject.User_Interactions
         //made by Mikkel E.R. Glerup
         ObjectHandler objectHandler = new ObjectHandler();
         User user = new User();
+        GetUsername usernameCreation = new GetUsername();
+        GetRandomPassword passwordCreation = new GetRandomPassword();
         public void UserLogin()
         {
             try
@@ -35,8 +37,8 @@ namespace ExamShopProject.User_Interactions
             try
             {
                 user.Name = name;
-                user.Username = GetRandomUsername(name);
-                user.Password = GetRandomPassword();
+                user.Username = usernameCreation.GetRandomUsername(name);
+                user.Password = passwordCreation.CreateRandomPassword();
                 user.IsAdmin = isAdmin;
                 bool wasSuccess = DB.InsertUser(user);
                 if (wasSuccess)
@@ -51,39 +53,6 @@ namespace ExamShopProject.User_Interactions
                 return true;
             }
         }
-        #region Get rnd username and string logic
-        //made by Mikkel E.R. Glerup
-        public string GetRandomUsername(string name)
-        {
-            
-            rnd.Next();
-            if (name.Length < 3)
-                name = name + GetRandomChar();
-            //The above and below code is to make sure 2 letter names will be without a " " and not < 6 chars
-            name = name.Replace(" ", "");
-            return name = name.Substring(0, 3) + GetRandomNumber(); ;
-        }
-        public char GetRandomChar()
-        {
-            string chars = "abcdefghijklmnopqrstuvwxyz";
-            int num = rnd.Next(0, chars.Length - 1);
-            char rndChar = chars[num];
-            return rndChar;
-        }
-        public string GetRandomNumber()
-        {  
-
-            int rndNumb = rnd.Next(100,999);
-            string rndNumbString = rndNumb.ToString();
-            return rndNumbString;
-        }
-        public string GetRandomPassword()
-        {
-            string password = System.IO.Path.GetRandomFileName();
-            password = password.Replace(".", "");
-            return password = password.Substring(0, 8);
-        }
-        #endregion
         //Made by Mikkel E.R. Glerup
         public bool EditUser(User user)
         {
@@ -115,18 +84,6 @@ namespace ExamShopProject.User_Interactions
                 return true;
             }
      
-        }
-        private void ViewUser()
-        {
-            // DB command
-        }
-        private void ViewUserStat()
-        {
-            // Stat command
-        }
-        public void Log()
-        {
-            // Log command
         }
     }
 }

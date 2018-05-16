@@ -56,9 +56,9 @@ namespace ExamShopProject
                 user.IsAdmin = false;
             bool wasSuccess = userLogic.EditUser(user);
             if (wasSuccess)
-                MessageBox.Show("User was edited successfully.");
+                CreateMessage.ShowEditSuccesful("User");
             if (!wasSuccess)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+                CreateMessage.ShowFailureMessage();
             NavigationService.Navigate(new ViewUsersDetail(user.ID));
         }
 
@@ -67,9 +67,9 @@ namespace ExamShopProject
             bool wasSucces = userLogic.DeleteUser("user", user.ID);
                 if (wasSucces)
                 MessageBox.Show("User was succesfully deleted");
-                if (!wasSucces)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
-            NavigationService.Navigate(new ViewUser());
+            if (!wasSucces)
+                CreateMessage.ShowFailureMessage();
+            this.Content = null;
         }
     }
 }
