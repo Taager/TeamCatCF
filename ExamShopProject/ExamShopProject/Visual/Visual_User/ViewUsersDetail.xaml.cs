@@ -65,8 +65,8 @@ namespace ExamShopProject
         private void Btn_Click_DeleteUser(object sender, RoutedEventArgs e)
         {
             bool wasSucces = userLogic.DeleteUser("user", user.ID);
-                if (wasSucces)
-                MessageBox.Show("User was succesfully deleted");
+            if (wasSucces)
+                CreateMessage.ShowDeleteSuccesful("User");
             if (!wasSucces)
                 CreateMessage.ShowFailureMessage();
             this.Content = null;

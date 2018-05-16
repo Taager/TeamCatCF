@@ -25,7 +25,7 @@ namespace ExamShopProject
                 validationSucces = customerValidation.AnnualIncomeValidation(customer.AnnualIncome); 
                 if (!validationSucces)
                 {
-                    MessageBox.Show("Zip code or annual incomes values were incorrect, try again.");
+                    CreateMessage.ShowInputNotValid();
                     return false;
                 }
                 bool wasSuccess = DB.InsertCustomer(customer);

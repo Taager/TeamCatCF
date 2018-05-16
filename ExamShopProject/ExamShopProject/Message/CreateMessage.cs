@@ -7,6 +7,7 @@ using System.Windows;
 
 namespace ExamShopProject
 {
+    //Made by Mikkel E.R. Glerup
     static class CreateMessage
     {
         public static void ShowCreateSuccesful(string callerClass)
@@ -20,6 +21,14 @@ namespace ExamShopProject
         public static void ShowEditSuccesful(string callerClass)
         {
             MessageBox.Show($"{callerClass} was edited successfully.");
+        }
+        public static void ShowDeleteSuccesful(string callerClass)
+        {
+            MessageBox.Show($"{callerClass} was deleted successfully.");
+        }
+        public static void ShowInputNotValid()
+        {
+                    MessageBox.Show("Information was wrong, please try again");
         }
     }
 }

@@ -37,9 +37,9 @@ namespace ExamShopProject
         {
             bool wasSucces = customerLogic.DeleteCustomer("customer", customer.customerID);
             if (wasSucces)
-                MessageBox.Show("Customer was succesfully deleted");
+                CreateMessage.ShowDeleteSuccesful("Customer");
             if (!wasSucces)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+                CreateMessage.ShowFailureMessage();
             NavigationService.Navigate(new ViewUser());
         }
 
@@ -58,21 +58,31 @@ namespace ExamShopProject
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            customer.AnnualIncome = Convert.ToDouble(txtbx_AnnualIncome.Text);
-            customer.City = txtbx_City.Text;
-            customer.ContactInfo = txtbx_ContactInfo.Text;
-            customer.Name = txtbx_Name.Text;
-            customer.SpokesPerson = txtbx_Spokesperson.Text;
-            customer.StreetAndNumber = txtbx_StreetNumber.Text;
-            customer.ZipCode = Convert.ToInt32(txtbx_Zip.Text);
+            try
+            {
+                //AnnualIncome create validation
+                customer.AnnualIncome = Convert.ToDouble(txtbx_AnnualIncome.Text);
+                customer.City = txtbx_City.Text;
+                customer.ContactInfo = txtbx_ContactInfo.Text;
+                customer.Name = txtbx_Name.Text;
+                customer.SpokesPerson = txtbx_Spokesperson.Text;
+                customer.StreetAndNumber = txtbx_StreetNumber.Text;
+                //ZipCode create validation
+                customer.ZipCode = Convert.ToInt32(txtbx_Zip.Text);
 
-            bool wasSuccess = customerLogic.EditCustomer(customer);
-            if (wasSuccess)
-                MessageBox.Show("Customer was edited successfully.");
-            if (!wasSuccess)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
-            NavigationService.Navigate(new ViewCustomerDetails(customer.customerID));
-
+                bool wasSuccess = customerLogic.EditCustomer(customer);
+                if (wasSuccess)
+                    CreateMessage.ShowEditSuccesful("Customer");
+                if (!wasSuccess)
+                    CreateMessage.ShowFailureMessage();
+                NavigationService.Navigate(new ViewCustomerDetails(customer.customerID));
+            }
+            catch (Exception ex)
+            {
+                if (ex is FormatException)
+                    CreateMessage.ShowInputNotValid();
+                ErrorHandler.Log.WriteFail(ex);
+            }
         }
     }
 }
