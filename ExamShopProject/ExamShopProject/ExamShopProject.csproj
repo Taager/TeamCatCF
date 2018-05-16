@@ -54,6 +54,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Product_Interactions\ProductLogic.cs" />
+    <Compile Include="Visual\Visual_Products\ViewProductDetails.xaml.cs">
+      <DependentUpon>ViewProductDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Products\CreateProducts.xaml.cs">
+      <DependentUpon>CreateProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Products\ViewProducts.xaml.cs">
+      <DependentUpon>ViewProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Products\OpenProducts.xaml.cs">
+      <DependentUpon>OpenProducts.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Visual\Visual_Deals\ViewDealDetails.xaml.cs">
       <DependentUpon>ViewDealDetails.xaml</DependentUpon>
     </Compile>
@@ -121,6 +134,22 @@
     <Compile Include="ErrorHandler\CustomExceptions.cs" />
     <Compile Include="Statistics\Statistics.cs" />
     <Compile Include="User_Interactions\UserLogic.cs" />
+    <Page Include="Visual\Visual_Products\ViewProductDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Products\CreateProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Products\ViewProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Products\OpenProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Visual\Visual_Deals\ViewDealDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
