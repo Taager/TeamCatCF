@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExamShopProject.Object;
+using ExamShopProject.Product_Interactions;
 
 namespace ExamShopProject
 {
@@ -23,6 +24,7 @@ namespace ExamShopProject
     public partial class CreateProducts : Page
     {
         Product product = new Product();
+        ProductLogic interaction = new ProductLogic();
         public CreateProducts()
         {
             InitializeComponent();
@@ -31,7 +33,14 @@ namespace ExamShopProject
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            //Product call
+            bool wasSuccess = interaction.CreateProduct(product);
+            if (wasSuccess)
+                MessageBox.Show("Product was created successfully.");
+            if (!wasSuccess)
+                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+            this.Content = null;
+            NavigationService.Navigate(new ViewProducts());
+
         }
     }
 }
