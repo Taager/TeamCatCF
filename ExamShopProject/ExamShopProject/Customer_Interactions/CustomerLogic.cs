@@ -21,8 +21,8 @@ namespace ExamShopProject
         {
             try
             {
-                bool validationSucces = customerValidation.ZipCodeValidation(customer.ZipCode);
-                validationSucces = customerValidation.AnnualIncomeValidation(customer.AnnualIncome);
+                bool validationSucces = customerValidation.ZipCodeValidation(customer.ZipCode); 
+                validationSucces = customerValidation.AnnualIncomeValidation(customer.AnnualIncome); 
                 if (!validationSucces)
                 {
                     MessageBox.Show("Zip code or annual incomes values were incorrect, try again.");
@@ -46,7 +46,7 @@ namespace ExamShopProject
             {
                 bool wasSucces = DB.EditCustomer(customer);
                 if (wasSucces)
-                    throw new CustomerWasEdited(customer);
+                    throw new CustomerWasEdited(customer); //writes in log when a customer is edited
                 return wasSucces;
             }
             catch (CustomerWasEdited ex)
@@ -61,7 +61,7 @@ namespace ExamShopProject
             {
                 bool wasSucces = DB.DeleteCustomer(callerClass, callerID);
                 if (wasSucces)
-                    throw new CustomerWasDeleted(customer);
+                    throw new CustomerWasDeleted(customer); //writes in log when a customer is deleted
                 return wasSucces;
             }
             catch (CustomerWasDeleted ex)
@@ -70,17 +70,10 @@ namespace ExamShopProject
                 return true;
             }
         }
-        //private void ViewCustomer()
-        //{
-        //    // DB command
-        //}
+
         //private void ViewCustomerStat()
         //{
         //    // Stat command
-        //}
-        //public void Log()
-        //{
-        //    // Log command
         //}
     }
 }

@@ -23,17 +23,17 @@ namespace ExamShopProject
         public OpenSubscriptions()
         {
             InitializeComponent();
-            _viewSubscriptions.Navigate(new ViewSubscriptions());
+            _subscription.Navigate(new ViewSubscriptions());
         }
 
         private void btn_View_Click(object sender, RoutedEventArgs e)
         {
-            _viewSubscriptions.Navigate(new ViewSubscriptions());
+            _subscription.Navigate(new ViewSubscriptions());
         }
 
         private void btn_Create_Click(object sender, RoutedEventArgs e)
         {
-            _viewSubscriptions.Navigate(new CreateSubscriptions());
+            _subscription.Navigate(new CreateSubscriptions());
         }
     }
 }

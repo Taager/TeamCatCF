@@ -41,7 +41,5 @@ namespace ExamShopProject.Statistics
         {
 
         }
-    
-
     }
 }

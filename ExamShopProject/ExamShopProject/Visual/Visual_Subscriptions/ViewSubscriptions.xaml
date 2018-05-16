@@ -5,21 +5,26 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ExamShopProject"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="600"
+      d:DesignHeight="400" d:DesignWidth="600"
       Title="ViewSubscriptions">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="97*"/>
-            <ColumnDefinition Width="53*"/>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="7*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="59*"/>
-            <RowDefinition Height="242*"/>
+            <RowDefinition Height="49*"/>
+            <RowDefinition Height="151*"/>
         </Grid.RowDefinitions>
-        <ListBox HorizontalAlignment="Left" Height="180" Margin="83,59,0,0" VerticalAlignment="Top" Width="305" Grid.RowSpan="2"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="83,26,0,0" TextWrapping="Wrap" Text="Search..." VerticalAlignment="Top" Width="305"/>
-        <Button x:Name="btn_Search" Content="Search" Grid.Column="1" HorizontalAlignment="Left" Margin="23,26,0,0" VerticalAlignment="Top" Width="75"/>
+
+        <DockPanel Grid.RowSpan="2" Grid.Row="0" Grid.ColumnSpan="2">
+            <Frame x:Name="_subscriptionView" />
+        </DockPanel>
+
+        <TextBox  HorizontalAlignment="Left" Height="23" Margin="40,50,0,0" TextWrapping="Wrap" Text="Search..." VerticalAlignment="Top" Width="385" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="lstbx_Subscription" HorizontalAlignment="Left" Height="200" Margin="40,40.4,0,0" VerticalAlignment="Top" Width="385" Grid.Row="1" Grid.ColumnSpan="2" />
+        <Button Content="Search" HorizontalAlignment="Left" Margin="26.2,54,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Height="19"/>
 
     </Grid>
 </Page>
