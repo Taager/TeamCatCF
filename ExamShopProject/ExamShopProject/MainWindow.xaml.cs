@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using ExamShopProject.ErrorHandler;
 using ExamShopProject.User_Interactions;
 using System.Xaml;
+using System.IO;
 
 
 namespace ExamShopProject
@@ -26,17 +27,42 @@ namespace ExamShopProject
     {
         public MainWindow()
         {
+
             InitializeComponent();
         }
 
-        private void btn_CreateUser_Click(object sender, RoutedEventArgs e)
+        private void btn_User_Click(object sender, RoutedEventArgs e) //=> _mainFrame.Navigate(new OpenUser()); overvej, om dette er bedre.
         {
             _mainFrame.Navigate(new OpenUser());
         }
-
         private void btn_Customer_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new OpenCustomer());
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new LogIn());
+        }
+
+        private void btn_Subscriptions_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new OpenSubscriptions());
+        }
+
+        private void btn_Statistics_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new OpenStatistics());
+        }
+
+        private void btn_Catalogue_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new OpenCatalogue());
+        }
+
+        private void btn_Deals_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new OpenDeals());
         }
     }
 }

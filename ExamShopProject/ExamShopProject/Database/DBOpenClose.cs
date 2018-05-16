@@ -1,41 +1,26 @@
 ﻿using System;
-using ExamShopProject.ErrorHandler;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data.Common;
+using ExamShopProject.ErrorHandler;
 
 namespace ExamShopProject
 {
-    // made by Mikkel. E.R. Glerup
-    static class DB
+    class DBOpenClose
     {
-        public static bool UserLogin()
-        {
-            try
-            {
-                return true;
-            }
-            catch (Exception ex)
-            {
-                
-                return false;
-            }
-        }
-        #region open and close connection
         //made by Mikkel. E.R. Glerup
         public static SqlConnection myConnection;
-        public static bool openConnection()
+        public static bool OpenConnection()
         {
             try
             {
                 myConnection = new SqlConnection(
-                    "Data Source=.;Initial Catalog=AP-EngrossBETA;Integrated Security=True"
+                    "Data Source=.;Initial Catalog=Charlie-APE;Integrated Security=True"
                     );
+                // skal tilgåes fra properties
                 myConnection.Open();
-
                 return true;
             }
             catch (Exception ex)
@@ -44,7 +29,8 @@ namespace ExamShopProject
                 return false;
             }
         }
-        public static bool closeConnection()
+        //Made by Mikkel E.R. Glerup
+        public static bool CloseConnection()
         {
             try
             {
@@ -57,6 +43,5 @@ namespace ExamShopProject
                 return false;
             }
         }
-        #endregion
     }
 }

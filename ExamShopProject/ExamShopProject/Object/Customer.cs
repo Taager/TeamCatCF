@@ -22,13 +22,33 @@ namespace ExamShopProject.Object
                 NotifyPropertyChanged();
             }
         }
-        private string _adress;
-        public string Adress
+        private string _streetAndNumber;
+        public string StreetAndNumber
         {
-            get { return _adress; }
+            get { return _streetAndNumber; }
             set
             {
-                _adress = value;
+                _streetAndNumber = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _zipCode;
+        public int ZipCode
+        {
+            get { return _zipCode; }
+            set
+            {
+                _zipCode = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private string _city;
+        public string City
+        {
+            get { return _city; }
+            set
+            {
+                _city = value;
                 NotifyPropertyChanged();
             }
         }

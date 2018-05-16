@@ -54,48 +54,146 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Visual_User\ViewUser.xaml.cs">
+    <Compile Include="Visual\Visual_Deals\ViewDealDetails.xaml.cs">
+      <DependentUpon>ViewDealDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Catalogue\ViewCatalogue.xaml.cs">
+      <DependentUpon>ViewCatalogue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Deals\ViewDeals.xaml.cs">
+      <DependentUpon>ViewDeals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Statistics\ViewStatistics.xaml.cs">
+      <DependentUpon>ViewStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Subscriptions\CreateSubscriptions.xaml.cs">
+      <DependentUpon>CreateSubscriptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Customer_Interactions\CustomerValidation.cs" />
+    <Compile Include="Database\DBDelete.cs" />
+    <Compile Include="Database\DBEdit.cs" />
+    <Compile Include="Database\DBInsert.cs" />
+    <Compile Include="Database\DBOpenClose.cs" />
+    <Compile Include="Database\DBSelect.cs" />
+    <Compile Include="Visual\Visual_Subscriptions\ViewSubscriptions.xaml.cs">
+      <DependentUpon>ViewSubscriptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Subscriptions\OpenSubscriptions.xaml.cs">
+      <DependentUpon>OpenSubscriptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Statistics\OpenStatistics.xaml.cs">
+      <DependentUpon>OpenStatistics.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Deals\OpenDeals.xaml.cs">
+      <DependentUpon>OpenDeals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Catalogue\OpenCatalogue.xaml.cs">
+      <DependentUpon>OpenCatalogue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_LogIn\LogIn.xaml.cs">
+      <DependentUpon>LogIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Object\ObjectHandler.cs" />
+    <Compile Include="Visual\Visual_User\ViewUsersDetail.xaml.cs">
+      <DependentUpon>ViewUsersDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Customer\ViewCustomerDetails.xaml.cs">
+      <DependentUpon>ViewCustomerDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_User\ViewUser.xaml.cs">
       <DependentUpon>ViewUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Visual_User\OpenUser.xaml.cs">
+    <Compile Include="Visual\Visual_User\OpenUser.xaml.cs">
       <DependentUpon>OpenUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Visual_Customer\OpenCustomer.xaml.cs">
+    <Compile Include="Visual\Visual_Customer\OpenCustomer.xaml.cs">
       <DependentUpon>OpenCustomer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Visual_Customer\ViewCustomer.xaml.cs">
+    <Compile Include="Visual\Visual_Customer\ViewCustomer.xaml.cs">
       <DependentUpon>ViewCustomer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Visual_User\CreateUser.xaml.cs">
+    <Compile Include="Visual\Visual_User\CreateUser.xaml.cs">
       <DependentUpon>CreateUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Visual_Customer\CreateCustomer.xaml.cs">
+    <Compile Include="Visual\Visual_Customer\CreateCustomer.xaml.cs">
       <DependentUpon>CreateCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="ErrorHandler\CustomExceptions.cs" />
     <Compile Include="Statistics\Statistics.cs" />
     <Compile Include="User_Interactions\UserLogic.cs" />
-    <Page Include="Visual_User\ViewUser.xaml">
+    <Page Include="Visual\Visual_Deals\ViewDealDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Visual_User\OpenUser.xaml">
+    <Page Include="Visual\Visual_Catalogue\ViewCatalogue.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Visual_Customer\OpenCustomer.xaml">
+    <Page Include="Visual\Visual_Deals\ViewDeals.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Visual_Customer\ViewCustomer.xaml">
+    <Page Include="Visual\Visual_Statistics\ViewStatistics.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Visual_User\CreateUser.xaml">
+    <Page Include="Visual\Visual_Subscriptions\CreateSubscriptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Visual_Customer\CreateCustomer.xaml">
+    <Page Include="Visual\Visual_Subscriptions\ViewSubscriptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Subscriptions\OpenSubscriptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Statistics\OpenStatistics.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Deals\OpenDeals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Catalogue\OpenCatalogue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_LogIn\LogIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_User\ViewUsersDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Customer\ViewCustomerDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_User\ViewUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_User\OpenUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Customer\OpenCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Customer\ViewCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_User\CreateUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Customer\CreateCustomer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -108,7 +206,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Customer_Interactions\CustomerLogic.cs" />
-    <Compile Include="DB.cs" />
+    <Compile Include="Database\DB.cs" />
     <Compile Include="ErrorHandler\Log.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -145,12 +243,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Visual_Catalogue\" />
-    <Folder Include="Visual_Deals\" />
-    <Folder Include="Visual_LogIn\" />
-    <Folder Include="Visual_Statistics\" />
-    <Folder Include="Visual_Subscriptions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,16 +15,14 @@ using System.Windows.Shapes;
 
 namespace ExamShopProject
 {
-    // Made by Helena Brunsgaard Madsen
     /// <summary>
-    /// Interaction logic for ViewCustomer.xaml
+    /// Interaction logic for ViewSubscriptions.xaml
     /// </summary>
-    public partial class ViewCustomer : Page
+    public partial class ViewSubscriptions : Page
     {
-        public ViewCustomer()
+        public ViewSubscriptions()
         {
             InitializeComponent();
         }
-
     }
 }
