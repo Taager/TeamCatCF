@@ -16,6 +16,7 @@ using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
+    //Made by Helena
     /// <summary>
     /// Interaction logic for CreateProducts.xaml
     /// </summary>
@@ -26,6 +27,11 @@ namespace ExamShopProject
         {
             InitializeComponent();
             DataContext = product;
+        }
+
+        private void btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+            //Product call
         }
     }
 }
