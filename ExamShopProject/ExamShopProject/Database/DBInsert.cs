@@ -79,5 +79,37 @@ namespace ExamShopProject
                 return false;
             }
         }
+        public static bool InsertProduct(Product product)
+        {
+            if (product == null)
+            {
+                throw new ArgumentNullException(nameof(product));
+            }
+            try
+            {
+        DBOpenClose.OpenConnection();
+                SqlCommand command = new SqlCommand(
+                    "INSERT INTO [Product] (Name, description, Price, CategoryID) VALUES (@name, @description, @price, @categoryID)", DBOpenClose.myConnection);
+                command.Parameters.Add("@name", SqlDbType.VarChar);
+                command.Parameters["@name"].Value = product.Name;
+                command.Parameters.Add("@description", SqlDbType.Text);
+                command.Parameters["@description"].Value = product.Description;
+                command.Parameters.Add("@price", SqlDbType.Float);
+                command.Parameters["@price"].Value = product.Price;
+                command.Parameters.Add("@categoryID", SqlDbType.Int);
+                command.Parameters["@categoryID"].Value = product.CategoryID;
+                command.ExecuteNonQuery();
+                DBOpenClose.CloseConnection();
+                return true;
+                // need to get CategoryID somehow, right now from a listbox i imagine categories are placed in and sends an ID with the product object.
+            }
+            catch (Exception ex)
+            {
+                DBOpenClose.CloseConnection();
+                Log.WriteFail(ex);
+                return false;
+            }
+        }
+
     }
 }

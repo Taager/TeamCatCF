@@ -35,6 +35,10 @@ namespace ExamShopProject
         {
             return DBInsert.InsertCustomer(customer);
         }
+        public static bool InsertProduct(Product product)
+        {
+            return DBInsert.InsertProduct(product);
+        }
         #endregion
         #region viewList*
         // Made by Mikkel E.R. Glerup

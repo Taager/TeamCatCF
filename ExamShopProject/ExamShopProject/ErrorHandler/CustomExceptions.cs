@@ -48,14 +48,20 @@ namespace ExamShopProject.ErrorHandler
     // Made by Helena Brunsgaard Madsen
     class CustomerWasDeleted : Exception
     {
-        public CustomerWasDeleted(Customer customer) : base($"The following user have been deleted: {customer.Name} ")
+        public CustomerWasDeleted(Customer customer) : base($"The following customer have been deleted: {customer.Name} ")
         { }
     }
     // Made by Helena Brunsgaard Madsen
     class CustomerWasEdited : Exception
     {
         // add current user later when login system is made
-        public CustomerWasEdited(Customer customer) : base($"The following user have been edited: {customer.Name}")
+        public CustomerWasEdited(Customer customer) : base($"The following customer have been edited: {customer.Name}")
+        { }
+    }
+    class ProductWasAdded : Exception
+    {
+        // add current user later when login system is made
+        public ProductWasAdded(Product product) : base($"The following Product have been added: {product.Name}")
         { }
     }
 }
