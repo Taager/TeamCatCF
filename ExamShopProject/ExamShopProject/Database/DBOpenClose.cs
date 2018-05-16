@@ -19,6 +19,7 @@ namespace ExamShopProject
                 myConnection = new SqlConnection(
                     "Data Source=.;Initial Catalog=Charlie-APE;Integrated Security=True"
                     );
+                // skal tilgåes fra properties
                 myConnection.Open();
                 return true;
             }

@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace ExamShopProject
 {
     /// <summary>
-    /// Interaction logic for OpenStatistics.xaml
+    /// Interaction logic for ViewDealDetails.xaml
     /// </summary>
-    public partial class OpenStatistics : Page
+    public partial class ViewDealDetails : Page
     {
-        public OpenStatistics()
+        public ViewDealDetails()
         {
             InitializeComponent();
-            _statistics.Navigate(new ViewStatistics());
         }
     }
 }

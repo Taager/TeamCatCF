@@ -23,6 +23,7 @@ namespace ExamShopProject
         public OpenDeals()
         {
             InitializeComponent();
+            _deals.Navigate(new ViewDeals());
         }
     }
 }

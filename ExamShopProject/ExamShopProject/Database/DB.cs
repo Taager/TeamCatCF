@@ -22,7 +22,6 @@ namespace ExamShopProject
             }
             catch
             {
-
                 return false;
             }
         }
