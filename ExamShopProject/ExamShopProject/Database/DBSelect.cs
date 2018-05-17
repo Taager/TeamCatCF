@@ -167,31 +167,63 @@ namespace ExamShopProject
             }
         }
         // Made by Helena Brunsgaard Madsen
-        public static Categories SelectCategory(int ID)
+        public static List<Product> SelectAllProducts()
         {
             try
             {
-                Categories categories = new Categories();
+                List<Product> productList = new List<Product>();
                 DBOpenClose.OpenConnection();
-                SqlCommand getCategory = new SqlCommand(
-                    "SELECT * FROM [ProductCategories] WHERE CategoryID=@CategoryID", DBOpenClose.myConnection);
-                getCategory.Parameters.Add("@CategoryID", SqlDbType.Int);
-                getCategory.Parameters["@CategoryID"].Value = ID;
-                SqlDataReader reader = getCategory.ExecuteReader();
+                SqlCommand getProducts = new SqlCommand(
+                    "SELECT * FROM [Product]", DBOpenClose.myConnection);
+                SqlDataReader reader = getProducts.ExecuteReader();
                 while (reader.Read())
                 {
-                    categories.CategoryID = reader.GetInt32(0);
-                    categories.Name = reader.GetString(1);
-                    categories.Description = reader.GetString(2);
+                    Product products = new Product();
+                    products.ProductID = reader.GetInt32(0);
+                    products.Name = reader.GetString(1);
+                    products.Description = reader.GetString(2);
+                    products.Price = reader.GetDouble(3); 
+                    products.CategoryID = reader.GetInt32(4);
+                    productList.Add(products);
                 }
                 DBOpenClose.CloseConnection();
-                return categories;
+                return productList;
             }
             catch (Exception ex)
             {
-                Categories categories = new Categories();
+                List<Product> productList = new List<Product>();
                 Log.WriteFail(ex);
-                return categories;
+                return productList;
+            }
+        }
+        // Made by Helena Brunsgaard Madsen
+        public static Product SelectProduct(int ID)
+        {
+            try
+            {
+                Product product = new Product();
+                DBOpenClose.OpenConnection();
+                SqlCommand getProduct = new SqlCommand(
+                    "SELECT * FROM [Product] WHERE ProductID=@ProductID", DBOpenClose.myConnection);
+                getProduct.Parameters.Add("@ProductID", SqlDbType.Int);
+                getProduct.Parameters["@ProductID"].Value = ID;
+                SqlDataReader reader = getProduct.ExecuteReader();
+                while (reader.Read())
+                {
+                    product.ProductID = reader.GetInt32(0);
+                    product.Name = reader.GetString(1);
+                    product.Description = reader.GetString(2);
+                    product.Price = reader.GetDouble(3);
+                    product.CategoryID = reader.GetInt32(4);
+                }
+                DBOpenClose.CloseConnection();
+                return product;
+            }
+            catch (Exception ex)
+            {
+                Product product = new Product();
+                Log.WriteFail(ex);
+                return product;
             }
         }
 

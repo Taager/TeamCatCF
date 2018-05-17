@@ -12,11 +12,11 @@ namespace ExamShopProject.Product_Interactions
     class ProductLogic
     {
         Product product = new Product();
-        public bool CreateProduct(Product product, int categoryID)
+        public bool CreateProduct(Product product)
         {
             try
             {
-                bool wasSuccess = DB.InsertProduct(product, categoryID);
+                bool wasSuccess = DB.InsertProduct(product);
                 if (wasSuccess)
                     throw new ProductWasAdded(product);
                 return false;

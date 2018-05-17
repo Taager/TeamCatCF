@@ -35,9 +35,9 @@ namespace ExamShopProject
         {
             return DBInsert.InsertCustomer(customer);
         }
-        public static bool InsertProduct(Product product, int categoryID)
+        public static bool InsertProduct(Product product)
         {
-            return DBInsert.InsertProduct(product, categoryID);
+            return DBInsert.InsertProduct(product);
         }
         #endregion
         #region viewList*
@@ -56,7 +56,7 @@ namespace ExamShopProject
         {
             return DBSelect.SelectAllCustomers();
         }
-        // MAde by Helena Brunsgaard Madsen
+        // Made by Helena Brunsgaard Madsen
         public static Customer SelectCustomer(int ID)
         {
             return DBSelect.SelectCustomer(ID);
@@ -66,11 +66,16 @@ namespace ExamShopProject
         {
             return DBSelect.SelectAllCategories();
         }
-        // MAde by Helena Brunsgaard Madsen
-        public static Categories SelectCategory(int ID)
+        public static List<Product> SelectAllProducts()
         {
-            return DBSelect.SelectCategory(ID);
+            return DBSelect.SelectAllProducts();
         }
+        // Made by Helena Brunsgaard Madsen
+        public static Product SelectProduct(int ID)
+        {
+            return DBSelect.SelectProduct(ID);
+        }
+
 
         #endregion
         #region Edit*

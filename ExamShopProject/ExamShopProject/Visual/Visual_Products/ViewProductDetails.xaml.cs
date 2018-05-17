@@ -20,7 +20,7 @@ namespace ExamShopProject
     /// </summary>
     public partial class ViewProductDetails : Page
     {
-        public ViewProductDetails()
+        public ViewProductDetails( int ID)
         {
             InitializeComponent();
         }

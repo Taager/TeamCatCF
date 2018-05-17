@@ -82,7 +82,7 @@ namespace ExamShopProject
             }
         }
         // Made by Helena Brunsgaard Madsen
-        public static bool InsertProduct(Product product, int CategoryID)
+        public static bool InsertProduct(Product product)
         {
             if (product == null)
             {
@@ -93,7 +93,8 @@ namespace ExamShopProject
         DBOpenClose.OpenConnection();
                 SqlCommand command = new SqlCommand(
                     "INSERT INTO [Product] (Name, description, Price, CategoryID) " +
-                    "SELECT @name, @description, @price, CategoryID From ProductCategories WHERE CategoryID=@CategoryID", DBOpenClose.myConnection);
+                    "VALUES (@name, @description, @price, @CategoryID)" +
+                    "SELECT CategoryID From ProductCategories WHERE CategoryID=@CategoryID", DBOpenClose.myConnection);
                 command.Parameters.Add("@name", SqlDbType.VarChar);
                 command.Parameters["@name"].Value = product.Name;
                 command.Parameters.Add("@description", SqlDbType.Text);

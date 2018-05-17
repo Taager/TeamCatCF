@@ -11,8 +11,8 @@ namespace ExamShopProject.Object
     //Made by Mikkel E.R. Glerup
     class Product
     {
-        private int _price;
-        public int Price
+        private double _price;
+        public double Price
         {
             get { return _price; }
             set
@@ -21,13 +21,13 @@ namespace ExamShopProject.Object
                 NotifyPropertyChanged();
             }
         }
-        private int _iD;
-        public int ID
+        private int _productID;
+        public int ProductID
         {
-            get { return _iD; }
+            get { return _productID; }
             set
             {
-                _iD = value;
+                _productID = value;
                 NotifyPropertyChanged();
             }
         }
