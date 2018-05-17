@@ -53,27 +53,26 @@ namespace ExamShopProject
             try
             {
                 DBOpenClose.OpenConnection();
-                SqlCommand UpdateUser = new SqlCommand("UPDATE [Customer] SET [Name]=@Name, StreetAndNumber=@StreetAndNumber, ZipCode=@ZipCode, City=@City, ContactInfo=@ContactInfo, SpokesPerson=@SpokesPerson, AnnualIncome=@AnnualIncome WHERE CustomerID=@CustomerID", DBOpenClose.myConnection);
-                UpdateUser.Parameters.Add("@Name", SqlDbType.VarChar);
-                UpdateUser.Parameters["@Name"].Value = customer.Name;
-                UpdateUser.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar);
-                UpdateUser.Parameters["@StreetAndNumber"].Value = customer.StreetAndNumber;
-                UpdateUser.Parameters.Add("@ZipCode", SqlDbType.Int);
-                UpdateUser.Parameters["@ZipCode"].Value = customer.ZipCode;
-                UpdateUser.Parameters.Add("@City", SqlDbType.VarChar);
-                UpdateUser.Parameters["@City"].Value = customer.City;
-                UpdateUser.Parameters.Add("@ContactInfo", SqlDbType.VarChar);
-                UpdateUser.Parameters["@ContactInfo"].Value = customer.ContactInfo;
-                UpdateUser.Parameters.Add("@SpokesPerson", SqlDbType.VarChar);
-                UpdateUser.Parameters["@SpokesPerson"].Value = customer.SpokesPerson;
-                UpdateUser.Parameters.Add("@AnnualIncome", SqlDbType.Float);
-                UpdateUser.Parameters["@AnnualIncome"].Value = customer.AnnualIncome;
-                UpdateUser.Parameters.Add("@CustomerID", SqlDbType.Int);
-                UpdateUser.Parameters["@CustomerID"].Value = customer.customerID;
-                UpdateUser.ExecuteNonQuery();
+                SqlCommand UpdateCustomer = new SqlCommand("UPDATE [Customer] SET [Name]=@Name, StreetAndNumber=@StreetAndNumber, ZipCode=@ZipCode, City=@City, ContactInfo=@ContactInfo, SpokesPerson=@SpokesPerson, AnnualIncome=@AnnualIncome WHERE CustomerID=@CustomerID", DBOpenClose.myConnection);
+                UpdateCustomer.Parameters.Add("@Name", SqlDbType.VarChar);
+                UpdateCustomer.Parameters["@Name"].Value = customer.Name;
+                UpdateCustomer.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar);
+                UpdateCustomer.Parameters["@StreetAndNumber"].Value = customer.StreetAndNumber;
+                UpdateCustomer.Parameters.Add("@ZipCode", SqlDbType.Int);
+                UpdateCustomer.Parameters["@ZipCode"].Value = customer.ZipCode;
+                UpdateCustomer.Parameters.Add("@City", SqlDbType.VarChar);
+                UpdateCustomer.Parameters["@City"].Value = customer.City;
+                UpdateCustomer.Parameters.Add("@ContactInfo", SqlDbType.VarChar);
+                UpdateCustomer.Parameters["@ContactInfo"].Value = customer.ContactInfo;
+                UpdateCustomer.Parameters.Add("@SpokesPerson", SqlDbType.VarChar);
+                UpdateCustomer.Parameters["@SpokesPerson"].Value = customer.SpokesPerson;
+                UpdateCustomer.Parameters.Add("@AnnualIncome", SqlDbType.Float);
+                UpdateCustomer.Parameters["@AnnualIncome"].Value = customer.AnnualIncome;
+                UpdateCustomer.Parameters.Add("@CustomerID", SqlDbType.Int);
+                UpdateCustomer.Parameters["@CustomerID"].Value = customer.customerID;
+                UpdateCustomer.ExecuteNonQuery();
                 DBOpenClose.CloseConnection();
                 return true;
-
             }
             catch (Exception ex)
             {
@@ -82,5 +81,36 @@ namespace ExamShopProject
                 return false;
             }
         }
+        // Made by Helena
+        public static bool EditProduct(Product product)
+        {
+            if (product == null)
+            {
+                throw new ArgumentNullException(nameof(product));
+            }
+            try
+            {
+                DBOpenClose.OpenConnection();
+                SqlCommand update = new SqlCommand("UPDATE [Product] SET [Name]=@Name, Description=@Description, Price=@Price, CategoryID=@CategoryID WHERE ID=@ProductID", DBOpenClose.myConnection);
+                update.Parameters.Add("@Name", SqlDbType.VarChar);
+                update.Parameters["@Name"].Value = product.Name;
+                update.Parameters.Add("@Description", SqlDbType.Text);
+                update.Parameters["@Description"].Value = product.Description;
+                update.Parameters.Add("@Price", SqlDbType.Float);
+                update.Parameters["@Price"].Value = product.Price;
+                update.Parameters.Add("@CategoryID", SqlDbType.Int);
+                update.Parameters["@CategoryID"].Value = product.CategoryID;
+                update.ExecuteNonQuery();
+                DBOpenClose.CloseConnection();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                DBOpenClose.CloseConnection();
+                Log.WriteFail(ex);
+                return false;
+            }
+        }
+
     }
 }

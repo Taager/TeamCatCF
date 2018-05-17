@@ -43,6 +43,7 @@ namespace ExamShopProject
                 return false;
             }
         }
+        // Made by Helena Brunsgaard Madsen
         public static bool InsertCustomer(Customer customer)
         {
             if (customer == null)
@@ -53,7 +54,8 @@ namespace ExamShopProject
             {
                 DBOpenClose.OpenConnection();
                 SqlCommand command = new SqlCommand(
-                    "INSERT INTO Customer ([Name], StreetAndNumber, ZipCode, City, ContactInfo, SpokesPerson, AnnualIncome) VALUES (@Name, @StreetAndNumber, @ZipCode, @City, @ContactInfo, @SpokesPerson, @AnnualIncome)", DBOpenClose.myConnection);
+                    "INSERT INTO Customer ([Name], StreetAndNumber, ZipCode, City, ContactInfo, SpokesPerson, AnnualIncome) " +
+                    "VALUES (@Name, @StreetAndNumber, @ZipCode, @City, @ContactInfo, @SpokesPerson, @AnnualIncome)", DBOpenClose.myConnection);
                 command.Parameters.Add("@Name", SqlDbType.VarChar);
                 command.Parameters["@Name"].Value = customer.Name;
                 command.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar);
@@ -79,7 +81,8 @@ namespace ExamShopProject
                 return false;
             }
         }
-        public static bool InsertProduct(Product product)
+        // Made by Helena Brunsgaard Madsen
+        public static bool InsertProduct(Product product, int CategoryID)
         {
             if (product == null)
             {
@@ -89,15 +92,16 @@ namespace ExamShopProject
             {
         DBOpenClose.OpenConnection();
                 SqlCommand command = new SqlCommand(
-                    "INSERT INTO [Product] (Name, description, Price, CategoryID) VALUES (@name, @description, @price, @categoryID)", DBOpenClose.myConnection);
+                    "INSERT INTO [Product] (Name, description, Price, CategoryID) " +
+                    "SELECT @name, @description, @price, CategoryID From ProductCategories WHERE CategoryID=@CategoryID", DBOpenClose.myConnection);
                 command.Parameters.Add("@name", SqlDbType.VarChar);
                 command.Parameters["@name"].Value = product.Name;
                 command.Parameters.Add("@description", SqlDbType.Text);
                 command.Parameters["@description"].Value = product.Description;
                 command.Parameters.Add("@price", SqlDbType.Float);
                 command.Parameters["@price"].Value = product.Price;
-                command.Parameters.Add("@categoryID", SqlDbType.Int);
-                command.Parameters["@categoryID"].Value = product.CategoryID;
+                command.Parameters.Add("@CategoryID", SqlDbType.Int);
+                command.Parameters["@CategoryID"].Value = product.CategoryID;
                 command.ExecuteNonQuery();
                 DBOpenClose.CloseConnection();
                 return true;

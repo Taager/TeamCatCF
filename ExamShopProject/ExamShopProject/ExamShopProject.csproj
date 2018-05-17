@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Object\Categories.cs" />
     <Compile Include="Product_Interactions\ProductLogic.cs" />
     <Compile Include="Visual\Visual_Products\ViewProductDetails.xaml.cs">
       <DependentUpon>ViewProductDetails.xaml</DependentUpon>

@@ -29,11 +29,15 @@ namespace ExamShopProject
         {
             InitializeComponent();
             DataContext = product;
+            lstbx_Categories.ItemsSource = DB.SelectAllCategories();
+            lstbx_Categories.DisplayMemberPath = "Name";
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            bool wasSuccess = interaction.CreateProduct(product);
+            Categories chosenCategory = (Categories)lstbx_Categories.SelectedItem;
+            chosenCategory.CategoryID = product.CategoryID;
+            bool wasSuccess = interaction.CreateProduct(product, product.CategoryID);
             if (wasSuccess)
                 MessageBox.Show("Product was created successfully.");
             if (!wasSuccess)

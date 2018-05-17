@@ -12,17 +12,17 @@ namespace ExamShopProject.Product_Interactions
     class ProductLogic
     {
         Product product = new Product();
-        public bool CreateProduct(Product product)
+        public bool CreateProduct(Product product, int categoryID)
         {
             try
             {
-                bool wasSuccess = DB.InsertProduct(product);
+                bool wasSuccess = DB.InsertProduct(product, categoryID);
                 if (wasSuccess)
                     throw new ProductWasAdded(product);
                 return false;
             }
             //Only thrown if creating user was a succes
-            catch (UserWasAdded ex)
+            catch (ProductWasAdded ex)
             {
 
                 ErrorHandler.Log.WriteEvent(ex);
