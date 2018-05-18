@@ -31,7 +31,7 @@ namespace ExamShopProject
         private void lstbx_Products_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Product chosenProduct = (Product)lstbx_Products.SelectedItem;
-            _productsView.Navigate(new ViewProductDetails(chosenProduct.ProductID));
+            NavigationService.Navigate(new ViewProductDetails(chosenProduct.ProductID));
         }
     }
 }

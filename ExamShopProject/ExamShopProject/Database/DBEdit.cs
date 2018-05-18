@@ -12,6 +12,8 @@ namespace ExamShopProject
 {
     class DBEdit
     {
+        #region User
+        // Made by Mikkel Glerup
         public static bool EditUser(User user)
         {
             if (user == null)
@@ -44,6 +46,9 @@ namespace ExamShopProject
                 return false;
             }
         }
+        #endregion
+        #region Customer
+        // Made by Helena Brunsgaard Madsen
         public static bool EditCustomer(Customer customer)
         {
             if (customer == null)
@@ -53,7 +58,9 @@ namespace ExamShopProject
             try
             {
                 DBOpenClose.OpenConnection();
-                SqlCommand UpdateCustomer = new SqlCommand("UPDATE [Customer] SET [Name]=@Name, StreetAndNumber=@StreetAndNumber, ZipCode=@ZipCode, City=@City, ContactInfo=@ContactInfo, SpokesPerson=@SpokesPerson, AnnualIncome=@AnnualIncome WHERE CustomerID=@CustomerID", DBOpenClose.myConnection);
+                SqlCommand UpdateCustomer = new SqlCommand(
+                    "UPDATE [Customer] SET [Name]=@Name, StreetAndNumber=@StreetAndNumber, ZipCode=@ZipCode, City=@City, ContactInfo=@ContactInfo, SpokesPerson=@SpokesPerson, AnnualIncome=@AnnualIncome " +
+                    "WHERE CustomerID=@CustomerID", DBOpenClose.myConnection);
                 UpdateCustomer.Parameters.Add("@Name", SqlDbType.VarChar);
                 UpdateCustomer.Parameters["@Name"].Value = customer.Name;
                 UpdateCustomer.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar);
@@ -81,7 +88,9 @@ namespace ExamShopProject
                 return false;
             }
         }
-        // Made by Helena
+        #endregion
+        #region Product
+        // Made by Helena Brunsgaard Madsen
         public static bool EditProduct(Product product)
         {
             if (product == null)
@@ -91,7 +100,11 @@ namespace ExamShopProject
             try
             {
                 DBOpenClose.OpenConnection();
-                SqlCommand update = new SqlCommand("UPDATE [Product] SET [Name]=@Name, Description=@Description, Price=@Price, CategoryID=@CategoryID WHERE ID=@ProductID", DBOpenClose.myConnection);
+                SqlCommand update = new SqlCommand(
+                    "UPDATE [Product] SET [Name]=@Name, Description=@Description, Price=@Price, CategoryID=@CategoryID " +
+                    "WHERE ProductID=@ProductID", DBOpenClose.myConnection);
+                update.Parameters.Add("@ProductID", SqlDbType.Int);
+                update.Parameters["@ProductID"].Value = product.ProductID;
                 update.Parameters.Add("@Name", SqlDbType.VarChar);
                 update.Parameters["@Name"].Value = product.Name;
                 update.Parameters.Add("@Description", SqlDbType.Text);
@@ -111,6 +124,6 @@ namespace ExamShopProject
                 return false;
             }
         }
-
+        #endregion
     }
 }

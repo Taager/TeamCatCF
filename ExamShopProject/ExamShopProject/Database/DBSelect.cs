@@ -12,6 +12,7 @@ namespace ExamShopProject
 {
     class DBSelect
     {
+        #region User
         // Made by Mikkel Glerup
         public static List<User> SelectAllUsers()
         {
@@ -72,6 +73,8 @@ namespace ExamShopProject
                 return user;
             }
         }
+        #endregion
+        #region Customer
         // Made by Helena Brunsgaard Madsen
         public static List<Customer> SelectAllCustomers()
         {
@@ -138,6 +141,8 @@ namespace ExamShopProject
                 return customer;
             }
         }
+        #endregion
+        #region Category
         // Made by Helena Brunsgaard Madsen
         public static List<Categories> SelectAllCategories()
         {
@@ -166,6 +171,36 @@ namespace ExamShopProject
                 return categoryList;
             }
         }
+        // Made by Helena Brunsgaard Madsen
+        public static Categories SelectCategory(int ID) //not sure we need this
+        {
+            try
+            {
+                Categories category = new Categories();
+                DBOpenClose.OpenConnection();
+                SqlCommand getCategory = new SqlCommand(
+                    "SELECT * FROM [ProductCategories] WHERE CategoryID=@CategoryID", DBOpenClose.myConnection);
+                getCategory.Parameters.Add("@CategoryID", SqlDbType.Int);
+                getCategory.Parameters["@CategoryID"].Value = ID;
+                SqlDataReader reader = getCategory.ExecuteReader();
+                while (reader.Read())
+                {
+                    category.CategoryID = reader.GetInt32(0);
+                    category.Name = reader.GetString(1);
+                    category.Description = reader.GetString(2);
+                }
+                DBOpenClose.CloseConnection();
+                return category;
+            }
+            catch (Exception ex)
+            {
+                Categories category = new Categories();
+                Log.WriteFail(ex);
+                return category;
+            }
+        }
+        #endregion
+        #region Products
         // Made by Helena Brunsgaard Madsen
         public static List<Product> SelectAllProducts()
         {
@@ -226,6 +261,6 @@ namespace ExamShopProject
                 return product;
             }
         }
-
+        #endregion
     }
 }

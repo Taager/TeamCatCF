@@ -40,7 +40,7 @@ namespace ExamShopProject
                 CreateMessage.ShowDeleteSuccesful("Customer");
             if (!wasSucces)
                 CreateMessage.ShowFailureMessage();
-            NavigationService.Navigate(new ViewUser());
+            NavigationService.Navigate(new ViewCustomer());
         }
 
         private void btn_Edit_Click(object sender, RoutedEventArgs e)
@@ -60,16 +60,7 @@ namespace ExamShopProject
         {
             try
             {
-                //AnnualIncome create validation
-                customer.AnnualIncome = Convert.ToDouble(txtbx_AnnualIncome.Text);
-                customer.City = txtbx_City.Text;
-                customer.ContactInfo = txtbx_ContactInfo.Text;
-                customer.Name = txtbx_Name.Text;
-                customer.SpokesPerson = txtbx_Spokesperson.Text;
-                customer.StreetAndNumber = txtbx_StreetNumber.Text;
-                //ZipCode create validation
-                customer.ZipCode = Convert.ToInt32(txtbx_Zip.Text);
-
+                SaveInfo();
                 bool wasSuccess = customerLogic.EditCustomer(customer);
                 if (wasSuccess)
                     CreateMessage.ShowEditSuccesful("Customer");
@@ -83,6 +74,18 @@ namespace ExamShopProject
                     CreateMessage.ShowInputNotValid();
                 ErrorHandler.Log.WriteFail(ex);
             }
+        }
+        private void SaveInfo()
+        {
+                //AnnualIncome create validation
+                customer.AnnualIncome = Convert.ToDouble(txtbx_AnnualIncome.Text);
+                customer.City = txtbx_City.Text;
+                customer.ContactInfo = txtbx_ContactInfo.Text;
+                customer.Name = txtbx_Name.Text;
+                customer.SpokesPerson = txtbx_Spokesperson.Text;
+                customer.StreetAndNumber = txtbx_StreetNumber.Text;
+                //ZipCode create validation
+                customer.ZipCode = Convert.ToInt32(txtbx_Zip.Text);
         }
     }
 }
