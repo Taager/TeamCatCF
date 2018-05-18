@@ -64,6 +64,21 @@ namespace ExamShopProject.ErrorHandler
         public ProductWasAdded(Product product) : base($"The following Product have been added: {product.Name}")
         { }
     }
+    // Made by Helena Brunsgaard Madsen
+    class ProductWasEdited : Exception
+    {
+        // add current user later when login system is made
+        public ProductWasEdited(Product product) : base($"The following customer have been edited: {product.Name}")
+        { }
+    }
+    // Made by Helena Brunsgaard Madsen
+    class ProductWasDeleted : Exception
+    {
+        public ProductWasDeleted(Product product) : base($"The following customer have been deleted: {product.Name} ")
+        { }
+    }
+
+
 }
 
 

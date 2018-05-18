@@ -29,13 +29,35 @@ namespace ExamShopProject.Product_Interactions
                 return true;
             }
         }
-        private void EditProduct()
+        public bool EditProduct(Product product)
         {
-
+            try
+            {
+                bool wasSucces = DB.EditProduct(product);
+                if (wasSucces)
+                    throw new ProductWasEdited(product); //writes in log when a product is edited
+                return wasSucces;
+            }
+            catch (ProductWasEdited ex)
+            {
+                ErrorHandler.Log.WriteEvent(ex);
+                return true;
+            }
         }
-        private void DeleteProduct()
+            public bool DeleteProduct(string callerClass, int callerID)
         {
-
+            try
+            {
+                bool wasSucces = DB.Delete(callerClass, callerID); 
+                if (wasSucces)
+                    throw new ProductWasDeleted(product); //writes in log when a product is deleted
+                return wasSucces;
+            }
+            catch (ProductWasDeleted ex)
+            {
+                ErrorHandler.Log.WriteEvent(ex);
+                return true;
+            }
         }
         private void UpdateProduct()
         {

@@ -66,6 +66,12 @@ namespace ExamShopProject
         {
             return DBSelect.SelectAllCategories();
         }
+        // Made by Helena Brunsgaard Madsen
+        public static Categories SelectCategory(int ID)
+        {
+            return DBSelect.SelectCategory(ID);
+        }
+
         public static List<Product> SelectAllProducts()
         {
             return DBSelect.SelectAllProducts();
@@ -86,19 +92,21 @@ namespace ExamShopProject
         {
             return DBEdit.EditUser(user);
         }
+        // Made by Helena Brunsgaard Madsen
         public static bool EditCustomer(Customer customer)
         {
             return DBEdit.EditCustomer(customer);
         }
+        // Made by Helena Brunsgaard Madsen
+        public static bool EditProduct(Product product)
+        {
+            return DBEdit.EditProduct(product);
+        }
         #endregion
         #region Delete*
-        public static bool DeleteUser(string callerClass, int CallerID)
+        public static bool Delete(string callerClass, int CallerID)
         {
-            return DBDelete.DeleteUser(callerClass, CallerID);
-        }
-        public static bool DeleteCustomer(string callerClass, int CallerID)
-        {
-            return DBDelete.DeleteUser(callerClass, CallerID);
+            return DBDelete.Delete(callerClass, CallerID);
         }
         #endregion
     }

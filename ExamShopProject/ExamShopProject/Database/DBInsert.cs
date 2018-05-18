@@ -13,6 +13,7 @@ namespace ExamShopProject
 {
     class DBInsert
     {
+        #region User
         public static bool InsertUser(User user)
         {
             if (user == null)
@@ -43,6 +44,8 @@ namespace ExamShopProject
                 return false;
             }
         }
+        #endregion
+        #region Customer
         // Made by Helena Brunsgaard Madsen
         public static bool InsertCustomer(Customer customer)
         {
@@ -81,6 +84,8 @@ namespace ExamShopProject
                 return false;
             }
         }
+        #endregion
+        #region Product
         // Made by Helena Brunsgaard Madsen
         public static bool InsertProduct(Product product)
         {
@@ -115,6 +120,6 @@ namespace ExamShopProject
                 return false;
             }
         }
-
+        #endregion
     }
 }

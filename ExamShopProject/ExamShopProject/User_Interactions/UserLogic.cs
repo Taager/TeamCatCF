@@ -73,7 +73,7 @@ namespace ExamShopProject.User_Interactions
         {
             try
             {
-                bool wasSucces = DB.DeleteUser(callerClass, callerID);
+                bool wasSucces = DB.Delete(callerClass, callerID);
                 if (wasSucces)
                     throw new UserWasDeleted(user);
                 return wasSucces;
