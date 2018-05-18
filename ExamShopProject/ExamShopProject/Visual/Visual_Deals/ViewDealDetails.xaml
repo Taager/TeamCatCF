@@ -20,11 +20,14 @@
             <ColumnDefinition Width="245*"/>
             <ColumnDefinition Width="233*"/>
         </Grid.ColumnDefinitions>
+        <!--#region Labels-->
         <Label Content="Deal" HorizontalAlignment="Center" Margin="89.6,40,119.2,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1" Height="26" Width="36"/>
         <Label Content="Customer" HorizontalAlignment="Left" Margin="135,22.2,0,0" VerticalAlignment="Top" Height="26" Width="61" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10.6,26.2,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Grid.Column="1" Grid.Row="1"/>
         <Label Content="Discount" HorizontalAlignment="Left" Margin="135,19,0,0" VerticalAlignment="Top" Height="26" Width="61" Grid.Row="2"/>
+        <!--#endregion-->
+        <!--#region I/O-->
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10.6,26.2,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Grid.Column="1" Grid.Row="1"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="10.6,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Grid.Column="1" Grid.Row="2"/>
-
+        <!--#endregion-->
     </Grid>
 </Page>

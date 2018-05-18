@@ -18,9 +18,9 @@
             <Frame x:Name="_deals" />
         </DockPanel>
 
-
+        <!--#region Buttons-->
         <Button x:Name="btn_ViewDeals" Content="View" Grid.Row="0" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top" Width="75" />
         <Button x:Name="btn_CreateDeals" Content="Create" Grid.Row="0" HorizontalAlignment="Left" Margin="120,25,0,0" VerticalAlignment="Top" Width="75" />
-
+        <!--#endregion-->
     </Grid>
 </Page>

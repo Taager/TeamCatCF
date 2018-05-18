@@ -21,10 +21,12 @@
         <DockPanel Grid.RowSpan="2" Grid.Row="0" Grid.ColumnSpan="2">
             <Frame x:Name="_productsView" />
         </DockPanel>
-
+        <!--#region I/O-->
         <TextBox  HorizontalAlignment="Left" Height="23" Margin="40,50,0,0" TextWrapping="Wrap" Text="Search..." VerticalAlignment="Top" Width="385" Grid.ColumnSpan="2"/>
         <ListBox x:Name="lstbx_Products" HorizontalAlignment="Left" Height="200" Margin="40,40.4,0,0" VerticalAlignment="Top" Width="385" Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="lstbx_Products_SelectionChanged" />
+        <!--#endregion-->
+        <!--#region Buttons-->
         <Button Content="Search" HorizontalAlignment="Left" Margin="26.2,54,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Height="19"/>
-
+        <!--#endregion-->
     </Grid>
 </Page>

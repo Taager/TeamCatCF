@@ -22,19 +22,23 @@
             <RowDefinition Height="175.2"/>
             <RowDefinition Height="42*"/>
         </Grid.RowDefinitions>
-
+        <!--#region Labels-->
         <Label Content="Product" Margin="78,20,240,0"  FontWeight="Bold" HorizontalAlignment="Center" Width="110" Height="26" VerticalAlignment="Top" Grid.Column="2"/>
         <Label Content="Name:" VerticalAlignment="Top" Grid.Row="1" Height="43" Grid.ColumnSpan="2" Margin="34,1.4,0,0" Grid.RowSpan="2" />
         <Label Content="Price:" VerticalAlignment="Top" Grid.Row="2" Height="43" Grid.ColumnSpan="2" Margin="34,8.2,0,0" Grid.RowSpan="2"/>
         <Label Content="Description:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" RenderTransformOrigin="-1.43,-0.436" Height="49" Width="138" Grid.ColumnSpan="2" Margin="34,10.8,0,0" Grid.RowSpan="2"/>
+        <!--#endregion-->
+        <!--#region I/O-->
         <TextBox x:Name="txtbx_Name" Height="23" Margin="57,11.4,161,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" IsEnabled="False"/>
-        <Button x:Name="btn_Save" Content="Save" HorizontalAlignment="Right" Margin="0,8.6,10,0" VerticalAlignment="Top" Width="75" Grid.Row="5" Grid.Column="2" Height="20" RenderTransformOrigin="-0.28,3.7" Click="btn_Save_Click" IsEnabled="False"/>
         <TextBox x:Name="txtbx_Price" Height="23" Margin="57,18.2,161,0" TextWrapping="Wrap" Text="{Binding Price}" VerticalAlignment="Top" Grid.Row="2" Grid.Column="2" IsEnabled="False"/>
         <TextBox x:Name="txtbx_Description" Height="23" Margin="57,19.8,161,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Grid.Row="3" Grid.Column="2" IsEnabled="False"/>
         <Label Content="Category:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="4" RenderTransformOrigin="-1.43,-0.436" Height="49" Width="138" Grid.ColumnSpan="2" Margin="34,10.8,0,0"/>
         <ListBox x:Name="lstbx_Categories" Grid.Column="2" HorizontalAlignment="Left" Height="124" ItemsSource="{Binding CategoryID}"  Margin="57,10.8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="210" IsEnabled="False" SelectionChanged="lstbx_Categories_SelectionChanged"/>
+        <!--#endregion-->
+        <!--#region Buttons-->
+        <Button x:Name="btn_Save" Content="Save" HorizontalAlignment="Right" Margin="0,8.6,10,0" VerticalAlignment="Top" Width="75" Grid.Row="5" Grid.Column="2" Height="20" RenderTransformOrigin="-0.28,3.7" Click="btn_Save_Click" IsEnabled="False"/>
         <Button x:Name="btn_DeleteProduct" Content="Delete" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Grid.Column="2" Margin="141,9.6,0,0" Grid.Row="5" Click="btn_DeleteProduct_Click"/>
         <Button x:Name="btn_EditProduct" Content="Edit" Grid.Column="2" HorizontalAlignment="Left" Margin="237,9.6,0,0" Grid.Row="5" VerticalAlignment="Top" Width="75" Click="btn_EditProduct_Click"/>
-
+        <!--#endregion-->
     </Grid>
 </Page>

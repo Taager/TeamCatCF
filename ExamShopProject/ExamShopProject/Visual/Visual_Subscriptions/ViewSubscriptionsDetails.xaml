@@ -26,22 +26,22 @@
             <RowDefinition Height="80*"/>
             <RowDefinition Height="49*"/>
         </Grid.RowDefinitions>
-        <!--Buttons-->
-        <Button x:Name="Btn_Edit" Content="Edit" FontSize="15" Grid.Column="3" Grid.Row="6" Click="Btn_Edit_Enable" Margin="10,0,10,22"/>
-        <Button x:Name="Btn_Save" Content="Save" FontSize="15" Grid.Column="4" Grid.Row="6" Click="Btn_Save_Click" IsEnabled="False" Margin="27,0,10,22" />
-        <Button x:Name="Btn_Delete" Content="Delete" Grid.Row="6" IsEnabled="False" Opacity="0" Click="Btn_Click_DeleteSubscriber" Margin="35,11,26,12" Grid.Column="2"  />
-        <!--Buttons-->
-        <!--I/O-->
-        <TextBox x:Name="TextBox_Customer" Text="{Binding CustomerName}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Margin="10,0,0,0" Height="26" VerticalAlignment="Top" IsEnabled="False" />
-        <DatePicker x:Name="DatePicker_EndDate" SelectedDate="{Binding EndDate}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" Margin="10,0,0,0" Height="26" VerticalAlignment="Top" IsEnabled="False" />
-        <CheckBox x:Name="CheckBox_AutoRenew" IsChecked="{Binding Renew}" Grid.Column="2" Grid.Row="3" Margin="10,10,89,0" Height="16" VerticalAlignment="Top" IsEnabled="False" />
-        <ListBox x:Name="ListBox_CategoriesSubscripeTo" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Margin="10,0,0,0" Grid.RowSpan="2" Height="100" VerticalAlignment="Top" IsEnabled="False" />
-        <!--I/O-->
-        <!-- Labels-->
+        <!--#region Labels-->
         <Label x:Name="Label_Customer" Content="Customer: " Grid.Column="1" Grid.Row="1"/>
         <Label x:Name="Label_EndDate" Content="Date to expire: " Grid.Column="1" Grid.Row="2"/>
         <Label x:Name="Label_AutoRenew" Content="Auto renew: " Grid.Column="1" Grid.Row="3"/>
         <Label x:Name="Label_CategoriesSubscribeTo" Content="Categories to subscribe to: " Grid.Column="1" Grid.Row="4"/>
-        <!-- Labels-->
+        <!--#endregion-->
+        <!--#region I/O-->
+        <TextBox x:Name="TextBox_Customer" Text="{Binding CustomerName}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Margin="10,0,0,0" Height="26" VerticalAlignment="Top" IsEnabled="False" />
+        <DatePicker x:Name="DatePicker_EndDate" SelectedDate="{Binding EndDate}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" Margin="10,0,0,0" Height="26" VerticalAlignment="Top" IsEnabled="False" />
+        <CheckBox x:Name="CheckBox_AutoRenew" IsChecked="{Binding Renew}" Grid.Column="2" Grid.Row="3" Margin="10,10,89,0" Height="16" VerticalAlignment="Top" IsEnabled="False" />
+        <ListBox x:Name="ListBox_CategoriesSubscripeTo" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Margin="10,0,0,0" Grid.RowSpan="2" Height="100" VerticalAlignment="Top" IsEnabled="False" />
+        <!--#endregion-->
+        <!--#region Buttons-->
+        <Button x:Name="Btn_Edit" Content="Edit" FontSize="15" Grid.Column="3" Grid.Row="6" Click="Btn_Edit_Enable" Margin="10,0,10,22"/>
+        <Button x:Name="Btn_Save" Content="Save" FontSize="15" Grid.Column="4" Grid.Row="6" Click="Btn_Save_Click" IsEnabled="False" Margin="27,0,10,22" />
+        <Button x:Name="Btn_Delete" Content="Delete" Grid.Row="6" IsEnabled="False" Opacity="0" Click="Btn_Click_DeleteSubscriber" Margin="35,11,26,12" Grid.Column="2"  />
+        <!--#endregion-->
     </Grid>
 </Page>

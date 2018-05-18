@@ -17,9 +17,9 @@
         <DockPanel Grid.ColumnSpan="1" Grid.Row="1">
             <Frame x:Name="_user" />
         </DockPanel>
-
+        <!--#region Buttons-->
         <Button x:Name="btn_ViewUser" Content="View" Grid.Row="0" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top" Width="75" Click="btn_ViewUser_Click" Height="20" />
         <Button x:Name="btn_CreateUser" Content="Create" Grid.Row="0" HorizontalAlignment="Left" Margin="120,25,0,0" VerticalAlignment="Top" Width="75" Click="btn_CreateUser_Click" Height="20" />
-
+        <!--#endregion-->
     </Grid>
 </Page>

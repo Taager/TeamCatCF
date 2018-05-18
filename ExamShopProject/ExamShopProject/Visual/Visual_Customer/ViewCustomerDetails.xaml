@@ -28,7 +28,7 @@
             <RowDefinition Height="42*"/>
             <RowDefinition Height="43*"/>
         </Grid.RowDefinitions>
-
+        <!--#region Labels-->
         <Label Content="View Customer" Margin="89.8,20,77,0"  FontWeight="Bold" HorizontalAlignment="Center" Width="110" Height="26" VerticalAlignment="Top" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
         <Label Content="Name:" VerticalAlignment="Top" Grid.Row="1" Grid.Column="1" Height="43" Margin="0.4,0.4,4.2,0" Grid.RowSpan="2" />
         <Label Content="Spokes person:" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" Height="42" Margin="0.4,0.2,4.2,0" Grid.RowSpan="2"/>
@@ -37,6 +37,8 @@
         <Label Content="City:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="4" Height="50" Width="138" Grid.Column="1" Margin="0.4,48.4,0,0" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
         <Label Content="Contact Info" Grid.Column="1" Grid.Row="6" Margin="0.4,6.2,4.2,0.4" />
         <Label Content="Annual Income" Grid.Column="1" Grid.Row="6" Margin="0.4,45.2,4.2,43" Grid.RowSpan="3" />
+        <!--#endregion-->
+        <!--#region I/O-->
         <TextBox x:Name="txtbx_Name" Height="23" Margin="0.8,6.4,9,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtbx_Spokesperson" Height="23" Margin="0.8,5.2,9,0" TextWrapping="Wrap" Text="{Binding SpokesPerson}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtbx_StreetNumber" Height="23" Margin="0.8,6.6,9,0" TextWrapping="Wrap" Text="{Binding StreetAndNumber}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
@@ -44,9 +46,12 @@
         <TextBox x:Name="txtbx_City" Height="23" Margin="0.8,5.6,9,0" TextWrapping="Wrap" Text="{Binding City}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtbx_ContactInfo" Height="23" Margin="0.8,6.2,9,0" TextWrapping="Wrap" Text="{Binding ContactInfo}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtbx_AnnualIncome" Height="23" Margin="2.8,45.2,8,0" TextWrapping="Wrap" Text="{Binding AnnualIncome}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <!--#endregion-->
+        <!--#region Buttons-->
         <Button x:Name="btn_Save" Content="Save" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_Save_Click" Height="19" RenderTransformOrigin="0.493,-0.579" />
         <Button x:Name="btn_Edit" Content="Edit" Grid.Column="3" HorizontalAlignment="Left" Margin="84,0,0,0" Grid.Row="8" VerticalAlignment="Top" Width="75" IsEnabled="True" Click="btn_Edit_Click" Height="19" RenderTransformOrigin="1.76,3.158" Grid.ColumnSpan="2" />
         <Button x:Name="btn_delete" Content="Delete" Grid.Column="3" HorizontalAlignment="Left" Margin="6,0,0,0" Grid.Row="8" VerticalAlignment="Top" Width="75" Height="19" IsEnabled="False" Opacity="0"/>
         <Button x:Name="Subscriptions" Content="Subscriptions" Grid.Row="8" Grid.Column="2" Click="Btn_Subscriptions_Click" Margin="89,0,27,20" />
+        <!--#endregion-->
     </Grid>
 </Page>
