@@ -43,6 +43,8 @@ namespace ExamShopProject
             CheckBox_IsAdmin.IsEnabled = true;
             CheckBox_IsAdmin.Opacity = 100;
             Btn_Save.IsEnabled = true;
+            Btn_Delete.IsEnabled = true;
+            Btn_Delete.Opacity = 100;
         }
         //Made by Mikkel E.R. Glerup
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
@@ -70,6 +72,7 @@ namespace ExamShopProject
             if (!wasSucces)
                 CreateMessage.ShowFailureMessage();
             this.Content = null;
+            NavigationService.Navigate(new ViewUser());
         }
     }
 }

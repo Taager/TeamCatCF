@@ -24,5 +24,10 @@ namespace ExamShopProject
         {
             InitializeComponent();
         }
+
+        private void btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -54,6 +54,8 @@ namespace ExamShopProject
             txtbx_Zip.IsEnabled = true;
             btn_Edit.IsEnabled = false;
             btn_Save.IsEnabled = true;
+            btn_delete.IsEnabled = true;
+            btn_delete.Opacity = 100;
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
@@ -83,6 +85,12 @@ namespace ExamShopProject
                     CreateMessage.ShowInputNotValid();
                 ErrorHandler.Log.WriteFail(ex);
             }
+        }
+
+        private void Btn_Subscriptions_Click(object sender, RoutedEventArgs e)
+        {
+            this.Content = null;
+            NavigationService.Navigate(new ViewSubscriptionsDetails(customer.customerID));
         }
     }
 }

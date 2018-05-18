@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,10 +12,82 @@ namespace ExamShopProject.Object
 
     class Subscription
     {
-        public DateTime endDate { get; set; }
-        public Customer customer { get; set; }
-        public int subscriptionID { get; set; }
-        public bool renew { get; set; }
-        public DateTime renewLength { get; set; }
+        private string _customerName;
+
+        public string CustomerName
+        {
+            get { return _customerName; }
+            set
+            {
+                _customerName = value;
+                NotifyPropertyChanged();
+            }
+        }
+
+        private DateTime _endDate;
+        public DateTime EndDate
+        {
+            get { return _endDate; }
+            set
+            {
+                _endDate = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private Customer _customer;
+        public Customer Customer
+        {
+            get { return _customer; }
+            set
+            {
+                _customer = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _subscriptionID;
+        public int SubscriptionID
+        {
+            get { return _subscriptionID; }
+            set
+            {
+                _subscriptionID = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private bool _renew;
+        public bool Renew
+        {
+            get { return _renew; }
+            set
+            {
+                _renew = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private DateTime _renewLength;
+
+        public DateTime RenewLength
+        {
+            get { return _renewLength; }
+            set
+            { _renewLength = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _customerID;
+
+        public int CustomerID
+        {
+            get { return _customerID; }
+            set { _customerID = value; }
+        }
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }

@@ -17,10 +17,6 @@
         <DockPanel Grid.ColumnSpan="1" Margin="0,0,-0.4,0" Grid.Row="2">
             <Frame x:Name="_subscription" />
         </DockPanel>
-
-
-        <Button x:Name="btn_ViewSubscription" Content="View" Grid.Row="0" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top" Width="75" />
-        <Button x:Name="btn_CreateSubscription" Content="Create" Grid.Row="0" HorizontalAlignment="Left" Margin="120,25,0,0" VerticalAlignment="Top" Width="75" />
-
+        <Button x:Name="btn_ViewSubscription" Content="View" Grid.Row="0" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top" Width="75" Click="btn_View_Click"/>
     </Grid>
 </Page>

@@ -226,6 +226,39 @@ namespace ExamShopProject
                 return product;
             }
         }
-
+        // Made by Mikkel E.R. Glerup
+        public static Subscription SelectSubscription(int ID)
+        {
+            try
+            {
+                Subscription output = new Subscription();
+                DBOpenClose.OpenConnection();
+                SqlCommand getSubscription = new SqlCommand(
+                    "SELECT * FROM [Subscription] WHERE CustomerID=@CustomerID", DBOpenClose.myConnection);
+                getSubscription.Parameters.Add("@CustomerID", SqlDbType.Int);
+                getSubscription.Parameters["@CustomerID"].Value = ID;
+                SqlDataReader reader = getSubscription.ExecuteReader();
+                while (reader.Read())
+                {
+                    output.EndDate = reader.GetDateTime(3);
+                    output.Renew = reader.GetBoolean(1);
+                    output.SubscriptionID = reader.GetInt32(2);
+                    output.RenewLength = reader.GetDateTime(4);
+                    //output.ID = reader.GetInt32(0);
+                    //output.Username = reader.GetString(1);
+                    //output.Password = reader.GetString(2);
+                    //output.Name = reader.GetString(3);
+                    //output.IsAdmin = reader.GetBoolean(4);
+                }
+                DBOpenClose.CloseConnection();
+                return output;
+            }
+            catch (Exception ex)
+            {
+                Subscription output = new Subscription();
+                Log.WriteFail(ex);
+                return output;
+            }
+        }
     }
 }

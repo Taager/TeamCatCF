@@ -75,8 +75,10 @@ namespace ExamShopProject
         {
             return DBSelect.SelectProduct(ID);
         }
-
-
+        public static Subscription SelectSubcription(int ID)
+        {
+            return DBSelect.SelectSubscription(ID);
+        }
         #endregion
         #region Edit*
         //Made by Mikkel E.R. Glerup

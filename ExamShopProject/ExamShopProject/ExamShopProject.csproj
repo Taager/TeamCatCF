@@ -56,6 +56,7 @@
     </ApplicationDefinition>
     <Compile Include="Object\Categories.cs" />
     <Compile Include="Product_Interactions\ProductLogic.cs" />
+    <Compile Include="Subscription_Interactions\SubscriptionLogic.cs" />
     <Compile Include="Visual\Visual_Products\ViewProductDetails.xaml.cs">
       <DependentUpon>ViewProductDetails.xaml</DependentUpon>
     </Compile>
@@ -111,6 +112,9 @@
       <DependentUpon>LogIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="Object\ObjectHandler.cs" />
+    <Compile Include="Visual\Visual_Subscriptions\ViewSubscriptionsDetails.xaml.cs">
+      <DependentUpon>ViewSubscriptionsDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Visual\Visual_User\ViewUsersDetail.xaml.cs">
       <DependentUpon>ViewUsersDetail.xaml</DependentUpon>
     </Compile>
@@ -195,6 +199,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Visual\Visual_LogIn\LogIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Subscriptions\ViewSubscriptionsDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

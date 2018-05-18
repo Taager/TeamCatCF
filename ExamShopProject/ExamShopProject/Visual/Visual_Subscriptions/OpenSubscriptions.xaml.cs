@@ -30,10 +30,5 @@ namespace ExamShopProject
         {
             _subscription.Navigate(new ViewSubscriptions());
         }
-
-        private void btn_Create_Click(object sender, RoutedEventArgs e)
-        {
-            _subscription.Navigate(new CreateSubscriptions());
-        }
     }
 }
