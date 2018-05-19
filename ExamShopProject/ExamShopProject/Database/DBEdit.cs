@@ -125,5 +125,32 @@ namespace ExamShopProject
             }
         }
         #endregion
+        #region Subscription
+        //Made by Mikkel E.R. Glerup
+        public static bool EditSubscription(Subscription input)
+        {
+            try
+            {
+                DBOpenClose.OpenConnection();
+                SqlCommand UpdateSubscription = new SqlCommand(
+                    "UPDATE [Subscription] SET Renew=@Renew, EndDate=@EndDate, RenewLength=@RenewLength WHERE SubscriptionID=@SubscriptionID", DBOpenClose.myConnection);
+                UpdateSubscription.Parameters.Add("@Renew", SqlDbType.Bit);
+                UpdateSubscription.Parameters["@Renew"].Value = input.Renew;
+                UpdateSubscription.Parameters.Add("@EndDate", SqlDbType.Date);
+                UpdateSubscription.Parameters["@EndDate"].Value = input.EndDate;
+                UpdateSubscription.Parameters.Add("@RenewLength", SqlDbType.Date);
+                UpdateSubscription.Parameters["@RenewLength"].Value = input.RenewLength;
+                UpdateSubscription.ExecuteNonQuery();
+                DBOpenClose.CloseConnection();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                DBOpenClose.CloseConnection();
+                Log.WriteFail(ex);
+                return false;
+            }
+        }
+        #endregion
     }
 }

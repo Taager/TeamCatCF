@@ -41,7 +41,7 @@
         <!--#region Buttons-->
         <Button x:Name="Btn_Edit" Content="Edit" FontSize="15" Grid.Column="3" Grid.Row="6" Click="Btn_Edit_Enable" Margin="10,0,10,22"/>
         <Button x:Name="Btn_Save" Content="Save" FontSize="15" Grid.Column="4" Grid.Row="6" Click="Btn_Save_Click" IsEnabled="False" Margin="27,0,10,22" />
-        <Button x:Name="Btn_Delete" Content="Delete" Grid.Row="6" IsEnabled="False" Opacity="0" Click="Btn_Click_DeleteSubscriber" Margin="35,11,26,12" Grid.Column="2"  />
+        <Button x:Name="Btn_Delete" Content="Delete" Grid.Row="6" IsEnabled="False" Opacity="0" Click="Btn_Click_DeleteSubscription" Margin="35,11,26,12" Grid.Column="2"  />
         <!--#endregion-->
     </Grid>
 </Page>

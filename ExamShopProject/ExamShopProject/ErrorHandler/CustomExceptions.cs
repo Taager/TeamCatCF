@@ -20,19 +20,13 @@ namespace ExamShopProject.ErrorHandler
         { }
     }
     #endregion
+    #region User
     // Made by Mikkel Glerup
     class UserWasAdded : Exception
     {
         public UserWasAdded(User user) : base($"The following user have been created: {user.Username} ")
         { }
     }
-    // Made by Mikkel Glerup
-    class CustomerWasAdded : Exception
-    {
-        public CustomerWasAdded(Customer customer) : base($"The following customer has been created: {customer.Name} ")
-        { }
-    }
-    // Made by Mikkel Glerup
     class UserWasEdited : Exception
     {
         // add current user later when login system is made
@@ -45,7 +39,13 @@ namespace ExamShopProject.ErrorHandler
         public UserWasDeleted(User user) : base($"The following user have been deleted: {user.Username} ")
         { }
     }
-    // Made by Helena Brunsgaard Madsen
+    #endregion
+    #region Customer
+    class CustomerWasAdded : Exception
+    {
+        public CustomerWasAdded(Customer customer) : base($"The following customer has been created: {customer.Name} ")
+        { }
+    }
     class CustomerWasDeleted : Exception
     {
         public CustomerWasDeleted(Customer customer) : base($"The following customer have been deleted: {customer.Name} ")
@@ -58,6 +58,8 @@ namespace ExamShopProject.ErrorHandler
         public CustomerWasEdited(Customer customer) : base($"The following customer have been edited: {customer.Name}")
         { }
     }
+    #endregion
+    #region Product
     class ProductWasAdded : Exception
     {
         // add current user later when login system is made
@@ -77,7 +79,26 @@ namespace ExamShopProject.ErrorHandler
         public ProductWasDeleted(Product product) : base($"The following customer have been deleted: {product.Name} ")
         { }
     }
-
+    #endregion
+    #region Subscription
+    class SubscriptionWasAdded : Exception
+    {
+        public SubscriptionWasAdded(Subscription subscription) : base($"{subscription.CustomerName}'s subscription have been created by: PLACEHOLDER ")
+        { }
+    }
+    class SubscriptionWasEdited : Exception
+    {
+        // add current user later when login system is made
+        public SubscriptionWasEdited(Subscription subscription) : base($"{subscription.CustomerName}'s subscription have been edited by: PLACEHOLDER")
+        { }
+    }
+    // Made by Mikkel Glerup
+    class SubscriptionWasDeleted : Exception
+    {
+        public SubscriptionWasDeleted(Subscription subscription) : base($"{subscription.CustomerName}'s subscription have been deleted by: PLACEHOLDER ")
+        { }
+    }
+    #endregion
 
 }
 

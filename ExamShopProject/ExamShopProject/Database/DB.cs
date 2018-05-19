@@ -27,17 +27,17 @@ namespace ExamShopProject
         }
         #region Insert*
         //made by Mikkel. E.R. Glerup
-        public static bool InsertUser(User user)
+        public static bool InsertUser(User input)
         {
-            return DBInsert.InsertUser(user);
+            return DBInsert.InsertUser(input);
         }
-        public static bool InsertCustomer(Customer customer)
+        public static bool InsertCustomer(Customer input)
         {
-            return DBInsert.InsertCustomer(customer);
+            return DBInsert.InsertCustomer(input);
         }
-        public static bool InsertProduct(Product product)
+        public static bool InsertProduct(Product input)
         {
-            return DBInsert.InsertProduct(product);
+            return DBInsert.InsertProduct(input);
         }
         #endregion
         #region viewList*
@@ -88,19 +88,23 @@ namespace ExamShopProject
         #endregion
         #region Edit*
         //Made by Mikkel E.R. Glerup
-        public static bool EditUser(User user)
+        public static bool EditUser(User input)
         {
-            return DBEdit.EditUser(user);
+            return DBEdit.EditUser(input);
         }
         // Made by Helena Brunsgaard Madsen
-        public static bool EditCustomer(Customer customer)
+        public static bool EditCustomer(Customer input)
         {
-            return DBEdit.EditCustomer(customer);
+            return DBEdit.EditCustomer(input);
         }
         // Made by Helena Brunsgaard Madsen
-        public static bool EditProduct(Product product)
+        public static bool EditProduct(Product input)
         {
-            return DBEdit.EditProduct(product);
+            return DBEdit.EditProduct(input);
+        }
+        public static bool EditSubscription(Subscription input)
+        {
+            return true;
         }
         #endregion
         #region Delete*

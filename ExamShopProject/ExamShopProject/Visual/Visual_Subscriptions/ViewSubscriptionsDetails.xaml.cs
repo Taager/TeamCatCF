@@ -40,14 +40,28 @@ namespace ExamShopProject
         }
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
         {
+            bool wasCreate = false;
             subscription.EndDate = DatePicker_EndDate.DisplayDate;
             if (CheckBox_AutoRenew.IsChecked == true)
                 subscription.Renew = true;
             if (CheckBox_AutoRenew.IsChecked == false)
                 subscription.Renew = false;
-            //Add to categories later
+            if (subscription.SubscriptionID == 0)
+                wasCreate = true;
+            //Add categories later
+            SubscriptionLogic subscriptionLogic = new SubscriptionLogic();
+            bool wasSuccess = subscriptionLogic.CheckEditOrCreate(subscription);
+            if (wasSuccess == true)
+            {
+                if (wasCreate == true)
+                    CreateMessage.ShowCreateSuccesful("Subscription");
+                if (wasCreate == false)
+                    CreateMessage.ShowEditSuccesful("Subscription");
+            }
+            if (wasSuccess == false)
+                CreateMessage.ShowFailureMessage();
         }
-        private void Btn_Click_DeleteSubscriber(object sender, RoutedEventArgs e)
+        private void Btn_Click_DeleteSubscription(object sender, RoutedEventArgs e)
         {
 
         }
