@@ -12,7 +12,6 @@ namespace ExamShopProject.User_Interactions
     {
         Random rnd = new Random();
         //made by Mikkel E.R. Glerup
-        ObjectHandler objectHandler = new ObjectHandler();
         User user = new User();
         GetUsername usernameCreation = new GetUsername();
         GetRandomPassword passwordCreation = new GetRandomPassword();
@@ -49,7 +48,7 @@ namespace ExamShopProject.User_Interactions
             catch (UserWasAdded ex)
             {
                 
-                ErrorHandler.Log.WriteEvent(ex);
+                Log.WriteEvent(ex);
                 return true;
             }
         }
@@ -65,7 +64,7 @@ namespace ExamShopProject.User_Interactions
             }
             catch (UserWasEdited ex)
             {
-                ErrorHandler.Log.WriteEvent(ex);
+               Log.WriteEvent(ex);
                 return true;
             }
         }
@@ -80,7 +79,7 @@ namespace ExamShopProject.User_Interactions
             }
             catch (UserWasDeleted ex)
             {
-                ErrorHandler.Log.WriteEvent(ex);
+                Log.WriteEvent(ex);
                 return true;
             }
      

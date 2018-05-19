@@ -81,6 +81,8 @@ namespace ExamShopProject.ErrorHandler
     }
     #endregion
     #region Subscription
+    //Made by Mikkel E.R. Glerup
+
     class SubscriptionWasAdded : Exception
     {
         public SubscriptionWasAdded(Subscription subscription) : base($"{subscription.CustomerName}'s subscription have been created by: PLACEHOLDER ")

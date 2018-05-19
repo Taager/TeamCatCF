@@ -140,6 +140,8 @@ namespace ExamShopProject
                 UpdateSubscription.Parameters["@EndDate"].Value = input.EndDate;
                 UpdateSubscription.Parameters.Add("@RenewLength", SqlDbType.Date);
                 UpdateSubscription.Parameters["@RenewLength"].Value = input.RenewLength;
+                UpdateSubscription.Parameters.Add("@SubscriptionID", SqlDbType.Int);
+                UpdateSubscription.Parameters["@SubscriptionID"].Value = input.SubscriptionID;
                 UpdateSubscription.ExecuteNonQuery();
                 DBOpenClose.CloseConnection();
                 return true;

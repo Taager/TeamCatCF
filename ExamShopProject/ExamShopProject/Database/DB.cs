@@ -39,6 +39,10 @@ namespace ExamShopProject
         {
             return DBInsert.InsertProduct(input);
         }
+        public static bool InsertSubscription(Subscription input)
+        {
+            return DBInsert.InsertSubscription(input);
+        }
         #endregion
         #region viewList*
         // Made by Mikkel E.R. Glerup
@@ -104,7 +108,7 @@ namespace ExamShopProject
         }
         public static bool EditSubscription(Subscription input)
         {
-            return true;
+            return DBEdit.EditSubscription(input);
         }
         #endregion
         #region Delete*

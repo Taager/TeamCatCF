@@ -13,7 +13,7 @@ namespace ExamShopProject
     {
         public bool CheckEditOrCreate(Subscription input)
         {
-            bool wasSuccess=false;
+            bool wasSuccess = false;
             try
             {
                 if (input.SubscriptionID == 0)
@@ -38,14 +38,28 @@ namespace ExamShopProject
         }
         private bool CreateSubscription(Subscription input)
         {
-
-            return true;
+            return DB.InsertSubscription(input);
         }
         private bool EditSubscription(Subscription input)
         {
-
-            return true;
+            //What is renewLength in subscription?
+            return DB.EditSubscription(input);
+        }
+        public bool DeleteSubscription(Subscription input, string callerClass, int callerID)
+        {
+            try
+            {
+                bool wasSucces = DB.Delete(callerClass, callerID);
+                if (wasSucces)
+                    throw new SubscriptionWasDeleted(input);
+                return wasSucces;
+            }
+            catch (SubscriptionWasDeleted ex)
+            {
+                ErrorHandler.Log.WriteEvent(ex);
+                return true;
+            }
         }
     }
 }
-}
+

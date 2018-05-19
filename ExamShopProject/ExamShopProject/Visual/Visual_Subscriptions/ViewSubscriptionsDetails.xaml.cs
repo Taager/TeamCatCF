@@ -18,6 +18,7 @@ namespace ExamShopProject
 {
     public partial class ViewSubscriptionsDetails : Page
     {
+        SubscriptionLogic subscriptionLogic = new SubscriptionLogic();
         Subscription subscription = new Subscription();
         public ViewSubscriptionsDetails(int ID)
         {
@@ -49,21 +50,32 @@ namespace ExamShopProject
             if (subscription.SubscriptionID == 0)
                 wasCreate = true;
             //Add categories later
-            SubscriptionLogic subscriptionLogic = new SubscriptionLogic();
             bool wasSuccess = subscriptionLogic.CheckEditOrCreate(subscription);
             if (wasSuccess == true)
             {
                 if (wasCreate == true)
+                {
                     CreateMessage.ShowCreateSuccesful("Subscription");
+                    NavigationService.Navigate(new ViewSubscriptionsDetails(subscription.CustomerID));
+                }
                 if (wasCreate == false)
+                {
                     CreateMessage.ShowEditSuccesful("Subscription");
+                    NavigationService.Navigate(new ViewSubscriptionsDetails(subscription.CustomerID));
+                }
             }
             if (wasSuccess == false)
                 CreateMessage.ShowFailureMessage();
         }
         private void Btn_Click_DeleteSubscription(object sender, RoutedEventArgs e)
         {
-
+            bool wasSuccess = subscriptionLogic.DeleteSubscription(subscription,"Subscription", subscription.SubscriptionID);
+            if (wasSuccess == true)
+                CreateMessage.ShowDeleteSuccesful("Subscription");
+            if (wasSuccess == false)
+                CreateMessage.ShowFailureMessage();
+            this.Content = null;
+            NavigationService.Navigate(new ViewCustomer());
         }
     }
 }

@@ -14,6 +14,7 @@ namespace ExamShopProject
     class DBInsert
     {
         #region User
+        //Made by Mikkel E.R. Glerup
         public static bool InsertUser(User user)
         {
             if (user == null)
@@ -112,6 +113,39 @@ namespace ExamShopProject
                 DBOpenClose.CloseConnection();
                 return true;
                 // need to get CategoryID somehow, right now from a listbox i imagine categories are placed in and sends an ID with the product object.
+            }
+            catch (Exception ex)
+            {
+                DBOpenClose.CloseConnection();
+                Log.WriteFail(ex);
+                return false;
+            }
+        }
+        #endregion
+        #region Subscription
+        //Made by Mikkel E.R. Glerup
+        public static bool InsertSubscription(Subscription input)
+        {
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+            try
+            {
+                DBOpenClose.OpenConnection();
+                SqlCommand command = new SqlCommand(
+                    "INSERT INTO [Subscription] (CustomerID, Renew, EndDate, RenewLength) VALUES (@CustomerID, @Renew, @EndDate, @RenewLength)", DBOpenClose.myConnection);
+                command.Parameters.Add("@CustomerID", SqlDbType.Int);
+                command.Parameters["@CustomerID"].Value = input.CustomerID;
+                command.Parameters.Add("@Renew", SqlDbType.Bit);
+                command.Parameters["@Renew"].Value = input.Renew;
+                command.Parameters.Add("@EndDate", SqlDbType.Date);
+                command.Parameters["@EndDate"].Value = input.EndDate;
+                command.Parameters.Add("@RenewLength", SqlDbType.Date);
+                command.Parameters["@RenewLength"].Value = input.RenewLength;
+                command.ExecuteNonQuery();
+                DBOpenClose.CloseConnection();
+                return true;
             }
             catch (Exception ex)
             {
