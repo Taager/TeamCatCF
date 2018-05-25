@@ -21,19 +21,21 @@ namespace ExamShopProject
             }
             try
             {
-                DBOpenClose.OpenConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
                 string tablestring = "[" + callerClass + "]";
                 string iDColumn = callerClass + "ID";
-                SqlCommand delete = new SqlCommand("DELETE FROM " + tablestring + " WHERE " + iDColumn + " = @ID;", DBOpenClose.myConnection);
+                SqlCommand delete = new SqlCommand("DELETE FROM " + tablestring + " WHERE " + iDColumn + " = @ID;", con);
                 delete.Parameters.Add("@ID", SqlDbType.Int);
                 delete.Parameters["@ID"].Value = callerID;
                 delete.ExecuteNonQuery();
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return true;
             }
             catch (Exception)
             {
-                DBOpenClose.CloseConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 return false;
             }
         }

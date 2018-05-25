@@ -5,22 +5,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExamShopProject.ErrorHandler;
+using System.Configuration;
 
 namespace ExamShopProject
 {
     class DBOpenClose
     {
         //made by Mikkel. E.R. Glerup
-        public static SqlConnection myConnection;
-        public static bool OpenConnection()
+        public static string conStr = ConfigurationManager.ConnectionStrings["Conn"].ToString();
+        public static bool OpenConnection(SqlConnection conn)
         {
             try
             {
-                myConnection = new SqlConnection(
-                    "Data Source=.;Initial Catalog=Charlie-APE;Integrated Security=True"
-                    );
-                // skal tilgåes fra properties
-                myConnection.Open();
+                conn.Open();
                 return true;
             }
             catch (Exception ex)
@@ -30,11 +27,11 @@ namespace ExamShopProject
             }
         }
         //Made by Mikkel E.R. Glerup
-        public static bool CloseConnection()
+        public static bool CloseConnection(SqlConnection conn)
         {
             try
             {
-                myConnection.Close();
+                conn.Close();
                 return true;
             }
             catch (Exception ex)

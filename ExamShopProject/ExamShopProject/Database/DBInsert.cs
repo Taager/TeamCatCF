@@ -23,9 +23,10 @@ namespace ExamShopProject
             }
             try
             {
-                DBOpenClose.OpenConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
                 SqlCommand command = new SqlCommand(
-                    "INSERT INTO [User] (UserName, Password, Name, IsAdmin) VALUES (@username, @password, @name, @isAdmin)", DBOpenClose.myConnection);
+                    "INSERT INTO [User] (UserName, Password, Name, IsAdmin) VALUES (@username, @password, @name, @isAdmin)", con);
                 command.Parameters.Add("@username", SqlDbType.VarChar);
                 command.Parameters["@username"].Value = user.Username;
                 command.Parameters.Add("@password", SqlDbType.VarChar);
@@ -35,12 +36,13 @@ namespace ExamShopProject
                 command.Parameters.Add("@isAdmin", SqlDbType.Bit);
                 command.Parameters["@isAdmin"].Value = user.IsAdmin;
                 command.ExecuteNonQuery();
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return true;
             }
             catch (Exception ex)
             {
-                DBOpenClose.CloseConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 Log.WriteFail(ex);
                 return false;
             }
@@ -56,10 +58,11 @@ namespace ExamShopProject
             }
             try
             {
-                DBOpenClose.OpenConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
                 SqlCommand command = new SqlCommand(
                     "INSERT INTO Customer ([Name], StreetAndNumber, ZipCode, City, ContactInfo, SpokesPerson, AnnualIncome) " +
-                    "VALUES (@Name, @StreetAndNumber, @ZipCode, @City, @ContactInfo, @SpokesPerson, @AnnualIncome)", DBOpenClose.myConnection);
+                    "VALUES (@Name, @StreetAndNumber, @ZipCode, @City, @ContactInfo, @SpokesPerson, @AnnualIncome)", con);
                 command.Parameters.Add("@Name", SqlDbType.VarChar);
                 command.Parameters["@Name"].Value = customer.Name;
                 command.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar);
@@ -75,12 +78,13 @@ namespace ExamShopProject
                 command.Parameters.Add("@AnnualIncome", SqlDbType.Float);
                 command.Parameters["@AnnualIncome"].Value = customer.AnnualIncome;
                 command.ExecuteNonQuery();
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return true;
             }
             catch (Exception ex)
             {
-                DBOpenClose.CloseConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 Log.WriteFail(ex);
                 return false;
             }
@@ -96,11 +100,12 @@ namespace ExamShopProject
             }
             try
             {
-        DBOpenClose.OpenConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
                 SqlCommand command = new SqlCommand(
                     "INSERT INTO [Product] (Name, description, Price, CategoryID) " +
                     "VALUES (@name, @description, @price, @CategoryID)" +
-                    "SELECT CategoryID From ProductCategories WHERE CategoryID=@CategoryID", DBOpenClose.myConnection);
+                    "SELECT CategoryID From ProductCategories WHERE CategoryID=@CategoryID", con);
                 command.Parameters.Add("@name", SqlDbType.VarChar);
                 command.Parameters["@name"].Value = product.Name;
                 command.Parameters.Add("@description", SqlDbType.Text);
@@ -110,13 +115,14 @@ namespace ExamShopProject
                 command.Parameters.Add("@CategoryID", SqlDbType.Int);
                 command.Parameters["@CategoryID"].Value = product.CategoryID;
                 command.ExecuteNonQuery();
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return true;
                 // need to get CategoryID somehow, right now from a listbox i imagine categories are placed in and sends an ID with the product object.
             }
             catch (Exception ex)
             {
-                DBOpenClose.CloseConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 Log.WriteFail(ex);
                 return false;
             }
@@ -132,9 +138,10 @@ namespace ExamShopProject
             }
             try
             {
-                DBOpenClose.OpenConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
                 SqlCommand command = new SqlCommand(
-                    "INSERT INTO [Subscription] (CustomerID, Renew, EndDate, RenewLength) VALUES (@CustomerID, @Renew, @EndDate, @RenewLength)", DBOpenClose.myConnection);
+                    "INSERT INTO [Subscription] (CustomerID, Renew, EndDate, RenewLength) VALUES (@CustomerID, @Renew, @EndDate, @RenewLength)", con);
                 command.Parameters.Add("@CustomerID", SqlDbType.Int);
                 command.Parameters["@CustomerID"].Value = input.CustomerID;
                 command.Parameters.Add("@Renew", SqlDbType.Bit);
@@ -144,12 +151,13 @@ namespace ExamShopProject
                 command.Parameters.Add("@RenewLength", SqlDbType.Date);
                 command.Parameters["@RenewLength"].Value = input.RenewLength;
                 command.ExecuteNonQuery();
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return true;
             }
             catch (Exception ex)
             {
-                DBOpenClose.CloseConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 Log.WriteFail(ex);
                 return false;
             }

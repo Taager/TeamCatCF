@@ -18,10 +18,11 @@ namespace ExamShopProject
         {
             try
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 List<User> userList = new List<User>();
-                DBOpenClose.OpenConnection();
+                DBOpenClose.OpenConnection(con);
                 SqlCommand getUsers = new SqlCommand(
-                    "SELECT * FROM [User]", DBOpenClose.myConnection);
+                    "SELECT * FROM [User]", con);
                 SqlDataReader reader = getUsers.ExecuteReader();
                 while (reader.Read())
                 {
@@ -33,7 +34,7 @@ namespace ExamShopProject
                     user.IsAdmin = reader.GetBoolean(4);
                     userList.Add(user);
                 }
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return userList;
             }
             catch (Exception ex)
@@ -48,10 +49,11 @@ namespace ExamShopProject
         {
             try
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 User user = new User();
-                DBOpenClose.OpenConnection();
+                DBOpenClose.OpenConnection(con);
                 SqlCommand getUser = new SqlCommand(
-                    "SELECT * FROM [User] WHERE UserID=@UserID", DBOpenClose.myConnection);
+                    "SELECT * FROM [User] WHERE UserID=@UserID", con);
                 getUser.Parameters.Add("@UserID", SqlDbType.Int);
                 getUser.Parameters["@UserID"].Value = ID;
                 SqlDataReader reader = getUser.ExecuteReader();
@@ -63,11 +65,13 @@ namespace ExamShopProject
                     user.Name = reader.GetString(3);
                     user.IsAdmin = reader.GetBoolean(4);
                 }
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return user;
             }
             catch (Exception ex)
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 User user = new User();
                 Log.WriteFail(ex);
                 return user;
@@ -80,10 +84,11 @@ namespace ExamShopProject
         {
             try
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 List<Customer> customerList = new List<Customer>();
-                DBOpenClose.OpenConnection();
+                DBOpenClose.OpenConnection(con);
                 SqlCommand getCustomers = new SqlCommand(
-                    "SELECT * FROM [Customer]", DBOpenClose.myConnection);
+                    "SELECT * FROM [Customer]", con);
                 SqlDataReader reader = getCustomers.ExecuteReader();
                 while (reader.Read())
                 {
@@ -98,11 +103,13 @@ namespace ExamShopProject
                     customer.AnnualIncome = reader.GetDouble(7);
                     customerList.Add(customer);
                 }
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return customerList;
             }
             catch (Exception ex)
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 List<Customer> customerList = new List<Customer>();
                 Log.WriteFail(ex);
                 return customerList;
@@ -113,10 +120,11 @@ namespace ExamShopProject
         {
             try
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 Customer customer = new Customer();
-                DBOpenClose.OpenConnection();
+                DBOpenClose.OpenConnection(con);
                 SqlCommand getCustomer = new SqlCommand(
-                    "SELECT * FROM [Customer] WHERE CustomerID=@CustomerID", DBOpenClose.myConnection);
+                    "SELECT * FROM [Customer] WHERE CustomerID=@CustomerID", con);
                 getCustomer.Parameters.Add("@CustomerID", SqlDbType.Int);
                 getCustomer.Parameters["@CustomerID"].Value = ID;
                 SqlDataReader reader = getCustomer.ExecuteReader();
@@ -131,11 +139,13 @@ namespace ExamShopProject
                     customer.SpokesPerson = reader.GetString(6);
                     customer.AnnualIncome = reader.GetDouble(7);
                 }
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return customer;
             }
             catch (Exception ex)
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 Customer customer = new Customer();
                 Log.WriteFail(ex);
                 return customer;
@@ -148,10 +158,11 @@ namespace ExamShopProject
         {
             try
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 List<Categories> categoryList = new List<Categories>();
-                DBOpenClose.OpenConnection();
+                DBOpenClose.OpenConnection(con);
                 SqlCommand getCategories = new SqlCommand(
-                    "SELECT * FROM [ProductCategories]", DBOpenClose.myConnection);
+                    "SELECT * FROM [ProductCategories]", con);
                 SqlDataReader reader = getCategories.ExecuteReader();
                 while (reader.Read())
                 {
@@ -161,11 +172,13 @@ namespace ExamShopProject
                     categories.Description= reader.GetString(2);
                     categoryList.Add(categories);
                 }
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return categoryList;
             }
             catch (Exception ex)
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 List<Categories> categoryList = new List<Categories>();
                 Log.WriteFail(ex);
                 return categoryList;
@@ -176,10 +189,11 @@ namespace ExamShopProject
         {
             try
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 Categories category = new Categories();
-                DBOpenClose.OpenConnection();
+                DBOpenClose.OpenConnection(con);
                 SqlCommand getCategory = new SqlCommand(
-                    "SELECT * FROM [ProductCategories] WHERE CategoryID=@CategoryID", DBOpenClose.myConnection);
+                    "SELECT * FROM [ProductCategories] WHERE CategoryID=@CategoryID", con);
                 getCategory.Parameters.Add("@CategoryID", SqlDbType.Int);
                 getCategory.Parameters["@CategoryID"].Value = ID;
                 SqlDataReader reader = getCategory.ExecuteReader();
@@ -189,11 +203,13 @@ namespace ExamShopProject
                     category.Name = reader.GetString(1);
                     category.Description = reader.GetString(2);
                 }
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return category;
             }
             catch (Exception ex)
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 Categories category = new Categories();
                 Log.WriteFail(ex);
                 return category;
@@ -206,10 +222,11 @@ namespace ExamShopProject
         {
             try
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 List<Product> productList = new List<Product>();
-                DBOpenClose.OpenConnection();
+                DBOpenClose.OpenConnection(con);
                 SqlCommand getProducts = new SqlCommand(
-                    "SELECT * FROM [Product]", DBOpenClose.myConnection);
+                    "SELECT * FROM [Product]", con);
                 SqlDataReader reader = getProducts.ExecuteReader();
                 while (reader.Read())
                 {
@@ -221,11 +238,13 @@ namespace ExamShopProject
                     products.CategoryID = reader.GetInt32(4);
                     productList.Add(products);
                 }
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return productList;
             }
             catch (Exception ex)
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 List<Product> productList = new List<Product>();
                 Log.WriteFail(ex);
                 return productList;
@@ -236,10 +255,11 @@ namespace ExamShopProject
         {
             try
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 Product product = new Product();
-                DBOpenClose.OpenConnection();
+                DBOpenClose.OpenConnection(con);
                 SqlCommand getProduct = new SqlCommand(
-                    "SELECT * FROM [Product] WHERE ProductID=@ProductID", DBOpenClose.myConnection);
+                    "SELECT * FROM [Product] WHERE ProductID=@ProductID", con);
                 getProduct.Parameters.Add("@ProductID", SqlDbType.Int);
                 getProduct.Parameters["@ProductID"].Value = ID;
                 SqlDataReader reader = getProduct.ExecuteReader();
@@ -251,11 +271,13 @@ namespace ExamShopProject
                     product.Price = reader.GetDouble(3);
                     product.CategoryID = reader.GetInt32(4);
                 }
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return product;
             }
             catch (Exception ex)
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 Product product = new Product();
                 Log.WriteFail(ex);
                 return product;
@@ -266,10 +288,11 @@ namespace ExamShopProject
         {
             try
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 Subscription output = new Subscription();
-                DBOpenClose.OpenConnection();
+                DBOpenClose.OpenConnection(con);
                 SqlCommand getSubscription = new SqlCommand(
-                    "SELECT * FROM [Subscription] WHERE CustomerID=@CustomerID", DBOpenClose.myConnection);
+                    "SELECT * FROM [Subscription] WHERE CustomerID=@CustomerID", con);
                 getSubscription.Parameters.Add("@CustomerID", SqlDbType.Int);
                 getSubscription.Parameters["@CustomerID"].Value = ID;
                 SqlDataReader reader = getSubscription.ExecuteReader();
@@ -279,17 +302,14 @@ namespace ExamShopProject
                     output.Renew = reader.GetBoolean(1);
                     output.SubscriptionID = reader.GetInt32(2);
                     output.RenewLength = reader.GetDateTime(4);
-                    //output.ID = reader.GetInt32(0);
-                    //output.Username = reader.GetString(1);
-                    //output.Password = reader.GetString(2);
-                    //output.Name = reader.GetString(3);
-                    //output.IsAdmin = reader.GetBoolean(4);
                 }
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return output;
             }
             catch (Exception ex)
             {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 Subscription output = new Subscription();
                 Log.WriteFail(ex);
                 return output;

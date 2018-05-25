@@ -22,8 +22,9 @@ namespace ExamShopProject
             }
             try
             {
-                DBOpenClose.OpenConnection();
-                SqlCommand UpdateUser = new SqlCommand("UPDATE [User] SET Username=@Username, Password=@Password, [Name]=@Name, IsAdmin=@IsAdmin WHERE UserID=@UserID", DBOpenClose.myConnection);
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
+                SqlCommand UpdateUser = new SqlCommand("UPDATE [User] SET Username=@Username, Password=@Password, [Name]=@Name, IsAdmin=@IsAdmin WHERE UserID=@UserID", con);
                 UpdateUser.Parameters.Add("@Username", SqlDbType.VarChar);
                 UpdateUser.Parameters["@Username"].Value = user.Username;
                 UpdateUser.Parameters.Add("@Password", SqlDbType.VarChar);
@@ -35,13 +36,14 @@ namespace ExamShopProject
                 UpdateUser.Parameters.Add("@UserID", SqlDbType.Int);
                 UpdateUser.Parameters["@UserID"].Value = user.ID;
                 UpdateUser.ExecuteNonQuery();
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return true;
 
             }
             catch (Exception ex)
             {
-                DBOpenClose.CloseConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 Log.WriteFail(ex);
                 return false;
             }
@@ -57,10 +59,11 @@ namespace ExamShopProject
             }
             try
             {
-                DBOpenClose.OpenConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
                 SqlCommand UpdateCustomer = new SqlCommand(
                     "UPDATE [Customer] SET [Name]=@Name, StreetAndNumber=@StreetAndNumber, ZipCode=@ZipCode, City=@City, ContactInfo=@ContactInfo, SpokesPerson=@SpokesPerson, AnnualIncome=@AnnualIncome " +
-                    "WHERE CustomerID=@CustomerID", DBOpenClose.myConnection);
+                    "WHERE CustomerID=@CustomerID", con);
                 UpdateCustomer.Parameters.Add("@Name", SqlDbType.VarChar);
                 UpdateCustomer.Parameters["@Name"].Value = customer.Name;
                 UpdateCustomer.Parameters.Add("@StreetAndNumber", SqlDbType.VarChar);
@@ -78,12 +81,13 @@ namespace ExamShopProject
                 UpdateCustomer.Parameters.Add("@CustomerID", SqlDbType.Int);
                 UpdateCustomer.Parameters["@CustomerID"].Value = customer.customerID;
                 UpdateCustomer.ExecuteNonQuery();
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return true;
             }
             catch (Exception ex)
             {
-                DBOpenClose.CloseConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 Log.WriteFail(ex);
                 return false;
             }
@@ -99,10 +103,11 @@ namespace ExamShopProject
             }
             try
             {
-                DBOpenClose.OpenConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
                 SqlCommand update = new SqlCommand(
                     "UPDATE [Product] SET [Name]=@Name, Description=@Description, Price=@Price, CategoryID=@CategoryID " +
-                    "WHERE ProductID=@ProductID", DBOpenClose.myConnection);
+                    "WHERE ProductID=@ProductID", con);
                 update.Parameters.Add("@ProductID", SqlDbType.Int);
                 update.Parameters["@ProductID"].Value = product.ProductID;
                 update.Parameters.Add("@Name", SqlDbType.VarChar);
@@ -114,12 +119,13 @@ namespace ExamShopProject
                 update.Parameters.Add("@CategoryID", SqlDbType.Int);
                 update.Parameters["@CategoryID"].Value = product.CategoryID;
                 update.ExecuteNonQuery();
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return true;
             }
             catch (Exception ex)
             {
-                DBOpenClose.CloseConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 Log.WriteFail(ex);
                 return false;
             }
@@ -131,9 +137,10 @@ namespace ExamShopProject
         {
             try
             {
-                DBOpenClose.OpenConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
                 SqlCommand UpdateSubscription = new SqlCommand(
-                    "UPDATE [Subscription] SET Renew=@Renew, EndDate=@EndDate, RenewLength=@RenewLength WHERE SubscriptionID=@SubscriptionID", DBOpenClose.myConnection);
+                    "UPDATE [Subscription] SET Renew=@Renew, EndDate=@EndDate, RenewLength=@RenewLength WHERE SubscriptionID=@SubscriptionID", con);
                 UpdateSubscription.Parameters.Add("@Renew", SqlDbType.Bit);
                 UpdateSubscription.Parameters["@Renew"].Value = input.Renew;
                 UpdateSubscription.Parameters.Add("@EndDate", SqlDbType.Date);
@@ -143,12 +150,13 @@ namespace ExamShopProject
                 UpdateSubscription.Parameters.Add("@SubscriptionID", SqlDbType.Int);
                 UpdateSubscription.Parameters["@SubscriptionID"].Value = input.SubscriptionID;
                 UpdateSubscription.ExecuteNonQuery();
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return true;
             }
             catch (Exception ex)
             {
-                DBOpenClose.CloseConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 Log.WriteFail(ex);
                 return false;
             }
