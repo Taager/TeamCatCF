@@ -14,11 +14,12 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExamShopProject.Object;
 
-namespace ExamShopProject.Visual.Visual_Deals
+namespace ExamShopProject
 {
     /// <summary>
     /// Interaction logic for CreateDeal.xaml
     /// </summary>
+    /// Made by Helena Brunsgaard Madsen
     public partial class CreateDeal : Page
     {
         Deals deals = new Deals();
