@@ -43,6 +43,10 @@ namespace ExamShopProject
         {
             return DBInsert.InsertSubscription(input);
         }
+        public static bool InsertDeal(Deals deal)
+        {
+            return DBInsert.InsertDeal(deal);
+        }
         #endregion
         #region viewList*
         // Made by Mikkel E.R. Glerup
