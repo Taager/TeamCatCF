@@ -25,5 +25,10 @@ namespace ExamShopProject
             InitializeComponent();
             _deals.Navigate(new ViewDeals());
         }
+
+        private void btn_CreateDeals_Click(object sender, RoutedEventArgs e)
+        {
+            _deals.Navigate(new CreateDeal());
+        }
     }
 }
