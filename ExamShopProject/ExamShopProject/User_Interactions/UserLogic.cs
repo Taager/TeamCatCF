@@ -37,7 +37,8 @@ namespace ExamShopProject.User_Interactions
             {
                 user.Name = name;
                 user.Username = usernameCreation.GetRandomUsername(name);
-                user.Password = passwordCreation.CreateRandomPassword();
+                user.userGuid = System.Guid.NewGuid();
+                user.Password = Security.HashSHA256(passwordCreation.CreateRandomPassword() + user.userGuid.ToString());
                 user.IsAdmin = isAdmin;
                 bool wasSuccess = DB.InsertUser(user);
                 if (wasSuccess)

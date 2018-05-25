@@ -14,6 +14,10 @@ namespace ExamShopProject
         {
             MessageBox.Show($"{callerClass} was created succesfully");
         }
+        public static void ShowNewUserPassword(string callerPassword)
+        {
+            MessageBox.Show($"The password is: {callerPassword}. Write it down, as it can't be recovered");
+        }
         public static void ShowFailureMessage()
         {
             MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
@@ -28,7 +32,15 @@ namespace ExamShopProject
         }
         public static void ShowInputNotValid()
         {
-                    MessageBox.Show("Information was wrong, please try again");
+            MessageBox.Show("Information was wrong, please try again");
+        }
+        public static void ShowSuccesfulLogin()
+        {
+            MessageBox.Show("Login succesful");    
+        }
+        public static void ShowUnsuccesfulLogin()
+        {
+            MessageBox.Show("Username or Password is wrong");
         }
     }
 }

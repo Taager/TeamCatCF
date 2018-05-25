@@ -19,11 +19,11 @@
         <Label Content="Password" Grid.Column="1" HorizontalAlignment="Left" Margin="10.2,177,0,0" VerticalAlignment="Top"/>
         <!--#endregion-->
         <!--#region I/O-->
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10.2,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10.2,207,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBox_Username" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10.2,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtBox_Password" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10.2,207,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <!--#endregion-->       
         <!--#region Buttons-->
-        <Button Content="Log In" Grid.Column="1" HorizontalAlignment="Left" Margin="130.2,288,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Log In" Grid.Column="1" HorizontalAlignment="Left" Margin="130.2,288,0,0" VerticalAlignment="Top" Width="75" Click="Btn_Click_LogIn"/>
         <!--#endregion-->
     </Grid>
 </Page>

@@ -57,8 +57,10 @@
     </ApplicationDefinition>
     <Compile Include="Deal_interactions\DealLogic.cs" />
     <Compile Include="Object\Categories.cs" />
+    <Compile Include="Object\CurrentUser.cs" />
     <Compile Include="Object\Deals.cs" />
     <Compile Include="Product_Interactions\ProductLogic.cs" />
+    <Compile Include="Security.cs" />
     <Compile Include="Subscription_Interactions\SubscriptionLogic.cs" />
     <Compile Include="Visual\Visual_Deals\CreateDeal.xaml.cs">
       <DependentUpon>CreateDeal.xaml</DependentUpon>

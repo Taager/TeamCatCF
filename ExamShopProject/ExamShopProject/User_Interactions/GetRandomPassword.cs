@@ -11,8 +11,9 @@ namespace ExamShopProject
         public string CreateRandomPassword()
         {
             string password = System.IO.Path.GetRandomFileName();
-            password = password.Replace(".", "");
-            return password = password.Substring(0, 8);
+            CurrentUser.password = password.Replace(".", "");
+            CreateMessage.ShowNewUserPassword(CurrentUser.password = CurrentUser.password.Substring(0, 8));
+            return CurrentUser.password = CurrentUser.password.Substring(0, 8);
         }
     }
 }

@@ -82,5 +82,6 @@ namespace ExamShopProject.Object
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+        public Guid userGuid { get; set; }
     }
 }

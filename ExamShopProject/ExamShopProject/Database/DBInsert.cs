@@ -26,7 +26,7 @@ namespace ExamShopProject
                 SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 DBOpenClose.OpenConnection(con);
                 SqlCommand command = new SqlCommand(
-                    "INSERT INTO [User] (UserName, Password, Name, IsAdmin) VALUES (@username, @password, @name, @isAdmin)", con);
+                    "INSERT INTO [User] (UserName, Password, Name, IsAdmin, UserGuid) VALUES (@username, @password, @name, @isAdmin, @UserGuid)", con);
                 command.Parameters.Add("@username", SqlDbType.VarChar);
                 command.Parameters["@username"].Value = user.Username;
                 command.Parameters.Add("@password", SqlDbType.VarChar);
@@ -35,6 +35,7 @@ namespace ExamShopProject
                 command.Parameters["@name"].Value = user.Name;
                 command.Parameters.Add("@isAdmin", SqlDbType.Bit);
                 command.Parameters["@isAdmin"].Value = user.IsAdmin;
+                command.Parameters.AddWithValue("@UserGUid", user.userGuid);
                 command.ExecuteNonQuery();
                 DBOpenClose.CloseConnection(con);
                 return true;

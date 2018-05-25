@@ -16,14 +16,7 @@ namespace ExamShopProject
     {
         public static bool UserLogin()
         {
-            try
-            {
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            return DBSelect.GetUserIdByUsernameAndPassword();
         }
         #region Insert*
         //made by Mikkel. E.R. Glerup

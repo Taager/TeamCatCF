@@ -24,5 +24,21 @@ namespace ExamShopProject
         {
             InitializeComponent();
         }
+
+        private void Btn_Click_LogIn(object sender, RoutedEventArgs e)
+        {
+            CurrentUser.username = txtBox_Username.Text;
+            CurrentUser.password = txtBox_Password.Text;
+            bool loginSucces = DB.UserLogin();
+            if (loginSucces == true)
+            {
+                CreateMessage.ShowSuccesfulLogin();
+                this.Content = null;
+            }
+            if (loginSucces == false)
+            {
+                CreateMessage.ShowUnsuccesfulLogin();
+            }
+        }
     }
 }
