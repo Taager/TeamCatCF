@@ -44,6 +44,17 @@ namespace ExamShopProject.Object
                 NotifyPropertyChanged();
             }
         }
+        private int _categoryID;
+
+        public int CategoryID
+        {
+            get { return _categoryID; }
+            set
+            {
+                _categoryID = value;
+                NotifyPropertyChanged();
+            }
+        }
         private int _customerID;
 
         public int CustomerID
@@ -55,25 +66,35 @@ namespace ExamShopProject.Object
                 NotifyPropertyChanged();
             }
         }
-        private int _percent;
-
-        public int Percent
+        private string _dealType;
+        public string DealType
         {
-            get { return _percent; }
+            get { return _dealType; }
             set
             {
-                _percent = value;
-                String.Format("Value: {0:P2}.", _percent);
+                _dealType = value;
                 NotifyPropertyChanged();
             }
         }
-        private double _currency;
-        public double Currency
+        private DateTime _startDate;
+
+        public DateTime StartDate
         {
-            get { return _currency; }
+            get { return _startDate; }
             set
             {
-                _currency = value;
+                _startDate = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private DateTime _endDate;
+
+        public DateTime EndDate
+        {
+            get { return _endDate; }
+            set
+            {
+                _endDate = value;
                 NotifyPropertyChanged();
             }
         }

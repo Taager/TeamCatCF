@@ -9,16 +9,36 @@
       Title="CreateDeal">
 
     <Grid>
-        <Label Content="Create Deal" HorizontalAlignment="Center" Margin="0,40,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <ListBox x:Name="lstbx_ProductOrCategory" HorizontalAlignment="Left" Height="100" Margin="302,109,0,0" VerticalAlignment="Top" Width="215"/>
-        <ListBox x:Name="lstbx_Customer" HorizontalAlignment="Left" Height="100" Margin="75,109,0,0" VerticalAlignment="Top" Width="198"/>
-        <Label Content="Choose Customer" HorizontalAlignment="Left" Margin="75,78,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn_Product" Content="Produt" HorizontalAlignment="Left" Margin="302,78,0,0" VerticalAlignment="Top" Width="75" Click="btn_Product_Click"/>
-        <Button x:Name="btn_Category" Content="Category" HorizontalAlignment="Left" Margin="397,78,0,0" VerticalAlignment="Top" Width="75" Click="btn_Category_Click"/>
-        <Label Content="Discount" HorizontalAlignment="Left" Margin="75,241,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rcbtn_Percent" Content="Percent" HorizontalAlignment="Left" Margin="189,247,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rdbtn_Currency" Content="Currency" HorizontalAlignment="Left" Margin="283,246,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtbx_Discount" HorizontalAlignment="Left" Height="23" Margin="75,284,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="274" IsEnabled="False"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="78*"/>
+            <RowDefinition Height="128*"/>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="87*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Create Deal" HorizontalAlignment="Center" Margin="261,10,263,0" VerticalAlignment="Top" FontWeight="Bold" Grid.ColumnSpan="2" Height="26" Width="76"/>
+        <ListBox x:Name="lstbx_ProductOrCategory" SelectionMode="multiple" HorizontalAlignment="Left" Height="74" Margin="10.6,44.6,0,0" VerticalAlignment="Top" Width="215" Grid.Column="1" Grid.Row="1"/>
+        <ListBox x:Name="lstbx_Customer" SelectionMode="multiple" HorizontalAlignment="Left" Height="74" Margin="78,44.6,0,0" VerticalAlignment="Top" Width="198" Grid.Row="1"/>
+        <Label Content="Choose Customer" HorizontalAlignment="Left" Margin="78,13.6,0,0" VerticalAlignment="Top" Height="26" Width="104" Grid.Row="1"/>
+        <Button x:Name="btn_Product" Content="Product" HorizontalAlignment="Left" Margin="10.6,13.6,0,0" VerticalAlignment="Top" Width="75" Click="btn_Product_Click" Grid.Column="1" Height="19" Grid.Row="1"/>
+        <Button x:Name="btn_Category" Content="Category" HorizontalAlignment="Left" Margin="105.6,13.6,0,0" VerticalAlignment="Top" Width="75" Click="btn_Category_Click" Grid.Column="1" Height="19" Grid.Row="1"/>
+        <Label Content="Discount" HorizontalAlignment="Left" Margin="78,17.6,0,0" VerticalAlignment="Top" Grid.Row="2" Height="26" Width="56"/>
+        <RadioButton x:Name="rdbtn_Percentage" Content="Percentage" HorizontalAlignment="Left" Margin="212,23.4,0,0" VerticalAlignment="Top" Checked="rdbtn_Percent_Checked" Grid.Row="2" Height="15" Width="78"/>
+        <RadioButton x:Name="rdbtn_Currency" Content="Currency" HorizontalAlignment="Left" Margin="10,23.4,0,0" VerticalAlignment="Top" Checked="rdbtn_Currency_Checked" Grid.Row="2" Height="15" Width="66" Grid.Column="1"/>
+        <TextBox x:Name="txtbx_Discount" HorizontalAlignment="Left" Height="23" Margin="137.6,19.6,0,0" TextWrapping="Wrap" Text="{Binding PriceDecrease}" VerticalAlignment="Top" Width="56" IsEnabled="False" Grid.Column="1" Grid.Row="2"/>
+        <Label x:Name="lbl_Percent" Content="%" HorizontalAlignment="Left" Margin="203.6,17.6,0,0" VerticalAlignment="Top" Opacity="0" Grid.Column="1" Grid.Row="2" Height="26" Width="19"/>
+        <Label x:Name="lbl_Currency" Content="kr." HorizontalAlignment="Left" Margin="203.6,17.6,0,0" VerticalAlignment="Top" Opacity="0" Grid.Column="1" Grid.Row="2" Height="26" Width="22"/>
+        <Button x:Name="btn_Save" Content="Save" HorizontalAlignment="Left" Margin="150.6,19.855,0,0" VerticalAlignment="Top" Width="75" Click="btn_Save_Click" Grid.Column="1" Grid.Row="4" Height="19"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="78,46,0,0" VerticalAlignment="Top" Height="26" Width="45"/>
+        <TextBox x:Name="txtbx_Name" HorizontalAlignment="Left" Height="23" Margin="144,50,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Start date" HorizontalAlignment="Left" Margin="78,7.6,0,0" VerticalAlignment="Top" Grid.Row="3" Height="26" Width="61"/>
+        <Label Content="End date" HorizontalAlignment="Left" Margin="4.6,7.6,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" Height="26" Width="56"/>
+        <DatePicker x:Name="dtpckr_StartDate" HorizontalAlignment="Left" Margin="162,8.6,0,0" VerticalAlignment="Top" Text="{Binding StartDate}" Grid.Row="3" Height="24" Width="102" />
+        <DatePicker x:Name="dtpckr_EndDate" HorizontalAlignment="Left" Margin="91.6,9.6,0,0" VerticalAlignment="Top" Text="{Binding EndDate}" Grid.Column="1" Grid.Row="3" Height="24" Width="102" />
 
     </Grid>
 </Page>

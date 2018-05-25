@@ -101,6 +101,14 @@ namespace ExamShopProject.ErrorHandler
         { }
     }
     #endregion
+    #region Deals
+    class DealWasAdded : Exception
+    {
+        public DealWasAdded(Deals deal) : base($"{deal.Name} has been created")
+        { }
+    }
+    #endregion
+
 
 }
 

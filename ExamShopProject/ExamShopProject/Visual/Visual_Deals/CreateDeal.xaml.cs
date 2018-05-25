@@ -29,23 +29,6 @@ namespace ExamShopProject
             DataContext = deals;
             lstbx_Customer.ItemsSource = DB.SelectAllCustomers();
             lstbx_Customer.DisplayMemberPath = "Name";
-
-            if (rcbtn_Percent.IsChecked == true)
-            {
-                txtbx_Discount.IsEnabled = true;
-                txtbx_Discount.SetBinding(TextBox.TextProperty, "Percent");
-                //show percent in textbox
-            }
-            else if (rdbtn_Currency.IsChecked == true)
-            {
-                txtbx_Discount.IsEnabled = true;
-                txtbx_Discount.SetBinding(TextBox.TextProperty, "Currency");
-                //show currency in textbox
-            }
-            else
-            {
-                txtbx_Discount.IsEnabled = false;
-            }
         }
 
         private void btn_Product_Click(object sender, RoutedEventArgs e)
@@ -58,6 +41,29 @@ namespace ExamShopProject
         {
             lstbx_ProductOrCategory.ItemsSource = DB.SelectAllCategories();
             lstbx_ProductOrCategory.DisplayMemberPath = "Name";
+        }
+
+        private void rdbtn_Percent_Checked(object sender, RoutedEventArgs e)
+        {
+            lbl_Currency.Opacity = 0;
+            txtbx_Discount.IsEnabled = true;
+            lbl_Percent.Opacity = 100;
+            deals.DealType = "%";
+            //show percent in textbox
+        }
+        private void rdbtn_Currency_Checked(object sender, RoutedEventArgs e)
+        {
+            lbl_Percent.Opacity = 0;
+            txtbx_Discount.IsEnabled = true;
+            lbl_Currency.Opacity = 100;
+            deals.DealType = "kr.";
+            //show currency in textbox
+        }
+
+        private void btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+            // Get customer ID
+            // Get Product or category ID
         }
     }
 }

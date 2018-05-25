@@ -164,5 +164,47 @@ namespace ExamShopProject
             }
         }
         #endregion
+        #region Deal
+        public static bool InsertDeal(Deals deal)
+        {
+            if (deal == null)
+            {
+                throw new ArgumentNullException(nameof(deal));
+            }
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
+                SqlCommand command = new SqlCommand(
+                    "INSERT INTO [Deals] (Name, PriceDecrease, DealType, EndDate, CategoryID, ProductID, CustomerID, StartDate) VALUES (@Name, @PriceDecrease, @DealType, @EndDate, @CategoryID, @ProductID, @CustomerID, @StartDate)", con);
+                command.Parameters.Add("@Name", SqlDbType.VarChar);
+                command.Parameters["@Name"].Value = deal.Name;
+                command.Parameters.Add("@PriceDecrease", SqlDbType.Float);
+                command.Parameters["@PriceDecrease"].Value = deal.PriceDecrease;
+                command.Parameters.Add("@DealType", SqlDbType.VarChar);
+                command.Parameters["@DealType"].Value = deal.DealType;
+                command.Parameters.Add("@EndDate", SqlDbType.DateTime);
+                command.Parameters["@EndDate"].Value = deal.EndDate;
+                command.Parameters.Add("@CategoryID", SqlDbType.Int);
+                command.Parameters["@CategoryID"].Value = deal.CategoryID;
+                command.Parameters.Add("@ProductID", SqlDbType.Int);
+                command.Parameters["@ProductID"].Value = deal.ProductID;
+                command.Parameters.Add("@CustomerID", SqlDbType.Int);
+                command.Parameters["@CustomerID"].Value = deal.CustomerID;
+                command.Parameters.Add("@StartDate", SqlDbType.DateTime);
+                command.Parameters["@StartDate"].Value = deal.StartDate;
+                command.ExecuteNonQuery();
+                DBOpenClose.CloseConnection(con);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                Log.WriteFail(ex);
+                return false;
+            }
+        }
+        #endregion
     }
 }
