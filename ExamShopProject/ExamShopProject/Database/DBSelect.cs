@@ -263,7 +263,7 @@ namespace ExamShopProject
         {
             try
             {
-                Product product = new Product();
+                Product products = new Product();
                 SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 List<Product> productList = new List<Product>();
                 DBOpenClose.OpenConnection(con);
@@ -272,7 +272,6 @@ namespace ExamShopProject
                 SqlDataReader reader = getProducts.ExecuteReader();
                 while (reader.Read())
                 {
-                    Product products = new Product();
                     products.ProductID = reader.GetInt32(0);
                     products.Name = reader.GetString(1);
                     products.Description = reader.GetString(2);
@@ -281,7 +280,7 @@ namespace ExamShopProject
                     productList.Add(products);
                 }
                 DBOpenClose.CloseConnection(con);
-                if (product.ProductID == 0)
+                if (products.ProductID == 0)
                 {
                     productList.Remove(productList[0]);
                 }
@@ -362,6 +361,80 @@ namespace ExamShopProject
                 Subscription output = new Subscription();
                 Log.WriteFail(ex);
                 return output;
+            }
+        }
+        #endregion
+        #region Deals
+        public static List<Deals> SelectAllDeals()
+        {
+            try
+            {
+                Deals deals = new Deals();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                List<Deals> dealsList = new List<Deals>();
+                DBOpenClose.OpenConnection(con);
+                SqlCommand getDeals = new SqlCommand(
+                    "SELECT * FROM [Deals]", con);
+                SqlDataReader reader = getDeals.ExecuteReader();
+                while (reader.Read())
+                {
+                    deals.DealID = reader.GetInt32(0);
+                    deals.Name = reader.GetString(1);
+                    deals.PriceDecrease = reader.GetInt32(2);
+                    deals.DealType = reader.GetString(3);
+                    deals.StartDate = reader.GetDateTime(4);
+                    deals.EndDate = reader.GetDateTime(5);
+                    deals.CategoryID = reader.GetInt32(6);
+                    deals.ProductID = reader.GetInt32(7);
+                    deals.CustomerID = reader.GetInt32(8);
+                }
+                DBOpenClose.CloseConnection(con);
+                return dealsList;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                List<Deals> dealsList = new List<Deals>();
+                Log.WriteFail(ex);
+                return dealsList;
+            }
+        }
+        // Made by Helena Brunsgaard Madsen
+        public static Deals SelectDeal(int ID)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                Deals deals = new Deals();
+                DBOpenClose.OpenConnection(con);
+                SqlCommand getDeal = new SqlCommand(
+                    "SELECT * FROM [Deal] WHERE DealID=@DealID", con);
+                getDeal.Parameters.Add("@DealID", SqlDbType.Int);
+                getDeal.Parameters["@DealID"].Value = ID;
+                SqlDataReader reader = getDeal.ExecuteReader();
+                while (reader.Read())
+                {
+                    deals.DealID = reader.GetInt32(0);
+                    deals.Name = reader.GetString(1);
+                    deals.PriceDecrease = reader.GetInt32(2);
+                    deals.DealType = reader.GetString(3);
+                    deals.StartDate = reader.GetDateTime(4);
+                    deals.EndDate = reader.GetDateTime(5);
+                    deals.CategoryID = reader.GetInt32(6);
+                    deals.ProductID = reader.GetInt32(7);
+                    deals.CustomerID = reader.GetInt32(8);
+                }
+                DBOpenClose.CloseConnection(con);
+                return deals;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                Deals deals = new Deals();
+                Log.WriteFail(ex);
+                return deals;
             }
         }
         #endregion

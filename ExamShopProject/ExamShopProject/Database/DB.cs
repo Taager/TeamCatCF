@@ -72,7 +72,7 @@ namespace ExamShopProject
         {
             return DBSelect.SelectCategory(ID);
         }
-
+        // Made by Helena Brunsgaard Madsen
         public static List<Product> SelectAllProducts()
         {
             return DBSelect.SelectAllProducts();
@@ -86,6 +86,17 @@ namespace ExamShopProject
         {
             return DBSelect.SelectSubscription(ID);
         }
+        // Made by Helena Brunsgaard Madsen
+        public static List<Deals> SelectAllDeals()
+        {
+            return DBSelect.SelectAllDeals();
+        }
+        // Made by Helena Brunsgaard Madsen
+        public static Deals SelectDeal(int ID)
+        {
+            return DBSelect.SelectDeal(ID);
+        }
+
         #endregion
         #region Edit*
         //Made by Mikkel E.R. Glerup

@@ -11,6 +11,17 @@ namespace ExamShopProject.Object
     // MAde by Helena Brunsgaard Madsen
     class Deals
     {
+        private int _dealID;
+
+        public int DealID
+        {
+            get { return _dealID; }
+            set
+            {
+                _dealID = value;
+                NotifyPropertyChanged();
+            }
+        }
         private string _name;
 
         public string Name

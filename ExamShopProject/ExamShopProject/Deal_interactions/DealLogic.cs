@@ -27,5 +27,21 @@ namespace ExamShopProject.Deal_interactions
                 return true;
             }
         }
+        public bool DeleteDeal(string callerClass, int callerID)
+        {
+            try
+            {
+                bool wasSucces = DB.Delete(callerClass, callerID);
+                if (wasSucces)
+                    throw new DealWasDeleted(deals); //writes in log when a deal is deleted
+                return wasSucces;
+            }
+            catch (CustomerWasDeleted ex)
+            {
+                ErrorHandler.Log.WriteEvent(ex);
+                return true;
+            }
+        }
+
     }
 }

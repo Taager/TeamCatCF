@@ -23,6 +23,7 @@ namespace ExamShopProject
     // Made by Helena Brunsgaard Madsen
     public partial class CreateDeal : Page
     {
+        bool wasSuccess;
         Deals deals = new Deals();
         DealLogic interaction = new DealLogic();
         public CreateDeal()
@@ -50,7 +51,7 @@ namespace ExamShopProject
             lbl_Currency.Opacity = 0;
             txtbx_Discount.IsEnabled = true;
             lbl_Percent.Opacity = 100;
-            deals.DealType = "Percentage";
+            deals.DealType = "percentage";
             //show percent in textbox
         }
         private void rdbtn_Currency_Checked(object sender, RoutedEventArgs e)
@@ -58,14 +59,37 @@ namespace ExamShopProject
             lbl_Percent.Opacity = 0;
             txtbx_Discount.IsEnabled = true;
             lbl_Currency.Opacity = 100;
-            deals.DealType = "Currency";
+            deals.DealType = "cost";
             //show currency in textbox
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            Customer chosenCustomer = (Customer)lstbx_Customer.SelectedItem;
-            deals.CustomerID = chosenCustomer.customerID;
+            int customerID = 0;
+            List<int> selectedCustomersList = new List<int>();
+            for (int i = 0; i < lstbx_Customer.SelectedItems.Count; i++)
+            {
+                Customer chosenCustomer = (Customer)lstbx_Customer.Items[i];
+                customerID = chosenCustomer.customerID;
+                selectedCustomersList.Add(customerID);
+            }
+            int[] arrayOfCustomerIDs = selectedCustomersList.ToArray();
+            foreach (int customerIDs in arrayOfCustomerIDs)
+            {
+                CreateDeals(customerIDs);
+                wasSuccess = true;
+            }
+
+            if (wasSuccess)
+                MessageBox.Show("Deal was created successfully.");
+            if (!wasSuccess)
+                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+            this.Content = null;
+            NavigationService.Navigate(new ViewDeals());
+        }
+        private void CreateDeals(int customerID)
+        {
+            deals.CustomerID = customerID;
             if (rdbtn_Category.IsChecked == true)
             {
                 Categories chosenCategory = (Categories)lstbx_ProductOrCategory.SelectedItem;
@@ -80,14 +104,7 @@ namespace ExamShopProject
             {
                 MessageBox.Show("Please Select a Product or a Category");
             }
-
-            bool wasSuccess = interaction.CreateDeal(deals);
-            if (wasSuccess)
-                MessageBox.Show("Deal was created successfully.");
-            if (!wasSuccess)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
-            this.Content = null;
-            NavigationService.Navigate(new ViewDeals());
+            interaction.CreateDeal(deals);
         }
     }
 }

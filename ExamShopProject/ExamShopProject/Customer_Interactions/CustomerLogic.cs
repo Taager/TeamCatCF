@@ -59,7 +59,7 @@ namespace ExamShopProject
         {
             try
             {
-                bool wasSucces = DB.Delete(callerClass, callerID); //Use same delete as user as a test.
+                bool wasSucces = DB.Delete(callerClass, callerID); 
                 if (wasSucces)
                     throw new CustomerWasDeleted(customer); //writes in log when a customer is deleted
                 return wasSucces;

@@ -107,6 +107,12 @@ namespace ExamShopProject.ErrorHandler
         public DealWasAdded(Deals deal) : base($"{deal.Name} has been created")
         { }
     }
+    class DealWasDeleted : Exception
+    {
+        public DealWasDeleted(Deals deals) : base($"The following deal have been deleted: {deals.Name} ")
+        { }
+    }
+
     #endregion
 
 

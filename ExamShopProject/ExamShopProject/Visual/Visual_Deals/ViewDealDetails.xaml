@@ -10,10 +10,12 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="77*"/>
-            <RowDefinition Height="59*"/>
-            <RowDefinition Height="Auto" MinHeight="56"/>
-            <RowDefinition Height="208*"/>
+            <RowDefinition Height="78*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="Auto" MinHeight="42"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="45*"/>
+            <RowDefinition Height="146*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="197*"/>
@@ -22,12 +24,20 @@
         </Grid.ColumnDefinitions>
         <!--#region Labels-->
         <Label Content="Deal" HorizontalAlignment="Center" Margin="95.2,40,91.4,0" VerticalAlignment="Top" FontWeight="Bold" Grid.Column="1" Height="26" Width="79"/>
-        <Label Content="Customer" HorizontalAlignment="Left" Margin="135,22.2,0,0" VerticalAlignment="Top" Height="26" Width="61" Grid.Row="1"/>
-        <Label Content="Discount" HorizontalAlignment="Left" Margin="135,19,0,0" VerticalAlignment="Top" Height="26" Width="61" Grid.Row="2"/>
+        <Label Content="Customer" HorizontalAlignment="Left" Margin="108,0,0,6" VerticalAlignment="Bottom" Height="26" Width="61" Grid.Row="1" RenderTransformOrigin="0.501,-0.098"/>
+        <Label Content="Discount" HorizontalAlignment="Left" Margin="108,10,0,0" VerticalAlignment="Top" Height="26" Width="61" Grid.Row="2"/>
+        <Label x:Name="lbl_Product" Content="Product" HorizontalAlignment="Left" Margin="110,0,0,13.6" Grid.Row="3" VerticalAlignment="Bottom" Height="26" Width="51" Opacity="0" RenderTransformOrigin="0.5,0.5"/>
+        <Label x:Name="lbl_Category" Content="Category" HorizontalAlignment="Left" Margin="118,12.4,0,0" Grid.Row="3" VerticalAlignment="Top" Height="26" Width="51" Opacity="0"/>
+        <Label Content="Start Date" HorizontalAlignment="Left" Margin="108,9.4,0,0" VerticalAlignment="Top" Height="26" Width="71" Grid.Row="4"/>
+        <Label Content="End Date" HorizontalAlignment="Left" Margin="108,1.6,0,0" VerticalAlignment="Top" Height="26" Width="71" Grid.Row="5"/>
         <!--#endregion-->
         <!--#region I/O-->
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10.2,26.2,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Grid.Column="1" Grid.Row="1"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="10.2,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Grid.Column="1" Grid.Row="2"/>
+        <TextBox x:Name="txtbx_Customer" HorizontalAlignment="Left" Height="23" Margin="10.2,0,0,12" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="220" Grid.Column="1" Grid.Row="1"/>
+        <TextBox x:Name="txtbx_Discount" HorizontalAlignment="Left" Height="23" Margin="10.2,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Grid.Column="1" Grid.Row="2"/>
+        <TextBox x:Name="txtbx_ProductOrCategory" HorizontalAlignment="Left" Height="23" Margin="10.2,13.4,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Grid.Column="1" Grid.Row="3"/>
+        <DatePicker x:Name="dtpckr_StartDate" Grid.Column="1" HorizontalAlignment="Left" Margin="10.2,12.4,0,0" Grid.Row="4" VerticalAlignment="Top" Height="24" Width="102" SelectedDate="{Binding StartDate}"/>
+        <DatePicker x:Name="dtpckr_EndDate" Grid.Column="1" HorizontalAlignment="Left" Margin="10.2,2.6,0,0" Grid.Row="5" VerticalAlignment="Top" Height="24" Width="102" SelectedDate="{Binding EndDate}"/>
+        <Button x:Name="btn_Delete" Content="Delete" Grid.Column="2" HorizontalAlignment="Left" Margin="38.6,101.6,0,0" Grid.Row="5" VerticalAlignment="Top" Width="75"/>
         <!--#endregion-->
     </Grid>
 </Page>

@@ -25,7 +25,7 @@ namespace ExamShopProject
         ProductLogic interaction = new ProductLogic();
         Product product = new Product();
         Categories category = new Categories();
-        public ViewProductDetails( int ID)
+        public ViewProductDetails(int ID)
         {
             product = DB.SelectProduct(ID);
             category.CategoryID = product.CategoryID;
