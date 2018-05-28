@@ -332,7 +332,7 @@ namespace ExamShopProject
         #endregion
         #region Subscription
         // Made by Mikkel E.R. Glerup
-        public static Subscription SelectSubscription(int ID)
+        public Subscription SelectSubscription(int ID)
         {
             try
             {
