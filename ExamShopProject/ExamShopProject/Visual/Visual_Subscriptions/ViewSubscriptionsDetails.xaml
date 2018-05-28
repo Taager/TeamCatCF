@@ -29,7 +29,7 @@
         <!--#region Labels-->
         <Label x:Name="Label_Customer" Content="Customer: " Grid.Column="1" Grid.Row="1"/>
         <Label x:Name="Label_EndDate" Content="Date to expire: " Grid.Column="1" Grid.Row="2"/>
-        <Label x:Name="Label_AutoRenew" Content="Auto renew: " Grid.Column="1" Grid.Row="3"/>
+        <Label x:Name="Label_AutoRenew" Content="Auto renew: " Grid.Row="2" Margin="-60,54,32,10" Grid.RowSpan="2"/>
         <Label x:Name="Label_CategoriesSubscribeTo" Content="Categories to subscribe to: " Grid.Column="1" Grid.Row="4"/>
         <!--#endregion-->
         <!--#region I/O-->

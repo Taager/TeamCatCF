@@ -27,7 +27,7 @@ namespace ExamShopProject.Statistics
         }
         private void CalcTotalUsers(float price)
         {
-            // Still needed?
+            
         }
         private void CalcTotalLogins()
         {
