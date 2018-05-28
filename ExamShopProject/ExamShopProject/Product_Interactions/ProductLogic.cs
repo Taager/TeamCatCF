@@ -21,7 +21,7 @@ namespace ExamShopProject.Product_Interactions
                     throw new ProductWasAdded(product);
                 return false;
             }
-            //Only thrown if creating user was a succes
+            //Only thrown if creating product was a success
             catch (ProductWasAdded ex)
             {
 

@@ -33,39 +33,6 @@ namespace ExamShopProject.Object
                 NotifyPropertyChanged();
             }
         }
-        private int _productID;
-
-        public int ProductID
-        {
-            get { return _productID; }
-            set
-            {
-                _productID = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private int _categoryID;
-
-        public int CategoryID
-        {
-            get { return _categoryID; }
-            set
-            {
-                _categoryID = value;
-                NotifyPropertyChanged();
-            }
-        }
-        private int _customerID;
-
-        public int CustomerID
-        {
-            get { return _customerID; }
-            set
-            {
-                _customerID = value;
-                NotifyPropertyChanged();
-            }
-        }
         private string _dealType;
         public string DealType
         {
@@ -95,6 +62,39 @@ namespace ExamShopProject.Object
             set
             {
                 _endDate = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _categoryID;
+
+        public int CategoryID
+        {
+            get { return _categoryID; }
+            set
+            {
+                _categoryID = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _productID;
+
+        public int ProductID
+        {
+            get { return _productID; }
+            set
+            {
+                _productID = value;
+                NotifyPropertyChanged();
+            }
+        }
+        private int _customerID;
+
+        public int CustomerID
+        {
+            get { return _customerID; }
+            set
+            {
+                _customerID = value;
                 NotifyPropertyChanged();
             }
         }

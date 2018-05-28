@@ -62,8 +62,14 @@ namespace ExamShopProject
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            // Get customer ID
-            // Get Product or category ID
+            Categories chosenCategory = (Categories)lstbx_ProductOrCategory.SelectedItem;
+            Product chosenProduct = (Product)lstbx_ProductOrCategory.SelectedItem;
+            deals.CategoryID = chosenCategory.CategoryID;
+            deals.ProductID = chosenProduct.ProductID;
+            Customer chosenCustomer = (Customer)lstbx_Customer.SelectedItem;
+            deals.CustomerID = chosenCustomer.customerID;
+
+            //Deal logic Call CreateDeal()
         }
     }
 }
