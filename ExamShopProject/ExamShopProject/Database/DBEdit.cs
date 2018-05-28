@@ -14,7 +14,7 @@ namespace ExamShopProject
     {
         #region User
         // Made by Mikkel Glerup
-        public static bool EditUser(User user)
+        public bool EditUser(User user)
         {
             if (user == null)
             {
@@ -51,7 +51,7 @@ namespace ExamShopProject
         #endregion
         #region Customer
         // Made by Helena Brunsgaard Madsen
-        public static bool EditCustomer(Customer customer)
+        public bool EditCustomer(Customer customer)
         {
             if (customer == null)
             {
@@ -95,7 +95,7 @@ namespace ExamShopProject
         #endregion
         #region Product
         // Made by Helena Brunsgaard Madsen
-        public static bool EditProduct(Product product)
+        public bool EditProduct(Product product)
         {
             if (product == null)
             {
@@ -133,7 +133,7 @@ namespace ExamShopProject
         #endregion
         #region Subscription
         //Made by Mikkel E.R. Glerup
-        public static bool EditSubscription(Subscription input)
+        public bool EditSubscription(Subscription input)
         {
             try
             {

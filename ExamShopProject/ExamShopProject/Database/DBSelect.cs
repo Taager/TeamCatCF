@@ -14,7 +14,7 @@ namespace ExamShopProject
     {
             #region User
         // Made by Mikkel E.R Glerup
-        public static List<User> SelectAllUsers()
+        public List<User> SelectAllUsers()
         {
             try
             {
@@ -45,7 +45,7 @@ namespace ExamShopProject
             }
         }
         // Made by Mikkel E.R. Glerup
-        public static User SelectUser(int ID)
+        public User SelectUser(int ID)
         {
             try
             {
@@ -78,7 +78,7 @@ namespace ExamShopProject
             }
         }
         //Made by Mikkel E.R. Glerup
-        public static bool GetUserIdByUsernameAndPassword()
+        public bool GetUserIdByUsernameAndPassword()
         {
             try
             {
@@ -115,7 +115,7 @@ namespace ExamShopProject
             #endregion
             #region Customer
             // Made by Helena Brunsgaard Madsen
-            public static List<Customer> SelectAllCustomers()
+            public List<Customer> SelectAllCustomers()
             {
                 try
                 {
@@ -151,7 +151,7 @@ namespace ExamShopProject
                 }
             }
             // Made by Helena Brunsgaard Madsen
-            public static Customer SelectCustomer(int ID)
+            public Customer SelectCustomer(int ID)
             {
                 try
                 {
@@ -189,7 +189,7 @@ namespace ExamShopProject
             #endregion
             #region Category
             // Made by Helena Brunsgaard Madsen
-            public static List<Categories> SelectAllCategories()
+            public List<Categories> SelectAllCategories()
             {
                 try
                 {
@@ -220,7 +220,7 @@ namespace ExamShopProject
                 }
             }
             // Made by Helena Brunsgaard Madsen
-            public static Categories SelectCategory(int ID) //not sure we need this
+            public Categories SelectCategory(int ID) //not sure we need this
             {
                 try
                 {
@@ -253,7 +253,7 @@ namespace ExamShopProject
             #endregion
             #region Products
             // Made by Helena Brunsgaard Madsen
-            public static List<Product> SelectAllProducts()
+            public List<Product> SelectAllProducts()
             {
                 try
                 {
@@ -286,7 +286,7 @@ namespace ExamShopProject
                 }
             }
             // Made by Helena Brunsgaard Madsen
-            public static Product SelectProduct(int ID)
+            public Product SelectProduct(int ID)
             {
                 try
                 {
@@ -319,7 +319,7 @@ namespace ExamShopProject
                 }
             }
             // Made by Mikkel E.R. Glerup
-            public static Subscription SelectSubscription(int ID)
+            public Subscription SelectSubscription(int ID)
             {
                 try
                 {
