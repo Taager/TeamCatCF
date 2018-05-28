@@ -12,7 +12,7 @@ namespace ExamShopProject
 {
     class DBSelect
     {
-        #region User
+            #region User
         // Made by Mikkel E.R Glerup
         public static List<User> SelectAllUsers()
         {
@@ -350,6 +350,6 @@ namespace ExamShopProject
                     return output;
                 }
             }
-            #endregion
-        }
+        #endregion
     }
+}

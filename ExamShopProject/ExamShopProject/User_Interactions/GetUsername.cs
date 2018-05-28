@@ -18,14 +18,14 @@ namespace ExamShopProject
             name = name.Replace(" ", "");
             return name = name.Substring(0, 3) + GetRandomNumber(); ;
         }
-        public char GetRandomChar()
+        private char GetRandomChar()
         {
             string chars = "abcdefghijklmnopqrstuvwxyz";
             int num = rnd.Next(0, chars.Length - 1);
             char rndChar = chars[num];
             return rndChar;
         }
-        public string GetRandomNumber()
+        private string GetRandomNumber()
         {
 
             int rndNumb = rnd.Next(100, 999);

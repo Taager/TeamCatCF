@@ -41,7 +41,7 @@ namespace ExamShopProject
             return DBInsert.InsertDeal(deal);
         }
         #endregion
-        #region viewList*
+        #region View*
         // Made by Mikkel E.R. Glerup
         public static List<User> SelectAllUsers()
         {
