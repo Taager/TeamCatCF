@@ -104,12 +104,14 @@ namespace ExamShopProject
         // Made by Helena Brunsgaard Madsen
         public static List<Deals> SelectAllDeals()
         {
-            return DBSelect.SelectAllDeals();
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectAllDeals();
         }
         // Made by Helena Brunsgaard Madsen
         public static Deals SelectDeal(int ID)
         {
-            return DBSelect.SelectDeal(ID);
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectDeal(ID);
         }
 
         #endregion
