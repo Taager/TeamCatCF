@@ -15,7 +15,7 @@ namespace ExamShopProject
     {
         #region User
         //Made by Mikkel E.R. Glerup
-        public static bool InsertUser(User user)
+        public bool InsertUser(User user)
         {
             if (user == null)
             {
@@ -51,7 +51,7 @@ namespace ExamShopProject
         #endregion
         #region Customer
         // Made by Helena Brunsgaard Madsen
-        public static bool InsertCustomer(Customer customer)
+        public bool InsertCustomer(Customer customer)
         {
             if (customer == null)
             {
@@ -93,7 +93,7 @@ namespace ExamShopProject
         #endregion
         #region Product
         // Made by Helena Brunsgaard Madsen
-        public static bool InsertProduct(Product product)
+        public bool InsertProduct(Product product)
         {
             if (product == null)
             {
@@ -131,7 +131,7 @@ namespace ExamShopProject
         #endregion
         #region Subscription
         //Made by Mikkel E.R. Glerup
-        public static bool InsertSubscription(Subscription input)
+        public bool InsertSubscription(Subscription input)
         {
             if (input == null)
             {
@@ -165,7 +165,7 @@ namespace ExamShopProject
         }
         #endregion
         #region Deal
-        public static bool InsertDeal(Deals deal)
+        public bool InsertDeal(Deals deal)
         {
             if (deal == null)
             {
