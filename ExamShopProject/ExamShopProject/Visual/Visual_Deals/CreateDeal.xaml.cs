@@ -26,6 +26,8 @@ namespace ExamShopProject
         public CreateDeal()
         {
             InitializeComponent();
+            deals.EndDate = DateTime.Now;
+            deals.StartDate = DateTime.Now;
             DataContext = deals;
             lstbx_Customer.ItemsSource = DB.SelectAllCustomers();
             lstbx_Customer.DisplayMemberPath = "Name";

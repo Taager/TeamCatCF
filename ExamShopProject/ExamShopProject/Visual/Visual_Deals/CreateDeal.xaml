@@ -37,8 +37,8 @@
         <TextBox x:Name="txtbx_Name" HorizontalAlignment="Left" Height="23" Margin="144,50,0,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="120"/>
         <Label Content="Start date" HorizontalAlignment="Left" Margin="78,7.6,0,0" VerticalAlignment="Top" Grid.Row="3" Height="26" Width="61"/>
         <Label Content="End date" HorizontalAlignment="Left" Margin="4.6,7.6,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" Height="26" Width="56"/>
-        <DatePicker x:Name="dtpckr_StartDate" HorizontalAlignment="Left" Margin="162,8.6,0,0" VerticalAlignment="Top" Text="{Binding StartDate}" Grid.Row="3" Height="24" Width="102" />
-        <DatePicker x:Name="dtpckr_EndDate" HorizontalAlignment="Left" Margin="91.6,9.6,0,0" VerticalAlignment="Top" Text="{Binding EndDate}" Grid.Column="1" Grid.Row="3" Height="24" Width="102" />
+        <DatePicker x:Name="dtpckr_StartDate" HorizontalAlignment="Left" Margin="162,8.6,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartDate}" Grid.Row="3" Height="24" Width="102" />
+        <DatePicker x:Name="dtpckr_EndDate" HorizontalAlignment="Left" Margin="91.6,9.6,0,0" VerticalAlignment="Top" SelectedDate="{Binding EndDate}" Grid.Column="1" Grid.Row="3" Height="24" Width="102" />
 
     </Grid>
 </Page>
