@@ -24,11 +24,9 @@
         <ListBox x:Name="lstbx_ProductOrCategory" SelectionMode="multiple" HorizontalAlignment="Left" Height="74" Margin="10.6,44.6,0,0" VerticalAlignment="Top" Width="215" Grid.Column="1" Grid.Row="1"/>
         <ListBox x:Name="lstbx_Customer" SelectionMode="multiple" HorizontalAlignment="Left" Height="74" Margin="78,44.6,0,0" VerticalAlignment="Top" Width="198" Grid.Row="1"/>
         <Label Content="Choose Customer" HorizontalAlignment="Left" Margin="78,13.6,0,0" VerticalAlignment="Top" Height="26" Width="104" Grid.Row="1"/>
-        <Button x:Name="btn_Product" Content="Product" HorizontalAlignment="Left" Margin="10.6,13.6,0,0" VerticalAlignment="Top" Width="75" Click="btn_Product_Click" Grid.Column="1" Height="19" Grid.Row="1"/>
-        <Button x:Name="btn_Category" Content="Category" HorizontalAlignment="Left" Margin="105.6,13.6,0,0" VerticalAlignment="Top" Width="75" Click="btn_Category_Click" Grid.Column="1" Height="19" Grid.Row="1"/>
         <Label Content="Discount" HorizontalAlignment="Left" Margin="78,17.6,0,0" VerticalAlignment="Top" Grid.Row="2" Height="26" Width="56"/>
-        <RadioButton x:Name="rdbtn_Percentage" Content="Percentage" HorizontalAlignment="Left" Margin="212,23.4,0,0" VerticalAlignment="Top" Checked="rdbtn_Percent_Checked" Grid.Row="2" Height="15" Width="78"/>
-        <RadioButton x:Name="rdbtn_Currency" Content="Currency" HorizontalAlignment="Left" Margin="10,23.4,0,0" VerticalAlignment="Top" Checked="rdbtn_Currency_Checked" Grid.Row="2" Height="15" Width="66" Grid.Column="1"/>
+        <RadioButton x:Name="rdbtn_Percentage" Content="Percentage" HorizontalAlignment="Left" Margin="212,23.4,0,0" VerticalAlignment="Top" Checked="rdbtn_Percent_Checked" Grid.Row="2" Height="15" Width="78" GroupName="PercentCurrency"/>
+        <RadioButton x:Name="rdbtn_Currency" Content="Currency" HorizontalAlignment="Left" Margin="10,23.4,0,0" VerticalAlignment="Top" Checked="rdbtn_Currency_Checked" Grid.Row="2" Height="15" Width="66" Grid.Column="1" GroupName="PercentCurrency"/>
         <TextBox x:Name="txtbx_Discount" HorizontalAlignment="Left" Height="23" Margin="137.6,19.6,0,0" TextWrapping="Wrap" Text="{Binding PriceDecrease}" VerticalAlignment="Top" Width="56" IsEnabled="False" Grid.Column="1" Grid.Row="2"/>
         <Label x:Name="lbl_Percent" Content="%" HorizontalAlignment="Left" Margin="203.6,17.6,0,0" VerticalAlignment="Top" Opacity="0" Grid.Column="1" Grid.Row="2" Height="26" Width="19"/>
         <Label x:Name="lbl_Currency" Content="kr." HorizontalAlignment="Left" Margin="203.6,17.6,0,0" VerticalAlignment="Top" Opacity="0" Grid.Column="1" Grid.Row="2" Height="26" Width="22"/>
@@ -39,6 +37,8 @@
         <Label Content="End date" HorizontalAlignment="Left" Margin="4.6,7.6,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="3" Height="26" Width="56"/>
         <DatePicker x:Name="dtpckr_StartDate" HorizontalAlignment="Left" Margin="162,8.6,0,0" VerticalAlignment="Top" SelectedDate="{Binding StartDate}" Grid.Row="3" Height="24" Width="102" />
         <DatePicker x:Name="dtpckr_EndDate" HorizontalAlignment="Left" Margin="91.6,9.6,0,0" VerticalAlignment="Top" SelectedDate="{Binding EndDate}" Grid.Column="1" Grid.Row="3" Height="24" Width="102" />
+        <RadioButton x:Name="rdbtn_Product" Content="Product" Grid.Column="1" HorizontalAlignment="Left" Margin="11,19.4,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="ProductCategory" Checked="rdbtn_Product_Checked"/>
+        <RadioButton x:Name="rdbtn_Category" Content="Category" Grid.Column="1" HorizontalAlignment="Left" Margin="92,19.4,0,0" Grid.Row="1" VerticalAlignment="Top" GroupName="ProductCategory" Checked="rdbtn_Category_Checked"/>
 
     </Grid>
 </Page>

@@ -22,9 +22,9 @@ namespace ExamShopProject.Object
                 NotifyPropertyChanged();
             }
         }
-        private int _priceDecrease;
+        private double _priceDecrease;
 
-        public int PriceDecrease
+        public double PriceDecrease
         {
             get { return _priceDecrease; }
             set
