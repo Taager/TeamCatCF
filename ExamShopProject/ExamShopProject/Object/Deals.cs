@@ -11,14 +11,14 @@ namespace ExamShopProject.Object
     // MAde by Helena Brunsgaard Madsen
     class Deals
     {
-        private int _dealID;
+        private int _dealsID;
 
-        public int DealID
+        public int DealsID
         {
-            get { return _dealID; }
+            get { return _dealsID; }
             set
             {
-                _dealID = value;
+                _dealsID = value;
                 NotifyPropertyChanged();
             }
         }

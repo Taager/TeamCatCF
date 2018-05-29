@@ -36,7 +36,7 @@ namespace ExamShopProject.Deal_interactions
                     throw new DealWasDeleted(deals); //writes in log when a deal is deleted
                 return wasSucces;
             }
-            catch (CustomerWasDeleted ex)
+            catch (DealWasDeleted ex)
             {
                 ErrorHandler.Log.WriteEvent(ex);
                 return true;

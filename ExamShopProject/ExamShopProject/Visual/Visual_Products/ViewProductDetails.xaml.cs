@@ -39,7 +39,7 @@ namespace ExamShopProject
 
         private void btn_DeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-            bool wasSucces = interaction.DeleteProduct("product", product.ProductID); //Delete user as a test
+            bool wasSucces = interaction.DeleteProduct("product", product.ProductID);
             if (wasSucces)
                 CreateMessage.ShowDeleteSuccesful("Product");
             if (!wasSucces)
@@ -84,9 +84,5 @@ namespace ExamShopProject
                 product.Description = txtbx_Description.Text;
         }
 
-        private void lstbx_Categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
     }
 }

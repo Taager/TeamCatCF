@@ -31,7 +31,7 @@ namespace ExamShopProject
         private void lstbx_Deals_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Deals chosenDeal = (Deals)lstbx_Deals.SelectedItem;
-            NavigationService.Navigate(new ViewDealDetails(chosenDeal.DealID));
+            NavigationService.Navigate(new ViewDealDetails(chosenDeal.DealsID));
         }
     }
 }
