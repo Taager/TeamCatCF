@@ -33,5 +33,17 @@ namespace ExamShopProject
             Product chosenProduct = (Product)lstbx_Products.SelectedItem;
             NavigationService.Navigate(new ViewProductDetails(chosenProduct.ProductID));
         }
+
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            var ProductFiltered = from product in DB.SelectAllProducts()
+                                   let productName = product.Name
+                                   where
+                                   productName.StartsWith(TextBox_Search.Text.ToLower())
+                                   || productName.StartsWith(TextBox_Search.Text.ToUpper())
+                                   || productName.Contains(TextBox_Search.Text)
+                                   select product;
+            lstbx_Products.ItemsSource = ProductFiltered;
+        }
     }
 }

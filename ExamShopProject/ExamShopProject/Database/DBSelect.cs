@@ -193,7 +193,7 @@ namespace ExamShopProject
         {
             try
             {
-                Categories category = new Categories();
+                Categories categories = new Categories();
                 SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 List<Categories> categoryList = new List<Categories>();
                 DBOpenClose.OpenConnection(con);
@@ -202,14 +202,13 @@ namespace ExamShopProject
                 SqlDataReader reader = getCategories.ExecuteReader();
                 while (reader.Read())
                 {
-                    Categories categories = new Categories();
                     categories.CategoryID = reader.GetInt32(0);
                     categories.Name = reader.GetString(1);
                     categories.Description = reader.GetString(2);
                     categoryList.Add(categories);
                 }
                 DBOpenClose.CloseConnection(con);
-                if (category.CategoryID == 0)
+                if (categories.CategoryID == 0)
                 {
                     categoryList.Remove(categoryList[0]);
                 }

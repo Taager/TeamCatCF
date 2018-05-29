@@ -28,7 +28,11 @@
             <Frame x:Name="_viewUserDetails" />
         </DockPanel>
         <!--#region I/O-->
+        <TextBox x:Name="TextBox_Search"  HorizontalAlignment="Left" Height="23" Margin="48,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="385" Grid.ColumnSpan="3" />
         <ListBox x:Name="ListBox_Show"  Grid.Row="1" Grid.Column="1" SelectionChanged="ListBox_Show_SelectionChanged" />
+        <!--#endregion-->
+        <!--#region Buttons-->
+        <Button x:Name="btn_Search" Content="Search" HorizontalAlignment="Left" Margin="57,14,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Height="19" Click="btn_Search_Click" Grid.ColumnSpan="2" />
         <!--#endregion-->
     </Grid>
 </Page>

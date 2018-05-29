@@ -22,7 +22,7 @@
             <Frame x:Name="_customerView" />
         </DockPanel>
         <!--#region I/O-->
-        <TextBox x:Name="txtbx_Search"  HorizontalAlignment="Left" Height="23" Margin="40,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="385" Grid.ColumnSpan="2" />
+        <TextBox x:Name="TextBox_Search"  HorizontalAlignment="Left" Height="23" Margin="40,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="385" Grid.ColumnSpan="2" />
         <ListBox x:Name="lstbx_Customer" HorizontalAlignment="Left" Height="200" Margin="40,40.4,0,0" VerticalAlignment="Top" Width="385" Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="lstbx_Customer_SelectionChanged" />
         <!--#endregion-->
         <!--#region Buttons-->
