@@ -47,7 +47,8 @@ namespace ExamShopProject
         {
             DateTime now = DateTime.Now;
             bool wasCreate = false;
-            subscription.EndDate = DatePicker_EndDate.DisplayDate;
+            // had to cast because DatePicker_EndDate.SelectedDate is DateTime?
+            subscription.EndDate = (DateTime) DatePicker_EndDate.SelectedDate;
             subscription.RenewLength = (subscription.EndDate.Month - DateTime.Now.Month);
             if (CheckBox_AutoRenew.IsChecked == true)
                 subscription.Renew = true;

@@ -24,5 +24,32 @@ namespace ExamShopProject
         {
             InitializeComponent();
         }
+
+        private void Btn_Customers_Click(object sender, RoutedEventArgs e)
+        {
+            Label_TopX.Opacity = 100;
+            TxtBox_TopX.Opacity = 100;
+            _statsFrame.Navigate(new Statistics_Customers());
+        }
+
+        private void Btn_Subscriptions_Click(object sender, RoutedEventArgs e)
+        {
+            Label_TopX.Opacity = 100;
+            TxtBox_TopX.Opacity = 100;
+            _statsFrame.Navigate(new Statistics_Subscriptions());
+        }
+
+        private void Btn_Deals_Click(object sender, RoutedEventArgs e)
+        {
+            Label_TopX.Opacity = 100;
+            TxtBox_TopX.Opacity = 100;
+            _statsFrame.Navigate(new Statistics_Deals());
+        }
+        private void Btn_Products_Click(object sender, RoutedEventArgs e)
+        {
+            Label_TopX.Opacity = 100;
+            TxtBox_TopX.Opacity = 100;
+            _statsFrame.Navigate(new Statistics_Products());
+        }
     }
 }
