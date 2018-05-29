@@ -35,5 +35,17 @@ namespace ExamShopProject
             User chosenUser = (User)ListBox_Show.SelectedItem;
             NavigationService.Navigate(new ViewUsersDetail(chosenUser.ID));
         }
+
+        private void btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            var CustomerFiltered = from user in DB.SelectAllUsers()
+                                   let UserName = user.Username
+                                   where
+                                   UserName.StartsWith(TextBox_Search.Text.ToLower())
+                                   || UserName.StartsWith(TextBox_Search.Text.ToUpper())
+                                   || UserName.Contains(TextBox_Search.Text)
+                                   select user;
+            ListBox_Show.ItemsSource = CustomerFiltered;
+        }
     }
 }

@@ -38,6 +38,14 @@ namespace ExamShopProject
 
         private void btn_Search_Click(object sender, RoutedEventArgs e)
         {
+            var CustomerFiltered = from customer in DB.SelectAllCustomers()
+                                   let customerName = customer.Name
+                                   where
+                                   customerName.StartsWith(TextBox_Search.Text.ToLower())
+                                   || customerName.StartsWith(TextBox_Search.Text.ToUpper())
+                                   || customerName.Contains(TextBox_Search.Text)
+                                   select customer;
+            lstbx_Customer.ItemsSource = CustomerFiltered;
         }
     }
 }
