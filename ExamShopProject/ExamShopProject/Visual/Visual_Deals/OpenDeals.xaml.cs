@@ -18,6 +18,7 @@ namespace ExamShopProject
     /// <summary>
     /// Interaction logic for OpenDeals.xaml
     /// </summary>
+    // Made by Helena Brunsgaard Madsen
     public partial class OpenDeals : Page
     {
         public OpenDeals()

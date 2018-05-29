@@ -366,6 +366,7 @@ namespace ExamShopProject
         }
             #endregion
         #region Deals
+        // Made by Helena Brunsgaard Madsen
         public List<Deals> SelectAllDeals()
         {
             try

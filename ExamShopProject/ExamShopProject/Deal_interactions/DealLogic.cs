@@ -8,6 +8,7 @@ using ExamShopProject.ErrorHandler;
 
 namespace ExamShopProject.Deal_interactions
 {
+    // Made by Helena Brunsgaard Madsen
     class DealLogic
     {
         Deals deals = new Deals();

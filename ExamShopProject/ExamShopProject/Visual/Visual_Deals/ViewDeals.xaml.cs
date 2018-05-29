@@ -19,6 +19,7 @@ namespace ExamShopProject
     /// <summary>
     /// Interaction logic for ViewDeals.xaml
     /// </summary>
+    // Made by Helena Brunsgaard Madsen
     public partial class ViewDeals : Page
     {
         public ViewDeals()

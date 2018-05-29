@@ -20,6 +20,7 @@ namespace ExamShopProject
     /// <summary>
     /// Interaction logic for ViewDealDetails.xaml
     /// </summary>
+    // Madse by Helena Brunsgaard Madsen
     public partial class ViewDealDetails : Page
     {
         Deals deal = new Deals();

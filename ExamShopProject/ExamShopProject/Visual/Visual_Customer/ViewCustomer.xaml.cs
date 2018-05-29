@@ -22,6 +22,7 @@ namespace ExamShopProject
     /// </summary>
     public partial class ViewCustomer : Page
     {
+        Customer customer = new Customer();
         public ViewCustomer()
         {
             InitializeComponent();
@@ -33,6 +34,10 @@ namespace ExamShopProject
         {
             Customer chosenCustomer = (Customer)lstbx_Customer.SelectedItem;
             NavigationService.Navigate(new ViewCustomerDetails(chosenCustomer.customerID));
+        }
+
+        private void btn_Search_Click(object sender, RoutedEventArgs e)
+        {
         }
     }
 }

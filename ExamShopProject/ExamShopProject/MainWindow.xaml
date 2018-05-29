@@ -24,11 +24,10 @@
         <Button x:Name="btn_Customer" Content="Customer" HorizontalAlignment="Left" Margin="30,1.146,0,0" VerticalAlignment="Top" Width="85" Click="btn_Customer_Click" Height="20" Grid.Row="1"/>
         <Button x:Name="btn_User" Content="User" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,31.146,0,0" Click="btn_User_Click" Height="20" Grid.Row="1"/>
         <Button x:Name="btn_LogIn" Content="Log in" HorizontalAlignment="Left" Margin="30,331.146,0,0" VerticalAlignment="Top" Width="85" Height="20" Grid.Row="1" Click="btn_LogIn_Click"/>
-        <Button x:Name="btn_Subscriptions" Content="Subscriptions" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,61.146,0,0" Height="20" Grid.Row="1" Click="btn_Subscriptions_Click"/>
-        <Button x:Name="btn_Statistics" Content="Statistics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,91.146,0,0" Height="20" Grid.Row="1" Click="btn_Statistics_Click"/>
-        <Button x:Name="btn_Catalogue" Content="Catalogue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,121.146,0,0" Height="20" Grid.Row="1" Click="btn_Catalogue_Click"/>
-        <Button x:Name="btn_Deals" Content="Deals" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,151.146,0,0" Height="20" Grid.Row="1" Click="btn_Deals_Click"/>
-        <Button x:Name="btn_Products" Content="Products" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,181,0,0" Height="20" Grid.Row="1" Click="btn_Products_Click" />
+        <Button x:Name="btn_Statistics" Content="Statistics" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,62,0,0" Height="20" Grid.Row="1" Click="btn_Statistics_Click"/>
+        <Button x:Name="btn_Catalogue" Content="Catalogue" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,92,0,0" Height="20" Grid.Row="1" Click="btn_Catalogue_Click"/>
+        <Button x:Name="btn_Deals" Content="Deals" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,122,0,0" Height="20" Grid.Row="1" Click="btn_Deals_Click"/>
+        <Button x:Name="btn_Products" Content="Products" HorizontalAlignment="Left" VerticalAlignment="Top" Width="85" Margin="30,152,0,0" Height="20" Grid.Row="1" Click="btn_Products_Click" />
 
     </Grid>
 </Window>
