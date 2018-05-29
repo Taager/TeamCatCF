@@ -23,7 +23,26 @@ namespace ExamShopProject
         public OpenStatistics()
         {
             InitializeComponent();
-            _statistics.Navigate(new ViewStatistics());
+        }
+
+        private void btn_CustomerStats_Click(object sender, RoutedEventArgs e)
+        {
+            _statistics.Navigate(new Statistics_Customers());
+        }
+
+        private void btn_DealsStats_Click(object sender, RoutedEventArgs e)
+        {
+            _statistics.Navigate(new Statistics_Deals());
+        }
+
+        private void btn_ProductsStat_Click(object sender, RoutedEventArgs e)
+        {
+            _statistics.Navigate(new Statistics_Products());
+        }
+
+        private void btn_SubscriptionsStat_Click(object sender, RoutedEventArgs e)
+        {
+            _statistics.Navigate(new Statistics_Subscriptions());
         }
     }
 }

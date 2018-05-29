@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ExamShopProject"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="700"
+      d:DesignHeight="450" d:DesignWidth="600"
       Title="OpenStatistics">
 
     <Grid>
@@ -13,12 +13,15 @@
             <RowDefinition Height="73*"/>
             <RowDefinition Height="377*"/>
         </Grid.RowDefinitions>
-        
+
         <DockPanel Grid.ColumnSpan="1" Grid.Row="1">
             <Frame x:Name="_statistics" />
         </DockPanel>
         <!--#region Buttons-->
-        <Button Content="View" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Margin="40,0,0,0"/>
+        <Button x:Name="btn_CustomerStats" Content="Customer" Grid.Row="0" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top" Width="75" Click="btn_CustomerStats_Click" />
+        <Button x:Name="btn_DealsStats" Content="Deals" Grid.Row="0" HorizontalAlignment="Left" Margin="120,25,0,0" VerticalAlignment="Top" Width="75" Click="btn_DealsStats_Click"  />
+        <Button x:Name="btn_ProductsStat" Content="Products" Grid.Row="0" HorizontalAlignment="Left" Margin="220,25,0,0" VerticalAlignment="Top" Width="75" Click="btn_ProductsStat_Click" />
+        <Button x:Name="btn_SubscriptionsStat" Content="Subscriptions" Grid.Row="0" HorizontalAlignment="Left" Margin="320,25,0,0" VerticalAlignment="Top" Width="75" Click="btn_SubscriptionsStat_Click" />
         <!--#endregion-->
     </Grid>
 </Page>
