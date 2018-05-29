@@ -11,7 +11,8 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="58*"/>
-            <ColumnDefinition Width="191*"/>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="68*"/>
             <ColumnDefinition Width="93*"/>
             <ColumnDefinition Width="108*"/>
             <ColumnDefinition Width="48*"/>
@@ -32,18 +33,23 @@
             <RowDefinition Height="31*"/>
             <RowDefinition Height="15*"/>
         </Grid.RowDefinitions>
-        <Label Content="Salesman: " Grid.Column="1" FontSize="15" Grid.Row="1" />
-        <Label Content="Username: " Grid.Column="1" FontSize="15" Grid.Row="2" />
-        <Label Content="Password: " Grid.Column="1" FontSize="15" Grid.Row="3" />
-        <Label Content="Is user an admin: " Grid.Column="1" FontSize="15" Grid.Row="4" />
-        <TextBox x:Name="TxtBox_Name" Text="{Binding Name}" FontSize="16" Grid.Column="2" Grid.Row="1" IsEnabled="False" Grid.ColumnSpan="6"/>
-        <TextBox x:Name="TxtBox_Username"  Text="{Binding Username}" FontSize="16" Grid.Column="2" Grid.Row="2" IsEnabled="False" Grid.ColumnSpan="6"/>
-        <TextBox x:Name="TxtBox_Password" Text="{Binding Password}" FontSize="16" Grid.Column="2" Grid.Row="3" IsEnabled="False" Grid.ColumnSpan="6"/>
-        <TextBox x:Name="TxtBox_IsAdmin" Text="{Binding IsAdminString}" FontSize="16" Grid.Column="2" Grid.Row="4" IsEnabled="False" Grid.ColumnSpan="6" Opacity="100"/>
-        <Button x:Name="Btn_Edit" Content="Edit" FontSize="15" Grid.Column="5" Grid.Row="7" Click="Btn_Edit_Enable" />
-        <Button x:Name="Btn_Save" Content="Save" FontSize="15" Grid.Column="8" Grid.Row="7" Click="Btn_Save_Click" IsEnabled="False" />
-        <Button x:Name="Btn_Delete" Content="Delete" Grid.Row="7" Grid.Column="3" Click="Btn_Click_DeleteUser" />
-        <CheckBox x:Name="CheckBox_IsAdmin" Content="Admin" Grid.Column="2" Grid.Row="4" Grid.RowSpan="2" IsEnabled="False" Opacity="0" Grid.ColumnSpan="3"/>
-
+        <!--#region Labels-->
+        <Label Content="Salesman: " Grid.Column="1" FontSize="15" Grid.Row="1" Grid.ColumnSpan="2" />
+        <Label Content="Username: " Grid.Column="1" FontSize="15" Grid.Row="2" Grid.ColumnSpan="2" />
+        <Label Content="Password: " Grid.Column="1" FontSize="15" Grid.Row="3" Grid.ColumnSpan="2" />
+        <Label Content="Is user an admin: " Grid.Column="1" FontSize="15" Grid.Row="4" Grid.ColumnSpan="2" />
+        <!--#endregion-->
+        <!--#region I/O-->
+        <TextBox x:Name="TxtBox_Name" Text="{Binding Name}" FontSize="16" Grid.Column="3" Grid.Row="1" IsEnabled="False" Grid.ColumnSpan="6"/>
+        <TextBox x:Name="TxtBox_Username"  Text="{Binding Username}" FontSize="16" Grid.Column="3" Grid.Row="2" IsEnabled="False" Grid.ColumnSpan="6"/>
+        <TextBox x:Name="TxtBox_Password" Text="{Binding Password}" FontSize="16" Grid.Column="3" Grid.Row="3" IsEnabled="False" Grid.ColumnSpan="6"/>
+        <TextBox x:Name="TxtBox_IsAdmin" Text="{Binding IsAdminString}" FontSize="16" Grid.Column="3" Grid.Row="4" IsEnabled="False" Grid.ColumnSpan="6" Opacity="100"/>
+        <!--#endregion-->
+        <!--#region Buttons-->
+        <Button x:Name="Btn_Edit" Content="Edit" FontSize="15" Grid.Column="6" Grid.Row="7" Click="Btn_Edit_Enable" />
+        <Button x:Name="Btn_Save" Content="Save" FontSize="15" Grid.Column="9" Grid.Row="7" Click="Btn_Save_Click" IsEnabled="False" />
+        <Button x:Name="Btn_Delete" Content="Delete" Grid.Row="7" Grid.Column="4" IsEnabled="False" Opacity="0" Click="Btn_Click_DeleteUser" />
+        <CheckBox x:Name="CheckBox_IsAdmin" Content="Admin" Grid.Column="3" Grid.Row="4" Grid.RowSpan="2" IsEnabled="False" Opacity="0" Grid.ColumnSpan="3"/>
+        <!--#endregion-->
     </Grid>
 </Page>

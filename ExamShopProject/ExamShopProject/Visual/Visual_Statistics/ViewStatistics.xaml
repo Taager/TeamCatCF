@@ -10,7 +10,12 @@
 
     <Grid>
         <Label Content="Statistics" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,40,0,0" FontWeight="Bold"/>
-
+        <!--#region Labels-->
+        <!--#endregion-->
+        <!--#region I/O-->
+        <!--#endregion-->
+        <!--#region Buttons-->
+        <!--#endregion-->
 
     </Grid>
 </Page>

@@ -32,9 +32,9 @@ namespace ExamShopProject
         {
             bool wasSuccess = interaction.CreateCustomer(customer);
             if (wasSuccess)
-                MessageBox.Show("Customer was created successfully.");
+                CreateMessage.ShowCreateSuccesful("Customer");
             if (!wasSuccess)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+                CreateMessage.ShowFailureMessage();
             this.Content = null;
             NavigationService.Navigate(new ViewCustomer());
         }

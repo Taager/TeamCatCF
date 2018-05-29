@@ -17,8 +17,8 @@
         <DockPanel Grid.ColumnSpan="1" Grid.Row="1">
             <Frame x:Name="_statistics" />
         </DockPanel>
-
+        <!--#region Buttons-->
         <Button Content="View" HorizontalAlignment="Left" VerticalAlignment="Center" Width="75" Margin="40,0,0,0"/>
-
+        <!--#endregion-->
     </Grid>
 </Page>

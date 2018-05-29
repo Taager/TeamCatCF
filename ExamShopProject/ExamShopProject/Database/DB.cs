@@ -16,67 +16,135 @@ namespace ExamShopProject
     {
         public static bool UserLogin()
         {
-            try
-            {
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.GetUserIdByUsernameAndPassword();
         }
         #region Insert*
         //made by Mikkel. E.R. Glerup
-        public static bool InsertUser(User user)
+        public static bool InsertUser(User input)
         {
-            return DBInsert.InsertUser(user);
+            DBInsert dBInsert = new DBInsert();
+            return dBInsert.InsertUser(input);
         }
-        public static bool InsertCustomer(Customer customer)
+        public static bool InsertCustomer(Customer input)
         {
-            return DBInsert.InsertCustomer(customer);
+            DBInsert dBInsert = new DBInsert();
+            return dBInsert.InsertCustomer(input);
+        }
+        public static bool InsertProduct(Product input)
+        {
+            DBInsert dBInsert = new DBInsert();
+            return dBInsert.InsertProduct(input);
+        }
+        public static bool InsertSubscription(Subscription input)
+        {
+            DBInsert dBInsert = new DBInsert();
+            return dBInsert.InsertSubscription(input);
+        }
+        public static bool InsertDeal(Deals deal)
+        {
+            DBInsert dBInsert = new DBInsert();
+            return dBInsert.InsertDeal(deal);
         }
         #endregion
-        #region viewList*
+        #region View*
         // Made by Mikkel E.R. Glerup
         public static List<User> SelectAllUsers()
         {
-            return DBSelect.SelectAllUsers();
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectAllUsers();
         }
         //Made by Mikkel E.R. Glerup
         public static User SelectUser(int ID)
         {
-            return DBSelect.SelectUser(ID);
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectUser(ID);
         }
-        // MAde by Helena Brunsgaard Madsen
+        // Made by Helena Brunsgaard Madsen
         public static List<Customer> SelectAllCustomers()
         {
-            return DBSelect.SelectAllCustomers();
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectAllCustomers();
         }
+        // Made by Helena Brunsgaard Madsen
         public static Customer SelectCustomer(int ID)
         {
-            return DBSelect.SelectCustomer(ID);
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectCustomer(ID);
+        }
+        // Made by Helena Brunsgaard Madsen
+        public static List<Categories> SelectAllCategories()
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectAllCategories();
+        }
+        // Made by Helena Brunsgaard Madsen
+        public static Categories SelectCategory(int ID)
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectCategory(ID);
+        }
+        // Made by Helena Brunsgaard Madsen
+        public static List<Product> SelectAllProducts()
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectAllProducts();
+        }
+        // Made by Helena Brunsgaard Madsen
+        public static Product SelectProduct(int ID)
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectProduct(ID);
+        }
+        public static Subscription SelectSubcription(int ID)
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectSubscription(ID);
+        }
+        // Made by Helena Brunsgaard Madsen
+        public static List<Deals> SelectAllDeals()
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectAllDeals();
+        }
+        // Made by Helena Brunsgaard Madsen
+        public static Deals SelectDeal(int ID)
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectDeal(ID);
         }
 
         #endregion
         #region Edit*
         //Made by Mikkel E.R. Glerup
-        public static bool EditUser(User user)
+        public static bool EditUser(User input)
         {
-            return DBEdit.EditUser(user);
+            DBEdit dBEdit = new DBEdit();
+            return dBEdit.EditUser(input);
         }
-        public static bool EditCustomer(Customer customer)
+        // Made by Helena Brunsgaard Madsen
+        public static bool EditCustomer(Customer input)
         {
-            return DBEdit.EditCustomer(customer);
+            DBEdit dBEdit = new DBEdit();
+            return dBEdit.EditCustomer(input);
+        }
+        // Made by Helena Brunsgaard Madsen
+        public static bool EditProduct(Product input)
+        {
+            DBEdit dBEdit = new DBEdit();
+            return dBEdit.EditProduct(input);
+        }
+        public static bool EditSubscription(Subscription input)
+        {
+            DBEdit dBEdit = new DBEdit();
+            return dBEdit.EditSubscription(input);
         }
         #endregion
         #region Delete*
-        public static bool DeleteUser(string callerClass, int CallerID)
+        public static bool Delete(string callerClass, int CallerID)
         {
-            return DBDelete.DeleteUser(callerClass, CallerID);
-        }
-        public static bool DeleteCustomer(string callerClass, int CallerID)
-        {
-            return DBDelete.DeleteUser(callerClass, CallerID);
+            DBDelete dBDelete = new DBDelete();
+            return dBDelete.Delete(callerClass, CallerID);
         }
         #endregion
     }

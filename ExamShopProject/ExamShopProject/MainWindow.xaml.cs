@@ -40,11 +40,6 @@ namespace ExamShopProject
             _mainFrame.Navigate(new OpenCustomer());
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            _mainFrame.Navigate(new LogIn());
-        }
-
         private void btn_Subscriptions_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new OpenSubscriptions());
@@ -63,6 +58,16 @@ namespace ExamShopProject
         private void btn_Deals_Click(object sender, RoutedEventArgs e)
         {
             _mainFrame.Navigate(new OpenDeals());
+        }
+
+        private void btn_LogIn_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new LogIn());
+        }
+
+        private void btn_Products_Click(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Navigate(new OpenProducts());
         }
     }
 }

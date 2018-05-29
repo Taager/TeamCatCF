@@ -43,6 +43,8 @@ namespace ExamShopProject
             CheckBox_IsAdmin.IsEnabled = true;
             CheckBox_IsAdmin.Opacity = 100;
             Btn_Save.IsEnabled = true;
+            Btn_Delete.IsEnabled = true;
+            Btn_Delete.Opacity = 100;
         }
         //Made by Mikkel E.R. Glerup
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
@@ -56,19 +58,20 @@ namespace ExamShopProject
                 user.IsAdmin = false;
             bool wasSuccess = userLogic.EditUser(user);
             if (wasSuccess)
-                MessageBox.Show("User was edited successfully.");
+                CreateMessage.ShowEditSuccesful("User");
             if (!wasSuccess)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+                CreateMessage.ShowFailureMessage();
             NavigationService.Navigate(new ViewUsersDetail(user.ID));
         }
 
         private void Btn_Click_DeleteUser(object sender, RoutedEventArgs e)
         {
             bool wasSucces = userLogic.DeleteUser("user", user.ID);
-                if (wasSucces)
-                MessageBox.Show("User was succesfully deleted");
-                if (!wasSucces)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+            if (wasSucces)
+                CreateMessage.ShowDeleteSuccesful("User");
+            if (!wasSucces)
+                CreateMessage.ShowFailureMessage();
+            this.Content = null;
             NavigationService.Navigate(new ViewUser());
         }
     }

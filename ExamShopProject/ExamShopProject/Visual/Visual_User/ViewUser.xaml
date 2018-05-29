@@ -27,7 +27,8 @@
         <DockPanel Grid.ColumnSpan="5" Grid.RowSpan="5" Grid.Row="0">
             <Frame x:Name="_viewUserDetails" />
         </DockPanel>
-
+        <!--#region I/O-->
         <ListBox x:Name="ListBox_Show"  Grid.Row="1" Grid.Column="1" SelectionChanged="ListBox_Show_SelectionChanged" />
+        <!--#endregion-->
     </Grid>
 </Page>

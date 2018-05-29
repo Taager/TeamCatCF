@@ -35,6 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,6 +55,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Deal_interactions\DealLogic.cs" />
+    <Compile Include="Object\Categories.cs" />
+    <Compile Include="Object\CurrentUser.cs" />
+    <Compile Include="Object\Deals.cs" />
+    <Compile Include="Product_Interactions\ProductLogic.cs" />
+    <Compile Include="Security.cs" />
+    <Compile Include="Subscription_Interactions\SubscriptionLogic.cs" />
+    <Compile Include="Visual\Visual_Deals\CreateDeal.xaml.cs">
+      <DependentUpon>CreateDeal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Products\ViewProductDetails.xaml.cs">
+      <DependentUpon>ViewProductDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Products\CreateProducts.xaml.cs">
+      <DependentUpon>CreateProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Products\ViewProducts.xaml.cs">
+      <DependentUpon>ViewProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Products\OpenProducts.xaml.cs">
+      <DependentUpon>OpenProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Message\CreateMessage.cs" />
+    <Compile Include="User_Interactions\GetRandomPassword.cs" />
+    <Compile Include="User_Interactions\GetUsername.cs" />
     <Compile Include="Visual\Visual_Deals\ViewDealDetails.xaml.cs">
       <DependentUpon>ViewDealDetails.xaml</DependentUpon>
     </Compile>
@@ -94,6 +120,9 @@
       <DependentUpon>LogIn.xaml</DependentUpon>
     </Compile>
     <Compile Include="Object\ObjectHandler.cs" />
+    <Compile Include="Visual\Visual_Subscriptions\ViewSubscriptionsDetails.xaml.cs">
+      <DependentUpon>ViewSubscriptionsDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Visual\Visual_User\ViewUsersDetail.xaml.cs">
       <DependentUpon>ViewUsersDetail.xaml</DependentUpon>
     </Compile>
@@ -121,6 +150,26 @@
     <Compile Include="ErrorHandler\CustomExceptions.cs" />
     <Compile Include="Statistics\Statistics.cs" />
     <Compile Include="User_Interactions\UserLogic.cs" />
+    <Page Include="Visual\Visual_Deals\CreateDeal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Products\ViewProductDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Products\CreateProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Products\ViewProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Products\OpenProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Visual\Visual_Deals\ViewDealDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Visual\Visual_LogIn\LogIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Subscriptions\ViewSubscriptionsDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

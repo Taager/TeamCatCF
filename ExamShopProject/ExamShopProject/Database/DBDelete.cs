@@ -13,7 +13,7 @@ namespace ExamShopProject
     class DBDelete
     {
         // Made by Mikkel Glerup
-        public static bool DeleteUser(string callerClass, int callerID)
+        public bool Delete(string callerClass, int callerID)
         {
             if (callerClass == null)
             {
@@ -21,47 +21,23 @@ namespace ExamShopProject
             }
             try
             {
-                DBOpenClose.OpenConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
                 string tablestring = "[" + callerClass + "]";
                 string iDColumn = callerClass + "ID";
-                SqlCommand delete = new SqlCommand("DELETE FROM " + tablestring + " WHERE " + iDColumn + " = @ID;", DBOpenClose.myConnection);
+                SqlCommand delete = new SqlCommand("DELETE FROM " + tablestring + " WHERE " + iDColumn + " = @ID;", con);
                 delete.Parameters.Add("@ID", SqlDbType.Int);
                 delete.Parameters["@ID"].Value = callerID;
                 delete.ExecuteNonQuery();
-                DBOpenClose.CloseConnection();
+                DBOpenClose.CloseConnection(con);
                 return true;
             }
             catch (Exception)
             {
-                DBOpenClose.CloseConnection();
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
                 return false;
             }
         }
-        // Made by Helena Brunsgaard Madsen
-        public static bool DeleteCustomer(string callerClass, int callerID)
-        {
-            if (callerClass == null)
-            {
-                throw new ArgumentNullException(nameof(callerClass));
-            }
-            try
-            {
-                DBOpenClose.OpenConnection();
-                string tablestring = "[" + callerClass + "]";
-                string iDColumn = callerClass + "ID";
-                SqlCommand delete = new SqlCommand("DELETE FROM " + tablestring + " WHERE " + iDColumn + " = @ID;", DBOpenClose.myConnection);
-                delete.Parameters.Add("@ID", SqlDbType.Int);
-                delete.Parameters["@ID"].Value = callerID;
-                delete.ExecuteNonQuery();
-                DBOpenClose.CloseConnection();
-                return true;
-            }
-            catch (Exception)
-            {
-                DBOpenClose.CloseConnection();
-                return false;
-            }
-        }
-
     }
 }

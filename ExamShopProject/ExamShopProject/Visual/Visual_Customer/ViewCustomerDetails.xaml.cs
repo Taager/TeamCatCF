@@ -37,10 +37,10 @@ namespace ExamShopProject
         {
             bool wasSucces = customerLogic.DeleteCustomer("customer", customer.customerID);
             if (wasSucces)
-                MessageBox.Show("Customer was succesfully deleted");
+                CreateMessage.ShowDeleteSuccesful("Customer");
             if (!wasSucces)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
-            NavigationService.Navigate(new ViewUser());
+                CreateMessage.ShowFailureMessage();
+            NavigationService.Navigate(new ViewCustomer());
         }
 
         private void btn_Edit_Click(object sender, RoutedEventArgs e)
@@ -54,25 +54,46 @@ namespace ExamShopProject
             txtbx_Zip.IsEnabled = true;
             btn_Edit.IsEnabled = false;
             btn_Save.IsEnabled = true;
+            btn_delete.IsEnabled = true;
+            btn_delete.Opacity = 100;
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            customer.AnnualIncome = Convert.ToDouble(txtbx_AnnualIncome.Text);
-            customer.City = txtbx_City.Text;
-            customer.ContactInfo = txtbx_ContactInfo.Text;
-            customer.Name = txtbx_Name.Text;
-            customer.SpokesPerson = txtbx_Spokesperson.Text;
-            customer.StreetAndNumber = txtbx_StreetNumber.Text;
-            customer.ZipCode = Convert.ToInt32(txtbx_Zip.Text);
+            try
+            {
+                SaveInfo();
+                bool wasSuccess = customerLogic.EditCustomer(customer);
+                if (wasSuccess)
+                    CreateMessage.ShowEditSuccesful("Customer");
+                if (!wasSuccess)
+                    CreateMessage.ShowFailureMessage();
+                NavigationService.Navigate(new ViewCustomerDetails(customer.customerID));
+            }
+            catch (Exception ex)
+            {
+                if (ex is FormatException)
+                    CreateMessage.ShowInputNotValid();
+                ErrorHandler.Log.WriteFail(ex);
+            }
+        }
+        private void SaveInfo()
+        {
+                //AnnualIncome create validation
+                customer.AnnualIncome = Convert.ToDouble(txtbx_AnnualIncome.Text);
+                customer.City = txtbx_City.Text;
+                customer.ContactInfo = txtbx_ContactInfo.Text;
+                customer.Name = txtbx_Name.Text;
+                customer.SpokesPerson = txtbx_Spokesperson.Text;
+                customer.StreetAndNumber = txtbx_StreetNumber.Text;
+                //ZipCode create validation
+                customer.ZipCode = Convert.ToInt32(txtbx_Zip.Text);
+        }
 
-            bool wasSuccess = customerLogic.EditCustomer(customer);
-            if (wasSuccess)
-                MessageBox.Show("Customer was edited successfully.");
-            if (!wasSuccess)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
-            NavigationService.Navigate(new ViewCustomerDetails(customer.customerID));
-
+        private void Btn_Subscriptions_Click(object sender, RoutedEventArgs e)
+        {
+            this.Content = null;
+            NavigationService.Navigate(new ViewSubscriptionsDetails(customer.customerID));
         }
     }
 }
