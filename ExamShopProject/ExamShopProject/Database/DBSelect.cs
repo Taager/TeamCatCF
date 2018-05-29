@@ -347,10 +347,10 @@ namespace ExamShopProject
                 SqlDataReader reader = getSubscription.ExecuteReader();
                 while (reader.Read())
                 {
-                    output.EndDate = reader.GetDateTime(3);
-                    output.Renew = reader.GetBoolean(1);
-                    output.SubscriptionID = reader.GetInt32(2);
-                    output.RenewLength = reader.GetDateTime(4);
+                    output.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    output.Renew = Convert.ToBoolean(reader["Renew"]);
+                    output.SubscriptionID = Convert.ToInt32(reader["SubscriptionID"]);
+                    output.RenewLength = Convert.ToInt32(reader["RenewLength"]);
                 }
                 DBOpenClose.CloseConnection(con);
                 return output;

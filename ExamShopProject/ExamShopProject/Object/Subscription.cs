@@ -64,9 +64,9 @@ namespace ExamShopProject.Object
                 NotifyPropertyChanged();
             }
         }
-        private DateTime _renewLength;
+        private int _renewLength;
 
-        public DateTime RenewLength
+        public int RenewLength
         {
             get { return _renewLength; }
             set

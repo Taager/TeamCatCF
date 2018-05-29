@@ -26,6 +26,10 @@ namespace ExamShopProject
             subscription = DB.SelectSubcription(ID);
             subscription.CustomerName = tempCustomer.Name;
             subscription.CustomerID = ID;
+            if (subscription.SubscriptionID == 0)
+            {
+               subscription.EndDate = DateTime.Now;
+            }
             InitializeComponent();
             DataContext = subscription;
         }
@@ -41,8 +45,10 @@ namespace ExamShopProject
         }
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
         {
+            DateTime now = DateTime.Now;
             bool wasCreate = false;
             subscription.EndDate = DatePicker_EndDate.DisplayDate;
+            subscription.RenewLength = (subscription.EndDate.Month - DateTime.Now.Month);
             if (CheckBox_AutoRenew.IsChecked == true)
                 subscription.Renew = true;
             if (CheckBox_AutoRenew.IsChecked == false)

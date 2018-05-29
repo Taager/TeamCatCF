@@ -149,7 +149,7 @@ namespace ExamShopProject
                 command.Parameters["@Renew"].Value = input.Renew;
                 command.Parameters.Add("@EndDate", SqlDbType.Date);
                 command.Parameters["@EndDate"].Value = input.EndDate;
-                command.Parameters.Add("@RenewLength", SqlDbType.Date);
+                command.Parameters.Add("@RenewLength", SqlDbType.Int);
                 command.Parameters["@RenewLength"].Value = input.RenewLength;
                 command.ExecuteNonQuery();
                 DBOpenClose.CloseConnection(con);

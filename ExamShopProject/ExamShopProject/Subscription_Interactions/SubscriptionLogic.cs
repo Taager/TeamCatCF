@@ -42,7 +42,6 @@ namespace ExamShopProject
         }
         private bool EditSubscription(Subscription input)
         {
-            //What is renewLength in subscription?
             return DB.EditSubscription(input);
         }
         public bool DeleteSubscription(Subscription input, string callerClass, int callerID)
