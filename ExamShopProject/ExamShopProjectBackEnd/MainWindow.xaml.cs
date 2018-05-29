@@ -24,6 +24,8 @@ namespace ExamShopProjectBackEnd
         {
             InitializeComponent();
             bool succes = FileManager.FetchFile();
+            succes = FileManager.PrepareFile("ApEngros_PriCat_23042018.csv");
+            succes = DB.ImportCatalogue("ApEngros_PriCat_23042018.csv");
         }
     }
 }

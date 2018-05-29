@@ -263,7 +263,7 @@ namespace ExamShopProject
         {
             try
             {
-                Product products = new Product();
+                Product product = new Product();
                 SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 List<Product> productList = new List<Product>();
                 DBOpenClose.OpenConnection(con);
@@ -272,6 +272,7 @@ namespace ExamShopProject
                 SqlDataReader reader = getProducts.ExecuteReader();
                 while (reader.Read())
                 {
+                    Product products = new Product();
                     products.ProductID = reader.GetInt32(0);
                     products.Name = reader.GetString(1);
                     products.Description = reader.GetString(2);
@@ -280,7 +281,7 @@ namespace ExamShopProject
                     productList.Add(products);
                 }
                 DBOpenClose.CloseConnection(con);
-                if (products.ProductID == 0)
+                if (product.ProductID == 0)
                 {
                     productList.Remove(productList[0]);
                 }
@@ -369,7 +370,7 @@ namespace ExamShopProject
         {
             try
             {
-                Deals deals = new Deals();
+                Deals deal = new Deals();
                 SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 List<Deals> dealsList = new List<Deals>();
                 DBOpenClose.OpenConnection(con);
@@ -378,15 +379,17 @@ namespace ExamShopProject
                 SqlDataReader reader = getDeals.ExecuteReader();
                 while (reader.Read())
                 {
-                    deals.DealID = reader.GetInt32(0);
+                    Deals deals = new Deals();
+                    deals.DealsID = reader.GetInt32(0);
                     deals.Name = reader.GetString(1);
-                    deals.PriceDecrease = reader.GetInt32(2);
+                    deals.PriceDecrease = reader.GetDouble(2);
                     deals.DealType = reader.GetString(3);
                     deals.StartDate = reader.GetDateTime(4);
                     deals.EndDate = reader.GetDateTime(5);
                     deals.CategoryID = reader.GetInt32(6);
                     deals.ProductID = reader.GetInt32(7);
                     deals.CustomerID = reader.GetInt32(8);
+                    dealsList.Add(deals);
                 }
                 DBOpenClose.CloseConnection(con);
                 return dealsList;
@@ -409,15 +412,15 @@ namespace ExamShopProject
                 Deals deals = new Deals();
                 DBOpenClose.OpenConnection(con);
                 SqlCommand getDeal = new SqlCommand(
-                    "SELECT * FROM [Deal] WHERE DealID=@DealID", con);
-                getDeal.Parameters.Add("@DealID", SqlDbType.Int);
-                getDeal.Parameters["@DealID"].Value = ID;
+                    "SELECT * FROM [Deals] WHERE DealsID=@DealsID", con);
+                getDeal.Parameters.Add("@DealsID", SqlDbType.Int);
+                getDeal.Parameters["@DealsID"].Value = ID;
                 SqlDataReader reader = getDeal.ExecuteReader();
                 while (reader.Read())
                 {
-                    deals.DealID = reader.GetInt32(0);
+                    deals.DealsID = reader.GetInt32(0);
                     deals.Name = reader.GetString(1);
-                    deals.PriceDecrease = reader.GetInt32(2);
+                    deals.PriceDecrease = reader.GetDouble(2);
                     deals.DealType = reader.GetString(3);
                     deals.StartDate = reader.GetDateTime(4);
                     deals.EndDate = reader.GetDateTime(5);

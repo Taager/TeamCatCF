@@ -33,7 +33,7 @@
         <TextBox x:Name="txtbx_Price" Height="23" Margin="57,18.2,161,0" TextWrapping="Wrap" Text="{Binding Price}" VerticalAlignment="Top" Grid.Row="2" Grid.Column="2" IsEnabled="False"/>
         <TextBox x:Name="txtbx_Description" Height="23" Margin="57,19.8,161,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Grid.Row="3" Grid.Column="2" IsEnabled="False"/>
         <Label Content="Category:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="4" RenderTransformOrigin="-1.43,-0.436" Height="49" Width="138" Grid.ColumnSpan="2" Margin="34,10.8,0,0"/>
-        <ListBox x:Name="lstbx_Categories" Grid.Column="2" HorizontalAlignment="Left" Height="124" ItemsSource="{Binding CategoryID}"  Margin="57,10.8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="210" IsEnabled="False" SelectionChanged="lstbx_Categories_SelectionChanged"/>
+        <ListBox x:Name="lstbx_Categories" Grid.Column="2" HorizontalAlignment="Left" Height="124" ItemsSource="{Binding CategoryID}"  Margin="57,10.8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="210" IsEnabled="False" />
         <!--#endregion-->
         <!--#region Buttons-->
         <Button x:Name="btn_Save" Content="Save" HorizontalAlignment="Right" Margin="0,8.6,10,0" VerticalAlignment="Top" Width="75" Grid.Row="5" Grid.Column="2" Height="20" RenderTransformOrigin="-0.28,3.7" Click="btn_Save_Click" IsEnabled="False"/>

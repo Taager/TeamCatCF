@@ -26,10 +26,13 @@ namespace ExamShopProject
         DealLogic interaction = new DealLogic();
         public ViewDealDetails(int ID)
         {
-            deal = DB.SelectDeal(ID);
+            deal = DB.SelectDeal(ID);            
+            InitializeComponent();
+            DataContext = deal;
             Customer selectedCustomer = DB.SelectCustomer(deal.CustomerID);
-            txtbx_Customer.Text = selectedCustomer.Name;
-            txtbx_Discount.Text = Convert.ToString(deal.PriceDecrease) + Convert.ToString(deal.DealType);
+            txtbx_ChosenCustomer.Text = selectedCustomer.Name;
+
+            txtbx_Discount.Text = Convert.ToString(deal.PriceDecrease) + " " + Convert.ToString(deal.DealType);
             if (deal.CategoryID != 0)
             {
                 lbl_Category.Opacity = 100;
@@ -42,8 +45,16 @@ namespace ExamShopProject
                 Product selectedProduct = DB.SelectProduct(deal.ProductID);
                 txtbx_ProductOrCategory.Text = selectedProduct.Name;
             }
-            InitializeComponent();
-            DataContext = deal;
+        }
+
+        private void btn_Delete_Click(object sender, RoutedEventArgs e)
+        {
+            bool wasSucces = interaction.DeleteDeal("deals", deal.DealsID); 
+            if (wasSucces)
+                CreateMessage.ShowDeleteSuccesful("deal");
+            if (!wasSucces)
+                CreateMessage.ShowFailureMessage();
+            NavigationService.Navigate(new ViewDeals());
         }
     }
 }
