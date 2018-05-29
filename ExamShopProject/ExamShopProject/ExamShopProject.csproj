@@ -61,6 +61,7 @@
     <Compile Include="Object\Deals.cs" />
     <Compile Include="Product_Interactions\ProductLogic.cs" />
     <Compile Include="Security.cs" />
+    <Compile Include="Statistics_Interactions\StasticsLogic.cs" />
     <Compile Include="Subscription_Interactions\SubscriptionLogic.cs" />
     <Compile Include="Visual\Visual_Deals\CreateDeal.xaml.cs">
       <DependentUpon>CreateDeal.xaml</DependentUpon>
@@ -88,6 +89,18 @@
     </Compile>
     <Compile Include="Visual\Visual_Deals\ViewDeals.xaml.cs">
       <DependentUpon>ViewDeals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Statistics\Statistics_Customers.xaml.cs">
+      <DependentUpon>Statistics_Customers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Statistics\Statistics_Deals.xaml.cs">
+      <DependentUpon>Statistics_Deals.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Statistics\Statistics_Products.xaml.cs">
+      <DependentUpon>Statistics_Products.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Visual\Visual_Statistics\Statistics_Subscriptions.xaml.cs">
+      <DependentUpon>Statistics_Subscriptions.xaml</DependentUpon>
     </Compile>
     <Compile Include="Visual\Visual_Statistics\ViewStatistics.xaml.cs">
       <DependentUpon>ViewStatistics.xaml</DependentUpon>
@@ -179,6 +192,22 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Visual\Visual_Deals\ViewDeals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Statistics\Statistics_Customers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Statistics\Statistics_Deals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Statistics\Statistics_Products.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Visual\Visual_Statistics\Statistics_Subscriptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
