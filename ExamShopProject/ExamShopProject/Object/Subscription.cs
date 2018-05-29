@@ -81,6 +81,13 @@ namespace ExamShopProject.Object
             get { return _customerID; }
             set { _customerID = value; }
         }
+        private int _categoryID;
+
+        public int CategoryID
+        {
+            get { return _categoryID; }
+            set { _categoryID = value; }
+        }
 
 
         public event PropertyChangedEventHandler PropertyChanged;

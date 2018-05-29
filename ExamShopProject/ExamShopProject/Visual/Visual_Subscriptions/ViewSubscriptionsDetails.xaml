@@ -5,17 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ExamShopProject"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="400" d:DesignWidth="600"
       Title="ViewSubscriptionsDetails">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="133*"/>
+            <ColumnDefinition Width="43*"/>
             <ColumnDefinition Width="161*"/>
-            <ColumnDefinition Width="188*"/>
-            <ColumnDefinition Width="139*"/>
-            <ColumnDefinition Width="151*"/>
-            <ColumnDefinition Width="28*"/>
+            <ColumnDefinition Width="159*"/>
+            <ColumnDefinition Width="96*"/>
+            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="21*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="64*"/>
@@ -27,21 +27,21 @@
             <RowDefinition Height="49*"/>
         </Grid.RowDefinitions>
         <!--#region Labels-->
-        <Label x:Name="Label_Customer" Content="Customer: " Grid.Column="1" Grid.Row="1"/>
-        <Label x:Name="Label_EndDate" Content="Date to expire: " Grid.Column="1" Grid.Row="2"/>
-        <Label x:Name="Label_AutoRenew" Content="Auto renew: " Grid.Row="2" Margin="-60,54,32,10" Grid.RowSpan="2"/>
-        <Label x:Name="Label_CategoriesSubscribeTo" Content="Categories to subscribe to: " Grid.Column="1" Grid.Row="4"/>
+        <Label x:Name="Label_Customer" Content="Customer: " Grid.Column="1" Grid.Row="1" Margin="1.8,0.2,1,56.4" Grid.RowSpan="2"/>
+        <Label x:Name="Label_EndDate" Content="Date to expire: " Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="2.8,26.4,137.2,30.2" Grid.RowSpan="2"/>
+        <Label x:Name="Label_AutoRenew" Content="Auto renew: " Grid.Row="3" Margin="2.8,19.6,8,54.8" Grid.Column="1" Grid.RowSpan="2"/>
+        <Label x:Name="Label_CategoriesSubscribeTo" Content="Categories to subscribe to: " Grid.Column="1" Grid.Row="4" Margin="1.8,9.8,1,61" Grid.RowSpan="2"/>
         <!--#endregion-->
         <!--#region I/O-->
-        <TextBox x:Name="TextBox_Customer" Text="{Binding CustomerName}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="1" Margin="10,0,0,0" Height="26" VerticalAlignment="Top" IsEnabled="False" />
-        <DatePicker x:Name="DatePicker_EndDate" SelectedDate="{Binding EndDate}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" Margin="10,0,0,0" Height="26" VerticalAlignment="Top" IsEnabled="False" />
-        <CheckBox x:Name="CheckBox_AutoRenew" IsChecked="{Binding Renew}" Grid.Column="2" Grid.Row="3" Margin="10,10,89,0" Height="16" VerticalAlignment="Top" IsEnabled="False" />
-        <ListBox x:Name="ListBox_CategoriesSubscripeTo" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Margin="10,0,0,0" Grid.RowSpan="2" Height="100" VerticalAlignment="Top" IsEnabled="False" />
+        <DatePicker x:Name="DatePicker_EndDate" SelectedDate="{Binding EndDate}" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="2" Margin="12,26.4,1.2,0" Height="26" VerticalAlignment="Top" IsEnabled="False" />
+        <CheckBox x:Name="CheckBox_AutoRenew" IsChecked="{Binding Renew}" Grid.Column="2" Grid.Row="3" Margin="12,20.6,88.2,0" Height="16" VerticalAlignment="Top" IsEnabled="False" />
+        <ListBox x:Name="ListBox_CategoriesSubscripeTo" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="4" Margin="12,9.8,10.2,0" Grid.RowSpan="2" Height="58" VerticalAlignment="Top" IsEnabled="False" />
+        <ListBox x:Name="ListBox_Customer" Grid.Column="2" Grid.ColumnSpan="2" Margin="12,56,10.2,0" Grid.RowSpan="3" Height="58" VerticalAlignment="Top" IsEnabled="False" />
         <!--#endregion-->
         <!--#region Buttons-->
-        <Button x:Name="Btn_Edit" Content="Edit" FontSize="15" Grid.Column="3" Grid.Row="6" Click="Btn_Edit_Enable" Margin="10,0,0,0" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="119"/>
-        <Button x:Name="Btn_Save" Content="Save" FontSize="15" Grid.Column="4" Grid.Row="6" Click="Btn_Save_Click" IsEnabled="False" Margin="27,0,0,0" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="114" />
-        <Button x:Name="Btn_Delete" Content="Delete" Grid.Row="6" IsEnabled="False" Opacity="0" Click="Btn_Click_DeleteSubscription" Margin="34,2,0,0" Grid.Column="2" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="127"  />
+        <Button x:Name="Btn_Edit" Content="Edit" FontSize="15" Grid.Column="3" Grid.Row="6" Click="Btn_Edit_Enable" Margin="10.8,0,0,0" Height="27" VerticalAlignment="Top" HorizontalAlignment="Left" Width="85"/>
+        <Button x:Name="Btn_Save" Content="Save" FontSize="15" Grid.Column="4" Grid.Row="6" Click="Btn_Save_Click" IsEnabled="False" Margin="26.8,2,0,0" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Width="93" />
+        <Button x:Name="Btn_Delete" Content="Delete" Grid.Row="6" IsEnabled="False" Opacity="0" Click="Btn_Click_DeleteSubscription" Margin="59,0,0,0" Grid.Column="2" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90"  />
         <!--#endregion-->
     </Grid>
 </Page>

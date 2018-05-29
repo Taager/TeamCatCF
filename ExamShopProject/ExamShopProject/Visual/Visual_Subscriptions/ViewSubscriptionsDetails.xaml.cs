@@ -28,14 +28,19 @@ namespace ExamShopProject
             subscription.CustomerID = ID;
             if (subscription.SubscriptionID == 0)
             {
-               subscription.EndDate = DateTime.Now;
+                subscription.EndDate = DateTime.Now;
             }
             InitializeComponent();
             DataContext = subscription;
+            ListBox_CategoriesSubscripeTo.ItemsSource = DB.SelectAllCategories();
+            ListBox_CategoriesSubscripeTo.DisplayMemberPath = "Name";
+            ListBox_Customer.ItemsSource = DB.SelectAllCustomers();
+            ListBox_Customer.DisplayMemberPath = "Name";
         }
 
         private void Btn_Edit_Enable(object sender, RoutedEventArgs e)
         {
+            ListBox_Customer.IsEnabled = true;
             Btn_Save.IsEnabled = true;
             Btn_Delete.IsEnabled = true;
             Btn_Delete.Opacity = 100;
@@ -45,10 +50,25 @@ namespace ExamShopProject
         }
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            DateTime now = DateTime.Now;
+            CheckEditOrCreate();
+            CreateSubscriptionWCategory();
+        }
+        private void Btn_Click_DeleteSubscription(object sender, RoutedEventArgs e)
+        {
+            bool wasSuccess = subscriptionLogic.DeleteSubscription(subscription, "Subscription", subscription.SubscriptionID);
+            if (wasSuccess == true)
+                CreateMessage.ShowDeleteSuccesful("Subscription");
+            if (wasSuccess == false)
+                CreateMessage.ShowFailureMessage();
+            this.Content = null;
+            NavigationService.Navigate(new ViewCustomer());
+        }
+        private void CheckEditOrCreate()
+        {
             bool wasCreate = false;
+            DateTime now = DateTime.Now;
             // had to cast because DatePicker_EndDate.SelectedDate is DateTime?
-            subscription.EndDate = (DateTime) DatePicker_EndDate.SelectedDate;
+            subscription.EndDate = (DateTime)DatePicker_EndDate.SelectedDate;
             subscription.RenewLength = (subscription.EndDate.Month - DateTime.Now.Month);
             if (CheckBox_AutoRenew.IsChecked == true)
                 subscription.Renew = true;
@@ -56,7 +76,6 @@ namespace ExamShopProject
                 subscription.Renew = false;
             if (subscription.SubscriptionID == 0)
                 wasCreate = true;
-            //Add categories later
             bool wasSuccess = subscriptionLogic.CheckEditOrCreate(subscription);
             if (wasSuccess == true)
             {
@@ -74,15 +93,18 @@ namespace ExamShopProject
             if (wasSuccess == false)
                 CreateMessage.ShowFailureMessage();
         }
-        private void Btn_Click_DeleteSubscription(object sender, RoutedEventArgs e)
+        private void CreateSubscriptionWCategory()
         {
-            bool wasSuccess = subscriptionLogic.DeleteSubscription(subscription,"Subscription", subscription.SubscriptionID);
+            Categories chosenCategory = (Categories)ListBox_CategoriesSubscripeTo.SelectedItem;
+            subscription.CategoryID = chosenCategory.CategoryID;
+            bool wasSuccess = subscriptionLogic.CreateSubscriptionWCategory(subscription);
             if (wasSuccess == true)
-                CreateMessage.ShowDeleteSuccesful("Subscription");
+            {
+                    CreateMessage.ShowCreateSuccesful("Subscription");
+                    NavigationService.Navigate(new ViewSubscriptionsDetails(subscription.CustomerID));
+            }
             if (wasSuccess == false)
                 CreateMessage.ShowFailureMessage();
-            this.Content = null;
-            NavigationService.Navigate(new ViewCustomer());
         }
     }
 }

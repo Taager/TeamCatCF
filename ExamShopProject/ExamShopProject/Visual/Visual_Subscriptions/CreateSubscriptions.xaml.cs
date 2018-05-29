@@ -23,6 +23,10 @@ namespace ExamShopProject
         public CreateSubscriptions()
         {
             InitializeComponent();
+            lstbx_Customer.ItemsSource = DB.SelectAllCustomers();
+            lstbx_Customer.DisplayMemberPath = "Name";
+            lstbx_Categories.ItemsSource = DB.SelectAllCategories();
+            lstbx_Categories.DisplayMemberPath = "Name";
         }
     }
 }

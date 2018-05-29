@@ -163,6 +163,35 @@ namespace ExamShopProject
                 return false;
             }
         }
+        public bool InsertSubscriptionWCategory(Subscription input)
+        {
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
+                SqlCommand command = new SqlCommand(
+                    "INSERT INTO [SubscribedToCategories] (CategoryID, SubscriptionID) VALUES (@CategoryID, @SubscriptionID)", con);
+                command.Parameters.Add("@CategoryID", SqlDbType.Int);
+                command.Parameters["@CategoryID"].Value = input.CategoryID;
+                command.Parameters.Add("@SubscriptionID", SqlDbType.Int);
+                command.Parameters["@SubscriptionID"].Value = input.SubscriptionID;
+                command.ExecuteNonQuery();
+                DBOpenClose.CloseConnection(con);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                Log.WriteFail(ex);
+                return false;
+            }
+        }
+
         #endregion
         #region Deal
         public bool InsertDeal(Deals deal)

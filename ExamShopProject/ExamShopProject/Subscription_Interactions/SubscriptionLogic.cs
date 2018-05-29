@@ -40,6 +40,10 @@ namespace ExamShopProject
         {
             return DB.InsertSubscription(input);
         }
+        public bool CreateSubscriptionWCategory(Subscription input)
+        {
+            return DB.InsertSubscriptionWCategory(input);
+        }
         private bool EditSubscription(Subscription input)
         {
             return DB.EditSubscription(input);
