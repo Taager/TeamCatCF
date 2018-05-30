@@ -16,13 +16,13 @@ namespace ExamShopProject.Deal_interactions
         {
             try
             {
-                if (deal.ProductID > 0 && deal.CategoryID == 0)
+                if (deal.ProductID > 0 && deal.CategoryID == null)
                 {
                     bool wasSuccess = DB.InsertDealProduct(deal);
                     if (wasSuccess)
                         throw new DealWasAdded(deal);
                 }
-                else if (deal.CategoryID > 0 && deal.ProductID == 0)
+                else if (deal.CategoryID > 0 && deal.ProductID == null)
                 {
                     bool wasSuccess = DB.InsertDealCategory(deal);
                     if (wasSuccess)
