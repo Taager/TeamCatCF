@@ -43,7 +43,7 @@ namespace ExamShopProject
                 CreateMessage.ShowCreateSuccesful("User");
             if (!wasSuccess)
                 CreateMessage.ShowFailureMessage();
-            this.Content = null;
+            NavigationService.Navigate(new ViewUser());
         }
     }
 }
