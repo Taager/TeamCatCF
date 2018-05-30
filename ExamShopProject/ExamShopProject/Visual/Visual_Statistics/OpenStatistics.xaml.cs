@@ -37,7 +37,7 @@ namespace ExamShopProject
 
         private void btn_ProductsStat_Click(object sender, RoutedEventArgs e)
         {
-            _statistics.Navigate(new Statistics_Products());
+            _statistics.Navigate(new Statistics_ProductCategories());
         }
 
         private void btn_SubscriptionsStat_Click(object sender, RoutedEventArgs e)

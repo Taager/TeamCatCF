@@ -76,9 +76,9 @@ namespace ExamShopProject.Object
                 NotifyPropertyChanged();
             }
         }
-        private int _categoryID;
+        private int? _categoryID;
 
-        public int CategoryID
+        public int? CategoryID
         {
             get { return _categoryID; }
             set
@@ -87,9 +87,9 @@ namespace ExamShopProject.Object
                 NotifyPropertyChanged();
             }
         }
-        private int _productID;
+        private int? _productID;
 
-        public int ProductID
+        public int? ProductID
         {
             get { return _productID; }
             set

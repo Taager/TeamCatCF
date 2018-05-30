@@ -18,9 +18,9 @@ namespace ExamShopProject
     /// <summary>
     /// Interaction logic for Statistics_Products.xaml
     /// </summary>
-    public partial class Statistics_Products : Page
+    public partial class Statistics_ProductCategories : Page
     {
-        public Statistics_Products()
+        public Statistics_ProductCategories()
         {
             InitializeComponent();
         }

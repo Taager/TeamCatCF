@@ -34,13 +34,13 @@ namespace ExamShopProject
             txtbx_ChosenCustomer.Text = selectedCustomer.Name;
 
             txtbx_Discount.Text = Convert.ToString(deal.PriceDecrease) + " " + Convert.ToString(deal.DealType);
-            if (deal.CategoryID != 0)
+            if (deal.CategoryID != null)
             {
                 lbl_Category.Opacity = 100;
                 Categories selectedCategory = DB.SelectCategory(deal.CategoryID);
                 txtbx_ProductOrCategory.Text = selectedCategory.Name;
             }
-            else if (deal.ProductID != 0)
+            else if (deal.ProductID != null)
             {
                 lbl_Product.Opacity = 100;
                 Product selectedProduct = DB.SelectProduct(deal.ProductID);

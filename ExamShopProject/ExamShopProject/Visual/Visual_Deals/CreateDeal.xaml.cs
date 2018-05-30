@@ -92,11 +92,13 @@ namespace ExamShopProject
             deals.CustomerID = customerID;
             if (rdbtn_Category.IsChecked == true)
             {
+                deals.ProductID = null;
                 Categories chosenCategory = (Categories)lstbx_ProductOrCategory.SelectedItem;
                 deals.CategoryID = chosenCategory.CategoryID;
             }
             else if (rdbtn_Product.IsChecked == true)
             {
+                deals.CategoryID = null;
                 Product chosenProduct = (Product)lstbx_ProductOrCategory.SelectedItem;
                 deals.ProductID = chosenProduct.ProductID;
             }

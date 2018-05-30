@@ -23,6 +23,7 @@ namespace ExamShopProject
         public Statistics_Deals()
         {
             InitializeComponent();
+
         }
     }
 }

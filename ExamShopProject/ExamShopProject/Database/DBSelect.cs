@@ -203,7 +203,7 @@ namespace ExamShopProject
                 while (reader.Read())
                 {
                     Categories categories = new Categories();
-                    categories.CategoryID = reader.GetInt32(0);
+                    categories.CategoryID = reader["CategoryID"] == System.DBNull.Value ? default(int) : (int)reader["CategoryID"];
                     categories.Name = reader.GetString(1);
                     categories.Description = reader.GetString(2);
                     categoryList.Add(categories);
@@ -226,7 +226,7 @@ namespace ExamShopProject
             }
         }
         // Made by Helena Brunsgaard Madsen
-        public Categories SelectCategory(int ID) //not sure we need this
+        public Categories SelectCategory(int? ID) //not sure we need this
         {
             try
             {
@@ -240,7 +240,7 @@ namespace ExamShopProject
                 SqlDataReader reader = getCategory.ExecuteReader();
                 while (reader.Read())
                 {
-                    category.CategoryID = reader.GetInt32(0);
+                    category.CategoryID = reader["CategoryID"] == System.DBNull.Value ? default(int) : (int)reader["CategoryID"];
                     category.Name = reader.GetString(1);
                     category.Description = reader.GetString(2);
                 }
@@ -273,7 +273,7 @@ namespace ExamShopProject
                 while (reader.Read())
                 {
                     Product products = new Product();
-                    products.ProductID = reader.GetInt32(0);
+                    products.ProductID = reader["ProductID"] == System.DBNull.Value ? default(int) : (int)reader["ProductID"];
                     products.Name = reader.GetString(1);
                     products.Description = reader.GetString(2);
                     products.Price = reader.GetDouble(3);
@@ -298,7 +298,7 @@ namespace ExamShopProject
             }
         }
         // Made by Helena Brunsgaard Madsen
-        public Product SelectProduct(int ID)
+        public Product SelectProduct(int? ID)
         {
             try
             {
@@ -312,7 +312,7 @@ namespace ExamShopProject
                 SqlDataReader reader = getProduct.ExecuteReader();
                 while (reader.Read())
                 {
-                    product.ProductID = reader.GetInt32(0);
+                    product.ProductID = reader["ProductID"] == System.DBNull.Value ? default(int) : (int)reader["ProductID"];
                     product.Name = reader.GetString(1);
                     product.Description = reader.GetString(2);
                     product.Price = reader.GetDouble(3);

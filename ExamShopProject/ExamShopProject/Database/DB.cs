@@ -84,7 +84,7 @@ namespace ExamShopProject
             return dBSelect.SelectAllCategories();
         }
         // Made by Helena Brunsgaard Madsen
-        public static Categories SelectCategory(int ID)
+        public static Categories SelectCategory(int? ID)
         {
             DBSelect dBSelect = new DBSelect();
             return dBSelect.SelectCategory(ID);
@@ -96,7 +96,7 @@ namespace ExamShopProject
             return dBSelect.SelectAllProducts();
         }
         // Made by Helena Brunsgaard Madsen
-        public static Product SelectProduct(int ID)
+        public static Product SelectProduct(int? ID)
         {
             DBSelect dBSelect = new DBSelect();
             return dBSelect.SelectProduct(ID);

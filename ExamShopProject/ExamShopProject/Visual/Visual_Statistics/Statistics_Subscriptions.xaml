@@ -13,7 +13,7 @@
         <Label Content="Top X:" HorizontalAlignment="Left" Margin="67,69,0,0" VerticalAlignment="Top"/>
         <!--#endregion-->
         <!--#region I/O-->
-        <TextBox x:Name="txtbx_TopX" HorizontalAlignment="Left" Height="23" Margin="113,72,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtbx_TopX" HorizontalAlignment="Left" Height="23" Margin="113,72,0,0" TextWrapping="Wrap" Text="{Binding ChosenTopNum}" VerticalAlignment="Top" Width="120"/>
         <!--#endregion-->
         <!--#region Buttons-->
         <!--#endregion-->

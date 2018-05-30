@@ -8,6 +8,38 @@ namespace ExamShopProject
 {
     class StasticsLogic
     {
+        float price;
+        private int _chosenTopNum;
+        public int ChosenTopNum
+        {
+            get { return _chosenTopNum; }
+            set { _chosenTopNum = value; }
+        }
+
+        private void CalcPopularSubsciption()
+        {
+
+        }
+        private void CalcTotalSubscriptions()
+        {
+
+        }
+        private void CalcTotalUsers(float price)
+        {
+
+        }
+        private void CalcTotalLogins()
+        {
+
+        }
+        private void CalcItems()
+        {
+
+        }
+        private void CalcCategories()
+        {
+
+        }
 
     }
 }
