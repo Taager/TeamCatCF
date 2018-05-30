@@ -95,16 +95,24 @@ namespace ExamShopProject
         }
         private void CreateSubscriptionWCategory()
         {
-            Categories chosenCategory = (Categories)ListBox_CategoriesSubscripeTo.SelectedItem;
-            subscription.CategoryID = chosenCategory.CategoryID;
-            bool wasSuccess = subscriptionLogic.CreateSubscriptionWCategory(subscription);
-            if (wasSuccess == true)
+            try
             {
+                Categories chosenCategory = (Categories)ListBox_CategoriesSubscripeTo.SelectedItem;
+                subscription.CategoryID = chosenCategory.CategoryID;
+                bool wasSuccess = subscriptionLogic.CreateSubscriptionWCategory(subscription);
+                if (wasSuccess == true)
+                {
                     CreateMessage.ShowCreateSuccesful("Subscription");
                     NavigationService.Navigate(new ViewSubscriptionsDetails(subscription.CustomerID));
+                }
+                if (wasSuccess == false)
+                    CreateMessage.ShowFailureMessage();
             }
-            if (wasSuccess == false)
-                CreateMessage.ShowFailureMessage();
+            catch (Exception ex)
+            {
+                ErrorHandler.Log.WriteFail(ex);
+                CreateMessage.ShowInputNotValid();
+            }
         }
     }
 }

@@ -34,15 +34,23 @@ namespace ExamShopProject
         }
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            Categories chosenCategory = (Categories)lstbx_Categories.SelectedItem;
-            product.CategoryID = chosenCategory.CategoryID;
-            bool wasSuccess = interaction.CreateProduct(product);
-            if (wasSuccess)
-                MessageBox.Show("Product was created successfully.");
-            if (!wasSuccess)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
-            this.Content = null;
-            NavigationService.Navigate(new ViewProducts());
+            try
+            {
+                Categories chosenCategory = (Categories)lstbx_Categories.SelectedItem;
+                product.CategoryID = chosenCategory.CategoryID;
+                bool wasSuccess = interaction.CreateProduct(product);
+                if (wasSuccess)
+                    MessageBox.Show("Product was created successfully.");
+                if (!wasSuccess)
+                    MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+                this.Content = null;
+                NavigationService.Navigate(new ViewProducts());
+            }
+            catch (Exception ex)
+            {
+                ErrorHandler.Log.WriteFail(ex);
+                CreateMessage.ShowInputNotValid();
+            }
         }
     }
 }

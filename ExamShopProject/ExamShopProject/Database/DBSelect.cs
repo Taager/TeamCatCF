@@ -193,7 +193,6 @@ namespace ExamShopProject
         {
             try
             {
-                Categories categories = new Categories();
                 SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 List<Categories> categoryList = new List<Categories>();
                 DBOpenClose.OpenConnection(con);
@@ -202,16 +201,13 @@ namespace ExamShopProject
                 SqlDataReader reader = getCategories.ExecuteReader();
                 while (reader.Read())
                 {
-                    categories.CategoryID = reader.GetInt32(0);
-                    categories.Name = reader.GetString(1);
-                    categories.Description = reader.GetString(2);
-                    categoryList.Add(categories);
+                    Categories category = new Categories();
+                    category.CategoryID = reader.GetInt32(0);
+                    category.Name = reader.GetString(1);
+                    category.Description = reader.GetString(2);
+                    categoryList.Add(category);
                 }
                 DBOpenClose.CloseConnection(con);
-                if (categories.CategoryID == 0)
-                {
-                    categoryList.Remove(categoryList[0]);
-                }
                 //Removes the empty category from the list.
                 return categoryList;
             }
@@ -280,10 +276,10 @@ namespace ExamShopProject
                     productList.Add(products);
                 }
                 DBOpenClose.CloseConnection(con);
-                if (product.ProductID == 0)
-                {
-                    productList.Remove(productList[0]);
-                }
+                //if (product.ProductID == 0)
+                //{
+                //    productList.Remove(productList[0]);
+                //}
                 //Removes the empty product from the list.
                 return productList;
             }
@@ -380,15 +376,30 @@ namespace ExamShopProject
                 while (reader.Read())
                 {
                     Deals deals = new Deals();
-                    deals.DealsID = reader.GetInt32(0);
-                    deals.Name = reader.GetString(1);
-                    deals.PriceDecrease = reader.GetDouble(2);
-                    deals.DealType = reader.GetString(3);
-                    deals.StartDate = reader.GetDateTime(4);
-                    deals.EndDate = reader.GetDateTime(5);
-                    deals.CategoryID = reader.GetInt32(6);
-                    deals.ProductID = reader.GetInt32(7);
-                    deals.CustomerID = reader.GetInt32(8);
+                    deals.DealsID = Convert.ToInt32(reader["DealsID"]);
+                    deals.Name = Convert.ToString(reader["Name"]);
+                    deals.PriceDecrease = Convert.ToDouble(reader["PriceDecrease"]);
+                    deals.DealType = Convert.ToString(reader["DealType"]);
+                    deals.StartDate = Convert.ToDateTime(reader["StartDate"]);
+                    deals.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    //Product and categoryID can be null, thus we have to check, and convert if they are.
+                    if (reader["CategoryID"] == DBNull.Value)
+                    {
+                        deals.CategoryID = 0;
+                    }
+                    else
+                    {
+                        deals.CategoryID = Convert.ToInt32(reader["CategoryID"]);
+                    }
+                    if (reader["ProductID"] == DBNull.Value)
+                    {
+                        deals.ProductID = 0;
+                    }
+                    else
+                    {
+                        deals.ProductID = Convert.ToInt32(reader["ProductID"]);
+                    }
+                    deals.CustomerID = Convert.ToInt32(reader["CustomerID"]);
                     dealsList.Add(deals);
                 }
                 DBOpenClose.CloseConnection(con);

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
@@ -23,6 +24,26 @@ namespace ExamShopProject
         public ViewCatalogue()
         {
             InitializeComponent();
+            ListBox_Categories.ItemsSource = DB.SelectAllCategories();
+            ListBox_Categories.DisplayMemberPath = "Name";
+            ListBox_Products.ItemsSource = DB.SelectAllProducts();
+            ListBox_Products.DisplayMemberPath = "Name";
+        }
+
+        private void ListBox_Categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Categories chosenCategory = (Categories)ListBox_Categories.SelectedItem;
+            var ProductFiltered = from category in DB.SelectAllProducts()
+                                  let categoryID = category.CategoryID
+                                  where
+                                  categoryID.Equals(chosenCategory.CategoryID)
+                                  select category;
+            ListBox_Products.ItemsSource = ProductFiltered;
+        }
+
+        private void ListBox_Products_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -16,9 +16,18 @@ namespace ExamShopProject.Deal_interactions
         {
             try
             {
-                bool wasSuccess = DB.InsertDeal(deal);
-                if (wasSuccess)
-                    throw new DealWasAdded(deal);
+                if (deal.ProductID > 0 && deal.CategoryID == 0)
+                {
+                    bool wasSuccess = DB.InsertDealProduct(deal);
+                    if (wasSuccess)
+                        throw new DealWasAdded(deal);
+                }
+                else if (deal.CategoryID > 0 && deal.ProductID == 0)
+                {
+                    bool wasSuccess = DB.InsertDealCategory(deal);
+                    if (wasSuccess)
+                        throw new DealWasAdded(deal);
+                }
                 return false;
             }
             //Only thrown if creating user was a succes

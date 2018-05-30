@@ -23,6 +23,7 @@ namespace ExamShopProject
         public OpenCatalogue()
         {
             InitializeComponent();
+            _catalogue.Navigate(new ViewCatalogue());
         }
     }
 }

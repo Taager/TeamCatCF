@@ -46,10 +46,15 @@ namespace ExamShopProject
             DBInsert dBInsert = new DBInsert();
             return dBInsert.InsertSubscriptionWCategory(input);
         }
-        public static bool InsertDeal(Deals deal)
+        public static bool InsertDealProduct(Deals deal)
         {
             DBInsert dBInsert = new DBInsert();
-            return dBInsert.InsertDeal(deal);
+            return dBInsert.InsertDealProduct(deal);
+        }
+        public static bool InsertDealCategory(Deals deal)
+        {
+            DBInsert dBInsert = new DBInsert();
+            return dBInsert.InsertDealCategory(deal);
         }
         #endregion
         #region View*
