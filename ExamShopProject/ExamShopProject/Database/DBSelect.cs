@@ -203,7 +203,7 @@ namespace ExamShopProject
                 while (reader.Read())
                 {
                     Categories categories = new Categories();
-                    categories.CategoryID = reader["CategoryID"] == System.DBNull.Value ? default(int) : (int)reader["CategoryID"];
+                    categories.CategoryID = reader["CategoryID"] == System.DBNull.Value ? default(int) : (int)reader["CategoryID"]; //get a nullable int from database
                     categories.Name = reader.GetString(1);
                     categories.Description = reader.GetString(2);
                     categoryList.Add(categories);
@@ -236,7 +236,7 @@ namespace ExamShopProject
                 SqlDataReader reader = getCategory.ExecuteReader();
                 while (reader.Read())
                 {
-                    category.CategoryID = reader["CategoryID"] == System.DBNull.Value ? default(int) : (int)reader["CategoryID"];
+                    category.CategoryID = reader["CategoryID"] == System.DBNull.Value ? default(int) : (int)reader["CategoryID"]; //get a nullable int from database
                     category.Name = reader.GetString(1);
                     category.Description = reader.GetString(2);
                 }
@@ -269,7 +269,7 @@ namespace ExamShopProject
                 while (reader.Read())
                 {
                     Product products = new Product();
-                    products.ProductID = reader["ProductID"] == System.DBNull.Value ? default(int) : (int)reader["ProductID"];
+                    products.ProductID = reader["ProductID"] == System.DBNull.Value ? default(int) : (int)reader["ProductID"]; //get a nullable int from database
                     products.Name = reader.GetString(1);
                     products.Description = reader.GetString(2);
                     products.Price = reader.GetDouble(3);
@@ -303,7 +303,7 @@ namespace ExamShopProject
                 SqlDataReader reader = getProduct.ExecuteReader();
                 while (reader.Read())
                 {
-                    product.ProductID = reader["ProductID"] == System.DBNull.Value ? default(int) : (int)reader["ProductID"];
+                    product.ProductID = reader["ProductID"] == System.DBNull.Value ? default(int) : (int)reader["ProductID"]; //get a nullable int from database
                     product.Name = reader.GetString(1);
                     product.Description = reader.GetString(2);
                     product.Price = reader.GetDouble(3);

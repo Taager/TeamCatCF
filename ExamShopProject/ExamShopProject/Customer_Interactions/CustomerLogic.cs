@@ -22,7 +22,7 @@ namespace ExamShopProject
             try
             {
                 bool validationSucces = customerValidation.ZipCodeValidation(customer.ZipCode); 
-                validationSucces = customerValidation.AnnualIncomeValidation(customer.AnnualIncome); 
+                validationSucces = customerValidation.AnnualIncomeValidation(customer.AnnualIncome); // makes sure the zip code and annual income isn't 0
                 if (!validationSucces)
                 {
                     CreateMessage.ShowInputNotValid();
@@ -30,7 +30,7 @@ namespace ExamShopProject
                 }
                 bool wasSuccess = DB.InsertCustomer(customer);
                 if (wasSuccess)
-                    throw new CustomerWasAdded(customer);
+                    throw new CustomerWasAdded(customer); // writes in log when customer is added
                 return false;
             }
             //Only thrown if creating user was a succes

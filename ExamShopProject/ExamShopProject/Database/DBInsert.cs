@@ -118,7 +118,6 @@ namespace ExamShopProject
                 command.ExecuteNonQuery();
                 DBOpenClose.CloseConnection(con);
                 return true;
-                // need to get CategoryID somehow, right now from a listbox i imagine categories are placed in and sends an ID with the product object.
             }
             catch (Exception ex)
             {
