@@ -76,37 +76,39 @@ namespace ExamShopProject
             int[] arrayOfCustomerIDs = selectedCustomersList.ToArray();
             foreach (int customerIDs in arrayOfCustomerIDs)
             {
-                CreateDeals(customerIDs);
-                wasSuccess = true;
+                wasSuccess = CreateDeals(customerIDs);
             }
 
             if (wasSuccess)
-                MessageBox.Show("Deal was created successfully.");
+                CreateMessage.ShowCreateSuccesful("Deal");
             if (!wasSuccess)
-                MessageBox.Show("Something went wrong, try again. If this problem persists contact admin.");
+                CreateMessage.ShowFailureMessage();
             this.Content = null;
             NavigationService.Navigate(new ViewDeals());
         }
-        private void CreateDeals(int customerID)
+        private bool CreateDeals(int customerID)
         {
-            deals.CustomerID = customerID;
-            if (rdbtn_Category.IsChecked == true)
+            try
             {
-                deals.ProductID = null;
-                Categories chosenCategory = (Categories)lstbx_ProductOrCategory.SelectedItem;
-                deals.CategoryID = chosenCategory.CategoryID;
+                deals.CustomerID = customerID;
+                if (rdbtn_Category.IsChecked == true)
+                {
+                    Categories chosenCategory = (Categories)lstbx_ProductOrCategory.SelectedItem;
+                    deals.CategoryID = chosenCategory.CategoryID;
+                }
+                else if (rdbtn_Product.IsChecked == true)
+                {
+                    Product chosenProduct = (Product)lstbx_ProductOrCategory.SelectedItem;
+                    deals.ProductID = chosenProduct.ProductID;
+                }
+                return interaction.CreateDeal(deals);
             }
-            else if (rdbtn_Product.IsChecked == true)
+            catch (Exception ex)
             {
-                deals.CategoryID = null;
-                Product chosenProduct = (Product)lstbx_ProductOrCategory.SelectedItem;
-                deals.ProductID = chosenProduct.ProductID;
+                ErrorHandler.Log.WriteFail(ex);
+                CreateMessage.ShowInputNotValid();
+                return false;
             }
-            else
-            {
-                MessageBox.Show("Please Select a Product or a Category");
-            }
-            interaction.CreateDeal(deals);
         }
     }
 }

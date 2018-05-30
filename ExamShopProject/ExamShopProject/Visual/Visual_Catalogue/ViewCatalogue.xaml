@@ -9,6 +9,29 @@
       Title="ViewCatalogue">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="29*"/>
+            <RowDefinition Height="230*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="255*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="255*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        <!--#region Labels-->
+        <Label Content="Categories" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label Content="Products" Grid.Row="0" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <!--#endregion-->
+        <!--#region I/O-->
+        <ListBox x:Name="ListBox_Categories" Grid.Column="1" Grid.Row="3" SelectionChanged="ListBox_Categories_SelectionChanged"/>
+        <ListBox x:Name="ListBox_Products" Grid.Column="3" Grid.Row="3" SelectionChanged="ListBox_Products_SelectionChanged" />
+        <!--#endregion-->
+        <!--#region Buttons-->
+        <!--#endregion-->
     </Grid>
 </Page>

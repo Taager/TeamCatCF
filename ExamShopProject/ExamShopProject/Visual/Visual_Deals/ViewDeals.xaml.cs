@@ -34,5 +34,17 @@ namespace ExamShopProject
             Deals chosenDeal = (Deals)lstbx_Deals.SelectedItem;
             NavigationService.Navigate(new ViewDealDetails(chosenDeal.DealsID));
         }
+        //By Mikkel E.R. Glerup
+        private void Btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            var dealFiltered = from deal in DB.SelectAllDeals()
+                                  let dealName = deal.Name
+                                  where
+                                  dealName.StartsWith(TextBox_Search.Text.ToLower())
+                                  || dealName.StartsWith(TextBox_Search.Text.ToUpper())
+                                  || dealName.Contains(TextBox_Search.Text)
+                                  select deal;
+            lstbx_Deals.ItemsSource = dealFiltered;
+        }
     }
 }
