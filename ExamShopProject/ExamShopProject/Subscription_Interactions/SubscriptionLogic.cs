@@ -8,7 +8,7 @@ using ExamShopProject.ErrorHandler;
 
 namespace ExamShopProject
 {
-    //Entire class by Mikkel E.R. Glerup
+    // Made by by Mikkel E.R. Glerup
     class SubscriptionLogic
     {
         public bool CheckEditOrCreate(Subscription input)

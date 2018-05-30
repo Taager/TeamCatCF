@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExamShopProject
 {
+    // Made by Mikkel E.R. Glerup
     class GetRandomPassword
     {
         public string CreateRandomPassword()

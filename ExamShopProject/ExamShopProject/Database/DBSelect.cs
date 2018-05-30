@@ -277,11 +277,6 @@ namespace ExamShopProject
                     productList.Add(products);
                 }
                 DBOpenClose.CloseConnection(con);
-                //if (product.ProductID == 0)
-                //{
-                //    productList.Remove(productList[0]);
-                //}
-                //Removes the empty product from the list.
                 return productList;
             }
             catch (Exception ex)
@@ -361,6 +356,7 @@ namespace ExamShopProject
             }
 
         }
+        // Made by Mikkel. E.R. Glerup
         public List<Subscription> SelectAllSubscriptions()
         {
             try
