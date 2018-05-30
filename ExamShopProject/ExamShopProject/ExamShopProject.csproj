@@ -102,9 +102,6 @@
     <Compile Include="Visual\Visual_Statistics\Statistics_Subscriptions.xaml.cs">
       <DependentUpon>Statistics_Subscriptions.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Visual\Visual_Statistics\ViewStatistics.xaml.cs">
-      <DependentUpon>ViewStatistics.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Visual\Visual_Subscriptions\CreateSubscriptions.xaml.cs">
       <DependentUpon>CreateSubscriptions.xaml</DependentUpon>
     </Compile>
@@ -208,10 +205,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Visual\Visual_Statistics\Statistics_Subscriptions.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Visual\Visual_Statistics\ViewStatistics.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
