@@ -29,7 +29,7 @@
         <!--#endregion-->
         <!--#region I/O-->
         <ListBox x:Name="ListBox_Categories" Grid.Column="1" Grid.Row="3" SelectionChanged="ListBox_Categories_SelectionChanged"/>
-        <ListBox x:Name="ListBox_Products" Grid.Column="3" Grid.Row="3" SelectionChanged="ListBox_Products_SelectionChanged" />
+        <ListBox x:Name="ListBox_Products" Grid.Column="3" Grid.Row="3" SelectionChanged="ListBox_Products_SelectionChanged" SelectionMode="multiple" />
         <!--#endregion-->
         <!--#region Buttons-->
         <!--#endregion-->

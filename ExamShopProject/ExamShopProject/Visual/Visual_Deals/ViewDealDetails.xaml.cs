@@ -30,6 +30,7 @@ namespace ExamShopProject
             deal = DB.SelectDeal(ID);            
             InitializeComponent();
             DataContext = deal;
+            //refactor into db-->db.select
             Customer selectedCustomer = DB.SelectCustomer(deal.CustomerID);
             txtbx_ChosenCustomer.Text = selectedCustomer.Name;
 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
@@ -22,7 +23,18 @@ namespace ExamShopProject
     {
         public Statistics_Customers()
         {
+            List<Customer> customerList = DB.SelectAllCustomers();
+            StatisticCalculations(customerList);
             InitializeComponent();
+        }
+        private void StatisticCalculations(List<Customer> customers)
+        {
+            int CustomersTotal = customers.Count;
+            List<Customer> customerList = DB.SelectAllCustomers();
+            List<Subscription> subscriptionList = DB.SelectAllSubscriptions();
+            int CustomersWithSubTotal = subscriptionList.Count;
+            int CustomersWithActiveSub;
+            //noget for each snask
         }
     }
 }

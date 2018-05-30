@@ -359,8 +359,40 @@ namespace ExamShopProject
                 Log.WriteFail(ex);
                 return output;
             }
+
         }
-            #endregion
+        public List<Subscription> SelectAllSubscriptions()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                Subscription input = new Subscription();
+                List<Subscription> SubscriptionList = new List<Subscription>();
+                DBOpenClose.OpenConnection(con);
+                SqlCommand getSubscriptions = new SqlCommand(
+                    "SELECT * FROM [Subscription]", con);
+                    SqlDataReader reader = getSubscriptions.ExecuteReader();
+                while (reader.Read())
+                {
+                    input.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    input.Renew = Convert.ToBoolean(reader["Renew"]);
+                    input.SubscriptionID = Convert.ToInt32(reader["SubscriptionID"]);
+                    input.RenewLength = Convert.ToInt32(reader["RenewLength"]);
+                    SubscriptionList.Add(input);
+                }
+                DBOpenClose.CloseConnection(con);
+                return SubscriptionList;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                List<Subscription> SubscriptionList = new List<Subscription>();
+                Log.WriteFail(ex);
+                return SubscriptionList;
+            }
+        }
+        #endregion
         #region Deals
         // Made by Helena Brunsgaard Madsen
         public List<Deals> SelectAllDeals()
@@ -430,15 +462,30 @@ namespace ExamShopProject
                 SqlDataReader reader = getDeal.ExecuteReader();
                 while (reader.Read())
                 {
-                    deals.DealsID = reader.GetInt32(0);
-                    deals.Name = reader.GetString(1);
-                    deals.PriceDecrease = reader.GetDouble(2);
-                    deals.DealType = reader.GetString(3);
-                    deals.StartDate = reader.GetDateTime(4);
-                    deals.EndDate = reader.GetDateTime(5);
-                    deals.CategoryID = reader.GetInt32(6);
-                    deals.ProductID = reader.GetInt32(7);
-                    deals.CustomerID = reader.GetInt32(8);
+                    deals.DealsID = Convert.ToInt32(reader["DealsID"]);
+                    deals.Name = Convert.ToString(reader["Name"]);
+                    deals.PriceDecrease = Convert.ToDouble(reader["PriceDecrease"]);
+                    deals.DealType = Convert.ToString(reader["DealType"]);
+                    deals.StartDate = Convert.ToDateTime(reader["StartDate"]);
+                    deals.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    //Product and categoryID can be null, thus we have to check, and convert if they are.
+                    if (reader["CategoryID"] == DBNull.Value)
+                    {
+                        deals.CategoryID = 0;
+                    }
+                    else
+                    {
+                        deals.CategoryID = Convert.ToInt32(reader["CategoryID"]);
+                    }
+                    if (reader["ProductID"] == DBNull.Value)
+                    {
+                        deals.ProductID = 0;
+                    }
+                    else
+                    {
+                        deals.ProductID = Convert.ToInt32(reader["ProductID"]);
+                    }
+                    deals.CustomerID = Convert.ToInt32(reader["CustomerID"]);
                 }
                 DBOpenClose.CloseConnection(con);
                 return deals;

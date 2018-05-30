@@ -63,6 +63,9 @@
     <Compile Include="Security.cs" />
     <Compile Include="Statistics_Interactions\StasticsLogic.cs" />
     <Compile Include="Subscription_Interactions\SubscriptionLogic.cs" />
+    <Compile Include="Visual\Visual_Catalogue\EditCatalogue.xaml.cs">
+      <DependentUpon>EditCatalogue.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Visual\Visual_Deals\CreateDeal.xaml.cs">
       <DependentUpon>CreateDeal.xaml</DependentUpon>
     </Compile>
@@ -159,6 +162,10 @@
     </Compile>
     <Compile Include="ErrorHandler\CustomExceptions.cs" />
     <Compile Include="User_Interactions\UserLogic.cs" />
+    <Page Include="Visual\Visual_Catalogue\EditCatalogue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Visual\Visual_Deals\CreateDeal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

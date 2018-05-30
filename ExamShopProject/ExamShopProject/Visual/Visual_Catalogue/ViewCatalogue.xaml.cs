@@ -43,7 +43,15 @@ namespace ExamShopProject
 
         private void ListBox_Products_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            int productID = 0;
+            List<int> selectedProductList = new List<int>();
+            for (int i = 0; i < ListBox_Products.SelectedItems.Count; i++)
+            {
+                Product chosenProduct = (Product)ListBox_Products.Items[i];
+                productID = chosenProduct.ProductID;
+                selectedProductList.Add(productID);
+            }
+            NavigationService.Navigate(new EditCatalogue(selectedProductList));
         }
     }
 }
