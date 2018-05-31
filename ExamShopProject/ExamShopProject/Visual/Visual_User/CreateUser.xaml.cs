@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExamShopProject.Object;
 using ExamShopProject.User_Interactions;
+using ExamShopProject.ErrorHandler;
 
 namespace ExamShopProject
 {
@@ -24,6 +25,7 @@ namespace ExamShopProject
     public partial class CreateUser : Page
     {
         User user = new User();
+        TextBoxCheck check = new TextBoxCheck();
         public CreateUser()
         {
             InitializeComponent();
@@ -32,24 +34,28 @@ namespace ExamShopProject
         //Made by Mikkel E.R. Glerup
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-            bool isAdmin=false;
+            bool isAdmin = false;
             UserLogic userLogic = new UserLogic();
             if (TxtBox_Name.Text == "")
             {
                 CreateMessage.ShowInputNotValid();
             }
+            else if (check.CheckTextBoxInputInteger(TxtBox_Name.Text) == true)
+            {
+                CreateMessage.ShowInputNotValid();
+            }
             else
             {
-            if (CheckBox_IsAdmin.IsChecked == true)
-                isAdmin = true;
-            if (CheckBox_IsAdmin.IsChecked == false)
-                isAdmin = false;
-            bool wasSuccess = userLogic.CreateUser(user.Name = TxtBox_Name.Text, user.IsAdmin = isAdmin);
-            if (wasSuccess)
-                CreateMessage.ShowCreateSuccesful("User");
-            if (!wasSuccess)
-                CreateMessage.ShowFailureMessage();
-            NavigationService.Navigate(new ViewUser());
+                if (CheckBox_IsAdmin.IsChecked == true)
+                    isAdmin = true;
+                if (CheckBox_IsAdmin.IsChecked == false)
+                    isAdmin = false;
+                bool wasSuccess = userLogic.CreateUser(user.Name = TxtBox_Name.Text, user.IsAdmin = isAdmin);
+                if (wasSuccess)
+                    CreateMessage.ShowCreateSuccesful("User");
+                if (!wasSuccess)
+                    CreateMessage.ShowFailureMessage();
+                NavigationService.Navigate(new ViewUser());
             }
         }
     }

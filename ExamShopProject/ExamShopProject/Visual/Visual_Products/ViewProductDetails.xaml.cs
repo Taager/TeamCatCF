@@ -50,9 +50,9 @@ namespace ExamShopProject
 
         private void btn_EditProduct_Click(object sender, RoutedEventArgs e)
         {
-            txtbx_Name.IsEnabled = true;
-            txtbx_Price.IsEnabled = true;
-            txtbx_Description.IsEnabled = true;
+            txtbx_Name.IsReadOnly = false;
+            txtbx_Price.IsReadOnly = false;
+            txtbx_Description.IsReadOnly = false;
             lstbx_Categories.IsEnabled = true;
             lstbx_Categories.SelectedIndex = product.CategoryID; //I want to show user which category the product is in.
             btn_Save.IsEnabled = true;

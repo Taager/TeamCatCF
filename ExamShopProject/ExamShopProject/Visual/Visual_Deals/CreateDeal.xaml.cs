@@ -78,13 +78,18 @@ namespace ExamShopProject
             {
                 wasSuccess = CreateDeals(customerIDs); // Creates a deal for every customer selected
             }
-
-            if (wasSuccess)
-                CreateMessage.ShowCreateSuccesful("Deal");
-            if (!wasSuccess)
-                CreateMessage.ShowFailureMessage();
-            //this.Content = null;
-            NavigationService.Navigate(new ViewDeals());
+            if (txtbx_Discount.Text == "" || txtbx_Name.Text == "")
+            {
+                CreateMessage.ShowInputNotValid();
+            }
+            else
+            {
+                if (wasSuccess)
+                    CreateMessage.ShowCreateSuccesful("Deal");
+                if (!wasSuccess)
+                    CreateMessage.ShowFailureMessage();
+                NavigationService.Navigate(new ViewDeals());
+            }
         }
         private bool CreateDeals(int customerID)
         {

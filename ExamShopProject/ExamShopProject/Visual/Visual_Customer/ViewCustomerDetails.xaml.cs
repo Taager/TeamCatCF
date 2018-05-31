@@ -45,13 +45,13 @@ namespace ExamShopProject
 
         private void btn_Edit_Click(object sender, RoutedEventArgs e)
         {
-            txtbx_Name.IsEnabled = true;
-            txtbx_AnnualIncome.IsEnabled = true;
-            txtbx_City.IsEnabled = true;
-            txtbx_ContactInfo.IsEnabled = true;
-            txtbx_Spokesperson.IsEnabled = true;
-            txtbx_StreetNumber.IsEnabled = true;
-            txtbx_Zip.IsEnabled = true;
+            txtbx_Name.IsReadOnly = false;
+            txtbx_AnnualIncome.IsReadOnly = false;
+            txtbx_City.IsReadOnly = false;
+            txtbx_ContactInfo.IsReadOnly = false;
+            txtbx_Spokesperson.IsReadOnly = false;
+            txtbx_StreetNumber.IsReadOnly = false;
+            txtbx_Zip.IsReadOnly = false;
             btn_Edit.IsEnabled = false;
             btn_Save.IsEnabled = true;
             btn_delete.IsEnabled = true;

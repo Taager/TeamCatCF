@@ -29,9 +29,9 @@
         <Label Content="Description:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="3" RenderTransformOrigin="-1.43,-0.436" Height="49" Width="138" Grid.ColumnSpan="2" Margin="34,10.8,0,0" Grid.RowSpan="2"/>
         <!--#endregion-->
         <!--#region I/O-->
-        <TextBox x:Name="txtbx_Name" Height="23" Margin="57,11.4,161,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" IsEnabled="False"/>
-        <TextBox x:Name="txtbx_Price" Height="23" Margin="57,18.2,161,0" TextWrapping="Wrap" Text="{Binding Price}" VerticalAlignment="Top" Grid.Row="2" Grid.Column="2" IsEnabled="False"/>
-        <TextBox x:Name="txtbx_Description" Height="23" Margin="57,19.8,161,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Grid.Row="3" Grid.Column="2" IsEnabled="False"/>
+        <TextBox x:Name="txtbx_Name" Height="23" Margin="57,11.4,161,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Grid.Row="1" Grid.Column="2" IsReadOnly="true" />
+        <TextBox x:Name="txtbx_Price" Height="23" Margin="57,18.2,161,0" TextWrapping="Wrap" Text="{Binding Price}" VerticalAlignment="Top" Grid.Row="2" Grid.Column="2" IsReadOnly="true" />
+        <TextBox x:Name="txtbx_Description" Height="23" Margin="57,19.8,161,0" TextWrapping="Wrap" Text="{Binding Description}" VerticalAlignment="Top" Grid.Row="3" Grid.Column="2" IsReadOnly="true" />
         <Label Content="Category:" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="4" RenderTransformOrigin="-1.43,-0.436" Height="49" Width="138" Grid.ColumnSpan="2" Margin="34,10.8,0,0"/>
         <ListBox x:Name="lstbx_Categories" Grid.Column="2" HorizontalAlignment="Left" Height="124" ItemsSource="{Binding CategoryID}"  Margin="57,10.8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="210" IsEnabled="False" />
         <!--#endregion-->
