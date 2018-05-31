@@ -40,7 +40,7 @@ namespace ExamShopProject
             {
                 CreateMessage.ShowInputNotValid();
             }
-            else if (check.CheckTextBoxInputInteger(TxtBox_Name.Text) == true)
+            else if (check.CheckTextBoxInputChars(TxtBox_Name.Text) == false)
             {
                 CreateMessage.ShowInputNotValid();
             }

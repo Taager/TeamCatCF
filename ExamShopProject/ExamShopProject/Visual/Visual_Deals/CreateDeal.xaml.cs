@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using ExamShopProject.Object;
 using ExamShopProject.Deal_interactions;
+using ExamShopProject.ErrorHandler;
 
 namespace ExamShopProject
 {
@@ -23,6 +24,7 @@ namespace ExamShopProject
     // Made by Helena Brunsgaard Madsen
     public partial class CreateDeal : Page
     {
+        TextBoxCheck check = new TextBoxCheck();
         bool wasSuccess;
         Deals deals = new Deals();
         DealLogic interaction = new DealLogic();
@@ -79,6 +81,10 @@ namespace ExamShopProject
                 wasSuccess = CreateDeals(customerIDs); // Creates a deal for every customer selected
             }
             if (txtbx_Discount.Text == "" || txtbx_Name.Text == "")
+            {
+                CreateMessage.ShowInputNotValid();
+            }
+            else if (check.CheckTextBoxInputInteger(txtbx_Discount.Text) == true)
             {
                 CreateMessage.ShowInputNotValid();
             }

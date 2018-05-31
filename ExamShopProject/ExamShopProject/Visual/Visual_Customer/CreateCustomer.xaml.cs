@@ -36,7 +36,11 @@ namespace ExamShopProject
             {
                 CreateMessage.ShowInputNotValid();
             }
-            else if (check.CheckTextBoxInputChars(txtbx_Name.Text) == true)
+            else if (check.CheckTextBoxInputChars(txt_SpokesPerson.Text) == false)
+            {
+                CreateMessage.ShowInputNotValid();
+            }
+            else if (check.CheckTextBoxInputInteger(txtbx_Zip.Text) == true || check.CheckTextBoxInputInteger(txtbx_Income.Text) == true)
             {
                 CreateMessage.ShowInputNotValid();
             }
@@ -45,9 +49,9 @@ namespace ExamShopProject
             bool wasSuccess = interaction.CreateCustomer(customer);
                 if (wasSuccess)
                     CreateMessage.ShowCreateSuccesful("Customer");
+                NavigationService.Navigate(new ViewCustomer());
                 if (!wasSuccess)
                     CreateMessage.ShowFailureMessage();
-                NavigationService.Navigate(new ViewCustomer());
             }
         }
     }

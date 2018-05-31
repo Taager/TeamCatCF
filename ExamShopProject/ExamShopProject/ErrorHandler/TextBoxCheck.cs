@@ -25,9 +25,9 @@ namespace ExamShopProject.ErrorHandler
             bool containsChars = regex.IsMatch(textboxInput); //checks if there are any chars in the textbox
             if (containsChars == true)
             {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
     }
 }
