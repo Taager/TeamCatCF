@@ -35,7 +35,6 @@ namespace ExamShopProject
                 CreateMessage.ShowCreateSuccesful("Customer");
             if (!wasSuccess)
                 CreateMessage.ShowFailureMessage();
-            this.Content = null;
             NavigationService.Navigate(new ViewCustomer());
         }
     }

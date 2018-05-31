@@ -92,7 +92,7 @@ namespace ExamShopProject
 
         private void Btn_Subscriptions_Click(object sender, RoutedEventArgs e)
         {
-            this.Content = null;
+            //this.Content = null;
             NavigationService.Navigate(new ViewSubscriptionsDetails(customer.customerID));
         }
     }

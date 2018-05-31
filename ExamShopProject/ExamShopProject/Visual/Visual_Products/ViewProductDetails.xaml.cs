@@ -17,6 +17,7 @@ using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
+    // Made by Helena Brunsgaard Madsen
     /// <summary>
     /// Interaction logic for ViewProductDetails.xaml
     /// </summary>
@@ -53,7 +54,7 @@ namespace ExamShopProject
             txtbx_Price.IsEnabled = true;
             txtbx_Description.IsEnabled = true;
             lstbx_Categories.IsEnabled = true;
-            lstbx_Categories.SelectedItem = category.CategoryID; //I want to show user which category the product is in.
+            lstbx_Categories.SelectedIndex = product.CategoryID; //I want to show user which category the product is in.
             btn_Save.IsEnabled = true;
             btn_EditProduct.IsEnabled = false;
         }
@@ -83,6 +84,5 @@ namespace ExamShopProject
                 product.Price = Convert.ToDouble(txtbx_Price.Text);
                 product.Description = txtbx_Description.Text;
         }
-
     }
 }

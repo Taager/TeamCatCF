@@ -34,6 +34,12 @@ namespace ExamShopProject
         {
             bool isAdmin=false;
             UserLogic userLogic = new UserLogic();
+            if (TxtBox_Name.Text == "")
+            {
+                CreateMessage.ShowInputNotValid();
+            }
+            else
+            {
             if (CheckBox_IsAdmin.IsChecked == true)
                 isAdmin = true;
             if (CheckBox_IsAdmin.IsChecked == false)
@@ -44,6 +50,7 @@ namespace ExamShopProject
             if (!wasSuccess)
                 CreateMessage.ShowFailureMessage();
             NavigationService.Navigate(new ViewUser());
+            }
         }
     }
 }

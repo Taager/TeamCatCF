@@ -52,7 +52,7 @@ namespace ExamShopProject
             txtbx_Discount.IsEnabled = true;
             lbl_Percent.Opacity = 100;
             deals.DealType = "percentage";
-            //show percent in textbox
+            //show percent next to textbox 
         }
         private void rdbtn_Currency_Checked(object sender, RoutedEventArgs e)
         {
@@ -60,7 +60,7 @@ namespace ExamShopProject
             txtbx_Discount.IsEnabled = true;
             lbl_Currency.Opacity = 100;
             deals.DealType = "cost";
-            //show currency in textbox
+            //show currency next to textbox
         }
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
@@ -76,14 +76,14 @@ namespace ExamShopProject
             int[] arrayOfCustomerIDs = selectedCustomersList.ToArray();
             foreach (int customerIDs in arrayOfCustomerIDs)
             {
-                wasSuccess = CreateDeals(customerIDs);
+                wasSuccess = CreateDeals(customerIDs); // Creates a deal for every customer selected
             }
 
             if (wasSuccess)
                 CreateMessage.ShowCreateSuccesful("Deal");
             if (!wasSuccess)
                 CreateMessage.ShowFailureMessage();
-            this.Content = null;
+            //this.Content = null;
             NavigationService.Navigate(new ViewDeals());
         }
         private bool CreateDeals(int customerID)
@@ -91,7 +91,7 @@ namespace ExamShopProject
             try
             {
                 deals.CustomerID = customerID;
-                if (rdbtn_Category.IsChecked == true)
+                if (rdbtn_Category.IsChecked == true) //find out if the deal is made to product or category
                 {
                     Categories chosenCategory = (Categories)lstbx_ProductOrCategory.SelectedItem;
                     deals.CategoryID = chosenCategory.CategoryID;

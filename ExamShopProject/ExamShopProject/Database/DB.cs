@@ -128,7 +128,11 @@ namespace ExamShopProject
             DBSelect dBSelect = new DBSelect();
             return dBSelect.SelectDeal(ID);
         }
-
+        public static Subscription SelectSubscriptionwithCategory(int ID)
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectSubscriptionwithCategory(ID);
+        }
         #endregion
         #region Edit*
         //Made by Mikkel E.R. Glerup

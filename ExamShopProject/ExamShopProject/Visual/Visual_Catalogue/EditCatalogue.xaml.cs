@@ -16,6 +16,7 @@ using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
+    //Made bu Mikkel E.R. Glerup
     /// <summary>
     /// Interaction logic for EditCatalogue.xaml
     /// </summary>
