@@ -35,7 +35,7 @@ namespace ExamShopProject
             Customer chosenCustomer = (Customer)lstbx_Customer.SelectedItem;
             NavigationService.Navigate(new ViewCustomerDetails(chosenCustomer.customerID));
         }
-
+        // Made by Mikkel E.R. Glerup
         private void btn_Search_Click(object sender, RoutedEventArgs e)
         {
             var CustomerFiltered = from customer in DB.SelectAllCustomers()

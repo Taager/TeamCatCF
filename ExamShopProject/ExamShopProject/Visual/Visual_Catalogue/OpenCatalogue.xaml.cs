@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 
 namespace ExamShopProject
 {
+    // Made by Mikkel E.R. Glerup
     /// <summary>
     /// Interaction logic for OpenCatalogue.xaml
     /// </summary>

@@ -18,6 +18,7 @@ namespace ExamShopProject
     /// <summary>
     /// Interaction logic for LogIn.xaml
     /// </summary>
+    // Made by Mikkel E.R. Glerup
     public partial class LogIn : Page
     {
         public LogIn()

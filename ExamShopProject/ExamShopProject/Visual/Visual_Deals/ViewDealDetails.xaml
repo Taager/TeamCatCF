@@ -31,6 +31,7 @@
         <Label x:Name="lbl_Category" Content="Category" HorizontalAlignment="Left" Margin="108,9.2,0,0" Grid.Row="4" VerticalAlignment="Top" Height="26" Width="61" Opacity="0"/>
         <Label Content="Start Date" HorizontalAlignment="Left" Margin="108,7.4,0,0" VerticalAlignment="Top" Height="26" Width="71" Grid.Row="5"/>
         <Label Content="End Date" HorizontalAlignment="Left" Margin="108,1,0,0" VerticalAlignment="Top" Height="26" Width="71" Grid.Row="6"/>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="108,0,0,6.2" VerticalAlignment="Bottom" Height="26" Width="61" Grid.Row="1" RenderTransformOrigin="0.501,-0.098"/>
         <!--#endregion-->
         <!--#region I/O-->
         <TextBox x:Name="txtbx_Discount" HorizontalAlignment="Left" Height="23" Margin="10.2,14.2,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="220" Grid.Column="1" Grid.Row="3" IsReadOnly="True"/>
@@ -39,7 +40,6 @@
         <TextBox x:Name="txtbx_ChosenCustomer" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10.2,10.8,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" UndoLimit="0" IsReadOnly="True" />
         <TextBox x:Name="txtbx_StartDate" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10.2,7.4,0,0" Grid.Row="5" TextWrapping="Wrap" Text="{Binding StartDate}" VerticalAlignment="Top" Width="220" IsReadOnly="True" />
         <TextBox x:Name="txtbx_EndDate" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10.2,1,0,0" Grid.Row="6" TextWrapping="Wrap" Text="{Binding EndDate}" VerticalAlignment="Top" Width="220" IsReadOnly="True" />
-        <Label Content="Name" HorizontalAlignment="Left" Margin="108,0,0,6.2" VerticalAlignment="Bottom" Height="26" Width="61" Grid.Row="1" RenderTransformOrigin="0.501,-0.098"/>
         <TextBox x:Name="txtbx_Name" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10.2,13.4,0,0" Grid.Row="1" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" Width="220" UndoLimit="0" IsReadOnly="True" />
         <!--#endregion-->
     </Grid>

@@ -354,7 +354,6 @@ namespace ExamShopProject
                 Log.WriteFail(ex);
                 return output;
             }
-
         }
         // Made by Mikkel. E.R. Glerup
         public List<Subscription> SelectAllSubscriptions()
@@ -493,6 +492,36 @@ namespace ExamShopProject
                 Deals deals = new Deals();
                 Log.WriteFail(ex);
                 return deals;
+            }
+        }
+        #endregion
+        #region SubscribetoCategory
+        public Subscription SelectSubscriptionwithCategory(int ID)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                Subscription output = new Subscription();
+                DBOpenClose.OpenConnection(con);
+                SqlCommand getSubscription = new SqlCommand(
+                    "SELECT * FROM [SubscribedToCategories] WHERE SubscriptionID=@SubscriptionID", con);
+                getSubscription.Parameters.Add("@SubscriptionID", SqlDbType.Int);
+                getSubscription.Parameters["@SubscriptionID"].Value = ID;
+                SqlDataReader reader = getSubscription.ExecuteReader();
+                while (reader.Read())
+                {
+                    output.CategoryID = Convert.ToInt32(reader["CategoryID"]);
+                }
+                DBOpenClose.CloseConnection(con);
+                return output;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                Subscription output = new Subscription();
+                Log.WriteFail(ex);
+                return output;
             }
         }
         #endregion

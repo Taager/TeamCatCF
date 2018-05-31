@@ -40,10 +40,10 @@
         <Label Content="Is user an admin: " Grid.Column="1" FontSize="15" Grid.Row="4" Grid.ColumnSpan="2" />
         <!--#endregion-->
         <!--#region I/O-->
-        <TextBox x:Name="TxtBox_Name" Text="{Binding Name}" FontSize="16" Grid.Column="3" Grid.Row="1" IsEnabled="False" Grid.ColumnSpan="6"/>
-        <TextBox x:Name="TxtBox_Username"  Text="{Binding Username}" FontSize="16" Grid.Column="3" Grid.Row="2" IsEnabled="False" Grid.ColumnSpan="6"/>
-        <TextBox x:Name="TxtBox_Password" Text="{Binding Password}" FontSize="16" Grid.Column="3" Grid.Row="3" IsEnabled="False" Grid.ColumnSpan="6"/>
-        <TextBox x:Name="TxtBox_IsAdmin" Text="{Binding IsAdminString}" FontSize="16" Grid.Column="3" Grid.Row="4" IsEnabled="False" Grid.ColumnSpan="6" Opacity="100"/>
+        <TextBox x:Name="TxtBox_Name" Text="{Binding Name}" FontSize="16" Grid.Column="3" IsReadOnly="true"  Grid.Row="1" Grid.ColumnSpan="6"/>
+        <TextBox x:Name="TxtBox_Username"  Text="{Binding Username}" FontSize="16" Grid.Column="3" IsReadOnly="true" Grid.Row="2"  Grid.ColumnSpan="6"/>
+        <TextBox x:Name="TxtBox_Password" Text="{Binding Password}" FontSize="16" Grid.Column="3" IsReadOnly="true" Grid.Row="3"  Grid.ColumnSpan="6"/>
+        <TextBox x:Name="TxtBox_IsAdmin" Text="{Binding IsAdminString}" FontSize="16" Grid.Column="3" IsReadOnly="true" Grid.Row="4"  Grid.ColumnSpan="6" Opacity="100"/>
         <!--#endregion-->
         <!--#region Buttons-->
         <Button x:Name="Btn_Edit" Content="Edit" FontSize="15" Grid.Column="6" Grid.Row="7" Click="Btn_Edit_Enable" />
