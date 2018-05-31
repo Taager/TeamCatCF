@@ -24,6 +24,7 @@ namespace ExamShopProject
     // Made by Helena Brunsgaard Madsen
     public partial class CreateDeal : Page
     {
+        //public event EventHandler<SelectionChangedEventArgs> SelectedDateChanged;
         TextBoxCheck check = new TextBoxCheck();
         bool wasSuccess;
         Deals deals = new Deals();
@@ -31,13 +32,17 @@ namespace ExamShopProject
         public CreateDeal()
         {
             InitializeComponent();
-            deals.EndDate = DateTime.Now;
             deals.StartDate = DateTime.Now;
+            deals.EndDate = DateTime.Now;
             DataContext = deals;
             lstbx_Customer.ItemsSource = DB.SelectAllCustomers();
             lstbx_Customer.DisplayMemberPath = "Name";
         }
-
+        private void SelectedDateChanged(object sender, SelectionChangedEventArgs e)
+        {
+            dtpckr_EndDate.IsEnabled = true;
+            dtpckr_EndDate.DisplayDateStart = dtpckr_StartDate.SelectedDate.Value;
+        }
         private void rdbtn_Product_Checked(object sender, RoutedEventArgs e)
         {
             lstbx_ProductOrCategory.ItemsSource = DB.SelectAllProducts();

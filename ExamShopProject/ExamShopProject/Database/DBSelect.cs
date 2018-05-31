@@ -27,11 +27,11 @@ namespace ExamShopProject
                 while (reader.Read())
                 {
                     User user = new User();
-                    user.ID = reader.GetInt32(0);
-                    user.Username = reader.GetString(1);
-                    user.Password = reader.GetString(2);
-                    user.Name = reader.GetString(3);
-                    user.IsAdmin = reader.GetBoolean(4);
+                    user.ID = Convert.ToInt32(reader["UserID"]);
+                    user.Username = Convert.ToString(reader["UserName"]);
+                    user.Password = Convert.ToString(reader["Password"]);
+                    user.Name = Convert.ToString(reader["Name"]);
+                    user.IsAdmin = Convert.ToBoolean(reader["IsAdmin"]);
                     userList.Add(user);
                 }
                 DBOpenClose.CloseConnection(con);
@@ -59,11 +59,11 @@ namespace ExamShopProject
                 SqlDataReader reader = getUser.ExecuteReader();
                 while (reader.Read())
                 {
-                    user.ID = reader.GetInt32(0);
-                    user.Username = reader.GetString(1);
-                    user.Password = reader.GetString(2);
-                    user.Name = reader.GetString(3);
-                    user.IsAdmin = reader.GetBoolean(4);
+                    user.ID = Convert.ToInt32(reader["UserID"]);
+                    user.Username = Convert.ToString(reader["UserName"]);
+                    user.Password = Convert.ToString(reader["Password"]);
+                    user.Name = Convert.ToString(reader["Name"]);
+                    user.IsAdmin = Convert.ToBoolean(reader["IsAdmin"]);
                 }
                 DBOpenClose.CloseConnection(con);
                 return user;
@@ -128,14 +128,14 @@ namespace ExamShopProject
                 while (reader.Read())
                 {
                     Customer customer = new Customer();
-                    customer.customerID = reader.GetInt32(0);
-                    customer.Name = reader.GetString(1);
-                    customer.StreetAndNumber = reader.GetString(2);
-                    customer.ZipCode = reader.GetInt32(3);
-                    customer.City = reader.GetString(4);
-                    customer.ContactInfo = reader.GetString(5);
-                    customer.SpokesPerson = reader.GetString(6);
-                    customer.AnnualIncome = reader.GetDouble(7);
+                    customer.customerID = Convert.ToInt32(reader["CustomerID"]);
+                    customer.Name = Convert.ToString(reader["Name"]);
+                    customer.StreetAndNumber = Convert.ToString(reader["StreetAndNumber"]);
+                    customer.ZipCode = Convert.ToInt32(reader["ZipCode"]);
+                    customer.City = Convert.ToString(reader["City"]);
+                    customer.ContactInfo = Convert.ToString(reader["ContactInfo"]);
+                    customer.SpokesPerson = Convert.ToString(reader["SpokesPerson"]);
+                    customer.AnnualIncome = Convert.ToDouble(reader["AnnualIncome"]);
                     customerList.Add(customer);
                 }
                 DBOpenClose.CloseConnection(con);
@@ -165,14 +165,14 @@ namespace ExamShopProject
                 SqlDataReader reader = getCustomer.ExecuteReader();
                 while (reader.Read())
                 {
-                    customer.customerID = reader.GetInt32(0);
-                    customer.Name = reader.GetString(1);
-                    customer.StreetAndNumber = reader.GetString(2);
-                    customer.ZipCode = reader.GetInt32(3);
-                    customer.City = reader.GetString(4);
-                    customer.ContactInfo = reader.GetString(5);
-                    customer.SpokesPerson = reader.GetString(6);
-                    customer.AnnualIncome = reader.GetDouble(7);
+                    customer.customerID = Convert.ToInt32(reader["CustomerID"]);
+                    customer.Name = Convert.ToString(reader["Name"]);
+                    customer.StreetAndNumber = Convert.ToString(reader["StreetAndNumber"]);
+                    customer.ZipCode = Convert.ToInt32(reader["ZipCode"]);
+                    customer.City = Convert.ToString(reader["City"]);
+                    customer.ContactInfo = Convert.ToString(reader["ContactInfo"]);
+                    customer.SpokesPerson = Convert.ToString(reader["SpokesPerson"]);
+                    customer.AnnualIncome = Convert.ToDouble(reader["AnnualIncome"]);
                 }
                 DBOpenClose.CloseConnection(con);
                 return customer;
@@ -204,8 +204,8 @@ namespace ExamShopProject
                 {
                     Categories categories = new Categories();
                     categories.CategoryID = reader["CategoryID"] == System.DBNull.Value ? default(int) : (int)reader["CategoryID"]; //get a nullable int from database
-                    categories.Name = reader.GetString(1);
-                    categories.Description = reader.GetString(2);
+                    categories.Name = Convert.ToString(reader["Name"]);
+                    categories.Description = Convert.ToString(reader["Decription"]);
                     categoryList.Add(categories);
                 }
                 DBOpenClose.CloseConnection(con);
@@ -237,8 +237,8 @@ namespace ExamShopProject
                 while (reader.Read())
                 {
                     category.CategoryID = reader["CategoryID"] == System.DBNull.Value ? default(int) : (int)reader["CategoryID"]; //get a nullable int from database
-                    category.Name = reader.GetString(1);
-                    category.Description = reader.GetString(2);
+                    category.Name = Convert.ToString(reader["Name"]);
+                    category.Description = Convert.ToString(reader["Decription"]);
                 }
                 DBOpenClose.CloseConnection(con);
                 return category;
@@ -270,10 +270,10 @@ namespace ExamShopProject
                 {
                     Product products = new Product();
                     products.ProductID = reader["ProductID"] == System.DBNull.Value ? default(int) : (int)reader["ProductID"]; //get a nullable int from database
-                    products.Name = reader.GetString(1);
-                    products.Description = reader.GetString(2);
-                    products.Price = reader.GetDouble(3);
-                    products.CategoryID = reader.GetInt32(4);
+                    products.Name = Convert.ToString(reader["Name"]);
+                    products.Description = Convert.ToString(reader["Decription"]);
+                    products.Price = Convert.ToDouble(reader["Price"]);
+                    products.CategoryID = Convert.ToInt32(reader["CategoryID"]);
                     productList.Add(products);
                 }
                 DBOpenClose.CloseConnection(con);
@@ -304,10 +304,10 @@ namespace ExamShopProject
                 while (reader.Read())
                 {
                     product.ProductID = reader["ProductID"] == System.DBNull.Value ? default(int) : (int)reader["ProductID"]; //get a nullable int from database
-                    product.Name = reader.GetString(1);
-                    product.Description = reader.GetString(2);
-                    product.Price = reader.GetDouble(3);
-                    product.CategoryID = reader.GetInt32(4);
+                    product.Name = Convert.ToString(reader["Name"]);
+                    product.Description = Convert.ToString(reader["Decription"]);
+                    product.Price = Convert.ToDouble(reader["Price"]);
+                    product.CategoryID = Convert.ToInt32(reader["CategoryID"]);
                 }
                 DBOpenClose.CloseConnection(con);
                 return product;
