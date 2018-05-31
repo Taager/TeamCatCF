@@ -24,10 +24,10 @@ namespace ExamShopProjectBackEnd
         public MainWindow()
         {
             InitializeComponent();
-            var renewThread = new Thread(DB.RenewSubscriptions);
+            var renewThread = new Thread(DB.RenewSubscriptions); // start the thread responsible for renewing subscriptions
             renewThread.Start();
 
-            var importThread = new Thread(FileManager.FetchFile);
+            var importThread = new Thread(FileManager.FetchFile); // start the thread responsible for importing and exporting product catalogues
             importThread.Start();
         }
     }

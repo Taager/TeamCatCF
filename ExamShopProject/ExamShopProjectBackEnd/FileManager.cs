@@ -13,7 +13,7 @@ namespace ExamShopProjectBackEnd
 {
     class FileManager
     {
-        private static SftpClient ConnectMe()
+        private static SftpClient ConnectMe() // Establish an SFTP CLient
         {
             SftpClient client = new SftpClient(ConfigurationManager.AppSettings["ServerIP"].ToString(), ConfigurationManager.AppSettings["ServerUserName"].ToString(), ConfigurationManager.AppSettings["ServerUserPW"].ToString());
             return client;
@@ -23,8 +23,8 @@ namespace ExamShopProjectBackEnd
         {
             SftpClient client = ConnectMe();
             client.Connect();
-            string remoteDir = ConfigurationManager.AppSettings["ExportDir"].ToString();
-            string localDir = ConfigurationManager.AppSettings["MyBaseDir"].ToString();
+            string remoteDir = ConfigurationManager.AppSettings["ExportDir"].ToString(); // Where to send the fíle
+            string localDir = ConfigurationManager.AppSettings["MyBaseDir"].ToString(); // Where to currently find the file
 
 
             client.ChangeDirectory(remoteDir);
@@ -49,7 +49,7 @@ namespace ExamShopProjectBackEnd
             {
                 SftpClient client = ConnectMe();
                 client.Connect();
-                string remoteDirectory = ConfigurationManager.AppSettings["ImportDir"].ToString();
+                string remoteDirectory = ConfigurationManager.AppSettings["ImportDir"].ToString(); // Where to find the files
                 string finalDir = @"";
                 using (var sftp = client)
                 {
@@ -70,7 +70,7 @@ namespace ExamShopProjectBackEnd
                         }
                     }
                 }
-                Thread.Sleep(600000);
+                Thread.Sleep(900000); // repeat after 15 minutesS
             } while (true);
             
         }

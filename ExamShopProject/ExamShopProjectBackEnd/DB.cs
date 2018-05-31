@@ -17,7 +17,6 @@ namespace ExamShopProjectBackEnd
     static class DB
     {
         #region open and close connection
-        //made by Mikkel. E.R. Glerup
         public static SqlConnection myConnection;
         private static bool OpenConnection()
         {
@@ -52,7 +51,7 @@ namespace ExamShopProjectBackEnd
         #endregion
 
         #region import/export catalogue
-        public static bool ImportCatalogue(string fileName)
+        public static bool ImportCatalogue(string fileName) // Insert the product catalogue into the database
         {
             if (File.Exists(fileName))
             {
@@ -73,7 +72,7 @@ namespace ExamShopProjectBackEnd
             }
         }
 
-        private static bool OutdateProducts()
+        private static bool OutdateProducts() // move all the old products so we can backtrace the exact product ordered at a specific time
         {
             OpenConnection();
             SqlCommand move = new SqlCommand("INSERT INTO dbo.OldProducts (ProductID, [Name], [Description], [Price], [CategoryId], OutdatedDate) SELECT ProductID, [Name], [Description], [Price], [CategoryId], SYSDATETIME() FROM dbo.Product", myConnection);
@@ -91,7 +90,7 @@ namespace ExamShopProjectBackEnd
             {
                 OpenConnection();
                 List<Deals> deals = SelectAllActiveDeals();
-                SqlCommand getSubscription = new SqlCommand(
+                SqlCommand getSubscription = new SqlCommand( // Select the subscriptions (and relevant customer info) that are active
                     "SELECT S.[SubscriptionID], C.[Name], C.CustomerID FROM dbo.Subscription as S, dbo.Customer as C WHERE C.[CustomerID] = S.[CustomerID] AND S.EndDate > SYSDATETIME()", myConnection);
                 SqlDataReader reader = getSubscription.ExecuteReader();
                 while (reader.Read())
@@ -101,9 +100,9 @@ namespace ExamShopProjectBackEnd
                     string customerName = Convert.ToString(reader["Name"]);
                     string fileName = customerName + DateTime.Today.ToString();
 
-                    StreamWriter customerCatalogue = FileManager.CreateExportFileHeader(fileName);
+                    StreamWriter customerCatalogue = FileManager.CreateExportFileHeader(fileName); // create the file we'll be filling and sending to the customer
 
-                    SqlCommand getSubscribedProducts = new SqlCommand(
+                    SqlCommand getSubscribedProducts = new SqlCommand( // Select all the products related to the subscription we're handling
                     "SELECT * FROM [dbo].[Product] as P WHERE EXISTS( SELECT * FROM dbo.SubscribedToCategories as STC WHERE STC.[SubscriptionID] = @SubscriptionID AND STC.CategoryID=P.CategoryID)", myConnection);
                     getSubscribedProducts.Parameters.Add("@SubscriptionID", SqlDbType.Int);
                     getSubscribedProducts.Parameters["@SubscriptionID"].Value = subscriptionID;
@@ -116,7 +115,7 @@ namespace ExamShopProjectBackEnd
                         string productDesc = Convert.ToString(reader["Description"]);
                         double productPrice = Convert.ToDouble(reader["Price"]);
 
-                        Deals result = new Deals();
+                        Deals result = new Deals(); // Find out if the price of this product is affected by a deal
                         if (deals.Exists(x => x.ProductID == productID && x.CustomerID == customerID))
                         {
                             result = deals.Find(x => x.ProductID == productID && x.CustomerID == customerID);
@@ -134,7 +133,7 @@ namespace ExamShopProjectBackEnd
                             result = deals.Find(x => x.CategoryID == categoryID );
                         }
 
-                        if (result.DealType == "percentage")
+                        if (result.DealType == "percentage") // if there was a deal, adjust the price here
                         {
                             productPrice = productPrice * (1 - result.PriceDecrease);
                         }
@@ -205,11 +204,11 @@ namespace ExamShopProjectBackEnd
         {
             do
             {
-                OpenConnection();
+                OpenConnection(); // if a subscription is expired and they wanted it to renew, renew it with the amount of months requested
                 SqlCommand renew = new SqlCommand("UPDATE dbo.Subscription SET EndDate=DATEADD(m, RenewLength, EndDate) WHERE Renew=1 AND EndDate<SYSDATETIME()", myConnection);
                 renew.ExecuteNonQuery();
                 CloseConnection();
-                Thread.Sleep(900000);
+                Thread.Sleep(600000); // repeat after 10 minutes
             } while (true);
         }
     }
