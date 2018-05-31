@@ -13,7 +13,7 @@ namespace ExamShopProject
     class DBDelete
     {
         // Made by Mikkel Glerup
-        public bool Delete(string callerClass, int callerID)
+        public bool Delete(string callerClass, int callerID) // can be used for every element wanted deleted in Database
         {
             if (callerClass == null)
             {

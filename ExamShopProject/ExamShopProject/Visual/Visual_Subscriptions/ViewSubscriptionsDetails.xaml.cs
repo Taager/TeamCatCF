@@ -34,13 +34,13 @@ namespace ExamShopProject
             DataContext = subscription;
             ListBox_CategoriesSubscripeTo.ItemsSource = DB.SelectAllCategories();
             ListBox_CategoriesSubscripeTo.DisplayMemberPath = "Name";
-            ListBox_Customer.ItemsSource = DB.SelectAllCustomers();
-            ListBox_Customer.DisplayMemberPath = "Name";
+            Subscription selectedSubscriptinCategory = DB.SelectSubscriptionwithCategory(ID);
+            ListBox_CategoriesSubscripeTo.SelectedIndex = selectedSubscriptinCategory.CategoryID;
+            txtbx_Customer.Text = tempCustomer.Name;
         }
 
         private void Btn_Edit_Enable(object sender, RoutedEventArgs e)
         {
-            ListBox_Customer.IsEnabled = true;
             Btn_Save.IsEnabled = true;
             Btn_Delete.IsEnabled = true;
             Btn_Delete.Opacity = 100;

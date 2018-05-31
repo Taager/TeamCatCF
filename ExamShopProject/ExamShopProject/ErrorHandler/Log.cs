@@ -8,9 +8,9 @@ using ExamShopProject.Object;
 
 namespace ExamShopProject.ErrorHandler
 {
+    // made by Mikkel. E.R. Glerup
     static class Log
     {
-        // made by Mikkel. E.R. Glerup
         public static void WriteFail(System.Exception ex)
         {
             DateTime currentTime = DateTime.Now;

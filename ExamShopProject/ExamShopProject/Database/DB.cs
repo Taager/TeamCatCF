@@ -138,7 +138,11 @@ namespace ExamShopProject
             DBSelect dBSelect = new DBSelect();
             return dBSelect.SelectDeal(ID);
         }
-
+        public static Subscription SelectSubscriptionwithCategory(int ID)
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectSubscriptionwithCategory(ID);
+        }
         #endregion
         #region Edit*
         //Made by Mikkel E.R. Glerup
@@ -159,6 +163,7 @@ namespace ExamShopProject
             DBEdit dBEdit = new DBEdit();
             return dBEdit.EditProduct(input);
         }
+        // Made by Mikkel. E.R. Glerup
         public static bool EditSubscription(Subscription input)
         {
             DBEdit dBEdit = new DBEdit();
@@ -166,6 +171,7 @@ namespace ExamShopProject
         }
         #endregion
         #region Delete*
+        // Made by Mikkel. E.R. Glerup
         public static bool Delete(string callerClass, int CallerID)
         {
             DBDelete dBDelete = new DBDelete();

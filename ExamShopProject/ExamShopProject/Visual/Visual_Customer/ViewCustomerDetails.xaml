@@ -39,13 +39,13 @@
         <Label Content="Annual Income" Grid.Column="1" Grid.Row="6" Margin="0.4,45.2,4.2,43" Grid.RowSpan="3" />
         <!--#endregion-->
         <!--#region I/O-->
-        <TextBox x:Name="txtbx_Name" Height="23" Margin="0.8,6.4,9,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtbx_Spokesperson" Height="23" Margin="0.8,5.2,9,0" TextWrapping="Wrap" Text="{Binding SpokesPerson}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtbx_StreetNumber" Height="23" Margin="0.8,6.6,9,0" TextWrapping="Wrap" Text="{Binding StreetAndNumber}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtbx_Zip" Height="23" Margin="0.8,6.4,9,0" TextWrapping="Wrap" Text="{Binding ZipCode}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtbx_City" Height="23" Margin="0.8,5.6,9,0" TextWrapping="Wrap" Text="{Binding City}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtbx_ContactInfo" Height="23" Margin="0.8,6.2,9,0" TextWrapping="Wrap" Text="{Binding ContactInfo}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtbx_AnnualIncome" Height="23" Margin="2.8,45.2,8,0" TextWrapping="Wrap" Text="{Binding AnnualIncome}" VerticalAlignment="Top" IsEnabled="False" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtbx_Name" Height="23" Margin="0.8,6.4,9,0" TextWrapping="Wrap" Text="{Binding Name}" VerticalAlignment="Top" IsReadOnly="true" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtbx_Spokesperson" Height="23" Margin="0.8,5.2,9,0" TextWrapping="Wrap" Text="{Binding SpokesPerson}" VerticalAlignment="Top" IsReadOnly="true" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtbx_StreetNumber" Height="23" Margin="0.8,6.6,9,0" TextWrapping="Wrap" Text="{Binding StreetAndNumber}" VerticalAlignment="Top" IsReadOnly="true" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtbx_Zip" Height="23" Margin="0.8,6.4,9,0" TextWrapping="Wrap" Text="{Binding ZipCode}" VerticalAlignment="Top" IsReadOnly="true" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtbx_City" Height="23" Margin="0.8,5.6,9,0" TextWrapping="Wrap" Text="{Binding City}" VerticalAlignment="Top" IsReadOnly="true" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtbx_ContactInfo" Height="23" Margin="0.8,6.2,9,0" TextWrapping="Wrap" Text="{Binding ContactInfo}" VerticalAlignment="Top" IsReadOnly="true" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtbx_AnnualIncome" Height="23" Margin="2.8,45.2,8,0" TextWrapping="Wrap" Text="{Binding AnnualIncome}" VerticalAlignment="Top" IsReadOnly="true" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
         <!--#endregion-->
         <!--#region Buttons-->
         <Button x:Name="btn_Save" Content="Save" Grid.Column="5" HorizontalAlignment="Left" Grid.Row="8" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="btn_Save_Click" Height="19" RenderTransformOrigin="0.493,-0.579" />

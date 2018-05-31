@@ -16,11 +16,11 @@ namespace ExamShopProject.Deal_interactions
         {
             try
             {
-                if (deal.ProductID > 0 && deal.CategoryID == null)
+                if (deal.ProductID > 0 && deal.CategoryID == null) // checks if it is product og catogory which have been made a deal to.
                 {
                     bool wasSuccess = DB.InsertDealProduct(deal);
                     if (wasSuccess)
-                        throw new DealWasAdded(deal);
+                        throw new DealWasAdded(deal); // writes in log when deal is added 
                 }
                 else if (deal.CategoryID > 0 && deal.ProductID == null)
                 {

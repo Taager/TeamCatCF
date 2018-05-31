@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace ExamShopProject.Object
 {
-    //lavet af Mikkel E.R. Glerup
-
+    // Made by Mikkel E.R. Glerup
     class Customer
     {
         private string _name;

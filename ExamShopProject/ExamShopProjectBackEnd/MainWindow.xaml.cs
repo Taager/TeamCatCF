@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,9 +24,11 @@ namespace ExamShopProjectBackEnd
         public MainWindow()
         {
             InitializeComponent();
-            bool succes = FileManager.FetchFile();
-            succes = FileManager.PrepareFile("ApEngros_PriCat_23042018.csv");
-            succes = DB.ImportCatalogue("ApEngros_PriCat_23042018.csv");
+            var renewThread = new Thread(DB.RenewSubscriptions);
+            renewThread.Start();
+
+            var importThread = new Thread(FileManager.FetchFile);
+            importThread.Start();
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExamShopProject.Object
 {
+    // Madse by Helena Brunsgaard Madsen
     class Categories
     {
         private int _categoryID;

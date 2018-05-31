@@ -7,6 +7,7 @@ using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
+    // Made by Mikkel E. R. Glerup
     class ObjectHandler
     {
         Customer customer = new Customer();

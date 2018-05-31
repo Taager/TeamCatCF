@@ -83,7 +83,6 @@ namespace ExamShopProject.User_Interactions
                 Log.WriteEvent(ex);
                 return true;
             }
-     
         }
     }
 }

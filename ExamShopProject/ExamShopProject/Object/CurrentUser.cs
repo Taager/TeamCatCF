@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExamShopProject
 {
+    // MAde by Mikkel E. R. Glerup
     static class CurrentUser
     {
         public static int currentUserID { get; set; }

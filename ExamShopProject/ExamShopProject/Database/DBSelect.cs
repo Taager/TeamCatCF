@@ -203,7 +203,7 @@ namespace ExamShopProject
                 while (reader.Read())
                 {
                     Categories categories = new Categories();
-                    categories.CategoryID = reader["CategoryID"] == System.DBNull.Value ? default(int) : (int)reader["CategoryID"];
+                    categories.CategoryID = reader["CategoryID"] == System.DBNull.Value ? default(int) : (int)reader["CategoryID"]; //get a nullable int from database
                     categories.Name = reader.GetString(1);
                     categories.Description = reader.GetString(2);
                     categoryList.Add(categories);
@@ -236,7 +236,7 @@ namespace ExamShopProject
                 SqlDataReader reader = getCategory.ExecuteReader();
                 while (reader.Read())
                 {
-                    category.CategoryID = reader["CategoryID"] == System.DBNull.Value ? default(int) : (int)reader["CategoryID"];
+                    category.CategoryID = reader["CategoryID"] == System.DBNull.Value ? default(int) : (int)reader["CategoryID"]; //get a nullable int from database
                     category.Name = reader.GetString(1);
                     category.Description = reader.GetString(2);
                 }
@@ -269,7 +269,7 @@ namespace ExamShopProject
                 while (reader.Read())
                 {
                     Product products = new Product();
-                    products.ProductID = reader["ProductID"] == System.DBNull.Value ? default(int) : (int)reader["ProductID"];
+                    products.ProductID = reader["ProductID"] == System.DBNull.Value ? default(int) : (int)reader["ProductID"]; //get a nullable int from database
                     products.Name = reader.GetString(1);
                     products.Description = reader.GetString(2);
                     products.Price = reader.GetDouble(3);
@@ -277,11 +277,6 @@ namespace ExamShopProject
                     productList.Add(products);
                 }
                 DBOpenClose.CloseConnection(con);
-                //if (product.ProductID == 0)
-                //{
-                //    productList.Remove(productList[0]);
-                //}
-                //Removes the empty product from the list.
                 return productList;
             }
             catch (Exception ex)
@@ -308,7 +303,7 @@ namespace ExamShopProject
                 SqlDataReader reader = getProduct.ExecuteReader();
                 while (reader.Read())
                 {
-                    product.ProductID = reader["ProductID"] == System.DBNull.Value ? default(int) : (int)reader["ProductID"];
+                    product.ProductID = reader["ProductID"] == System.DBNull.Value ? default(int) : (int)reader["ProductID"]; //get a nullable int from database
                     product.Name = reader.GetString(1);
                     product.Description = reader.GetString(2);
                     product.Price = reader.GetDouble(3);
@@ -359,8 +354,8 @@ namespace ExamShopProject
                 Log.WriteFail(ex);
                 return output;
             }
-
         }
+        // Made by Mikkel. E.R. Glerup
         public List<Subscription> SelectAllSubscriptions()
         {
             try
@@ -559,6 +554,36 @@ namespace ExamShopProject
                 Deals deals = new Deals();
                 Log.WriteFail(ex);
                 return deals;
+            }
+        }
+        #endregion
+        #region SubscribetoCategory
+        public Subscription SelectSubscriptionwithCategory(int ID)
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                Subscription output = new Subscription();
+                DBOpenClose.OpenConnection(con);
+                SqlCommand getSubscription = new SqlCommand(
+                    "SELECT * FROM [SubscribedToCategories] WHERE SubscriptionID=@SubscriptionID", con);
+                getSubscription.Parameters.Add("@SubscriptionID", SqlDbType.Int);
+                getSubscription.Parameters["@SubscriptionID"].Value = ID;
+                SqlDataReader reader = getSubscription.ExecuteReader();
+                while (reader.Read())
+                {
+                    output.CategoryID = Convert.ToInt32(reader["CategoryID"]);
+                }
+                DBOpenClose.CloseConnection(con);
+                return output;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                Subscription output = new Subscription();
+                Log.WriteFail(ex);
+                return output;
             }
         }
         #endregion

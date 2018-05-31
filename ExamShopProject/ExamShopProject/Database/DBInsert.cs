@@ -118,7 +118,6 @@ namespace ExamShopProject
                 command.ExecuteNonQuery();
                 DBOpenClose.CloseConnection(con);
                 return true;
-                // need to get CategoryID somehow, right now from a listbox i imagine categories are placed in and sends an ID with the product object.
             }
             catch (Exception ex)
             {
@@ -163,6 +162,7 @@ namespace ExamShopProject
                 return false;
             }
         }
+        // Made by Helena Brunsgaard Madsen
         public bool InsertSubscriptionWCategory(Subscription input)
         {
             if (input == null)
@@ -191,9 +191,9 @@ namespace ExamShopProject
                 return false;
             }
         }
-
         #endregion
         #region Deal
+        // Made by Mikkel. E.R. Glerup
         public bool InsertDealProduct(Deals deal)
         {
             if (deal == null)
@@ -232,6 +232,7 @@ namespace ExamShopProject
                 return false;
             }
         }
+        // Made by Mikkel. E.R. Glerup
         public bool InsertDealCategory(Deals deal)
         {
             if (deal == null)

@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 namespace ExamShopProject.Object
 {
     //lavet af Mikkel E.R. Glerup
-
     class User : INotifyPropertyChanged
     {
         private string name;
@@ -53,7 +52,6 @@ namespace ExamShopProject.Object
                 NotifyPropertyChanged();
             }
         }
-
         private bool isAdmin;
 
         public bool IsAdmin

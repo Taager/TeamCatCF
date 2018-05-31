@@ -4,8 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using Renci.SshNet;
+using System.Configuration;
 
 namespace ExamShopProjectBackEnd
 {
@@ -13,52 +15,69 @@ namespace ExamShopProjectBackEnd
     {
         private static SftpClient ConnectMe()
         {
-            SftpClient client = new SftpClient("10.152.120.37", "charlie", "char1234lie");
+            SftpClient client = new SftpClient(ConfigurationManager.AppSettings["ServerIP"].ToString(), ConfigurationManager.AppSettings["ServerUserName"].ToString(), ConfigurationManager.AppSettings["ServerUserPW"].ToString());
             return client;
         }
-        public static bool FetchFile()
+
+        public static bool ExportFile(string fileName)
         {
             SftpClient client = ConnectMe();
             client.Connect();
-            string remoteDirectory = "/home/indbakke/";
-            string finalDir = "";
-            string localDirectory = @"";
+            string remoteDir = ConfigurationManager.AppSettings["ExportDir"].ToString();
+            string localDir = ConfigurationManager.AppSettings["MyBaseDir"].ToString();
+
+
+            client.ChangeDirectory(remoteDir);
+
+            string uploadFile = localDir+fileName;
             using (var sftp = client)
             {
-                //Console.WriteLine("Connecting to " + host + " as " + username);
-                //sftp.Connect();
-                //Console.WriteLine("Connected!");
-                var files = sftp.ListDirectory(remoteDirectory);
-
-                foreach (var file in files)
+                using (var fileStream = new FileStream(uploadFile, FileMode.Open))
                 {
 
-                    string remoteFileName = file.Name;
+                    client.BufferSize = 4 * 1024; // bypass Payload error large files
+                    client.UploadFile(fileStream, uploadFile);
+                }
+            }
 
-                    if ((!file.Name.StartsWith(".")) /*&& ((file.LastWriteTime.Date == DateTime.Today))*/) //The date check needs to be reimplemented
+            return true;
+        }
+
+        public static void FetchFile()
+        {
+            do
+            {
+                SftpClient client = ConnectMe();
+                client.Connect();
+                string remoteDirectory = ConfigurationManager.AppSettings["ImportDir"].ToString();
+                string finalDir = @"";
+                using (var sftp = client)
+                {
+                    var files = sftp.ListDirectory(remoteDirectory);
+                    foreach (var file in files)
                     {
-
-                        finalDir = localDirectory;
-
-
-                        if (!File.Exists(finalDir + file.Name))
+                        string remoteFileName = file.Name;
+                        if ((file.Name.StartsWith(ConfigurationManager.AppSettings["ImportFilePrefix"].ToString())) /*&& ((file.LastWriteTime.Date == DateTime.Today))*/ ) //The date check needs to be reimplemented
                         {
-                            //Console.WriteLine("Downloading file: " + file.Name);
-                            using (Stream file1 = File.OpenWrite(finalDir + remoteFileName))
+                            if (!File.Exists(finalDir + file.Name))
                             {
-                                sftp.DownloadFile(remoteDirectory + remoteFileName, file1);
+                                using (Stream file1 = File.OpenWrite(finalDir + remoteFileName))
+                                {
+                                    sftp.DownloadFile(remoteDirectory + remoteFileName, file1);
+                                }
+                                bool succes = PrepareFile(remoteFileName);
                             }
                         }
                     }
                 }
-            }
+                Thread.Sleep(600000);
+            } while (true);
             
-            return true;
         }
 
         public static bool PrepareFile(string fileName)
         {
-            string newFileLocation = @"C:\Users\8570W\"+fileName;
+            string newFileLocation = @ConfigurationManager.AppSettings["MyBaseDir"].ToString() + fileName;
 
             using (FileStream fs = new FileStream(newFileLocation, FileMode.Create))
             {
@@ -89,22 +108,42 @@ namespace ExamShopProjectBackEnd
 
 
                         price = price.Replace(',', '.'); // Converting decimal point so the BULK INSERT registers it correctly
-                        string strippedDescription = StripHTML(description);
-                        var productLine = string.Format("{0};{1};{2};{3};{4}", productId, productName, strippedDescription, price, productId.Substring(0, 4));
+
+                        var productLine = string.Format("{0};{1};{2};{3};{4}", productId, productName, description, price, productGroup.Substring(0, 2));
                         writer.WriteLine(productLine);
                         writer.Flush();
                     }
                 }
                 writer.Close();
                 fs.Close();
-                return true;
+                return DB.ImportCatalogue(newFileLocation);
             }
         }
 
-        public static string StripHTML(string input)
+        public static StreamWriter CreateExportFileHeader(string fileName)
         {
-            return Regex.Replace(input, "<.*?>", String.Empty);
+            
+            string fileLocation = @ConfigurationManager.AppSettings["MyBaseDir"].ToString() + fileName +".csv";
+
+            using (FileStream fs = new FileStream(fileLocation, FileMode.Create))
+            {
+                var writer = new StreamWriter(fs, Encoding.Default);
+                writer.WriteLine("ProductId;ProductName;Description;Price;");
+                writer.Flush();
+
+                return writer;
+            }
+            
         }
+
+        public static bool WriteExportProductLine(StreamWriter writer, string productLine)
+        {
+            writer.WriteLine(productLine);
+            writer.Flush();
+
+            return true;
+        }
+
 
     }
 }

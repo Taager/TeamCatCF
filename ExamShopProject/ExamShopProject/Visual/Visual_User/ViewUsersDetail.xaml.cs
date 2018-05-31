@@ -36,9 +36,9 @@ namespace ExamShopProject
         private void Btn_Edit_Enable(object sender, RoutedEventArgs e)
         {
             Btn_Edit.IsEnabled = false;
-            TxtBox_Name.IsEnabled = true;
-            TxtBox_Username.IsEnabled = true;
-            TxtBox_Password.IsEnabled = true;
+            TxtBox_Name.IsReadOnly = false;
+            TxtBox_Username.IsReadOnly = false;
+            TxtBox_Password.IsReadOnly = false;
             TxtBox_IsAdmin.Opacity = 0;
             CheckBox_IsAdmin.IsEnabled = true;
             CheckBox_IsAdmin.Opacity = 100;

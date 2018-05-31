@@ -27,6 +27,7 @@ namespace ExamShopProject.ErrorHandler
         public UserWasAdded(User user) : base($"The following user have been created: {user.Username} ")
         { }
     }
+    // Made by Mikkel. E.R. Glerup
     class UserWasEdited : Exception
     {
         // add current user later when login system is made
@@ -41,11 +42,13 @@ namespace ExamShopProject.ErrorHandler
     }
     #endregion
     #region Customer
+    // Made by Helena Brunsgaard Madsen
     class CustomerWasAdded : Exception
     {
         public CustomerWasAdded(Customer customer) : base($"The following customer has been created: {customer.Name} ")
         { }
     }
+    // Made by Helena Brunsgaard Madsen
     class CustomerWasDeleted : Exception
     {
         public CustomerWasDeleted(Customer customer) : base($"The following customer have been deleted: {customer.Name} ")
@@ -54,12 +57,12 @@ namespace ExamShopProject.ErrorHandler
     // Made by Helena Brunsgaard Madsen
     class CustomerWasEdited : Exception
     {
-        // add current user later when login system is made
         public CustomerWasEdited(Customer customer) : base($"The following customer have been edited: {customer.Name}")
         { }
     }
     #endregion
     #region Product
+    // Made by Helena Brunsgaard Madsen
     class ProductWasAdded : Exception
     {
         // add current user later when login system is made
@@ -82,12 +85,12 @@ namespace ExamShopProject.ErrorHandler
     #endregion
     #region Subscription
     //Made by Mikkel E.R. Glerup
-
     class SubscriptionWasAdded : Exception
     {
         public SubscriptionWasAdded(Subscription subscription) : base($"{subscription.CustomerName}'s subscription have been created by: PLACEHOLDER ")
         { }
     }
+    //Made by Mikkel E.R. Glerup
     class SubscriptionWasEdited : Exception
     {
         // add current user later when login system is made
@@ -108,12 +111,12 @@ namespace ExamShopProject.ErrorHandler
         public DealWasAdded(Deals deal) : base($"{deal.Name} has been created")
         { }
     }
+    //Made by Helena Brunsgaard Madsen
     class DealWasDeleted : Exception
     {
         public DealWasDeleted(Deals deals) : base($"The following deal have been deleted: {deals.Name} ")
         { }
     }
-
     #endregion
 
 

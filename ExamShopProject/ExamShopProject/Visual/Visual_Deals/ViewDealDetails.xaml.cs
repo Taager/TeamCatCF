@@ -35,7 +35,7 @@ namespace ExamShopProject
             txtbx_ChosenCustomer.Text = selectedCustomer.Name;
 
             txtbx_Discount.Text = Convert.ToString(deal.PriceDecrease) + " " + Convert.ToString(deal.DealType);
-            if (deal.CategoryID != null)
+            if (deal.CategoryID != null) // want to show the name of the category or product which the deal has been made to
             {
                 lbl_Category.Opacity = 100;
                 Categories selectedCategory = DB.SelectCategory(deal.CategoryID);
