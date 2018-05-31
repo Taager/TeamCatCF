@@ -9,6 +9,7 @@ using System.IO;
 using System.Data.Common;
 using System.Data;
 using System.Threading;
+using System.Configuration;
 
 namespace ExamShopProjectBackEnd
 {
@@ -23,7 +24,7 @@ namespace ExamShopProjectBackEnd
             try
             {
                 myConnection = new SqlConnection(
-                    "Data Source=.;Initial Catalog=Charlie-APE;Integrated Security=True"
+                    ConfigurationManager.ConnectionStrings["Conn"].ToString()
                     );
                 myConnection.Open();
 
