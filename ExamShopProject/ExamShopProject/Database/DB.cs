@@ -116,6 +116,16 @@ namespace ExamShopProject
             DBSelect dBSelect = new DBSelect();
             return dBSelect.SelectAllSubscriptions();
         }
+        public static List<Subscription> SelectActiveSubscriptions()
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectActiveSubscriptions();
+        }
+        public static List<Subscription> SelectInactiveSubscriptions()
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectInactiveSubscriptions();
+        }
         // Made by Helena Brunsgaard Madsen
         public static List<Deals> SelectAllDeals()
         {

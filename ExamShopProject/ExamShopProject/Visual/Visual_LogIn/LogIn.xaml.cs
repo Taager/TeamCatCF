@@ -31,12 +31,12 @@ namespace ExamShopProject
             CurrentUser.username = txtBox_Username.Text;
             CurrentUser.password = txtBox_Password.Text;
             bool loginSucces = DB.UserLogin();
-            if (loginSucces == true)
+            if (CurrentUser.currentUserID > 0)
             {
                 CreateMessage.ShowSuccesfulLogin();
                 this.Content = null;
             }
-            if (loginSucces == false)
+            if (CurrentUser.currentUserID == 0)
             {
                 CreateMessage.ShowUnsuccesfulLogin();
             }
