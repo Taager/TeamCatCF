@@ -21,20 +21,24 @@ namespace ExamShopProject
     /// </summary>
     public partial class Statistics_Customers : Page
     {
+        StatCustomer statCustomer = new StatCustomer();
         public Statistics_Customers()
         {
-            List<Customer> customerList = DB.SelectAllCustomers();
-            StatisticCalculations(customerList);
+            StatisticCalculations();
             InitializeComponent();
+            DataContext = statCustomer;
+            
         }
-        private void StatisticCalculations(List<Customer> customers)
+        private void StatisticCalculations()
         {
-            int CustomersTotal = customers.Count;
             List<Customer> customerList = DB.SelectAllCustomers();
+            statCustomer.CustomersTotal = customerList.Count;
             List<Subscription> subscriptionList = DB.SelectAllSubscriptions();
-            int CustomersWithSubTotal = subscriptionList.Count;
-            int CustomersWithActiveSub;
-            //noget for each snask
+            statCustomer.CustomersWithSubTotal = subscriptionList.Count;
+            subscriptionList = DB.SelectActiveSubscriptions();
+            statCustomer.SubscriptionsActive = subscriptionList.Count;
+            subscriptionList = DB.SelectInactiveSubscriptions();
+            statCustomer.SubscriptionsInactive = subscriptionList.Count;
         }
     }
 }

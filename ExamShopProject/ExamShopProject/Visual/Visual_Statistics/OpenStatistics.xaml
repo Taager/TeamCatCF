@@ -21,7 +21,6 @@
         <Button x:Name="btn_CustomerStats" Content="Customer" Grid.Row="0" HorizontalAlignment="Left" Margin="20,25,0,0" VerticalAlignment="Top" Width="75" Click="btn_CustomerStats_Click" />
         <Button x:Name="btn_DealsStats" Content="Deals" Grid.Row="0" HorizontalAlignment="Left" Margin="120,25,0,0" VerticalAlignment="Top" Width="75" Click="btn_DealsStats_Click"  />
         <Button x:Name="btn_ProductsStat" Content="Products" Grid.Row="0" HorizontalAlignment="Left" Margin="220,25,0,0" VerticalAlignment="Top" Width="75" Click="btn_ProductsStat_Click" />
-        <Button x:Name="btn_SubscriptionsStat" Content="Subscriptions" Grid.Row="0" HorizontalAlignment="Left" Margin="320,25,0,0" VerticalAlignment="Top" Width="75" Click="btn_SubscriptionsStat_Click" />
         <!--#endregion-->
     </Grid>
 </Page>

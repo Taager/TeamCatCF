@@ -7,14 +7,15 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Renci.SshNet;
+using System.Configuration;
 
 namespace ExamShopProjectBackEnd
 {
     class FileManager
     {
-        private static SftpClient ConnectMe()
+        private static SftpClient ConnectMe() // Establish an SFTP CLient
         {
-            SftpClient client = new SftpClient("10.152.120.37", "charlie", "char1234lie");
+            SftpClient client = new SftpClient(ConfigurationManager.AppSettings["ServerIP"].ToString(), ConfigurationManager.AppSettings["ServerUserName"].ToString(), ConfigurationManager.AppSettings["ServerUserPW"].ToString());
             return client;
         }
 
@@ -22,8 +23,8 @@ namespace ExamShopProjectBackEnd
         {
             SftpClient client = ConnectMe();
             client.Connect();
-            string remoteDir = ""; // Should be /home/charlie/udbakke/ but permission is denied for right now
-            string localDir = @"C:\Users\8570W\";
+            string remoteDir = ConfigurationManager.AppSettings["ExportDir"].ToString(); // Where to send the fíle
+            string localDir = ConfigurationManager.AppSettings["MyBaseDir"].ToString(); // Where to currently find the file
 
 
             client.ChangeDirectory(remoteDir);
@@ -48,27 +49,18 @@ namespace ExamShopProjectBackEnd
             {
                 SftpClient client = ConnectMe();
                 client.Connect();
-                string remoteDirectory = "/home/indbakke/";
+                string remoteDirectory = ConfigurationManager.AppSettings["ImportDir"].ToString(); // Where to find the files
                 string finalDir = @"";
                 using (var sftp = client)
                 {
-                    //Console.WriteLine("Connecting to " + host + " as " + username);
-                    //sftp.Connect();
-                    //Console.WriteLine("Connected!");
                     var files = sftp.ListDirectory(remoteDirectory);
-
                     foreach (var file in files)
                     {
-
                         string remoteFileName = file.Name;
-
-                        if ((file.Name.StartsWith("ApEngros_PriCat_")) /*&& ((file.LastWriteTime.Date == DateTime.Today))*/) //The date check needs to be reimplemented
+                        if ((file.Name.StartsWith(ConfigurationManager.AppSettings["ImportFilePrefix"].ToString())) /*&& ((file.LastWriteTime.Date == DateTime.Today))*/ ) //The date check needs to be reimplemented
                         {
-
-
                             if (!File.Exists(finalDir + file.Name))
                             {
-                                //Console.WriteLine("Downloading file: " + file.Name);
                                 using (Stream file1 = File.OpenWrite(finalDir + remoteFileName))
                                 {
                                     sftp.DownloadFile(remoteDirectory + remoteFileName, file1);
@@ -78,14 +70,14 @@ namespace ExamShopProjectBackEnd
                         }
                     }
                 }
-                Thread.Sleep(600000);
+                Thread.Sleep(900000); // repeat after 15 minutesS
             } while (true);
             
         }
 
         public static bool PrepareFile(string fileName)
         {
-            string newFileLocation = @"C:\Users\8570W\"+fileName;
+            string newFileLocation = @ConfigurationManager.AppSettings["MyBaseDir"].ToString() + fileName;
 
             using (FileStream fs = new FileStream(newFileLocation, FileMode.Create))
             {
@@ -131,7 +123,7 @@ namespace ExamShopProjectBackEnd
         public static StreamWriter CreateExportFileHeader(string fileName)
         {
             
-            string fileLocation = @"C:\Users\8570W\" + fileName +".csv";
+            string fileLocation = @ConfigurationManager.AppSettings["MyBaseDir"].ToString() + fileName +".csv";
 
             using (FileStream fs = new FileStream(fileLocation, FileMode.Create))
             {

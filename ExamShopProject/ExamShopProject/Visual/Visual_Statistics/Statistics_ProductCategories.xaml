@@ -18,15 +18,13 @@
         <!--#endregion-->
         <!--#region I/O-->
         <TextBox x:Name="txtbx_TopX" HorizontalAlignment="Left" Height="23" Margin="113,72,0,0" TextWrapping="Wrap" Text="{Binding ChosenTopNum}" VerticalAlignment="Top" Width="120"/>
-        <ListView x:Name="lstvw_Categories" HorizontalAlignment="Left" Height="238" Margin="25.188,72,0,0" VerticalAlignment="Top" Width="255" Grid.Column="1">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        
         <!--#endregion-->
         <!--#region Buttons-->
+        <StackPanel Margin="67,126,52,242">
+            <RadioButton x:Name="RadioBtn_Products" Content="Products" />
+            <RadioButton x:Name="RadioBtn_Product_Category" Content="Product Categories" />
+        </StackPanel>
         <!--#endregion-->
     </Grid>
 </Page>
