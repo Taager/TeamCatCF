@@ -23,7 +23,7 @@
         </DockPanel>
         <!--#region I/O-->
         <TextBox x:Name="TextBox_Search"  HorizontalAlignment="Left" Height="23" Margin="40,50,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="385" Grid.ColumnSpan="2" />
-        <ListBox x:Name="lstbx_Customer" HorizontalAlignment="Left" Height="200" Margin="40,40.4,0,0" VerticalAlignment="Top" Width="385" Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="lstbx_Customer_SelectionChanged" />
+        <ListBox x:Name="lstbx_Customer" HorizontalAlignment="Left" Height="200" Margin="40,40.4,0,0" VerticalAlignment="Top" Width="385" Grid.Row="1" Grid.ColumnSpan="2" SelectionChanged="lstbx_Customer_SelectionChanged"/>
         <!--#endregion-->
         <!--#region Buttons-->
         <Button x:Name="btn_Search" Content="Search" HorizontalAlignment="Left" Margin="26.2,54,0,0" VerticalAlignment="Top" Width="75" Grid.Column="1" Height="19" Click="btn_Search_Click" />

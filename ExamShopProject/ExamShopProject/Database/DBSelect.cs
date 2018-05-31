@@ -392,6 +392,68 @@ namespace ExamShopProject
                 return SubscriptionList;
             }
         }
+        public List<Subscription> SelectActiveSubscriptions()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                Subscription input = new Subscription();
+                List<Subscription> SubscriptionList = new List<Subscription>();
+                DBOpenClose.OpenConnection(con);
+                SqlCommand getSubscriptions = new SqlCommand(
+                    "SELECT * FROM [Subscription] WHERE [EndDate] > SYSDATETIME()", con);
+                SqlDataReader reader = getSubscriptions.ExecuteReader();
+                while (reader.Read())
+                {
+                    input.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    input.Renew = Convert.ToBoolean(reader["Renew"]);
+                    input.SubscriptionID = Convert.ToInt32(reader["SubscriptionID"]);
+                    input.RenewLength = Convert.ToInt32(reader["RenewLength"]);
+                    SubscriptionList.Add(input);
+                }
+                DBOpenClose.CloseConnection(con);
+                return SubscriptionList;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                List<Subscription> SubscriptionList = new List<Subscription>();
+                Log.WriteFail(ex);
+                return SubscriptionList;
+            }
+        }
+        public List<Subscription> SelectInactiveSubscriptions()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                Subscription input = new Subscription();
+                List<Subscription> SubscriptionList = new List<Subscription>();
+                DBOpenClose.OpenConnection(con);
+                SqlCommand getSubscriptions = new SqlCommand(
+                    "SELECT * FROM [Subscription] WHERE [EndDate] < SYSDATETIME() OR [EndDate] = SYSDATETIME()", con);
+                SqlDataReader reader = getSubscriptions.ExecuteReader();
+                while (reader.Read())
+                {
+                    input.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    input.Renew = Convert.ToBoolean(reader["Renew"]);
+                    input.SubscriptionID = Convert.ToInt32(reader["SubscriptionID"]);
+                    input.RenewLength = Convert.ToInt32(reader["RenewLength"]);
+                    SubscriptionList.Add(input);
+                }
+                DBOpenClose.CloseConnection(con);
+                return SubscriptionList;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                List<Subscription> SubscriptionList = new List<Subscription>();
+                Log.WriteFail(ex);
+                return SubscriptionList;
+            }
+        }
         #endregion
         #region Deals
         // Made by Helena Brunsgaard Madsen
