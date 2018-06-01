@@ -42,7 +42,7 @@ namespace ExamShopProject
             ListBox_Products.ItemsSource = ProductFiltered;
         }
 
-        private void ListBox_Products_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btn_Edit_Click(object sender, RoutedEventArgs e)
         {
             int productID = 0;
             List<int> selectedProductList = new List<int>();
@@ -53,6 +53,7 @@ namespace ExamShopProject
                 selectedProductList.Add(productID);
             }
             NavigationService.Navigate(new EditCatalogue(selectedProductList));
+
         }
     }
 }

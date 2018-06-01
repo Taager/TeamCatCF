@@ -29,7 +29,8 @@
         <!--#endregion-->
         <!--#region I/O-->
         <ListBox x:Name="ListBox_Categories" Grid.Column="1" Grid.Row="3" SelectionChanged="ListBox_Categories_SelectionChanged"/>
-        <ListBox x:Name="ListBox_Products" Grid.Column="3" Grid.Row="3" SelectionChanged="ListBox_Products_SelectionChanged" SelectionMode="multiple" />
+        <ListBox x:Name="ListBox_Products" Grid.Column="3" Grid.Row="3" SelectionMode="multiple" />
+        <Button x:Name="btn_Edit" Content="Edit" Grid.Column="3" HorizontalAlignment="Left" Margin="154.8,9.8,0,0" Grid.Row="4" VerticalAlignment="Top" Width="75" Click="btn_Edit_Click"/>
         <!--#endregion-->
         <!--#region Buttons-->
         <!--#endregion-->
