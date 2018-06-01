@@ -31,7 +31,7 @@ namespace ExamShopProjectBackEnd
             }
             catch (Exception ex)
             {
-                //Log.WriteFail(ex);
+                Log.WriteFail(ex);
                 return false;
             }
         }
@@ -44,7 +44,7 @@ namespace ExamShopProjectBackEnd
             }
             catch (Exception ex)
             {
-                //Log.WriteFail(ex);
+                Log.WriteFail(ex);
                 return false;
             }
         }
@@ -53,35 +53,52 @@ namespace ExamShopProjectBackEnd
         #region import/export catalogue
         public static bool ImportCatalogue(string fileName) // Insert the product catalogue into the database
         {
-            if (File.Exists(fileName))
+            try
             {
+                if (File.Exists(fileName))
+                {
 
-                bool succes = OutdateProducts();
+                    bool succes = OutdateProducts();
 
-                OpenConnection();
-                SqlCommand import = new SqlCommand("BULK INSERT [Product] FROM '"+ @fileName + "' WITH(CODEPAGE = '1252', FIRSTROW = 2, ROWTERMINATOR = '0x0a', FIELDTERMINATOR = ';'); ", myConnection);
-                import.ExecuteNonQuery();
-                CloseConnection();
+                    OpenConnection();
+                    SqlCommand import = new SqlCommand("BULK INSERT [Product] FROM '" + @fileName + "' WITH(CODEPAGE = '1252', FIRSTROW = 2, ROWTERMINATOR = '0x0a', FIELDTERMINATOR = ';'); ", myConnection);
+                    import.ExecuteNonQuery();
+                    CloseConnection();
 
-                
-                return true;
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
-            else
+            catch (Exception ex)
             {
+                CloseConnection();
+                Log.WriteFail(ex);
                 return false;
             }
         }
 
         private static bool OutdateProducts() // move all the old products so we can backtrace the exact product ordered at a specific time
         {
-            OpenConnection();
-            SqlCommand move = new SqlCommand("INSERT INTO dbo.OldProducts (ProductID, [Name], [Description], [Price], [CategoryId], OutdatedDate) SELECT ProductID, [Name], [Description], [Price], [CategoryId], SYSDATETIME() FROM dbo.Product", myConnection);
-            move.ExecuteNonQuery();
-            SqlCommand delete = new SqlCommand("DELETE FROM dbo.Product", myConnection);
-            delete.ExecuteNonQuery();
-            CloseConnection();
-            return true;
-
+            try
+            {
+                OpenConnection();
+                SqlCommand move = new SqlCommand("INSERT INTO dbo.OldProducts (ProductID, [Name], [Description], [Price], [CategoryId], OutdatedDate) SELECT ProductID, [Name], [Description], [Price], [CategoryId], SYSDATETIME() FROM dbo.Product", myConnection);
+                move.ExecuteNonQuery();
+                SqlCommand delete = new SqlCommand("DELETE FROM dbo.Product", myConnection);
+                delete.ExecuteNonQuery();
+                CloseConnection();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                CloseConnection();
+                Log.WriteFail(ex);
+                return false;
+            }
         }
 
         public static bool ExportCatalogue()
@@ -161,6 +178,8 @@ namespace ExamShopProjectBackEnd
             }
             catch (Exception ex)
             {
+                CloseConnection();
+                Log.WriteFail(ex);
                 return false;
             }
         }
@@ -191,25 +210,29 @@ namespace ExamShopProjectBackEnd
             }
             catch (Exception ex)
             {
-                /*SqlConnection con = new SqlConnection(DBOpenClose.conStr);
-                DBOpenClose.CloseConnection(con);
-                List<Deals> dealsList = new List<Deals>();
+                CloseConnection();
                 Log.WriteFail(ex);
-                */List<Deals> dealsList = new List<Deals>();
-                return dealsList;
             }
         }
 
         public static void RenewSubscriptions()
         {
-            do
+            try
             {
-                OpenConnection(); // if a subscription is expired and they wanted it to renew, renew it with the amount of months requested
-                SqlCommand renew = new SqlCommand("UPDATE dbo.Subscription SET EndDate=DATEADD(m, RenewLength, EndDate) WHERE Renew=1 AND EndDate<SYSDATETIME()", myConnection);
-                renew.ExecuteNonQuery();
+                do
+                {
+                    OpenConnection(); // if a subscription is expired and they wanted it to renew, renew it with the amount of months requested
+                    SqlCommand renew = new SqlCommand("UPDATE dbo.Subscription SET EndDate=DATEADD(m, RenewLength, EndDate) WHERE Renew=1 AND EndDate<SYSDATETIME()", myConnection);
+                    renew.ExecuteNonQuery();
+                    CloseConnection();
+                    Thread.Sleep(600000); // repeat after 10 minutes
+                } while (true);
+            }
+            catch (Exception ex)
+            {
                 CloseConnection();
-                Thread.Sleep(600000); // repeat after 10 minutes
-            } while (true);
+                Log.WriteFail(ex);
+            }
         }
     }
 }
