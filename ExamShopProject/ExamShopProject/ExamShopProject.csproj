@@ -75,7 +75,6 @@
     <Compile Include="Object\SubscribedToCategory.cs" />
     <Compile Include="Product_Interactions\ProductLogic.cs" />
     <Compile Include="Security.cs" />
-    <Compile Include="Statistics_Interactions\StasticsLogic.cs" />
     <Compile Include="Subscription_Interactions\SubscriptionLogic.cs" />
     <Compile Include="Visual\Visual_Catalogue\EditCatalogue.xaml.cs">
       <DependentUpon>EditCatalogue.xaml</DependentUpon>
@@ -115,9 +114,6 @@
     </Compile>
     <Compile Include="Visual\Visual_Statistics\Statistics_ProductCategories.xaml.cs">
       <DependentUpon>Statistics_ProductCategories.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Visual\Visual_Statistics\Statistics_Subscriptions.xaml.cs">
-      <DependentUpon>Statistics_Subscriptions.xaml</DependentUpon>
     </Compile>
     <Compile Include="Customer_Interactions\CustomerValidation.cs" />
     <Compile Include="Database\DBDelete.cs" />
@@ -218,10 +214,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Visual\Visual_Statistics\Statistics_ProductCategories.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Visual\Visual_Statistics\Statistics_Subscriptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

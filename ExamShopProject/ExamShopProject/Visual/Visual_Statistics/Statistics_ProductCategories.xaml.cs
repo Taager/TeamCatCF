@@ -33,14 +33,17 @@ namespace ExamShopProject
             List<Categories> categoryBucket = DB.SelectAllCategories();
             Categories categories = new Categories();
             statProductCategory.TotalCategories = categoriesList.Count;
+
             List<Product> productsList = DB.SelectAllProducts();
             statProductCategory.TotalProducts = productsList.Count;
+
             categoryBucket = DB.SelectCategoriesAndProducts();
-            //Rangere den category i categoryBucket der er højest sidst i listen
+            //See Statistics_Deals.
             categoryBucket = categoryBucket.OrderBy(o => o.AmountOfProducts).ToList();
             categories = categoryBucket[categoryBucket.Count - 1];
             statProductCategory.MostPopulatedCategory = categories.Name;
-            // Da den category med flest produkter er det højeste tal, må det laveste tal være den med færrest.
+
+            // If the category with most products is the highest in the list, the category with least products must be on the lowest position
             categories = categoryBucket[0];
             statProductCategory.LeastPopulatedCategory = categories.Name;
         }

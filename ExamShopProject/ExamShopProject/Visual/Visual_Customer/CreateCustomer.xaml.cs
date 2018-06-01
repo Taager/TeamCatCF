@@ -32,6 +32,7 @@ namespace ExamShopProject
 
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
+            // Checks input for wrong information
             if (txtbx_City.Text == "" || txtbx_ContactInfo.Text == "" || txtbx_Income.Text == "" || txtbx_Name.Text == "" || txtbx_StreetNumber.Text == "" || txtbx_Zip.Text == "" || txt_SpokesPerson.Text == "")
             {
                 CreateMessage.ShowInputNotValid();

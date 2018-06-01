@@ -33,14 +33,19 @@ namespace ExamShopProject
         {
             StatDeals tempStatDeals = new StatDeals();
             statDeals.TotalDeals = DB.SelectAllDeals().Count;
+
             List<StatDeals> statDealBucket = DB.SelectCustomersWithDeals();
+            //Sorts o(StatDeals).NumberOfDeals => is foreach in LINQ
             statDealBucket = statDealBucket.OrderBy(o => o.NumberOfDeals).ToList();
             tempStatDeals = statDealBucket[statDealBucket.Count - 1];
             Customer tempCustomer = DB.SelectCustomer(tempStatDeals.statCustomerID);
             statDeals.CustomerMostDeals = tempCustomer.Name;
             tempStatDeals = statDealBucket[0];
+
             statDeals.DealsActive = DB.SelectActiveDeals().Count;
+
             statDeals.DealsInactive = DB.SelectInactiveDeals().Count;
+
             statDealBucket = DB.SelectDealTypes();
             statDealBucket = statDealBucket.OrderBy(o => o.NumberOfDealTypes).ToList();
             tempStatDeals = statDealBucket[statDealBucket.Count - 1];

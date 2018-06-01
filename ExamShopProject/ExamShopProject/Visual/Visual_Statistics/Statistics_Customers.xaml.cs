@@ -33,10 +33,13 @@ namespace ExamShopProject
         {
             List<Customer> customerList = DB.SelectAllCustomers();
             statCustomer.CustomersTotal = customerList.Count;
+
             List<Subscription> subscriptionList = DB.SelectAllSubscriptions();
             statCustomer.CustomersWithSubTotal = subscriptionList.Count;
+
             subscriptionList = DB.SelectActiveSubscriptions();
             statCustomer.SubscriptionsActive = subscriptionList.Count;
+
             subscriptionList = DB.SelectInactiveSubscriptions();
             statCustomer.SubscriptionsInactive = subscriptionList.Count;
         }

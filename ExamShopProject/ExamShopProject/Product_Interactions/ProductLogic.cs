@@ -59,17 +59,5 @@ namespace ExamShopProject.Product_Interactions
                 return true;
             }
         }
-        //private void UpdateProduct()
-        //{
-
-        //}
-        //private void CalcTax()
-        //{
-
-        //}
-        //private void CheckDiscount()
-        //{
-
-        //}
     }
 }
