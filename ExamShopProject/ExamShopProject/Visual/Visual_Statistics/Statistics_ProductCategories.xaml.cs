@@ -20,24 +20,29 @@ namespace ExamShopProject
     /// </summary>
     public partial class Statistics_ProductCategories : Page
     {
-        StatProduct statProduct = new StatProduct();
         StatProductCategory statProductCategory = new StatProductCategory();
         public Statistics_ProductCategories()
         {
             CalculateStatistics();
             InitializeComponent();
-            if (RadioBtn_Products.IsChecked == true)
-                DataContext = statProduct;
-            if (RadioBtn_Product_Category.IsChecked == true)
-                DataContext = statProductCategory;
+            DataContext = statProductCategory;
         }
         private void CalculateStatistics()
         {
             List<Categories> categoriesList = DB.SelectAllCategories();
+            List<Categories> categoryBucket = DB.SelectAllCategories();
+            Categories categories = new Categories();
             statProductCategory.TotalCategories = categoriesList.Count;
             List<Product> productsList = DB.SelectAllProducts();
-            statProduct.TotalProducts = productsList.Count;
-            
+            statProductCategory.TotalProducts = productsList.Count;
+            categoryBucket = DB.SelectCategoriesAndProducts();
+            //Rangere den category i categoryBucket der er højest sidst i listen
+            categoryBucket = categoryBucket.OrderBy(o => o.AmountOfProducts).ToList();
+            categories = categoryBucket[categoryBucket.Count - 1];
+            statProductCategory.MostPopulatedCategory = categories.Name;
+            // Da den category med flest produkter er det højeste tal, må det laveste tal være den med færrest.
+            categories = categoryBucket[0];
+            statProductCategory.LeastPopulatedCategory = categories.Name;
         }
     }
 }

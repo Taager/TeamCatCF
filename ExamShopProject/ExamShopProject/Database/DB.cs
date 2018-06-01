@@ -76,6 +76,11 @@ namespace ExamShopProject
             DBSelect dBSelect = new DBSelect();
             return dBSelect.SelectAllCustomers();
         }
+        public static List<StatDeals> SelectCustomersWithDeals()
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectCustomersWithDeals();
+        }
         // Made by Helena Brunsgaard Madsen
         public static Customer SelectCustomer(int ID)
         {
@@ -93,6 +98,11 @@ namespace ExamShopProject
         {
             DBSelect dBSelect = new DBSelect();
             return dBSelect.SelectCategory(ID);
+        }
+        public static List<Categories> SelectCategoriesAndProducts()
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectCategoryWithProducts();
         }
         // Made by Helena Brunsgaard Madsen
         public static List<Product> SelectAllProducts()
@@ -126,6 +136,16 @@ namespace ExamShopProject
             DBSelect dBSelect = new DBSelect();
             return dBSelect.SelectInactiveSubscriptions();
         }
+        public static List<Deals> SelectActiveDeals()
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectActiveDeals();
+        }
+        public static List<Deals> SelectInactiveDeals()
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectInactiveDeals();
+        }
         // Made by Helena Brunsgaard Madsen
         public static List<Deals> SelectAllDeals()
         {
@@ -143,6 +163,12 @@ namespace ExamShopProject
             DBSelect dBSelect = new DBSelect();
             return dBSelect.SelectSubscriptionwithCategory(ID);
         }
+        public static List<StatDeals> SelectDealTypes()
+        {
+            DBSelect dBSelect = new DBSelect();
+            return dBSelect.SelectDealTypes();
+        }
+        
         #endregion
         #region Edit*
         //Made by Mikkel E.R. Glerup

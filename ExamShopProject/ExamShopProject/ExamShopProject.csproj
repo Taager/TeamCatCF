@@ -70,7 +70,7 @@
     <Compile Include="Object\CurrentUser.cs" />
     <Compile Include="Object\Deals.cs" />
     <Compile Include="Object\StatCustomer.cs" />
-    <Compile Include="Object\StatProduct.cs" />
+    <Compile Include="Object\StatDeals.cs" />
     <Compile Include="Object\StatProductCategory.cs" />
     <Compile Include="Product_Interactions\ProductLogic.cs" />
     <Compile Include="Security.cs" />

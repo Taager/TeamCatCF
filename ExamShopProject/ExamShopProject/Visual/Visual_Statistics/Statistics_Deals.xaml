@@ -10,34 +10,42 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="27*"/>
-            <RowDefinition Height="73*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="283*"/>
-            <ColumnDefinition Width="317*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="201*"/>
+            <ColumnDefinition Width="148*"/>
+            <ColumnDefinition Width="251*"/>
         </Grid.ColumnDefinitions>
         <!--#region Labels-->
-        <Label Content="Top X:" HorizontalAlignment="Left" Margin="67,69,0,0" VerticalAlignment="Top" Height="26" Width="42"/>
-        <Label Content="Products:" HorizontalAlignment="Left" Margin="67,4,0,0" VerticalAlignment="Top" Grid.Row="1" Height="25" Width="59"/>
-        <Label Content="Categories:" HorizontalAlignment="Left" Margin="17.8,4,0,0" VerticalAlignment="Top" Grid.Column="1" Grid.Row="1" Height="25" Width="69"/>
+        <Label Content="Top X:" Margin="3,10,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="43" Grid.Column="1" Grid.RowSpan="2"/>
+        <Label Content="Total Deals:" Grid.Column="1" Grid.Row="2" />
+        <Label Content="Customer with most deals:" Grid.Column="1" Grid.Row="6" />
+        <Label Content="Most used deal type:" Grid.Column="1" Grid.Row="4" />
+        <Label Content="Total deals active:" Grid.Column="1" Grid.Row="8" />
+        <Label Content="Total deals Inactive:" Grid.Column="1" Grid.Row="10" />
         <!--#endregion-->
         <!--#region I/O-->
-        <TextBox x:Name="txtbx_TopX" HorizontalAlignment="Left" Height="23" Margin="113,72,0,0" TextWrapping="Wrap" Text="{Binding ChosenTopNum}" VerticalAlignment="Top" Width="120"/>
-        <ListView x:Name="lstvw_Products" HorizontalAlignment="Left" Height="203" Margin="67,35,0,0" VerticalAlignment="Top" Width="198" Grid.Row="1">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView x:Name="lstvw_Categories" HorizontalAlignment="Left" Height="203" Margin="17.8,35,0,0" VerticalAlignment="Top" Width="198" Grid.Column="1" Grid.Row="1">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
+        <TextBox x:Name="txtbx_TopX" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding ChosenTopNum}" Grid.Column="2" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130"/>
+        <TextBox x:Name="txtbx_TotalDeals" Text="{Binding TotalDeals}" Grid.Column="2" Grid.Row="2" IsReadOnly="True" HorizontalAlignment="Left" Width="148" Height="28" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtbx_CustomerMostDeals" Text="{Binding CustomerMostDeals}" Grid.Column="2" Grid.Row="6" IsReadOnly="True" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148"/>
+        <TextBox x:Name="txtbx_Dealsanactive" Text="{Binding DealsActive}" Grid.Column="2" Grid.Row="8" IsReadOnly="True" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148"/>
+        <TextBox x:Name="txtbx_DealsInactive" Text="{Binding DealsInactive}" Grid.Column="2" Grid.Row="10" IsReadOnly="True" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148"/>
+        <TextBox x:Name="txtbox_MostUsedDealType" Text="{Binding MostUsedDealType}" Grid.Column="2" Grid.Row="4" IsReadOnly="True" HorizontalAlignment="Left" Width="148" Height="28" VerticalAlignment="Top"/>
         <!--#endregion-->
         <!--#region Buttons-->
         <!--#endregion-->
