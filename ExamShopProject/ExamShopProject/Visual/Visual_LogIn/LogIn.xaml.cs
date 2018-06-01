@@ -23,6 +23,8 @@ namespace ExamShopProject
     {
         public LogIn()
         {
+            DBSelect dBSelect = new DBSelect();
+            dBSelect.SelectCategoryWithProducts();
             InitializeComponent();
         }
 

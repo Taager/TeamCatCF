@@ -30,5 +30,27 @@ namespace ExamShopProject.Object
             get { return _description; }
             set { _description = value; }
         }
+        private long _amountOfProducts;
+        public long AmountOfProducts
+        {
+            get { return _amountOfProducts; }
+            set { _amountOfProducts = value; }
+        }
+        private string _MostPopulatedCategory;
+        public string MostPopulatedCategory
+        {
+            get { return _MostPopulatedCategory; }
+            set
+            {
+                _MostPopulatedCategory = value;
+            }
+        }
+        private int _TotalProducts;
+
+        public int TotalProducts
+        {
+            get { return _TotalProducts; }
+            set { _TotalProducts = value; }
+        }
     }
 }

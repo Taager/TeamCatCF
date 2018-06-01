@@ -253,6 +253,37 @@ namespace ExamShopProject
                 return category;
             }
         }
+        public List<Categories> SelectCategoryWithProducts() //not sure we need this
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                List<Categories> categoryList = new List<Categories>();
+                DBOpenClose.OpenConnection(con);
+                SqlCommand getCategory = new SqlCommand(
+                    "SELECT [ProductCategories].[Name], Count(Product.ProductID) AS NumberOfProducts" +
+                    " FROM ProductCategories, Product WHERE Product.CategoryID=ProductCategories.CategoryID " +
+                    "GROUP BY ProductCategories.[Name]; ", con);
+                SqlDataReader reader = getCategory.ExecuteReader();
+                while (reader.Read())
+                {
+                    Categories category = new Categories();
+                    category.Name = Convert.ToString(reader["Name"]);
+                    category.AmountOfProducts = Convert.ToInt64(reader["NumberOfProducts"]);
+                    categoryList.Add(category);
+                }
+                DBOpenClose.CloseConnection(con);
+                return categoryList;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                List<Categories> categoryList = new List<Categories>();
+                Log.WriteFail(ex);
+                return categoryList;
+            }
+        }
         #endregion
         #region Products
         // Made by Helena Brunsgaard Madsen
@@ -367,7 +398,7 @@ namespace ExamShopProject
                 DBOpenClose.OpenConnection(con);
                 SqlCommand getSubscriptions = new SqlCommand(
                     "SELECT * FROM [Subscription]", con);
-                    SqlDataReader reader = getSubscriptions.ExecuteReader();
+                SqlDataReader reader = getSubscriptions.ExecuteReader();
                 while (reader.Read())
                 {
                     input.EndDate = Convert.ToDateTime(reader["EndDate"]);
@@ -505,6 +536,96 @@ namespace ExamShopProject
                 return dealsList;
             }
         }
+        public List<Deals> SelectActiveDeals()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                Deals input = new Deals();
+                List<Deals> DealsList = new List<Deals>();
+                DBOpenClose.OpenConnection(con);
+                SqlCommand getDeals = new SqlCommand(
+                    "SELECT * FROM [Deals] WHERE [EndDate] > SYSDATETIME()", con);
+                SqlDataReader reader = getDeals.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (reader["CategoryID"] == DBNull.Value)
+                    {
+                        input.CategoryID = 0;
+                    }
+                    if (reader["ProductID"] == DBNull.Value)
+                    {
+                        input.ProductID = 0;
+                    }
+                    if (reader["CustomerID"] == DBNull.Value)
+                    {
+                        input.CustomerID = 0;
+                    }
+                    input.DealsID = Convert.ToInt32(reader["DealsID"]);
+                    input.DealType = Convert.ToString(reader["DealType"]);
+                    input.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    input.Name = Convert.ToString(reader["Name"]);
+                    input.PriceDecrease = Convert.ToDouble(reader["PriceDecrease"]);
+                    input.StartDate = Convert.ToDateTime(reader["StartDate"]);
+                    DealsList.Add(input);
+                }
+                DBOpenClose.CloseConnection(con);
+                return DealsList;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                List<Deals> DealsList = new List<Deals>();
+                Log.WriteFail(ex);
+                return DealsList;
+            }
+        }
+        public List<Deals> SelectInactiveDeals()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                Deals input = new Deals();
+                List<Deals> DealsList = new List<Deals>();
+                DBOpenClose.OpenConnection(con);
+                SqlCommand getDeals = new SqlCommand(
+                    "SELECT * FROM [Deals] WHERE [EndDate] < SYSDATETIME() OR [EndDate] = SYSDATETIME()", con);
+                SqlDataReader reader = getDeals.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (reader["CategoryID"] == DBNull.Value)
+                    {
+                        input.CategoryID = 0;
+                    }
+                    if (reader["ProductID"] == DBNull.Value)
+                    {
+                        input.ProductID = 0;
+                    }
+                    if (reader["CustomerID"] == DBNull.Value)
+                    {
+                        input.CustomerID = 0;
+                    }
+                    input.DealsID = Convert.ToInt32(reader["DealsID"]);
+                    input.DealType = Convert.ToString(reader["DealType"]);
+                    input.EndDate = Convert.ToDateTime(reader["EndDate"]);
+                    input.Name = Convert.ToString(reader["Name"]);
+                    input.PriceDecrease = Convert.ToDouble(reader["PriceDecrease"]);
+                    input.StartDate = Convert.ToDateTime(reader["StartDate"]);
+                    DealsList.Add(input);
+                }
+                DBOpenClose.CloseConnection(con);
+                return DealsList;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                List<Deals> DealsList = new List<Deals>();
+                Log.WriteFail(ex);
+                return DealsList;
+            }
+        }
         // Made by Helena Brunsgaard Madsen
         public Deals SelectDeal(int ID)
         {
@@ -555,6 +676,68 @@ namespace ExamShopProject
                 Deals deals = new Deals();
                 Log.WriteFail(ex);
                 return deals;
+            }
+        }
+
+        public List<StatDeals> SelectCustomersWithDeals()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                List<StatDeals> statDealList = new List<StatDeals>();
+                DBOpenClose.OpenConnection(con);
+                SqlCommand getCategory = new SqlCommand(
+                    "SELECT Customer.[CustomerID], Count(Deals.DealsID) AS NumberOfDeals " +
+                    "FROM Deals, Customer WHERE Customer.CustomerID = Deals.CustomerID " +
+                    "GROUP BY Customer.[CustomerID]; ", con);
+                SqlDataReader reader = getCategory.ExecuteReader();
+                while (reader.Read())
+                {
+                    StatDeals statDeals = new StatDeals();
+                    statDeals.NumberOfDeals = Convert.ToInt32(reader["NumberOfDeals"]);
+                    statDeals.statCustomerID = Convert.ToInt32(reader["CustomerID"]);
+                    statDealList.Add(statDeals);
+                }
+                DBOpenClose.CloseConnection(con);
+                return statDealList;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                List<StatDeals> statDealList = new List<StatDeals>();
+                Log.WriteFail(ex);
+                return statDealList;
+            }
+        }
+        public List<StatDeals> SelectDealTypes()
+        {
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                List<StatDeals> statDealList = new List<StatDeals>();
+                DBOpenClose.OpenConnection(con);
+                SqlCommand getCategory = new SqlCommand(
+                    "SELECT Deals.DealType, Count(Deals.DealType) AS NumbersOfDealType " +
+                    "FROM Deals GROUP BY Deals.DealType; ", con);
+                SqlDataReader reader = getCategory.ExecuteReader();
+                while (reader.Read())
+                {
+                    StatDeals statDeals = new StatDeals();
+                    statDeals.NumberOfDealTypes = Convert.ToInt32(reader["NumbersOfDealType"]);
+                    statDeals.DealType = Convert.ToString(reader["DealType"]);
+                    statDealList.Add(statDeals);
+                }
+                DBOpenClose.CloseConnection(con);
+                return statDealList;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                List<StatDeals> statDealList = new List<StatDeals>();
+                Log.WriteFail(ex);
+                return statDealList;
             }
         }
         #endregion

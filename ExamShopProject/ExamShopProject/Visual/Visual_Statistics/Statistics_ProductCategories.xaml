@@ -9,22 +9,43 @@
       Title="Statistics_ProductCategories">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="131*"/>
-            <ColumnDefinition Width="169*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="201*"/>
+            <ColumnDefinition Width="148*"/>
+            <ColumnDefinition Width="251*"/>
         </Grid.ColumnDefinitions>
         <!--#region Labels-->
-        <Label Content="Top X:" HorizontalAlignment="Left" Margin="67,69,0,0" VerticalAlignment="Top"/>
+        <Label Content="Top X:" Margin="3,10,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="43" Grid.Column="1" Grid.RowSpan="2"/>
+        <Label Content="Total Products:" Grid.Column="1" Grid.Row="2" />
+        <Label Content="Most Populated Category:" Grid.Column="1" Grid.Row="6" />
+        <Label Content="Least Populated Category Active:" Grid.Column="1" Grid.Row="8" />
+        <Label Content="Total categories: Inactive:" Grid.Column="1" Grid.Row="4" />
         <!--#endregion-->
         <!--#region I/O-->
-        <TextBox x:Name="txtbx_TopX" HorizontalAlignment="Left" Height="23" Margin="113,72,0,0" TextWrapping="Wrap" Text="{Binding ChosenTopNum}" VerticalAlignment="Top" Width="120"/>
-        
+        <TextBox x:Name="txtbx_TopX" Margin="10,0,0,0" TextWrapping="Wrap" Text="{Binding ChosenTopNum}" Grid.Column="2" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130"/>
+        <TextBox x:Name="txtbx_ProductsTotal" Text="{Binding TotalProducts}" Grid.Column="2" Grid.Row="2" IsReadOnly="True" HorizontalAlignment="Left" Width="148" Height="28" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtbx_MostPopulatedCategory" Text="{Binding MostPopulatedCategory}" Grid.Column="2" Grid.Row="6" IsReadOnly="True" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148"/>
+        <TextBox x:Name="txtbx_SubscriptionsActive" Text="{Binding LeastPopulatedCategory}" Grid.Column="2" Grid.Row="8" IsReadOnly="True" Height="28" VerticalAlignment="Top" HorizontalAlignment="Left" Width="148"/>
+        <TextBox x:Name="SubscriptionsInactive" Text="{Binding TotalCategories}" Grid.Column="2" Grid.Row="4" IsReadOnly="True" HorizontalAlignment="Left" Width="148" Height="28" VerticalAlignment="Top"/>
         <!--#endregion-->
         <!--#region Buttons-->
-        <StackPanel Margin="67,126,52,242">
-            <RadioButton x:Name="RadioBtn_Products" Content="Products" />
-            <RadioButton x:Name="RadioBtn_Product_Category" Content="Product Categories" />
-        </StackPanel>
         <!--#endregion-->
     </Grid>
 </Page>
