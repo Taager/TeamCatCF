@@ -35,17 +35,35 @@ namespace ExamShopProject
             txtbx_ChosenCustomer.Text = selectedCustomer.Name;
 
             txtbx_Discount.Text = Convert.ToString(deal.PriceDecrease) + " " + Convert.ToString(deal.DealType);
-            if (deal.CategoryID != null) // want to show the name of the category or product which the deal has been made to
+            if (deal.CategoryID != 0) // want to show the name of the category or product which the deal has been made to
             {
                 lbl_Category.Opacity = 100;
-                Categories selectedCategory = DB.SelectCategory(deal.CategoryID);
-                txtbx_ProductOrCategory.Text = selectedCategory.Name;
+                List<Categories> listOfCategories = new List<Categories>();
+                //for (int i = 0; i < ls.SelectedItems.Count; i++)
+                //{
+                //    Categories chosenCategory = (Categories)ListBox_CategoriesSubscripeTo.Items[i];
+                //    categoryID = chosenCategory.CategoryID;
+                //    selectedCategoriesList.Add(categoryID);
+                //}
+                //int[] arrayOfCategoryIDs = selectedCategoriesList.ToArray();
+                //foreach (int categoryIDs in arrayOfCategoryIDs)
+                //{
+                //    wasSuccess = CreateSubscriptionWCategory(categoryIDs); // Creates a subscription for every category subscribed to
+                //}
+                //foreach (var item in collection) //For hvert category lavet aftale på tilføj i listbox
+                //{
+                //Categories selectedCategoris = DB.SelectCategory(deal.CategoryID);
+                //    lstbx_CategoryProduct.Items.Add();
+                //}
             }
-            else if (deal.ProductID != null)
+            else if (deal.ProductID != 0)
             {
                 lbl_Product.Opacity = 100;
                 Product selectedProduct = DB.SelectProduct(deal.ProductID);
-                txtbx_ProductOrCategory.Text = selectedProduct.Name;
+                //foreach (var item in collection) //For hvert product lavet aftale på tilføj i listbox
+                //{
+                //    lstbx_CategoryProduct.Items.Add();
+                //}
             }
         }
 

@@ -11,7 +11,7 @@ namespace ExamShopProject
     // Made by by Mikkel E.R. Glerup
     class SubscriptionLogic
     {
-        public bool CheckEditOrCreate(Subscription input)
+        public bool CheckEditOrCreate(Subscription input, SubscribedToCategory subCat)
         {
             bool wasSuccess = false;
             try
@@ -24,7 +24,7 @@ namespace ExamShopProject
                 }
                 if (input.SubscriptionID > 0)
                 {
-                    wasSuccess = EditSubscription(input);
+                    wasSuccess = EditSubscription(input) || EditSubscriptionWCategory(subCat);
                     if (wasSuccess == true)
                         throw new SubscriptionWasEdited(input);
                 }
@@ -40,13 +40,17 @@ namespace ExamShopProject
         {
             return DB.InsertSubscription(input);
         }
-        public bool CreateSubscriptionWCategory(Subscription input)
+        public bool CreateSubscriptionWCategory(SubscribedToCategory input)
         {
             return DB.InsertSubscriptionWCategory(input);
         }
+        public bool EditSubscriptionWCategory(SubscribedToCategory input)
+        {
+            return DB.EditSubscriptionWCategory(input);
+        }
         private bool EditSubscription(Subscription input)
         {
-            return DB.EditSubscription(input);
+                return DB.EditSubscription(input);
         }
         public bool DeleteSubscription(Subscription input, string callerClass, int callerID)
         {

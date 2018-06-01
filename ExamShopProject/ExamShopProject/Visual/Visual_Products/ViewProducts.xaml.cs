@@ -30,10 +30,9 @@ namespace ExamShopProject
 
         private void lstbx_Products_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Product chosenProduct = (Product)lstbx_Products.SelectedItem;
-            NavigationService.Navigate(new ViewProductDetails(chosenProduct.ProductID));
+                Product chosenProduct = (Product)lstbx_Products.SelectedItem;
+                NavigationService.Navigate(new ViewProductDetails(chosenProduct.ProductID));
         }
-
         private void Btn_Search_Click(object sender, RoutedEventArgs e)
         {
             var ProductFiltered = from product in DB.SelectAllProducts()

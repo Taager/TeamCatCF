@@ -13,5 +13,6 @@ namespace ExamShopProject
         public static string username { get; set; }
         public static string password { get; set; }
         public static string hashedPassword { get; set; }
+        public static bool isAdmin { get; set; }
     }
 }

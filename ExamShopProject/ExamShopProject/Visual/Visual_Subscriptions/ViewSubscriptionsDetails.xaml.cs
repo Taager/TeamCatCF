@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -16,16 +17,21 @@ using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
+    // Made by Helena Brunsgaard Madsen
     public partial class ViewSubscriptionsDetails : Page
     {
         SubscriptionLogic subscriptionLogic = new SubscriptionLogic();
         Subscription subscription = new Subscription();
+        Categories category = new Categories();
+        SubscribedToCategory subCat = new SubscribedToCategory();
+        bool wasSuccess;
         public ViewSubscriptionsDetails(int ID)
         {
             Customer tempCustomer = DB.SelectCustomer(ID);
             subscription = DB.SelectSubcription(ID);
             subscription.CustomerName = tempCustomer.Name;
             subscription.CustomerID = ID;
+            //subCat.SubscriptionID = subscription.SubscriptionID;
             if (subscription.SubscriptionID == 0)
             {
                 subscription.EndDate = DateTime.Now;
@@ -34,11 +40,9 @@ namespace ExamShopProject
             DataContext = subscription;
             ListBox_CategoriesSubscripeTo.ItemsSource = DB.SelectAllCategories();
             ListBox_CategoriesSubscripeTo.DisplayMemberPath = "Name";
-            Subscription selectedSubscriptinCategory = DB.SelectSubscriptionwithCategory(ID);
-            ListBox_CategoriesSubscripeTo.SelectedIndex = selectedSubscriptinCategory.CategoryID;
+            List<Categories> selectedSubscriptionCategory = DB.SelectSubscriptionwithCategory(subscription.SubscriptionID);
             txtbx_Customer.Text = tempCustomer.Name;
         }
-
         private void Btn_Edit_Enable(object sender, RoutedEventArgs e)
         {
             Btn_Save.IsEnabled = true;
@@ -50,8 +54,25 @@ namespace ExamShopProject
         }
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
         {
+            if (subscription.SubscriptionID > 0)
+            {
+                int categoryID = 0;
+                List<int> selectedCategoriesList = new List<int>();
+                for (int i = 0; i < ListBox_CategoriesSubscripeTo.SelectedItems.Count; i++)
+                {
+                    Categories chosenCategory = (Categories)ListBox_CategoriesSubscripeTo.Items[i];
+                    categoryID = chosenCategory.CategoryID;
+                    selectedCategoriesList.Add(categoryID);
+                }
+                int[] arrayOfCategoryIDs = selectedCategoriesList.ToArray();
+                foreach (int categoryIDs in arrayOfCategoryIDs)
+                {
+                    subCat.CategoryID = categoryID;
+                    wasSuccess = CreateSubscriptionWCategory(subCat); // Creates a subscription for every category subscribed to
+                }
+            }
             CheckEditOrCreate();
-            CreateSubscriptionWCategory();
+            //CreateSubscriptionWCategory();
         }
         private void Btn_Click_DeleteSubscription(object sender, RoutedEventArgs e)
         {
@@ -76,13 +97,30 @@ namespace ExamShopProject
                 subscription.Renew = false;
             if (subscription.SubscriptionID == 0)
                 wasCreate = true;
-            bool wasSuccess = subscriptionLogic.CheckEditOrCreate(subscription);
+            bool wasSuccess = subscriptionLogic.CheckEditOrCreate(subscription, subCat);
             if (wasSuccess == true)
             {
                 if (wasCreate == true)
                 {
                     CreateMessage.ShowCreateSuccesful("Subscription");
                     NavigationService.Navigate(new ViewSubscriptionsDetails(subscription.CustomerID));
+                    Subscription updated = new Subscription();
+                    updated = DB.SelectSubcription(subscription.CustomerID);
+                    subCat.SubscriptionID = updated.SubscriptionID;
+                    int categoryID = 0;
+                    List<int> selectedCategoriesList = new List<int>();
+                    for (int i = 0; i < ListBox_CategoriesSubscripeTo.SelectedItems.Count; i++)
+                    {
+                        Categories chosenCategory = (Categories)ListBox_CategoriesSubscripeTo.Items[i];
+                        categoryID = chosenCategory.CategoryID;
+                        selectedCategoriesList.Add(categoryID);
+                    }
+                    int[] arrayOfCategoryIDs = selectedCategoriesList.ToArray();
+                    foreach (int categoryIDs in arrayOfCategoryIDs)
+                    {
+                        subCat.CategoryID = categoryID;
+                        wasSuccess = CreateSubscriptionWCategory(subCat); // Creates a subscription for every category subscribed to
+                    }
                 }
                 if (wasCreate == false)
                 {
@@ -93,26 +131,19 @@ namespace ExamShopProject
             if (wasSuccess == false)
                 CreateMessage.ShowFailureMessage();
         }
-        private void CreateSubscriptionWCategory()
+        private bool CreateSubscriptionWCategory(SubscribedToCategory subCat)
         {
             try
             {
-                Categories chosenCategory = (Categories)ListBox_CategoriesSubscripeTo.SelectedItem;
-                subscription.CategoryID = chosenCategory.CategoryID;
-                bool wasSuccess = subscriptionLogic.CreateSubscriptionWCategory(subscription);
-                if (wasSuccess == true)
-                {
-                    CreateMessage.ShowCreateSuccesful("Subscription");
-                    NavigationService.Navigate(new ViewSubscriptionsDetails(subscription.CustomerID));
-                }
-                if (wasSuccess == false)
-                    CreateMessage.ShowFailureMessage();
+                return subscriptionLogic.CreateSubscriptionWCategory(subCat);
             }
             catch (Exception ex)
             {
                 ErrorHandler.Log.WriteFail(ex);
                 CreateMessage.ShowInputNotValid();
+                return false;
             }
+
         }
     }
 }

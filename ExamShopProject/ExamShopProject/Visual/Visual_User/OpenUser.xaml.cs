@@ -25,6 +25,10 @@ namespace ExamShopProject
         {
             InitializeComponent();
             _user.Navigate(new ViewUser());
+            if (CurrentUser.isAdmin == true)
+            {
+                btn_CreateUser.IsEnabled = true;
+            }
         }
 
         private void btn_CreateUser_Click(object sender, RoutedEventArgs e)

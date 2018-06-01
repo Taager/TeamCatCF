@@ -25,6 +25,10 @@ namespace ExamShopProject
         {
             InitializeComponent();
             _products.Navigate(new ViewProducts());
+            if (CurrentUser.isAdmin == true)
+            {
+                btn_CreateProducts.IsEnabled = true;
+            }
         }
 
         private void btn_ViewProducts_Click(object sender, RoutedEventArgs e)

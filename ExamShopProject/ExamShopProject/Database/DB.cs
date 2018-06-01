@@ -41,10 +41,15 @@ namespace ExamShopProject
             DBInsert dBInsert = new DBInsert();
             return dBInsert.InsertSubscription(input);
         }
-        public static bool InsertSubscriptionWCategory(Subscription input)
+        public static bool InsertSubscriptionWCategory(SubscribedToCategory input)
         {
             DBInsert dBInsert = new DBInsert();
             return dBInsert.InsertSubscriptionWCategory(input);
+        }
+        public static bool EditSubscriptionWCategory(SubscribedToCategory input)
+        {
+            DBEdit dBEdit = new DBEdit();
+            return dBEdit.EditSubscriptionWCategory(input);
         }
         public static bool InsertDealProduct(Deals deal)
         {
@@ -138,7 +143,7 @@ namespace ExamShopProject
             DBSelect dBSelect = new DBSelect();
             return dBSelect.SelectDeal(ID);
         }
-        public static Subscription SelectSubscriptionwithCategory(int ID)
+        public static List<Categories> SelectSubscriptionwithCategory(int ID)
         {
             DBSelect dBSelect = new DBSelect();
             return dBSelect.SelectSubscriptionwithCategory(ID);

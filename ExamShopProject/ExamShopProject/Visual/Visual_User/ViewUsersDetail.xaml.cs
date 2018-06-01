@@ -31,6 +31,11 @@ namespace ExamShopProject
                 user.IsAdminString = "User is not an admin";
             InitializeComponent();
             DataContext = user;
+            if (CurrentUser.isAdmin == true)
+            {
+                Btn_Edit.IsEnabled = true;
+                Btn_Delete.IsEnabled = true;
+            }
         }
         //Made by Mikkel E.R. Glerup
         private void Btn_Edit_Enable(object sender, RoutedEventArgs e)

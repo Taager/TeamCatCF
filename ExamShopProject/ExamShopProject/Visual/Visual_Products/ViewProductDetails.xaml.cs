@@ -31,6 +31,11 @@ namespace ExamShopProject
             product = DB.SelectProduct(ID);
             category.CategoryID = product.CategoryID;
             InitializeComponent();
+            if (CurrentUser.isAdmin == true)
+            {
+                btn_DeleteProduct.IsEnabled = true;
+                btn_EditProduct.IsEnabled = true;
+            }
             DataContext = product;
             lstbx_Categories.DataContext = category;
             lstbx_Categories.ItemsSource = DB.SelectAllCategories();

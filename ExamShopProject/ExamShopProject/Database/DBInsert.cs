@@ -163,7 +163,7 @@ namespace ExamShopProject
             }
         }
         // Made by Helena Brunsgaard Madsen
-        public bool InsertSubscriptionWCategory(Subscription input)
+        public bool InsertSubscriptionWCategory(SubscribedToCategory input) //THIS IS THE RIGHT ONE!
         {
             if (input == null)
             {
@@ -174,7 +174,9 @@ namespace ExamShopProject
                 SqlConnection con = new SqlConnection(DBOpenClose.conStr);
                 DBOpenClose.OpenConnection(con);
                 SqlCommand command = new SqlCommand(
-                    "INSERT INTO [SubscribedToCategories] (CategoryID, SubscriptionID) VALUES (@CategoryID, @SubscriptionID)", con);
+                    "INSERT INTO [SubscribedToCategories] (CategoryID, SubscriptionID) VALUES (@CategoryID, @SubscriptionID)" +
+                    "SELECT SubscriptionID FROM Subscription WHERE SubscriptionID=SubscriptionID " +
+                    "SELECT CategoryID FROM ProductCategories WHERE CategoryID=CategoryID", con);
                 command.Parameters.Add("@CategoryID", SqlDbType.Int);
                 command.Parameters["@CategoryID"].Value = input.CategoryID;
                 command.Parameters.Add("@SubscriptionID", SqlDbType.Int);

@@ -161,6 +161,37 @@ namespace ExamShopProject
                 return false;
             }
         }
+        public bool EditSubscriptionWCategory(SubscribedToCategory input)
+        {
+            if (input == null)
+            {
+                throw new ArgumentNullException(nameof(input));
+            }
+            try
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.OpenConnection(con);
+                SqlCommand command = new SqlCommand(
+                    "UPDATE [SubscribedToCategories] SET CategoryID=@CategoryID " +
+                    "WHERE SubscriptionID=SubscriptionID", con);
+                command.Parameters.Add("@CategoryID", SqlDbType.Int);
+                command.Parameters["@CategoryID"].Value = input.CategoryID;
+                command.Parameters.Add("@SubscriptionID", SqlDbType.Int);
+                command.Parameters["@SubscriptionID"].Value = input.SubscriptionID;
+                command.ExecuteNonQuery();
+                DBOpenClose.CloseConnection(con);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                SqlConnection con = new SqlConnection(DBOpenClose.conStr);
+                DBOpenClose.CloseConnection(con);
+                Log.WriteFail(ex);
+                return false;
+            }
+        }
+
+
         #endregion
     }
 }

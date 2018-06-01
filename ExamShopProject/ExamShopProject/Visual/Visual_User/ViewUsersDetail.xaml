@@ -46,7 +46,7 @@
         <TextBox x:Name="TxtBox_IsAdmin" Text="{Binding IsAdminString}" FontSize="16" Grid.Column="3" IsReadOnly="true" Grid.Row="4"  Grid.ColumnSpan="6" Opacity="100"/>
         <!--#endregion-->
         <!--#region Buttons-->
-        <Button x:Name="Btn_Edit" Content="Edit" FontSize="15" Grid.Column="6" Grid.Row="7" Click="Btn_Edit_Enable" />
+        <Button x:Name="Btn_Edit" Content="Edit" FontSize="15" Grid.Column="6" Grid.Row="7" Click="Btn_Edit_Enable" IsEnabled="false" />
         <Button x:Name="Btn_Save" Content="Save" FontSize="15" Grid.Column="9" Grid.Row="7" Click="Btn_Save_Click" IsEnabled="False" />
         <Button x:Name="Btn_Delete" Content="Delete" Grid.Row="7" Grid.Column="4" IsEnabled="False" Opacity="0" Click="Btn_Click_DeleteUser" />
         <CheckBox x:Name="CheckBox_IsAdmin" Content="Admin" Grid.Column="3" Grid.Row="4" Grid.RowSpan="2" IsEnabled="False" Opacity="0" Grid.ColumnSpan="3"/>
