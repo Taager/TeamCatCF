@@ -37,6 +37,7 @@ namespace ExamShopProject.Deal_interactions
                 return true;
             }
         }
+        // Made by Helena Brunsgaard Madsen
         public bool DeleteDeal(string callerClass, int callerID)
         {
             try

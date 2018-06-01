@@ -16,6 +16,9 @@ namespace ExamShopProject
             bool wasSuccess = false;
             try
             {
+                /*Since create and edit subscription was done in the samme window
+                 the program has to check if subscriptionID exists, if it does not
+                 exist (SubscripionID==0) then it creates a subscription*/
                 if (input.SubscriptionID == 0)
                 {
                     wasSuccess = CreateSubscription(input);

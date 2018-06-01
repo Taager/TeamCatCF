@@ -22,6 +22,7 @@ namespace ExamShopProject
     /// </summary>
     public partial class ViewCatalogue : Page
     {
+        //Whole class by Mikkel E.R. Glerup
         public ViewCatalogue()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace ExamShopProject
         private void ListBox_Categories_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Categories chosenCategory = (Categories)ListBox_Categories.SelectedItem;
+            //User choses Category(ID) method then add object to var where the chosen ID = products.CategoryID
             var ProductFiltered = from category in DB.SelectAllProducts()
                                   let categoryID = category.CategoryID
                                   where
@@ -54,6 +56,17 @@ namespace ExamShopProject
             }
             NavigationService.Navigate(new EditCatalogue(selectedProductList));
 
+        }
+        private void btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            var CustomerFiltered = from product in DB.SelectAllProducts()
+                                   let ProductName = product.Name
+                                   where
+                                   ProductName.StartsWith(TextBox_Search.Text.ToLower())
+                                   || ProductName.StartsWith(TextBox_Search.Text.ToUpper())
+                                   || ProductName.Contains(TextBox_Search.Text)
+                                   select product;
+            ListBox_Products.ItemsSource = CustomerFiltered;
         }
     }
 }

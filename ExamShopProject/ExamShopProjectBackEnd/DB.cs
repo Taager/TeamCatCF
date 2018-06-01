@@ -211,7 +211,9 @@ namespace ExamShopProjectBackEnd
             catch (Exception ex)
             {
                 CloseConnection();
+                List<Deals> dealsList = new List<Deals>();
                 Log.WriteFail(ex);
+                return dealsList;
             }
         }
 

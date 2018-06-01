@@ -14,6 +14,7 @@ namespace ExamShopProject
             var inputBytes = Encoding.ASCII.GetBytes(value);
             var hash = sha256.ComputeHash(inputBytes);
             var sb = new StringBuilder();
+            //Hasher value
             for (var i = 0; i < hash.Length; i++)
             {
                 sb.Append(hash[i].ToString("X2"));

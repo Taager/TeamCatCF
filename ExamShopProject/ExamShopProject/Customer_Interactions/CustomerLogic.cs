@@ -40,6 +40,7 @@ namespace ExamShopProject
                 return true;
             }
         }
+        // Made by Helena Brunsgaard Madsen
         public bool EditCustomer(Customer customer)
         {
             try
@@ -55,6 +56,7 @@ namespace ExamShopProject
                 return true;
             }
         }
+        // Made by Helena Brunsgaard Madsen
         public bool DeleteCustomer(string callerClass, int callerID)
         {
             try

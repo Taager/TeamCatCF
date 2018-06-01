@@ -16,7 +16,7 @@ using ExamShopProject.Object;
 
 namespace ExamShopProject
 {
-    //Made bu Mikkel E.R. Glerup
+    //Whole class made by Mikkel E.R. Glerup
     /// <summary>
     /// Interaction logic for EditCatalogue.xaml
     /// </summary>
@@ -35,6 +35,8 @@ namespace ExamShopProject
             foreach (int productIDs in productList)
             {
                 Product product = DB.SelectProduct(productIDs);
+                // will break if input is anything else than numbers
+                // to fix use regex, not enough time in devolpment
                 product.Price = double.Parse(TextBox_Price.Text);
                 wasSuccess = DB.EditProduct(product);
             }

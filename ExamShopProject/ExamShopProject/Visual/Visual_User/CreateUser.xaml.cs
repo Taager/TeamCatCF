@@ -50,6 +50,7 @@ namespace ExamShopProject
                     isAdmin = true;
                 if (CheckBox_IsAdmin.IsChecked == false)
                     isAdmin = false;
+                //Databinding, would've, should've could've but didn't
                 bool wasSuccess = userLogic.CreateUser(user.Name = TxtBox_Name.Text, user.IsAdmin = isAdmin);
                 if (wasSuccess)
                     CreateMessage.ShowCreateSuccesful("User");
