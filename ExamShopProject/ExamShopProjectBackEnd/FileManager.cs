@@ -48,6 +48,7 @@ namespace ExamShopProjectBackEnd
             {
                 Log.WriteFail(ex);
             }
+            return false;
         }
 
         public static void FetchFile()
@@ -157,8 +158,12 @@ namespace ExamShopProjectBackEnd
             }
             catch (Exception ex)
             {
+                StreamWriter writer = new  StreamWriter("dump.txt");
+                var emptyWriter = writer;
                 Log.WriteFail(ex);
+                return emptyWriter;
             }
+
         }
 
         public static bool WriteExportProductLine(StreamWriter writer, string productLine)
