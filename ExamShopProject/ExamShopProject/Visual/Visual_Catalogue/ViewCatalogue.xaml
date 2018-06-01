@@ -28,10 +28,13 @@
         <Label Content="Products" Grid.Row="0" Grid.Column="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
         <!--#endregion-->
         <!--#region I/O-->
+        <TextBox x:Name="TextBox_Search"  HorizontalAlignment="Left" Height="23" Margin="48,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="385" Grid.ColumnSpan="3" />
         <ListBox x:Name="ListBox_Categories" Grid.Column="1" Grid.Row="3" SelectionChanged="ListBox_Categories_SelectionChanged"/>
         <ListBox x:Name="ListBox_Products" Grid.Column="3" Grid.Row="3" SelectionChanged="ListBox_Products_SelectionChanged" SelectionMode="multiple" />
         <!--#endregion-->
         <!--#region Buttons-->
+        <Button x:Name="btn_Search" Content="Search" HorizontalAlignment="Left" Margin="20.8,10,0,0" VerticalAlignment="Top" Width="75" Grid.Column="3" Height="19" Click="btn_Search_Click" RenderTransformOrigin="0.558,3.403" Grid.RowSpan="2" />
+
         <!--#endregion-->
     </Grid>
 </Page>

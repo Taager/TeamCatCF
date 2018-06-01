@@ -56,5 +56,16 @@ namespace ExamShopProject
             }
             NavigationService.Navigate(new EditCatalogue(selectedProductList));
         }
+        private void btn_Search_Click(object sender, RoutedEventArgs e)
+        {
+            var CustomerFiltered = from product in DB.SelectAllProducts()
+                                   let ProductName = product.Name
+                                   where
+                                   ProductName.StartsWith(TextBox_Search.Text.ToLower())
+                                   || ProductName.StartsWith(TextBox_Search.Text.ToUpper())
+                                   || ProductName.Contains(TextBox_Search.Text)
+                                   select product;
+            ListBox_Products.ItemsSource = CustomerFiltered;
+        }
     }
 }
