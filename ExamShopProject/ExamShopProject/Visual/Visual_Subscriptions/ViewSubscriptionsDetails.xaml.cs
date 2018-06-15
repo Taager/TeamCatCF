@@ -56,20 +56,29 @@ namespace ExamShopProject
         {
             if (subscription.SubscriptionID > 0)
             {
-                int categoryID = 0;
+                int categoryID;
                 List<int> selectedCategoriesList = new List<int>();
                 for (int i = 0; i < ListBox_CategoriesSubscripeTo.SelectedItems.Count; i++)
                 {
-                    Categories chosenCategory = (Categories)ListBox_CategoriesSubscripeTo.Items[i];
-                    categoryID = chosenCategory.CategoryID;
+                    Categories chosenCategory = (Categories)ListBox_CategoriesSubscripeTo.SelectedItems[i];
+                    categoryID = chosenCategory.CategoryID + 1;
                     selectedCategoriesList.Add(categoryID);
                 }
+
                 int[] arrayOfCategoryIDs = selectedCategoriesList.ToArray();
-                foreach (int categoryIDs in arrayOfCategoryIDs)
+
+                for (int i = 0; i < arrayOfCategoryIDs.Length; i++)
                 {
-                    subCat.CategoryID = categoryID;
+                    subCat.CategoryID = arrayOfCategoryIDs[i];
+                    subCat.SubscriptionID = subscription.SubscriptionID;
                     wasSuccess = CreateSubscriptionWCategory(subCat); // Creates a subscription for every category subscribed to
                 }
+                //foreach (int categoryIDs in arrayOfCategoryIDs)
+                //{
+                //    subCat.CategoryID = categoryID;
+                //    wasSuccess = CreateSubscriptionWCategory(subCat); // Creates a subscription for every category subscribed to
+
+                //}
             }
             CheckEditOrCreate();
             //CreateSubscriptionWCategory();
@@ -119,6 +128,7 @@ namespace ExamShopProject
                     foreach (int categoryIDs in arrayOfCategoryIDs)
                     {
                         subCat.CategoryID = categoryID;
+                        subCat.SubscriptionID = updated.SubscriptionID;
                         wasSuccess = CreateSubscriptionWCategory(subCat); // Creates a subscription for every category subscribed to
                     }
                 }
