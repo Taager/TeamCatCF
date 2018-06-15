@@ -63,8 +63,9 @@ namespace ExamShopProjectBackEnd
                     OpenConnection();
                     SqlCommand import = new SqlCommand("BULK INSERT [Product] FROM '" + @fileName + "' WITH(CODEPAGE = '1252', FIRSTROW = 2, ROWTERMINATOR = '0x0a', FIELDTERMINATOR = ';'); ", myConnection);
                     import.ExecuteNonQuery();
+                    
+                    succes = ExportCatalogue(myConnection);
                     CloseConnection();
-
 
                     return true;
                 }
@@ -101,36 +102,38 @@ namespace ExamShopProjectBackEnd
             }
         }
 
-        public static bool ExportCatalogue()
+        public static bool ExportCatalogue(SqlConnection connection)
         {
             try
             {
-                OpenConnection();
+                //OpenConnection();
                 List<Deals> deals = SelectAllActiveDeals();
                 SqlCommand getSubscription = new SqlCommand( // Select the subscriptions (and relevant customer info) that are active
-                    "SELECT S.[SubscriptionID], C.[Name], C.CustomerID FROM dbo.Subscription as S, dbo.Customer as C WHERE C.[CustomerID] = S.[CustomerID] AND S.EndDate > SYSDATETIME()", myConnection);
+                    "SELECT S.[SubscriptionID], C.[Name], C.CustomerID FROM dbo.Subscription as S, dbo.Customer as C WHERE C.[CustomerID] = S.[CustomerID] AND S.EndDate > SYSDATETIME()", connection);
                 SqlDataReader reader = getSubscription.ExecuteReader();
                 while (reader.Read())
                 {
                     int subscriptionID = Convert.ToInt32(reader["SubscriptionID"]);
                     int customerID = Convert.ToInt32(reader["CustomerID"]);
                     string customerName = Convert.ToString(reader["Name"]);
-                    string fileName = customerName + DateTime.Today.ToString();
+                    string date = DateTime.Today.ToString();
+                    date = date.Substring(0, 10); // We only want the date
+                    string fileName = customerName + date;
 
                     StreamWriter customerCatalogue = FileManager.CreateExportFileHeader(fileName); // create the file we'll be filling and sending to the customer
 
                     SqlCommand getSubscribedProducts = new SqlCommand( // Select all the products related to the subscription we're handling
-                    "SELECT * FROM [dbo].[Product] as P WHERE EXISTS( SELECT * FROM dbo.SubscribedToCategories as STC WHERE STC.[SubscriptionID] = @SubscriptionID AND STC.CategoryID=P.CategoryID)", myConnection);
+                    "SELECT * FROM [dbo].[Product] as P WHERE EXISTS( SELECT * FROM dbo.SubscribedToCategories as STC WHERE STC.[SubscriptionID] = @SubscriptionID AND STC.CategoryID=P.CategoryID)", connection);
                     getSubscribedProducts.Parameters.Add("@SubscriptionID", SqlDbType.Int);
                     getSubscribedProducts.Parameters["@SubscriptionID"].Value = subscriptionID;
                     SqlDataReader productReader = getSubscribedProducts.ExecuteReader();
                     while (productReader.Read())
                     {
-                        int productID = Convert.ToInt32(reader["ProductID"]);
-                        int categoryID = Convert.ToInt32(reader["CategoryID"]);
-                        string productName = Convert.ToString(reader["Name"]);
-                        string productDesc = Convert.ToString(reader["Description"]);
-                        double productPrice = Convert.ToDouble(reader["Price"]);
+                        int productID = Convert.ToInt32(productReader["ProductID"]);
+                        int categoryID = Convert.ToInt32(productReader["CategoryID"]);
+                        string productName = Convert.ToString(productReader["Name"]);
+                        string productDesc = Convert.ToString(productReader["Description"]);
+                        double productPrice = Convert.ToDouble(productReader["Price"]);
 
                         Deals result = new Deals(); // Find out if the price of this product is affected by a deal
                         if (deals.Exists(x => x.ProductID == productID && x.CustomerID == customerID))
@@ -167,18 +170,17 @@ namespace ExamShopProjectBackEnd
                             return false;
                         }
                     }
+                    productReader.Close();
                     customerCatalogue.Close();
 
                     bool succes = FileManager.ExportFile(fileName);
 
                 }
-                CloseConnection();
-
+                
                 return true;
             }
             catch (Exception ex)
             {
-                CloseConnection();
                 Log.WriteFail(ex);
                 return false;
             }
@@ -193,7 +195,7 @@ namespace ExamShopProjectBackEnd
                 OpenConnection();
                 List<Deals> dealsList = new List<Deals>();
                 SqlCommand getDeals = new SqlCommand(
-                    "SELECT PriceDecrease, DealType, CategoryID, ProductID, CustomerID FROM [Deals] WHERE StartDate < SYSDATETIME() AND EndDateTime > SYSDATETIME()", myConnection);
+                    "SELECT PriceDecrease, DealType, CategoryID, ProductID, CustomerID FROM [Deals] WHERE EndDate > SYSDATETIME()", myConnection);
                 SqlDataReader reader = getDeals.ExecuteReader();
                 while (reader.Read())
                 {

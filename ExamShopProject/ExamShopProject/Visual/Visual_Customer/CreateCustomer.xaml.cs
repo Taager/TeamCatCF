@@ -37,7 +37,7 @@ namespace ExamShopProject
             {
                 CreateMessage.ShowInputNotValid();
             }
-            else if (check.CheckTextBoxInputChars(txt_SpokesPerson.Text) == false)
+            else if (check.CheckTextBoxInputChars(txt_SpokesPerson.Text) == true)
             {
                 CreateMessage.ShowInputNotValid();
             }
